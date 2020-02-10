@@ -14,6 +14,7 @@
 
     <div class="container">
         <!-- Content here -->
+        @include('pages.page_01')
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
