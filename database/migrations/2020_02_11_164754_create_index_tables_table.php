@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePage01sTable extends Migration
+class CreateIndexTablesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreatePage01sTable extends Migration
      */
     public function up()
     {
-        Schema::create('page01s', function (Blueprint $table) {
+        Schema::create('index_tables', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('session')->nullable();
             $table->string('district')->nullable();
@@ -37,6 +37,6 @@ class CreatePage01sTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('page01s');
+        Schema::dropIfExists('index_tables');
     }
 }
