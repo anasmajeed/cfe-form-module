@@ -76,16 +76,14 @@
 
     <div class="card shadow mt-5 mb-5 p-3 w-100">
         <div class="card-body">
-            
             <div class="form-row">
-            <div class="">
-              <label >Worker's Eligible Family Members</label>
+              <div class="">
+                <label >Worker's Eligible Family Members</label>
+              </div>
+              <div class="float-right ml-auto">
+                <button type="submit" class="btn btn-primary float-right">+ Add Details</button>
+              </div>
             </div>
-            <div class="float-right ml-auto">
-              <button type="submit" class="btn btn-primary float-right">+ Add Details</button>
-            </div>
-            </div>
-
             <div class="form-row pt-3">
                 <div class="border border-bottom-0 col-md-1 text-center">
                     <label>Serial No.</label>
@@ -109,7 +107,6 @@
                     <label>Follow-up</label>
                 </div>
             </div>
-
             <div class="form-row">
               <div class="border border-bottom-0 col-md-1 p-0">
                     <input type="text" class="form-control rounded-0 " id="inputAddress" placeholder="01">

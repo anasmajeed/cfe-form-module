@@ -16,7 +16,7 @@
 
 <div class="container-fluid">
     <!-- Content here -->
-    @include('pages.page_01')
+    @include('pages.page_02')
     <div class="m-4 ">
         <button type="submit" class="btn btn-primary float-left">Previous</button>
     </div>
