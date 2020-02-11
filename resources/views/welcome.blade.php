@@ -14,9 +14,15 @@
 </head>
 <body>
 
-<div class="container">
+<div class="container-fluid">
     <!-- Content here -->
     @include('pages.page_01')
+    <div class="m-4 ">
+        <button type="submit" class="btn btn-primary float-left">Previous</button>
+    </div>
+    <div class="m-4">
+      <button type="submit" class="btn btn-primary float-right">Next</button>
+    </div>
 </div>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
