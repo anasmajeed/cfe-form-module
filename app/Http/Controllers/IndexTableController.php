@@ -9,6 +9,13 @@ use Illuminate\Support\Arr;
 
 class IndexTableController extends Controller
 {
+
+    public function loadMainPage(){
+        $sessionDates = ['2019-2021','2021-2023','2023-2025'];
+        $districtNames = ['RahimYarKhan','Lahore','Attock','Bahawalpur'];
+        return view('welcome',['sessionDates' => $sessionDates,'districtNames' => $districtNames]);
+    }
+
     public function post(Request $request){
         $params = $request->all();
         $session = Arr::get($params,IndexTableFields::SESSION);
@@ -22,24 +29,23 @@ class IndexTableController extends Controller
         $pwwbDiaryNumber = Arr::get($params,IndexTableFields::PWWB_DIARY_NUMBER);
         $pwwbDiaryDate = Arr::get($params,IndexTableFields::PWWB_DIARY_DATE);
         $pendingFilesWithRemarks = Arr::get($params,IndexTableFields::PENDING_FILES_WITH_REMARKS);
-//
-//        $page01 = new IndexTable();
-//        $page01->session = $session;
-//        $page01->district = $district;
-//        $page01->file_received_number = $fileReceivedNumber;
-//        $page01->receiving_date = $receivingDate;
-//        $page01->file_receipt_voucher_number = $fileReceiptVoucherNumber;
-//        $page01->file_receipt_voucher_date = $fileReceiptVoucherDate;
-//        $page01->fresh_file_submission_in_pwwb_number = $freshFileSubmissionInPwwbNumber;
-//        $page01->priority_of_submission = $priorityOfSubmission;
-//        $page01->pwwb_diary_number = $pwwbDiaryNumber;
-//        $page01->pwwb_diary_date = $pwwbDiaryDate;
-//        $page01->pending_files_with_remarks = $pendingFilesWithRemarks;
-//        $page01->save();
+
+        $index_table = new IndexTable();
+        $index_table->session = $session;
+        $index_table->district = $district;
+        $index_table->file_received_number = $fileReceivedNumber;
+        $index_table->receiving_date = $receivingDate;
+        $index_table->file_receipt_voucher_number = $fileReceiptVoucherNumber;
+        $index_table->file_receipt_voucher_date = $fileReceiptVoucherDate;
+        $index_table->fresh_file_submission_in_pwwb_number = $freshFileSubmissionInPwwbNumber;
+        $index_table->priority_of_submission = $priorityOfSubmission;
+        $index_table->pwwb_diary_number = $pwwbDiaryNumber;
+        $index_table->pwwb_diary_date = $pwwbDiaryDate;
+        $index_table->pending_files_with_remarks = $pendingFilesWithRemarks;
+        $index_table->save();
 
         return response()->json([
-            'message' => 'data saved successfully',
-//            'object' => $page01
+            'indexObject' => $index_table
         ],200);
     }
 }

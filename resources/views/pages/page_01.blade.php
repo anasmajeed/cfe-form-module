@@ -4,17 +4,18 @@
             <div class="form-group pt-3 col-md-2">
                 <label for="session">Session:</label>
                 <select id="sessions" name="session" class="form-control">
-                    <option value="volvo">2019-2021</option>
-                    <option value="saab">2021-2023</option>
+                    @foreach($sessionDates as $sessionDate)
+                        <option value="{{$sessionDate}}">{{$sessionDate}}</option>
+                    @endforeach
                 </select>
             </div>
             <div class="form-group pt-3 col-md-4">
                 <label for="districts">District:</label>
                 <select id="districts" name="district" class="form-control">
-                    <option value="volvo">District Name</option>
-                    <option value="saab">Saab</option>
-                    <option value="opel">Opel</option>
-                    <option value="audi">Audi</option>
+                    <option value="" selected disabled>Select District Name</option>
+                    @foreach($districtNames as $districtName)
+                        <option value="{{$districtName}}">{{$districtName}}</option>
+                    @endforeach
                 </select>
             </div>
         </div>
@@ -30,7 +31,7 @@
                     </div>
                     <div class="form-group col-md-4">
                         <label>Receiving Date:</label>
-                        <input class="form-control datepicker" type="text" placeholder="dd/mm/yyyy" name="receiving_date">
+                        <input class="form-control datepicker" type="text" placeholder="yyyy-mm-dd" name="receiving_date">
                     </div>
                     <div class="form-group col-md-4">
                         <label>File Receipt Voucher No:</label>
@@ -40,7 +41,7 @@
                 <div class="form-row">
                     <div class="form-group col-md-4">
                         <label>FRV Date:</label>
-                        <input class="form-control datepicker" type="text" placeholder="dd/mm/yyyy" name="file_receipt_voucher_date">
+                        <input class="form-control datepicker" type="text" placeholder="yyyy-mm-dd" name="file_receipt_voucher_date">
                     </div>
                     <div class="form-group col-md-4">
                         <label>Fresh Fle Submission in PWWB No:</label>
@@ -49,9 +50,9 @@
                     <div class="form-group col-md-4">
                         <label>Priority of Submission:</label>
                         <select id="districts" name="priority_of_submission" class="form-control">
-                            <option value="volvo">High</option>
-                            <option value="saab">Medium</option>
-                            <option value="opel">Low</option>
+                            <option value="high">High</option>
+                            <option value="medium">Medium</option>
+                            <option value="low">Low</option>
                         </select>
                     </div>
                 </div>
@@ -62,7 +63,7 @@
                     </div>
                     <div class="form-group col-md-4">
                         <label>PWWB Diary Date:</label>
-                        <input class="form-control datepicker" type="text" placeholder="dd/mm/yyyy" name="pwwb_diary_date">
+                        <input class="form-control datepicker" type="text" placeholder="yyyy-mm-dd" name="pwwb_diary_date">
                     </div>
                     <div class="form-group col-md-4">
                         <label>Pending Files(With Remarks):</label>

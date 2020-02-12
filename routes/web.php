@@ -11,8 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/','IndexTableController@loadMainPage');
 
 Route::post('/index_table','IndexTableController@post');

@@ -52,12 +52,15 @@
     let container_no = 0;
     let container_array = ['#page_01','#page_02','#page_03','#page_04','#page_05','#page_06','#page_07'];
     let api_url_array = ['/index_table'];
+    let index_id = null;
     setDisplayForButtons();
-    let picker = $('.datepicker').datepicker({
-        format:'dd/mm/yyyy'
-    }).on('changeDate', function(ev) {
+    $('.datepicker').each(function (index,pick) {
+        let picker = $(pick).datepicker({
+            format:'yyyy-mm-dd'
+        }).on('changeDate', function(ev) {
             picker.hide();
-    }).data('datepicker');
+        }).data('datepicker');
+    });
 
     setDisplayNone();
 
@@ -70,7 +73,7 @@
     }
     function nextForm() {
         if(container_no < container_array.length) {
-            // apiRequest();
+            apiRequest();
             container_no++;
             setDisplayNone();
             setDisplayForButtons();
@@ -115,6 +118,7 @@
         if(api_url_array.length > container_no) {
             let form = $(container_array[container_no] + '_form').serialize();
             let csrf_token = $('meta[name="csrf-token"]').attr('content');
+            let index_number = container_no;
             let request = $.ajax({
                 url: api_url_array[container_no],
                 method: "POST",
@@ -124,8 +128,14 @@
                 }
             });
 
-            request.done(function (msg) {
-                console.log(msg);
+            request.done(function (response) {
+                if(api_url_array[index_number] == '/index_table'){
+                    index_id = response.indexObject.id;
+                }
+            });
+
+            request.fail(function( jqXHR, textStatus ) {
+                alert( "Request failed: " + textStatus );
             });
         }
     }
