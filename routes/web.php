@@ -15,4 +15,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::post('/page_01','Page01Controller@post');
+Route::post('/index_table','IndexTableController@post');

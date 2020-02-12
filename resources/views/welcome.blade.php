@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="{{asset('css/datepicker.css')}}">
 
     <title>CFE FORM</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 <body>
 
@@ -50,6 +51,7 @@
 <script>
     let container_no = 0;
     let container_array = ['#page_01','#page_02','#page_03','#page_04','#page_05','#page_06','#page_07'];
+    let api_url_array = ['/index_table'];
     setDisplayForButtons();
     let picker = $('.datepicker').datepicker({
         format:'dd/mm/yyyy'
@@ -68,6 +70,7 @@
     }
     function nextForm() {
         if(container_no < container_array.length) {
+            // apiRequest();
             container_no++;
             setDisplayNone();
             setDisplayForButtons();
@@ -106,6 +109,25 @@
         $('body,html').animate({
             scrollTop: 0
         }, 800);
+    }
+
+    function apiRequest() {
+        if(api_url_array.length > container_no) {
+            let form = $(container_array[container_no] + '_form').serialize();
+            let csrf_token = $('meta[name="csrf-token"]').attr('content');
+            let request = $.ajax({
+                url: api_url_array[container_no],
+                method: "POST",
+                data: form,
+                headers:{
+                    'X-CSRF-TOKEN':csrf_token
+                }
+            });
+
+            request.done(function (msg) {
+                console.log(msg);
+            });
+        }
     }
 </script>
 @yield('scripts')
