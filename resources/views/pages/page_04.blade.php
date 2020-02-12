@@ -159,6 +159,11 @@
                     </select>
                 </div>
             </div>
+            <div class="form-row">
+              <div class="float-right ml-auto">
+                <label class="float-right" >Accumulated Service Period : 2.11 Years</label>
+              </div>
+            </div>
         </div>
     </div>
 </div>
