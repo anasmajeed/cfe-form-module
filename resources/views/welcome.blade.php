@@ -21,6 +21,7 @@
         @include('pages.page_02')
         @include('pages.page_03')
         @include('pages.page_04')
+        @include('pages.page_05')
     </div>
 {{--    @include('pages.page_01')--}}
 {{--    @include('pages.page_02')--}}
@@ -46,7 +47,7 @@
 <script src="{{asset('js/bootstrap-datepicker.js')}}"></script>
 <script>
     let container_no = 0;
-    let container_array = ['#page_01','#page_02','#page_03','#page_04'];
+    let container_array = ['#page_01','#page_02','#page_03','#page_04','#page_05'];
     setDisplayForButtons();
     let picker = $('.datepicker').datepicker({
         format:'dd/mm/yyyy'

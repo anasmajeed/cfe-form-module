@@ -65,7 +65,7 @@
                 </div>
                 <div class="form-group col-md-6">
                     <label>Date of form Submission:</label>
-                    <input type="text" class="form-control text-center" id="inputAddress" placeholder="dd/mm/yyyy">
+                    <input type="text" class="form-control text-center datepicker" id="inputAddress" placeholder="dd/mm/yyyy">
                 </div>
             </div>
         </div>
