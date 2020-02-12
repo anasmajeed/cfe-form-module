@@ -3,8 +3,8 @@
 </div>
 <div class="card shadow p-3 w-100">
     <div class="card-body ">
-        <div class="form-row">
-            <div class="form-group  col-md-3">
+        <div class="form-row mx-auto">
+            <div class="form-group col-md-3">
                 <label>Social Security R-8 no/CNIC of worker:</label>
                 <input type="text" class="form-control text-center" id="inputAddress" placeholder="Worker's Social Security=Worker's CNIC">
             </div>
