@@ -4,9 +4,9 @@
 namespace App\Fields;
 
 
-class Page01Fields
+class IndexTableFields
 {
-    const TABLE_NAME = 'page01s';
+    const TABLE_NAME = 'index_tables';
     const ID = 'id';
     const SESSION = 'session';
     const DISTRICT = 'district';

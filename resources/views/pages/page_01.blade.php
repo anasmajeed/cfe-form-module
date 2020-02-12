@@ -1,4 +1,4 @@
-<form>
+<div id="page_01" style="display:none">
     <div class="form-row">
         <div class="form-group pt-3 col-md-2">
             <label for="session">Session:</label>
@@ -18,7 +18,7 @@
         </div>
     </div>
     <div class="col-md-12">
-      <label for="">Recipt and Submission</label>
+      <label for="">Receipt and Submission</label>
     </div>
     <div class="card shadow p-3 w-100">
         <div class="card-body">
@@ -68,13 +68,13 @@
                     <input type="text" class="form-control" id="inputAddress" placeholder="XXXXX">
                 </div>
             </div>
-           
+
         </div>
     </div>
 
     <!-- Add Details -->
 
-    <div class="card shadow mt-5 mb-5 p-3 w-100">
+    <div class="card shadow mt-5 p-3 w-100">
         <div class="card-body">
             <div class="form-row">
               <div class="">
@@ -141,4 +141,9 @@
             </div>
         </div>
     </div>
-</form>
+</div>
+
+@section('scripts')
+    <script>
+    </script>
+@endsection
