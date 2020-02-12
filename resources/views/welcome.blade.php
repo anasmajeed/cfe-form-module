@@ -117,7 +117,8 @@
 
     function apiRequest() {
         if(api_url_array.length > container_no) {
-            let form = $(container_array[container_no] + '_form').serialize();
+            let form = $(container_array[container_no] + '_form').serializeArray();
+            form.push({name:"index_id",value :index_id});
             let csrf_token = $('meta[name="csrf-token"]').attr('content');
             let index_number = container_no;
             let request = $.ajax({

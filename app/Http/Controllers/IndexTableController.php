@@ -30,7 +30,14 @@ class IndexTableController extends Controller
         $pwwbDiaryDate = Arr::get($params,IndexTableFields::PWWB_DIARY_DATE);
         $pendingFilesWithRemarks = Arr::get($params,IndexTableFields::PENDING_FILES_WITH_REMARKS);
 
-        $index_table = new IndexTable();
+        $index_id = Arr::get($params,'index_id');
+
+        if(!$index_id) {
+            $index_table = new IndexTable();
+        }
+        else{
+            $index_table = IndexTable::find($index_id);
+        }
         $index_table->session = $session;
         $index_table->district = $district;
         $index_table->file_received_number = $fileReceivedNumber;

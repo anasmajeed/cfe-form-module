@@ -77,13 +77,13 @@
         <!-- Add Details -->
 
         <div class="card shadow mt-5 p-3 w-100">
-            <div class="card-body">
+            <div class="card-body" id="worker_detail_parent">
                 <div class="form-row">
                   <div class="">
                     <label >Worker's Eligible Family Members</label>
                   </div>
                   <div class="float-right ml-auto">
-                    <button type="submit" class="btn btn-primary float-right">+ Add Details</button>
+                    <button type="button" class="btn btn-primary float-right" onclick="cloneFamilyDetails()">+ Add Details</button>
                   </div>
                 </div>
                 <div class="form-row pt-3">
@@ -103,42 +103,45 @@
                         <label>Passed Degree</label>
                     </div><div class="border border-bottom-0 col-md-1 text-center">
                         <label>Potential Degree</label>
-                    </div><div class="border border-bottom-0 col-md-2 text-center">
-                        <label>File Recieved Status</label>
+                    </div><div class="border border-bottom-0 col-md-1 text-center">
+                        <label>File Received Status</label>
                     </div><div class="border border-bottom-0 col-md-2 text-center">
                         <label>Follow-up</label>
                     </div>
                 </div>
-                <div class="form-row">
+                <div class="form-row" id="worker_detail">
                   <div class="border border-bottom-0 col-md-1 p-0">
-                        <input type="text" class="form-control rounded-0 " id="inputAddress" placeholder="01">
+                        <input type="text" class="form-control rounded-0" name="serial_no[]" placeholder="01">
                     </div>
                     <div class="border border-bottom-0 col-md-2 p-0">
-                        <input class="form-control rounded-0" type="text" placeholder="XXXXX">
+                        <input class="form-control rounded-0" type="text" name="worker_name[]" placeholder="XXXXX">
                     </div>
                     <div class="border border-bottom-0 col-md-2 p-0">
-                        <input type="text" class="form-control rounded-0" id="inputAddress" placeholder="XXXXX">
+                        <input type="text" class="form-control rounded-0" name="worker_cnic[]" placeholder="XXXXX">
                     </div>
                     <div class="border border-bottom-0 col-md-1 p-0">
-                        <input type="text" class="form-control rounded-0" id="inputAddress" placeholder="XXXXX">
+                        <input type="text" class="form-control rounded-0" name="student_name[]" placeholder="XXXXX">
                     </div>
                     <div class="border border-bottom-0 col-md-1 p-0">
-                        <input type="text" class="form-control rounded-0" id="inputAddress" placeholder="XXXXX">
+                        <input type="text" class="form-control rounded-0" name="passed_degree[]" placeholder="XXXXX">
                     </div>
                     <div class="border border-bottom-0 col-md-1 p-0">
-                       <select id="districts" name="districtlist" class="form-control rounded-0">
-                            <option value="volvo">XXXXX</option>
-                            <option value="saab">XXXXX</option>
+                       <select id="districts" name="potential_degree[]" class="form-control rounded-0">
+                            <option value="yes">XXXXX</option>
+                            <option value="no">XXXXX</option>
+                        </select>
+                    </div>
+                    <div class="border border-bottom-0 col-md-1 p-0">
+                        <select id="districts" name="file_received_status[]" class="form-control rounded-0">
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
                         </select>
                     </div>
                     <div class="border border-bottom-0 col-md-2 p-0">
-                        <select id="districts" name="" class="form-control rounded-0">
-                            <option value="volvo">Yes</option>
-                            <option value="saab">No</option>
-                        </select>
+                        <input type="text" class="form-control rounded-0 datepicker" name="follow_up[]"  placeholder="yyyy-mm-dd">
                     </div>
-                    <div class="border border-bottom-0 col-md-2 p-0">
-                        <input type="text" class="form-control rounded-0 datepicker" id="inputAddress" placeholder="XXXXX">
+                    <div class="col-md-1">
+                        <button id="removeFamilyDetailButton" type="button" class="btn btn-danger" onclick="removeFamilyDetail(event)" disabled>-</button>
                     </div>
                 </div>
             </div>
@@ -148,5 +151,14 @@
 
 @section('scripts')
     <script>
+        function cloneFamilyDetails(){
+            let clone = $('#worker_detail').clone();
+            $('#worker_detail_parent').append(clone);
+            let button = clone.find('#removeFamilyDetailButton').removeAttr('disabled');
+        }
+
+        function removeFamilyDetail(event) {
+            $(event.target).parent().parent().remove();
+        }
     </script>
 @endsection
