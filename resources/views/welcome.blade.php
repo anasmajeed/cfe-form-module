@@ -7,7 +7,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="{{asset('css/datepicker.css')}}">
 
     <title>CFE FORM</title>
@@ -25,13 +25,14 @@
         @include('pages.page_05')
         @include('pages.page_06')
         @include('pages.page_07')
+        @include('pages.page_08')
     </div>
 {{--    @include('pages.page_01')--}}
 {{--    @include('pages.page_02')--}}
 {{--    @include('pages.page_03')--}}
     <div class="mt-4 mb-4 pb-5 clearfix">
             <button id="prevButton" type="button" class="btn btn-primary float-left" onclick="prevForm()">Previous</button>
-          <button id="nextButton" type="button" class="btn btn-primary float-right" onclick="nextForm()">Next</button>
+            <button id="nextButton" type="button" class="btn btn-primary float-right" onclick="nextForm()">Next</button>
             <button id="saveButton" type="button" class="btn btn-primary float-right" onclick="saveForm()">Save</button>
     </div>
 </div>
@@ -50,7 +51,7 @@
 <script src="{{asset('js/bootstrap-datepicker.js')}}"></script>
 <script>
     let container_no = 0;
-    let container_array = ['#page_01','#page_02','#page_03','#page_04','#page_05','#page_06','#page_07'];
+    let container_array = ['#page_01','#page_02','#page_03','#page_04','#page_05','#page_06','#page_07','#page_08'];
     let api_url_array = ['/index_table'];
     setDisplayForButtons();
     let picker = $('.datepicker').datepicker({
