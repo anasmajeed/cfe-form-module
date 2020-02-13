@@ -111,7 +111,7 @@
                 </div>
                 <div class="form-row" id="worker_detail">
                     <div class="border border-bottom-0 col-md-1 p-0">
-                        <input type="text" class="form-control rounded-0" name="serial_no[]" placeholder="01">
+                        <input id="worker_family_serial_no" type="text" class="form-control rounded-0" name="serial_no[]" placeholder="01">
                     </div>
                     <div class="border border-bottom-0 col-md-2 p-0">
                         <input class="form-control rounded-0" type="text" name="worker_name[]" placeholder="XXXXX">
@@ -153,11 +153,38 @@
     <script>
         function cloneFamilyDetails(){
             let clone = $('#worker_detail').clone();
+            let picker = clone.find('.datepicker').datepicker({
+                format:'yyyy-mm-dd'
+            }).on('changeDate', function(ev) {
+                picker.hide();
+            }).data('datepicker');
+
             $('#worker_detail_parent').append(clone);
             let button = clone.find('#removeFamilyDetailButton').removeAttr('disabled');
         }
 
         function removeFamilyDetail(event) {
+            if(index_id) {
+                let csrf_token = $('meta[name="csrf-token"]').attr('content');
+                let request = $.ajax({
+                    url: 'worker-family-detail-delete',
+                    method: "POST",
+                    data: {
+                        'index_id' : index_id,
+                        'serial_no' : $(event.target).parent().parent().find('#worker_family_serial_no').val()
+                    },
+                    headers:{
+                        'X-CSRF-TOKEN':csrf_token
+                    }
+                });
+
+                request.done(function (response) {
+                });
+
+                request.fail(function (jqXHR, textStatus) {
+                    alert("Request failed: " + textStatus);
+                });
+            }
             $(event.target).parent().parent().remove();
         }
     </script>
