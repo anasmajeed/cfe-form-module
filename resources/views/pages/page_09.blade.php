@@ -8,7 +8,7 @@
                 <div class="form-group  col-md-4">
                     <label>Course Applied in:</label>
                     <select id="districts" name="districtlist" class="form-control">
-                        <option value="ca">CA</option></option>
+                        <option value="ca">CA</option>
                         <option value="undecided">Undecided</option>
                     </select>
                 </div>

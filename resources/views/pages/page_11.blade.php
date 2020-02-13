@@ -1,61 +1,18 @@
-<div id="page_10" style="display:none;">
+<div id="page_11" style="display:none;">
     <div class="col-md-12 mt-2">
-        <label for="">VTI</label>
+        <label for="">Dual Course(For CFE purpose):</label>
     </div>
     <div class="card shadow p-3 w-100">
         <div class="card-body ">
             <div class="form-row">
-                <div class="form-group  col-md-3">
-                    <label>Diploma Applied in:</label>
+                <div class="form-group  col-md-4">
+                    <label>Course:</label>
                     <select id="districts" name="districtlist" class="form-control">
-                        <option value="dit">DIT</option>
-                        <option value="undecided">Undecided</option>
-                    </select>
-                </div>
-                <div class="form-group  col-md-2">
-                    <label>Diploma Enrolled in:</label>
-                    <select id="districts" name="districtlist" class="form-control">
-                        <option value="dit">DIT</option>
-                        <option value="un_enrolled">Un-Enrolled</option>
-                    </select>
-                </div>
-                <div class="form-group  col-md-2">
-                    <label>Diploma Registered in:</label>
-                    <select id="districts" name="districtlist" class="form-control">
-                        <option value="dit">DIT</option>
-                        <option value="un_registered">Un-Registered</option>
-                    </select>
-                </div>
-                <div class="form-group  col-md-2">
-                    <label>Dual course:</label>
-                    <select id="districts" name="districtlist" class="form-control">
-                        <option value="yes">Yes</option>
-                        <option value="no">No</option>
-                    </select>
-                </div>
-                <div class="form-group  col-md-3">
-                    <label>Reason:</label>
-                    <select id="districts" name="districtlist" class="form-control">
-                        <option value="lessService">Less Service</option>
-                        <option value="result">Result %</option>
-                        <option value="supply">Supply</option>
-                        <option value="rpl">RPL</option>
-                        <option value="genuine">Genuine</option>
+                        <option value="allCourses">All Courses</option>
                     </select>
                 </div>
             </div>
             <div class="form-row">
-                <div class="form-group  col-md-3">
-                    <label>Further File to be Recieved:</label>
-                    <select id="districts" name="districtlist" class="form-control">
-                        <option value="yes">Yes</option>
-                        <option value="no">No</option>
-                    </select>
-                </div>
-                <div class="form-group  col-md-3">
-                    <label>Follow-Up Date:</label>
-                    <input type="text" class="form-control text-center datepicker" name="follow_up"  placeholder="yyyy-mm-dd">
-                </div>
                 <div class="form-group  col-md-3">
                     <label>Roll No:</label>
                     <input type="text" class="form-control text-center" name="roll_no"  placeholder="XXXXX">
@@ -66,39 +23,37 @@
                         <option value="xxxxx">XXXXX</option>
                     </select>
                 </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group  col-md-4">
-                    <label>Duration of Diploma:</label>
+                <div class="form-group  col-md-3">
+                    <label>Duration of Course:</label>
                     <select id="districts" name="districtlist" class="form-control">
                         <option value="xxxxx">XXXXX</option>
                     </select>
                 </div>
-                <div class="form-group  col-md-4">
+                <div class="form-group  col-md-3">
                     <label>Date of Admission:</label>
                     <input type="text" class="form-control text-center datepicker" name="admission_date"  placeholder="yyyy-mm-dd">
                 </div>
-                <div class="form-group  col-md-4">
+            </div>
+            <div class="form-row">
+                <div class="form-group  col-md-3">
                     <label>Ending Date:</label>
                     <input type="text" class="form-control text-center datepicker" name="ending_date"  placeholder="yyyy-mm-dd">
                 </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group  col-md-4">
+                <div class="form-group  col-md-3">
                     <label>Scheme of Study:</label>
                     <select id="districts" name="districtlist" class="form-control">
                         <option value="annual">Annual</option>
                         <option value="semester">Semester</option>
                     </select>
                 </div>
-                <div class="form-group  col-md-4">
+                <div class="form-group  col-md-3">
                     <label>Semester Category:</label>
                     <select id="districts" name="districtlist" class="form-control">
                         <option value="fall">Fall</option>
                         <option value="spring">Spring</option>
                     </select>
                 </div>
-                <div class="form-group  col-md-4">
+                <div class="form-group  col-md-3">
                     <label>Shift:</label>
                     <select id="districts" name="districtlist" class="form-control">
                         <option value="morning">Morning</option>
@@ -123,7 +78,7 @@
                         </div>
                     </div>
                     <div class="col-md-12 mt-2">
-                        <label for="">Registration Fees</label>
+                        <label for="">Registration Fees:</label>
                     </div>
                     <div class="card shadow p-3 w-100">
                         <div class="card-body ">
@@ -143,6 +98,55 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12 mt-2">
+        <label for="">Previous Academic Details:</label>
+    </div>
+    <div class="card shadow p-3 w-100">
+        <div class="card-body ">
+            <div class="form-row">
+                <div class="form-group col-md-3">
+                    <label>Course:</label>
+                    <select id="districts" name="districtlist" class="form-control">
+                        <option value="xxxxx">XXXXX</option>
+                    </select>
+                </div>
+                <div class="form-group  col-md-3">
+                    <label>Affiliated Body:</label>
+                    <select id="districts" name="districtlist" class="form-control">
+                        <option value="xxxxx">XXXXX</option>
+                    </select>
+                </div>
+                <div class="form-group  col-md-3">
+                    <label>Duration of Course:</label>
+                    <select id="districts" name="districtlist" class="form-control">
+                        <option value="xxxxx">XXXXX</option>
+                    </select>
+                </div>
+                <div class="form-group  col-md-3">
+                    <label>Roll No:</label>
+                    <input type="text" class="form-control text-center" name="roll_no"  placeholder="XXXXX">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-3">
+                    <label>Passing Date:</label>
+                    <input type="text" class="form-control text-center datepicker" name="passing_date"  placeholder="yyyy-mm-dd">
+                </div>
+                <div class="form-group  col-md-3">
+                    <label>Total Marks:</label>
+                    <input type="text" class="form-control text-center" name="total_marks"  placeholder="XXXXX">
+                </div>
+                <div class="form-group  col-md-3">
+                    <label>Marks Obtained:</label>
+                    <input type="text" class="form-control text-center" name="marks_obtained"  placeholder="XXXXX">
+                </div>
+                <div class="form-group  col-md-3">
+                    <label>Percentage/CGPA:</label>
+                    <input type="text" class="form-control text-center" name="cgpa"  placeholder="XXXXX">
                 </div>
             </div>
         </div>
