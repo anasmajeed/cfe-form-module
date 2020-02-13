@@ -29,6 +29,7 @@
         @include('pages.page_09')
         @include('pages.page_10')
         @include('pages.page_11')
+        @include('pages.page_12')
     </div>
 {{--    @include('pages.page_01')--}}
 {{--    @include('pages.page_02')--}}
@@ -54,7 +55,7 @@
 <script src="{{asset('js/bootstrap-datepicker.js')}}"></script>
 <script>
     let container_no = 0;
-    let container_array = ['#page_01','#page_02','#page_03','#page_04','#page_05','#page_06','#page_07','#page_08','#page_09','#page_10','#page_11'];
+    let container_array = ['#page_01','#page_02','#page_03','#page_04','#page_05','#page_06','#page_07','#page_08','#page_09','#page_10','#page_11','#page_12'];
     let api_url_array = ['/index_table'];
     let index_id = null;
     setDisplayForButtons();
