@@ -33,7 +33,7 @@
             <div class="form-row">
                 <div class="form-group  col-md-3">
                     <label>Name:</label>
-                     <input type="text" class="form-control text-center" id="inputAddress" placeholder="XXXXX">
+                    <input type="text" class="form-control text-center" id="inputAddress" placeholder="XXXXX">
                 </div>
                 <div class="form-group col-md-3">
                     <label>Designation:</label>
@@ -50,9 +50,6 @@
             </div>
         </div>
     </div>
-
-
-
     <div class="form-row">
         <div class="form-group col-md-6">
             <div class="mt-4">

@@ -12,7 +12,6 @@
                 <div class="form-group col-md-6">
                     <label>Father's Name:</label>
                     <input type="text" class="form-control text-center" id="inputAddress" placeholder="XXXXX">
-
                 </div>
             </div>
             <div class="col-md-12 mt-2">

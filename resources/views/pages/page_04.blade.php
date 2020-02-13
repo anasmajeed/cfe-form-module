@@ -76,12 +76,12 @@
     <div class="card shadow mt-2 p-3 w-100">
         <div class="card-body">
             <div class="form-row">
-              <div class="">
-                <label >Faactory Details (Eligible)</label>
-              </div>
-              <div class="float-right ml-auto">
-                <button type="submit" class="btn btn-primary float-right">+ Add Details</button>
-              </div>
+                <div class="">
+                    <label >Faactory Details (Eligible)</label>
+                </div>
+                <div class="float-right ml-auto">
+                    <button type="submit" class="btn btn-primary float-right">+ Add Details</button>
+                </div>
             </div>
             <div class="form-row pt-4">
                 <div class="border border-bottom-0 col-md-1 text-center">
@@ -116,7 +116,7 @@
                 </div>
             </div>
             <div class="form-row">
-              <div class="border border-bottom-0 col-md-1 p-0">
+                <div class="border border-bottom-0 col-md-1 p-0">
                     <input type="text" class="form-control rounded-0 " id="inputAddress" placeholder="01">
                 </div>
                 <div class="border border-bottom-0 col-md-1 p-0">
@@ -160,9 +160,9 @@
                 </div>
             </div>
             <div class="form-row">
-              <div class="float-right ml-auto">
-                <label class="float-right" >Accumulated Service Period : 2.11 Years</label>
-              </div>
+                <div class="float-right ml-auto">
+                    <label class="float-right" >Accumulated Service Period : 2.11 Years</label>
+                </div>
             </div>
         </div>
     </div>

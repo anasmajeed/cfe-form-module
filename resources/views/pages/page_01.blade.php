@@ -79,12 +79,12 @@
         <div class="card shadow mt-5 p-3 w-100">
             <div class="card-body" id="worker_detail_parent">
                 <div class="form-row">
-                  <div class="">
-                    <label >Worker's Eligible Family Members</label>
-                  </div>
-                  <div class="float-right ml-auto">
-                    <button type="button" class="btn btn-primary float-right" onclick="cloneFamilyDetails()">+ Add Details</button>
-                  </div>
+                    <div class="">
+                        <label >Worker's Eligible Family Members</label>
+                    </div>
+                    <div class="float-right ml-auto">
+                        <button type="button" class="btn btn-primary float-right" onclick="cloneFamilyDetails()">+ Add Details</button>
+                    </div>
                 </div>
                 <div class="form-row pt-3">
                     <div class="border border-bottom-0 col-md-1 text-center">
@@ -110,7 +110,7 @@
                     </div>
                 </div>
                 <div class="form-row" id="worker_detail">
-                  <div class="border border-bottom-0 col-md-1 p-0">
+                    <div class="border border-bottom-0 col-md-1 p-0">
                         <input type="text" class="form-control rounded-0" name="serial_no[]" placeholder="01">
                     </div>
                     <div class="border border-bottom-0 col-md-2 p-0">
@@ -126,7 +126,7 @@
                         <input type="text" class="form-control rounded-0" name="passed_degree[]" placeholder="XXXXX">
                     </div>
                     <div class="border border-bottom-0 col-md-1 p-0">
-                       <select id="districts" name="potential_degree[]" class="form-control rounded-0">
+                        <select id="districts" name="potential_degree[]" class="form-control rounded-0">
                             <option value="yes">XXXXX</option>
                             <option value="no">XXXXX</option>
                         </select>
