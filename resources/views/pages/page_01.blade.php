@@ -5,7 +5,7 @@
                 <label for="session">Session:</label>
                 <select id="sessions" name="session" class="form-control">
                     @foreach($sessionDates as $sessionDate)
-                        <option value="{{$sessionDate}}">{{$sessionDate}}</option>
+                        <option value="{{$sessionDate}}" {{ $data ? $data['session'] == $sessionDate ? 'selected' : '' : ''}}>{{$sessionDate}}</option>
                     @endforeach
                 </select>
             </div>
@@ -14,7 +14,7 @@
                 <select id="districts" name="district" class="form-control">
                     <option value="" selected disabled>Select District Name</option>
                     @foreach($districtNames as $districtName)
-                        <option value="{{$districtName}}">{{$districtName}}</option>
+                        <option value="{{$districtName}}" {{ $data ? $data['district'] == $districtName ? 'selected' : '' : ''}}>{{$districtName}}</option>
                     @endforeach
                 </select>
             </div>
@@ -27,47 +27,47 @@
                 <div class="form-row">
                     <div class="form-group col-md-4">
                         <label>File Received No:</label>
-                        <input type="text" class="form-control" id="inputAddress" placeholder="R-" name="file_received_number">
+                        <input type="text" class="form-control" id="inputAddress" placeholder="R-" name="file_received_number" value="{{$data ? $data['file_received_number'] : ''}}">
                     </div>
                     <div class="form-group col-md-4">
                         <label>Receiving Date:</label>
-                        <input class="form-control datepicker" type="text" placeholder="yyyy-mm-dd" name="receiving_date">
+                        <input class="form-control datepicker" type="text" placeholder="yyyy-mm-dd" name="receiving_date" value="{{$data ? $data['receiving_date'] : ''}}">
                     </div>
                     <div class="form-group col-md-4">
                         <label>File Receipt Voucher No:</label>
-                        <input type="text" class="form-control" id="inputAddress" placeholder="XXXXX" name="file_receipt_voucher_number">
+                        <input type="text" class="form-control" id="inputAddress" placeholder="XXXXX" name="file_receipt_voucher_number" value="{{$data ? $data['file_receipt_voucher_number'] : ''}}">
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-4">
                         <label>FRV Date:</label>
-                        <input class="form-control datepicker" type="text" placeholder="yyyy-mm-dd" name="file_receipt_voucher_date">
+                        <input class="form-control datepicker" type="text" placeholder="yyyy-mm-dd" name="file_receipt_voucher_date" value="{{$data ? $data['file_receipt_voucher_date'] : ''}}">
                     </div>
                     <div class="form-group col-md-4">
                         <label>Fresh Fle Submission in PWWB No:</label>
-                        <input type="text" class="form-control" id="inputAddress" placeholder="S-" name="fresh_file_submission_in_pwwb_number">
+                        <input type="text" class="form-control" id="inputAddress" placeholder="S-" name="fresh_file_submission_in_pwwb_number" value="{{$data ? $data['fresh_file_submission_in_pwwb_number'] : ''}}">
                     </div>
                     <div class="form-group col-md-4">
                         <label>Priority of Submission:</label>
                         <select id="districts" name="priority_of_submission" class="form-control">
-                            <option value="high">High</option>
-                            <option value="medium">Medium</option>
-                            <option value="low">Low</option>
+                            <option value="high" {{ $data ? $data['priority_of_submission'] == 'high' ? 'selected' : '' : ''}}>High</option>
+                            <option value="medium" {{ $data ? $data['priority_of_submission'] == 'medium' ? 'selected' : '' : ''}}>Medium</option>
+                            <option value="low" {{ $data ? $data['priority_of_submission'] == 'low' ? 'selected' : '' : ''}}>Low</option>
                         </select>
                     </div>
                 </div>
                 <div class="form-row ">
                     <div class="form-group col-md-4">
                         <label>PWWB Diary No:</label>
-                        <input type="text" class="form-control" id="inputAddress" placeholder="INT" name="pwwb_diary_number">
+                        <input type="text" class="form-control" id="inputAddress" placeholder="INT" name="pwwb_diary_number" value="{{$data ? $data['pwwb_diary_number'] : ''}}">
                     </div>
                     <div class="form-group col-md-4">
                         <label>PWWB Diary Date:</label>
-                        <input class="form-control datepicker" type="text" placeholder="yyyy-mm-dd" name="pwwb_diary_date">
+                        <input class="form-control datepicker" type="text" placeholder="yyyy-mm-dd" name="pwwb_diary_date" value="{{$data ? $data['pwwb_diary_date'] : ''}}">
                     </div>
                     <div class="form-group col-md-4">
                         <label>Pending Files(With Remarks):</label>
-                        <input type="text" class="form-control" id="inputAddress" placeholder="XXXXX" name="pending_files_with_remarks">
+                        <input type="text" class="form-control" id="inputAddress" placeholder="XXXXX" name="pending_files_with_remarks" value="{{$data ? $data['pending_files_with_remarks'] : ''}}">
                     </div>
                 </div>
 
@@ -109,41 +109,82 @@
                         <label>Follow-up</label>
                     </div>
                 </div>
-                <div class="form-row" id="worker_detail">
-                    <div class="border border-bottom-0 col-md-1 p-0">
-                        <input id="worker_family_serial_no" type="text" class="form-control rounded-0" name="serial_no[]" placeholder="01">
+                @if($data)
+                    @foreach($data['worker_family_member_details'] as $worker_details)
+                        <div class="form-row" id="worker_detail">
+                            <div class="border border-bottom-0 col-md-1 p-0">
+                                <input id="worker_family_serial_no" type="text" class="form-control rounded-0" name="serial_no[]" placeholder="01" value="{{$worker_details['serial_no']}}">
+                            </div>
+                            <div class="border border-bottom-0 col-md-2 p-0">
+                                <input class="form-control rounded-0" type="text" name="worker_name[]" placeholder="XXXXX" value="{{$worker_details['worker_name']}}">
+                            </div>
+                            <div class="border border-bottom-0 col-md-2 p-0">
+                                <input type="text" class="form-control rounded-0" name="worker_cnic[]" placeholder="XXXXX" value="{{$worker_details['worker_cnic']}}">
+                            </div>
+                            <div class="border border-bottom-0 col-md-1 p-0">
+                                <input type="text" class="form-control rounded-0" name="student_name[]" placeholder="XXXXX" value="{{$worker_details['student_name']}}">
+                            </div>
+                            <div class="border border-bottom-0 col-md-1 p-0">
+                                <input type="text" class="form-control rounded-0" name="passed_degree[]" placeholder="XXXXX" value="{{$worker_details['passed_degree']}}">
+                            </div>
+                            <div class="border border-bottom-0 col-md-1 p-0">
+                                <select id="districts" name="potential_degree[]" class="form-control rounded-0">
+                                    <option value="yes" {{ $worker_details ? $worker_details['potential_degree'] == 'yes' ? 'selected' : '' : ''}}>XXXXX</option>
+                                    <option value="no" {{ $worker_details ? $worker_details['potential_degree'] == 'no' ? 'selected' : '' : ''}}>XXXXX</option>
+                                </select>
+                            </div>
+                            <div class="border border-bottom-0 col-md-1 p-0">
+                                <select id="districts" name="file_received_status[]" class="form-control rounded-0">
+                                    <option value="yes" {{ $worker_details ? $worker_details['file_received_status'] == 'yes' ? 'selected' : '' : ''}}>Yes</option>
+                                    <option value="no" {{ $worker_details ? $worker_details['file_received_status'] == 'no' ? 'selected' : '' : ''}}>No</option>
+                                </select>
+                            </div>
+                            <div class="border border-bottom-0 col-md-2 p-0">
+                                <input type="text" class="form-control rounded-0 datepicker" name="follow_up[]"  placeholder="yyyy-mm-dd" value="{{$worker_details['follow_up']}}">
+                            </div>
+                            <div class="col-md-1">
+                                <button id="removeFamilyDetailButton" type="button" class="btn btn-danger" onclick="removeFamilyDetail(event)"
+                                @if ($worker_details == reset($data['worker_family_member_details'])) {{'disabled'}} @endif>-</button>
+                            </div>
+                        </div>
+                    @endforeach
+                @else
+                    <div class="form-row" id="worker_detail">
+                        <div class="border border-bottom-0 col-md-1 p-0">
+                            <input id="worker_family_serial_no" type="text" class="form-control rounded-0" name="serial_no[]" placeholder="01">
+                        </div>
+                        <div class="border border-bottom-0 col-md-2 p-0">
+                            <input class="form-control rounded-0" type="text" name="worker_name[]" placeholder="XXXXX">
+                        </div>
+                        <div class="border border-bottom-0 col-md-2 p-0">
+                            <input type="text" class="form-control rounded-0" name="worker_cnic[]" placeholder="XXXXX">
+                        </div>
+                        <div class="border border-bottom-0 col-md-1 p-0">
+                            <input type="text" class="form-control rounded-0" name="student_name[]" placeholder="XXXXX">
+                        </div>
+                        <div class="border border-bottom-0 col-md-1 p-0">
+                            <input type="text" class="form-control rounded-0" name="passed_degree[]" placeholder="XXXXX">
+                        </div>
+                        <div class="border border-bottom-0 col-md-1 p-0">
+                            <select id="districts" name="potential_degree[]" class="form-control rounded-0">
+                                <option value="yes">XXXXX</option>
+                                <option value="no">XXXXX</option>
+                            </select>
+                        </div>
+                        <div class="border border-bottom-0 col-md-1 p-0">
+                            <select id="districts" name="file_received_status[]" class="form-control rounded-0">
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div>
+                        <div class="border border-bottom-0 col-md-2 p-0">
+                            <input type="text" class="form-control rounded-0 datepicker" name="follow_up[]"  placeholder="yyyy-mm-dd">
+                        </div>
+                        <div class="col-md-1">
+                            <button id="removeFamilyDetailButton" type="button" class="btn btn-danger" onclick="removeFamilyDetail(event)">-</button>
+                        </div>
                     </div>
-                    <div class="border border-bottom-0 col-md-2 p-0">
-                        <input class="form-control rounded-0" type="text" name="worker_name[]" placeholder="XXXXX">
-                    </div>
-                    <div class="border border-bottom-0 col-md-2 p-0">
-                        <input type="text" class="form-control rounded-0" name="worker_cnic[]" placeholder="XXXXX">
-                    </div>
-                    <div class="border border-bottom-0 col-md-1 p-0">
-                        <input type="text" class="form-control rounded-0" name="student_name[]" placeholder="XXXXX">
-                    </div>
-                    <div class="border border-bottom-0 col-md-1 p-0">
-                        <input type="text" class="form-control rounded-0" name="passed_degree[]" placeholder="XXXXX">
-                    </div>
-                    <div class="border border-bottom-0 col-md-1 p-0">
-                        <select id="districts" name="potential_degree[]" class="form-control rounded-0">
-                            <option value="yes">XXXXX</option>
-                            <option value="no">XXXXX</option>
-                        </select>
-                    </div>
-                    <div class="border border-bottom-0 col-md-1 p-0">
-                        <select id="districts" name="file_received_status[]" class="form-control rounded-0">
-                            <option value="yes">Yes</option>
-                            <option value="no">No</option>
-                        </select>
-                    </div>
-                    <div class="border border-bottom-0 col-md-2 p-0">
-                        <input type="text" class="form-control rounded-0 datepicker" name="follow_up[]"  placeholder="yyyy-mm-dd">
-                    </div>
-                    <div class="col-md-1">
-                        <button id="removeFamilyDetailButton" type="button" class="btn btn-danger" onclick="removeFamilyDetail(event)" disabled>-</button>
-                    </div>
-                </div>
+                @endif
             </div>
         </div>
     </form>
@@ -167,7 +208,7 @@
             if(index_id) {
                 let csrf_token = $('meta[name="csrf-token"]').attr('content');
                 let request = $.ajax({
-                    url: 'worker-family-detail-delete',
+                    url: '/worker-family-detail-delete',
                     method: "POST",
                     data: {
                         'index_id' : index_id,

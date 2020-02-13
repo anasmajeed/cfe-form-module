@@ -15,7 +15,7 @@ class IndexTableController extends Controller
     public function loadMainPage(){
         $sessionDates = ['2019-2021','2021-2023','2023-2025'];
         $districtNames = ['RahimYarKhan','Lahore','Attock','Bahawalpur'];
-        return view('welcome',['sessionDates' => $sessionDates,'districtNames' => $districtNames]);
+        return view('welcome',['data' => null,'sessionDates' => $sessionDates,'districtNames' => $districtNames]);
     }
 
     public function post(Request $request){
@@ -24,11 +24,11 @@ class IndexTableController extends Controller
 
         $session = Arr::get($params,IndexTableFields::SESSION);
         $district = Arr::get($params,IndexTableFields::DISTRICT);
-        $fileReceivedNumber = 'R-'.Arr::get($params,IndexTableFields::FILE_RECEIVED_NUMBER);
+        $fileReceivedNumber = 'R-'.str_replace('R-','',Arr::get($params,IndexTableFields::FILE_RECEIVED_NUMBER));
         $receivingDate = Arr::get($params,IndexTableFields::RECEIVING_DATE);
         $fileReceiptVoucherNumber = Arr::get($params,IndexTableFields::FILE_RECEIPT_VOUCHER_NUMBER);
         $fileReceiptVoucherDate = Arr::get($params,IndexTableFields::FILE_RECEIPT_VOUCHER_DATE);
-        $freshFileSubmissionInPwwbNumber = 'S-'.Arr::get($params,IndexTableFields::FRESH_FILE_SUBMISSION_IN_PWWB_NUMBER);
+        $freshFileSubmissionInPwwbNumber = 'S-'.str_replace('S-','',Arr::get($params,IndexTableFields::FRESH_FILE_SUBMISSION_IN_PWWB_NUMBER));
         $priorityOfSubmission = Arr::get($params,IndexTableFields::PRIORITY_OF_SUBMISSION);
         $pwwbDiaryNumber = Arr::get($params,IndexTableFields::PWWB_DIARY_NUMBER);
         $pwwbDiaryDate = Arr::get($params,IndexTableFields::PWWB_DIARY_DATE);
@@ -67,7 +67,7 @@ class IndexTableController extends Controller
         $index_table->save();
 
         if(!$index_id){
-            for($i = 0 ; $i < count($serialNo); $i++){
+            for($i = 0 ; $i < count($fileReceivedStatus); $i++){
                 $workerFamilyMemberDetail = new WorkerFamilyMemberDetail();
                 $this->fillWorkerFamilyDetailData($i,$workerFamilyMemberDetail,$serialNo,$index_table,$workerName,$workerCNIC,$passedDegree,$potentialDegree,$studentName,$fileReceivedStatus,$followUp);
             }
@@ -79,8 +79,8 @@ class IndexTableController extends Controller
                 $this->fillWorkerFamilyDetailData($j,$workerFamilyMemberDetailSingle,$serialNo,$index_table,$workerName,$workerCNIC,$passedDegree,$potentialDegree,$studentName,$fileReceivedStatus,$followUp);
                 $j++;
             }
-            if($j < count($serialNo)){
-                for($k = $j ; $k < count($serialNo); $k++){
+            if($j < count($fileReceivedStatus)){
+                for($k = $j ; $k < count($fileReceivedStatus); $k++){
                     $workerFamilyMemberDetail = new WorkerFamilyMemberDetail();
                     $this->fillWorkerFamilyDetailData($k,$workerFamilyMemberDetail,$serialNo,$index_table,$workerName,$workerCNIC,$passedDegree,$potentialDegree,$studentName,$fileReceivedStatus,$followUp);
                 }
@@ -93,15 +93,15 @@ class IndexTableController extends Controller
     }
 
     private function fillWorkerFamilyDetailData($index,$workerObject,$serialNo,$index_table,$workerName,$workerCNIC,$passedDegree,$potentialDegree,$studentName,$fileReceivedStatus,$followUp){
-        $workerObject->serial_no = $serialNo[$index];
+        $workerObject->serial_no = isset($serialNo[$index]) ? $serialNo[$index] : null;
         $workerObject->index_table_id = $index_table->id;
-        $workerObject->worker_name = $workerName[$index];
-        $workerObject->worker_cnic = $workerCNIC[$index];
-        $workerObject->passed_degree = $passedDegree[$index];
-        $workerObject->potential_degree = $potentialDegree[$index];
-        $workerObject->student_name = $studentName[$index];
-        $workerObject->file_received_status = $fileReceivedStatus[$index];
-        $workerObject->follow_up = $followUp[$index];
+        $workerObject->worker_name = isset($workerName[$index]) ? $workerName[$index] : null;
+        $workerObject->worker_cnic = isset($workerCNIC[$index]) ? $workerCNIC[$index] : null;
+        $workerObject->passed_degree = isset($passedDegree[$index]) ? $passedDegree[$index] : null;
+        $workerObject->potential_degree = isset($potentialDegree[$index]) ? $potentialDegree[$index] : null;
+        $workerObject->student_name = isset($studentName[$index]) ? $studentName[$index] : null;
+        $workerObject->file_received_status = isset($fileReceivedStatus[$index]) ? $fileReceivedStatus[$index] : null;
+        $workerObject->follow_up = isset($followUp[$index]) ? $followUp[$index] : null;
         $workerObject->save();
     }
 
@@ -110,7 +110,7 @@ class IndexTableController extends Controller
         $serialNo = Arr::get($params,WorkerFamilyMemberDetailFields::SERIAL_NO);
         $indexId = Arr::get($params,'index_id');
         $object = WorkerFamilyMemberDetail::where('serial_no',$serialNo)->where('index_table_id',$indexId);
-        if($object){
+        if($object->first()){
             $object->delete();
         }
         return response()->json([
