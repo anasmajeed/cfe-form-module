@@ -74,13 +74,13 @@
         <label for="">Service Details</label>
     </div>
     <div class="card shadow mt-2 p-3 w-100">
-        <div class="card-body">
+        <div class="card-body" id="service_detail_parent">
             <div class="form-row">
                 <div class="">
-                    <label >Faactory Details (Eligible)</label>
+                    <label >Factory Details (Eligible)</label>
                 </div>
                 <div class="float-right ml-auto">
-                    <button type="submit" class="btn btn-primary float-right">+ Add Details</button>
+                    <button type="button" class="btn btn-primary float-right" onclick="cloneServiceDetails()">+ Add Details</button>
                 </div>
             </div>
             <div class="form-row pt-4">
@@ -93,7 +93,7 @@
                 <div class="border border-bottom-0 col-md-1 text-center">
                     <label>Appointment Date</label>
                 </div>
-                <div class="border border-bottom-0 col-md-2 text-center">
+                <div class="border border-bottom-0 col-md-1 text-center">
                     <label>Job Leaving Date</label>
                 </div>
                 <div class="border border-bottom-0 col-md-1 text-center">
@@ -115,48 +115,51 @@
                     <label>Attestation by Dir. Labor</label>
                 </div>
             </div>
-            <div class="form-row">
+            <div class="form-row" id="service_detail">
                 <div class="border border-bottom-0 col-md-1 p-0">
-                    <input type="text" class="form-control rounded-0 " id="inputAddress" placeholder="01">
+                    <input type="text" id="service_serial_no" name="serial_no[]" class="form-control rounded-0 " placeholder="01">
                 </div>
                 <div class="border border-bottom-0 col-md-1 p-0">
-                    <input class="form-control rounded-0" type="text" placeholder="XXXXX">
+                    <input class="form-control rounded-0" name="name[]" type="text" placeholder="XXXXX">
                 </div>
                 <div class="border border-bottom-0 col-md-1 p-0">
-                    <input type="text" class="form-control rounded-0 datepicker" id="inputAddress" placeholder="dd/mm/yyyy">
+                    <input type="text" class="form-control rounded-0 datepicker" name="appointment_date[]" placeholder="dd/mm/yyyy">
+                </div>
+                <div class="border border-bottom-0 col-md-1 p-0">
+                    <input type="text" class="form-control rounded-0 datepicker" name="job_leaving_date[]" placeholder="dd/mm/yyyy">
+                </div>
+                <div class="border border-bottom-0 col-md-1 p-0">
+                    <input type="text" class="form-control rounded-0" name="total_period[]" placeholder="XXXXX">
                 </div>
                 <div class="border border-bottom-0 col-md-2 p-0">
-                    <input type="text" class="form-control rounded-0 datepicker" id="inputAddress" placeholder="dd/mm/yyyy">
+                    <input type="text" class="form-control rounded-0 datepicker" name="completion_date[]" placeholder="dd/mm/yyyy">
                 </div>
                 <div class="border border-bottom-0 col-md-1 p-0">
-                    <input type="text" class="form-control rounded-0" id="inputAddress" placeholder="XXXXX">
-                </div>
-                <div class="border border-bottom-0 col-md-2 p-0">
-                    <input type="text" class="form-control rounded-0 datepicker" id="inputAddress" placeholder="dd/mm/yyyy">
-                </div>
-                <div class="border border-bottom-0 col-md-1 p-0">
-                    <select id="districts" name="districtlist" class="form-control rounded-0">
+                    <select id="districts" name="service_completion_status[]" class="form-control rounded-0">
                         <option value="volvo">Yes</option>
                         <option value="saab">No</option>
                     </select>
                 </div>
                 <div class="border border-bottom-0 col-md-1 p-0">
-                    <select id="districts" name="districtlist" class="form-control rounded-0">
+                    <select id="districts" name="attested_by_factory_manager[]"  class="form-control rounded-0">
                         <option value="volvo">Yes</option>
                         <option value="saab">No</option>
                     </select>
                 </div>
                 <div class="border border-bottom-0 col-md-1 p-0">
-                    <select id="districts" name="districtlist" class="form-control rounded-0">
+                    <select id="districts" name="attested_by_dol[]" class="form-control rounded-0">
                         <option value="volvo">Yes</option>
                         <option value="saab">No</option>
                     </select>
                 </div>
                 <div class="border border-bottom-0 col-md-1 p-0">
-                    <select id="districts" name="districtlist" class="form-control rounded-0">
+                    <select id="districts" name="attested_by_labor[]" class="form-control rounded-0">
                         <option value="volvo">Yes</option>
                         <option value="saab">No</option>
                     </select>
+                </div>
+                <div class="col-md-1">
+                    <button id="removeServiceDetailButton" type="button" class="btn btn-danger" onclick="removeServiceDetail(event)"><strong>-</strong></button>
                 </div>
             </div>
             <div class="form-row">

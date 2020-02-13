@@ -119,7 +119,7 @@
                             <label for="">Result Status:</label>
                         </div>
                         <div class="float-right ml-auto mr-2">
-                            <button type="button" class="btn btn-primary float-right" onclick="cloneFamilyDetails()">+ Add Details</button>
+                            <button type="button" class="btn btn-primary float-right" onclick="cloneFamilyDetails()"><strong>+</strong></button>
                         </div>
                     </div>
                     <!-- result status -->

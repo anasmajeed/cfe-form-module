@@ -181,7 +181,7 @@
                             <input type="text" class="form-control rounded-0 datepicker" name="follow_up[]"  placeholder="yyyy-mm-dd">
                         </div>
                         <div class="col-md-1">
-                            <button id="removeFamilyDetailButton" type="button" class="btn btn-danger" onclick="removeFamilyDetail(event)">-</button>
+                            <button id="removeFamilyDetailButton" type="button" class="btn btn-danger" disabled onclick="removeFamilyDetail(event)">-</button>
                         </div>
                     </div>
                 @endif

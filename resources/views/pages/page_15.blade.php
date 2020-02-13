@@ -37,52 +37,66 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-row mt-2">
+                    <div class="form-row mt-4">
                         <div class="ml-2">
                             <label for="">Result Status:</label>
                         </div>
                         <div class="float-right ml-auto mr-2">
-                            <button type="button" class="btn btn-primary float-right" onclick="cloneResultStatus()"><strong>+</strong></button>
+                            <button type="button" class="btn btn-primary float-right" onclick="cloneFamilyDetails()"><strong>+</strong></button>
                         </div>
                     </div>
-                    <div class="card shadow p-3 mt-1 w-100">
-                        <div class="card-body" id="result_status_parent">
-                            <div class="form-row" id="result_status">
-                                <div class="form-group col-md-1">
+                    <!-- result status -->
+                    <div class="card shadow mt-3 p-3 w-100">
+                        <div class="card-body" id="worker_detail_parent">
+                            <div class="form-row pt-2">
+                                <div class="col-md-1 text-center">
                                     <label>Result:</label>
-                                    <select id="" name="result[]" class="form-control">
+                                </div>
+                                <div class="col-md-1 text-center">
+                                    <label>Fail:</label>
+                                </div>
+                                <div class="col-md-3 text-center">
+                                    <label>Chance of next Appearance:</label>
+                                </div>
+                                <div class="col-md-2 text-center">
+                                    <label>Next Appeareance Date:</label>
+                                </div>
+                                <div class="col-md-2 text-center">
+                                    <label>Last Chance Date:</label>
+                                </div><div class="col-md-2 text-center">
+                                    <label>Passing Date:</label>
+                                </div>
+                            </div>
+                            <div class="form-row" id="worker_detail">
+                                <div class="col-md-1 p-0">
+                                    <select id="" name="result" class="form-control">
                                         <option value="pass">Pass</option>
                                         <option value="fail">Fail</option>
                                     </select>
                                 </div>
-                                <div class="form-group col-md-1">
-                                    <label>Fail:</label>
-                                    <select id="" name="fail[]" class="form-control">
+                                <div class="col-md-1 p-0">
+                                    <select id="" name="fail" class="form-control">
                                         <option value="promoted">Promoted</option>
                                         <option value="notPromoted">Not Promoted</option>
                                     </select>
                                 </div>
-                                <div class="form-group col-md-2">
-                                    <label>Chance of next Appearance:</label>
-                                    <select id="" name="next_appearance[]" class="form-control">
+                                <div class="col-md-3 p-0">
+                                    <select id="" name="next_appearance" class="form-control">
                                         <option value="yes">Yes</option>
                                         <option value="no">No</option>
                                     </select>
                                 </div>
-                                <div class="form-group col-md-3">
-                                    <label>Next Appeareance Date:</label>
-                                    <input type="text" class="form-control text-center datepicker" name="next_appearance_date[]"  placeholder="yyyy-mm-dd">
+                                <div class="col-md-2 p-0">
+                                    <input type="text" class="form-control text-center datepicker" name="next_appearance_date"  placeholder="yyyy-mm-dd">
                                 </div>
-                                <div class="form-group col-md-2">
-                                    <label>Last Chance Date:</label>
-                                    <input type="text" class="form-control text-center datepicker" name="last_chance_date[]"  placeholder="yyyy-mm-dd">
+                                <div class="col-md-2 p-0">
+                                    <input type="text" class="form-control text-center datepicker" name="last_chance_date"  placeholder="yyyy-mm-dd">
                                 </div>
-                                <div class="form-group col-md-2">
-                                    <label>Passing Date:</label>
-                                    <input type="text" class="form-control text-center datepicker" name="passing_date[]"  placeholder="yyyy-mm-dd">
+                                <div class="col-md-2 p-0">
+                                    <input type="text" class="form-control text-center datepicker" name="passing_date"  placeholder="yyyy-mm-dd">
                                 </div>
                                 <div class="col-md-1">
-                                    <button id="removeResultStatusButton" type="button" class="btn btn-danger" onclick="removeResultStatus(event)" disabled>-</button>
+                                    <button id="removeFamilyDetailButton" type="button" class="btn btn-danger" onclick="removeFamilyDetail(event)" disabled>-</button>
                                 </div>
                             </div>
                         </div>
