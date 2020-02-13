@@ -12,5 +12,7 @@
 */
 
 Route::get('/','IndexTableController@loadMainPage');
-
-Route::post('/index_table','IndexTableController@post');
+Route::post('/index-table','IndexTableController@post');
+Route::post('/worker-family-detail-delete','IndexTableController@deleteWorkerDetail');
+Route::get('/home','HomeController@index');
+Route::get('/view/{index_id}','HomeController@view');
