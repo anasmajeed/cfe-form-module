@@ -76,7 +76,7 @@
     <div class="card shadow mt-2 p-3 w-100">
         <div class="card-body" id="service_detail_parent">
             <div class="form-row">
-                <div class="">
+                <div>
                     <label >Factory Details (Eligible)</label>
                 </div>
                 <div class="float-right ml-auto">
