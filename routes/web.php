@@ -18,6 +18,7 @@ Route::get('/view/{index_id}','HomeController@view');
 Route::post('/worker-personal-details','WorkerPersonalDetailController@post');
 Route::post('/worker-bank-security-details','WorkerBankSecurityDetailController@post');
 Route::post('/factory-service-details','FactoryDetailController@post');
+Route::post('/factory-death-manager-details','FactoryDeathManagerDetailController@post');
 
 
 //delete calls

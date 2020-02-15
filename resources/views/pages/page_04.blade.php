@@ -121,7 +121,7 @@
                         <label>Attestation by Dir. Labor</label>
                     </div>
                 </div>
-                @if($data)
+                @if($data['service_details'])
                     @foreach($data['service_details'] as $service_details)
                 <div class="form-row accumulatedRows" id="service_detail">
                     <div class="border border-bottom-0 col-md-1 p-0">
@@ -255,6 +255,15 @@
         function cloneServiceDetails() {
             let clone = $('#service_detail').clone();
             clone.find('.datepicker').each(function (index, pick) {
+                let picker = $(pick).datepicker({
+                    format: 'yyyy-mm-dd'
+                }).on('changeDate', function (ev) {
+                    setAccumulatedYears();
+                    picker.hide();
+                }).data('datepicker');
+            });
+
+            clone.find('.datepickerAccumulated').each(function (index, pick) {
                 let picker = $(pick).datepicker({
                     format: 'yyyy-mm-dd'
                 }).on('changeDate', function (ev) {

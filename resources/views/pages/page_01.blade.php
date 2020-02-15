@@ -109,7 +109,7 @@
                         <label>Follow-up</label>
                     </div>
                 </div>
-                @if($data)
+                @if($data['worker_family_member_details'])
                     @foreach($data['worker_family_member_details'] as $worker_details)
                         <div class="form-row" id="worker_detail">
                             <div class="border border-bottom-0 col-md-1 p-0">
