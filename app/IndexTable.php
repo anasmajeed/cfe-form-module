@@ -17,4 +17,12 @@ class IndexTable extends Model
     public function workerBankSecurityDetail(){
         return $this->hasOne(WorkerBankSecurityDetail::class);
     }
+
+    public function serviceDetail(){
+        return $this->hasMany(ServiceDetail::class);
+    }
+
+    public function factoryDetail(){
+        return $this->hasOne(FactoryDetail::class);
+    }
 }

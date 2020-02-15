@@ -190,7 +190,7 @@
     </form>
 </div>
 
-@section('scripts')
+@section('script_page_1')
     <script>
         function cloneFamilyDetails(){
             let clone = $('#worker_detail').clone();

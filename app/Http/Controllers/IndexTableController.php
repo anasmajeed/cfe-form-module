@@ -19,7 +19,6 @@ class IndexTableController extends Controller
     }
 
     public function post(Request $request){
-        $worker_table_ids = [];
         $params = $request->all();
 
         $session = Arr::get($params,IndexTableFields::SESSION);
