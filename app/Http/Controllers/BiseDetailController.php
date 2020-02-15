@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class ImsController extends Controller
+class BiseDetailController extends Controller
 {
     //
 }
