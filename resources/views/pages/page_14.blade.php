@@ -14,7 +14,7 @@
                 </div>
                 <div class="form-group  col-md-3">
                     <label>Date:</label>
-                    <input type="text" class="form-control text-center datepicker" name="date"  placeholder="yyyy-mm-dd">
+                    <input type="text" class="form-control text-center datepicker" name="date" placeholder="yyyy-mm-dd">
                 </div>
             </div>
         </div>
@@ -27,7 +27,7 @@
             <div class="form-row">
                 <div class="form-group col-md-3">
                     <label>Ammount of Claim Due:</label>
-                    <input type="text" class="form-control text-center" name="claim_due"  placeholder="XXXXX">
+                    <input type="text" class="form-control text-center" name="claim_due" placeholder="XXXXX">
                 </div>
                 <div class="form-group col-md-3">
                     <label>Status of Claim Received:</label>
@@ -38,25 +38,26 @@
                 </div>
                 <div class="form-group  col-md-3">
                     <label>Ammount of Claim Received:</label>
-                    <input type="text" class="form-control text-center" name="claim_received"  placeholder="XXXXX">
+                    <input type="text" class="form-control text-center" name="claim_received" placeholder="XXXXX">
                 </div>
                 <div class="form-group  col-md-3">
                     <label>Date:</label>
-                    <input type="text" class="form-control text-center datepicker" name="date"  placeholder="yyyy-mm-dd">
+                    <input type="text" class="form-control text-center datepicker" name="date" placeholder="yyyy-mm-dd">
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-3">
                     <label>Reason:</label>
-                    <input type="text" class="form-control text-center" name="reason"  placeholder="XXXXX">
+                    <input type="text" class="form-control text-center" name="reason" placeholder="XXXXX">
                 </div>
                 <div class="form-group col-md-3">
                     <label>CFE Fee:</label>
-                    <input type="text" class="form-control text-center" name="cfe_fee"  placeholder="XXXXX">
+                    <input type="text" class="form-control text-center" name="cfe_fee" placeholder="XXXXX">
                 </div>
                 <div class="form-group  col-md-3">
                     <label>Recovery From Studen:</label>
-                    <input type="text" class="form-control text-center" name="recovery_from_student"  placeholder="XXXXX">
+                    <input type="text" class="form-control text-center" name="recovery_from_student"
+                           placeholder="XXXXX">
                 </div>
             </div>
         </div>

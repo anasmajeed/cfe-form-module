@@ -7,7 +7,8 @@
             <div class="form-row">
                 <div class="form-group  col-md-3">
                     <label>Social Security R-8 no/CNIC of worker:</label>
-                    <input type="text" class="form-control text-center" id="inputAddress" placeholder="Worker's Social Security=Worker's CNIC">
+                    <input type="text" class="form-control text-center" id="inputAddress"
+                           placeholder="Worker's Social Security=Worker's CNIC">
                 </div>
                 <div class="form-group col-md-5">
                     <label>Worker's Social Security Card Attested by Factory Manager:</label>
@@ -65,7 +66,8 @@
             <div class="form-row">
                 <div class="form-group  col-md-4">
                     <label>IBAN:</label>
-                    <input type="text" class="form-control text-center" id="inputAddress" placeholder="PKXX XXXX XXXX XXXX XXXX XXXX">
+                    <input type="text" class="form-control text-center" id="inputAddress"
+                           placeholder="PKXX XXXX XXXX XXXX XXXX XXXX">
                 </div>
             </div>
         </div>

@@ -7,7 +7,8 @@
             <div class="form-row">
                 <div class="form-group  col-md-4">
                     <label>Death Date of Worker:</label>
-                    <input type="text" class="form-control text-center datepicker" id="inputAddress" placeholder="dd/mm/yyyy">
+                    <input type="text" class="form-control text-center datepicker" id="inputAddress"
+                           placeholder="dd/mm/yyyy">
                 </div>
                 <div class="form-group col-md-4">
                     <label>Death Grant Claimed:</label>
@@ -20,7 +21,8 @@
                 </div>
                 <div class="form-group col-md-4">
                     <label>Retirement Date of Worker:</label>
-                    <input type="text" class="form-control text-center datepicker" id="inputAddress" placeholder="dd/mm/yyyy">
+                    <input type="text" class="form-control text-center datepicker" id="inputAddress"
+                           placeholder="dd/mm/yyyy">
                 </div>
             </div>
         </div>
@@ -45,7 +47,8 @@
                 </div>
                 <div class="form-group col-md-3">
                     <label>Email:</label>
-                    <input type="email" class="form-control text-center" id="inputAddress" placeholder="Example@gmail.com">
+                    <input type="email" class="form-control text-center" id="inputAddress"
+                           placeholder="Example@gmail.com">
                 </div>
             </div>
         </div>
@@ -53,7 +56,7 @@
     <div class="form-row">
         <div class="form-group col-md-6">
             <div class="mt-4">
-                <label >PWWB Scholorship Form Attested by Factory Manager</label>
+                <label>PWWB Scholorship Form Attested by Factory Manager</label>
             </div>
             <div class="card shadow p-3">
                 <div class="card-body ">
@@ -78,7 +81,7 @@
         </div>
         <div class="form-group col-md-6">
             <div class="mt-4">
-                <label >PWWB Scholorship Form Attested by DOL Dir. Labor</label>
+                <label>PWWB Scholorship Form Attested by DOL Dir. Labor</label>
             </div>
             <div class="card shadow p-3">
                 <div class="card-body ">

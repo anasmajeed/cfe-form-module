@@ -48,11 +48,13 @@
             <div class="form-row">
                 <div class="form-group  col-md-4">
                     <label>Date of Admission:</label>
-                    <input type="text" class="form-control text-center datepicker" id="inputAddress" placeholder="dd/mm/yyyy">
+                    <input type="text" class="form-control text-center datepicker" id="inputAddress"
+                           placeholder="dd/mm/yyyy">
                 </div>
                 <div class="form-group  col-md-4">
                     <label>Ending date:</label>
-                    <input type="text" class="form-control text-center datepicker" id="inputAddress" placeholder="dd/mm/yyyy">
+                    <input type="text" class="form-control text-center datepicker" id="inputAddress"
+                           placeholder="dd/mm/yyyy">
                 </div>
                 <div class="form-group  col-md-4">
                     <label>Academic Term:</label>
@@ -84,7 +86,8 @@
                         </div>
                         <div class="form-group col-md-3">
                             <label>Date of Registration:</label>
-                            <input type="text" class="form-control text-center datepicker" id="inputAddress" placeholder="dd/mm/yyyy">
+                            <input type="text" class="form-control text-center datepicker" id="inputAddress"
+                                   placeholder="dd/mm/yyyy">
                         </div>
                     </div>
                     <div class="col-md-12 mt-2">
@@ -95,15 +98,18 @@
                             <div class="form-row">
                                 <div class="form-group col-md-3">
                                     <label>Actual:</label>
-                                    <input type="text" class="form-control text-center" id="inputAddress" placeholder="XXXXX">
+                                    <input type="text" class="form-control text-center" id="inputAddress"
+                                           placeholder="XXXXX">
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label>Late:</label>
-                                    <input type="text" class="form-control text-center " id="inputAddress" placeholder="XXXXX">
+                                    <input type="text" class="form-control text-center " id="inputAddress"
+                                           placeholder="XXXXX">
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label>Total:</label>
-                                    <input type="text" class="form-control text-center" id="inputAddress" placeholder="0000">
+                                    <input type="text" class="form-control text-center" id="inputAddress"
+                                           placeholder="0000">
                                 </div>
                             </div>
                         </div>

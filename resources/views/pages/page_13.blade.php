@@ -12,7 +12,7 @@
                     <div class="form-row">
                         <div class="form-group  col-md-4">
                             <label>Quantity Min(04):</label>
-                            <input type="text" class="form-control text-center" name="quantity"  placeholder="XXXXX">
+                            <input type="text" class="form-control text-center" name="quantity" placeholder="XXXXX">
                         </div>
                         <div class="form-group  col-md-4">
                             <label>Attested by Gazzeted Officer:</label>
@@ -48,7 +48,7 @@
                     <div class="form-row">
                         <div class="form-group  col-md-4">
                             <label>Quantity Min(04):</label>
-                            <input type="text" class="form-control text-center" name="quantity"  placeholder="XXXXX">
+                            <input type="text" class="form-control text-center" name="quantity" placeholder="XXXXX">
                         </div>
                         <div class="form-group  col-md-4">
                             <label>Attested by Gazzeted Officer:</label>

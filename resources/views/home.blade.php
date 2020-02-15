@@ -37,10 +37,12 @@
                 @foreach($mainTable as $value)
                     <div class="form-row mb-2">
                         <div class="col-md-5">
-                            <input class="form-control text-center" name="index_id" disabled value="{{$value->id}}"></input>
+                            <input class="form-control text-center" name="index_id" disabled
+                                   value="{{$value->id}}"></input>
                         </div>
                         <div class="col-md-5">
-                            <input class="form-control text-center" disabled value="{{$value->file_received_number}}"></input>
+                            <input class="form-control text-center" disabled
+                                   value="{{$value->file_received_number}}"></input>
                         </div>
                         <div class="col-md-2">
                             <a href="/view/{{$value->id}}" class="btn btn-success w-100">VIEW</a>

@@ -22,7 +22,8 @@
                     <div class="form-row">
                         <div class="form-group col-md-4">
                             <label>CNIC/B-Form No:</label>
-                            <input type="text" class="form-control text-center" id="inputAddress" placeholder="XXXXX-XXXXXXX-X">
+                            <input type="text" class="form-control text-center" id="inputAddress"
+                                   placeholder="XXXXX-XXXXXXX-X">
                         </div>
                         <div class="form-group col-md-4">
                             <label>Quantity(min 04):</label>
@@ -43,7 +44,8 @@
                     <div class="form-row">
                         <div class="form-group  col-md-3">
                             <label>Date of Birth:</label>
-                            <input type="text" class="form-control text-center datepicker" id="inputAddress" placeholder="dd/mm/yyyy">
+                            <input type="text" class="form-control text-center datepicker" id="inputAddress"
+                                   placeholder="dd/mm/yyyy">
                         </div>
                         <div class="form-group col-md-3">
                             <label>Present Address:</label>
@@ -58,13 +60,15 @@
                         </div>
                         <div class="form-group col-md-3">
                             <label>Contact No 1:</label>
-                            <input type="text" class="form-control text-center" id="inputAddress" placeholder="+92-XXX-XXXXXXX">
+                            <input type="text" class="form-control text-center" id="inputAddress"
+                                   placeholder="+92-XXX-XXXXXXX">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group  col-md-3">
                             <label>Contact No 2:</label>
-                            <input type="text" class="form-control text-center " id="inputAddress" placeholder="+92-XXX-XXXXXXX">
+                            <input type="text" class="form-control text-center " id="inputAddress"
+                                   placeholder="+92-XXX-XXXXXXX">
                         </div>
                         <div class="form-group col-md-3">
                             <label>Postal Address:</label>
@@ -72,7 +76,8 @@
                         </div>
                         <div class="form-group col-md-3">
                             <label>Email:</label>
-                            <input type="email" class="form-control text-center" id="inputAddress" placeholder="example@gmail.com">
+                            <input type="email" class="form-control text-center" id="inputAddress"
+                                   placeholder="example@gmail.com">
                         </div>
                         <div class="form-group col-md-3">
                             <label>Signature on page2(once)& 3(twice):</label>

@@ -54,11 +54,12 @@
                 </div>
                 <div class="form-group  col-md-3">
                     <label>Follow-Up Date:</label>
-                    <input type="text" class="form-control text-center datepicker" name="follow_up"  placeholder="yyyy-mm-dd">
+                    <input type="text" class="form-control text-center datepicker" name="follow_up"
+                           placeholder="yyyy-mm-dd">
                 </div>
                 <div class="form-group  col-md-3">
                     <label>Roll No:</label>
-                    <input type="text" class="form-control text-center" name="roll_no"  placeholder="XXXXX">
+                    <input type="text" class="form-control text-center" name="roll_no" placeholder="XXXXX">
                 </div>
                 <div class="form-group  col-md-3">
                     <label>Affiliated Body:</label>
@@ -76,11 +77,13 @@
                 </div>
                 <div class="form-group  col-md-4">
                     <label>Date of Admission:</label>
-                    <input type="text" class="form-control text-center datepicker" name="admission_date"  placeholder="yyyy-mm-dd">
+                    <input type="text" class="form-control text-center datepicker" name="admission_date"
+                           placeholder="yyyy-mm-dd">
                 </div>
                 <div class="form-group  col-md-4">
                     <label>Ending Date:</label>
-                    <input type="text" class="form-control text-center datepicker" name="ending_date"  placeholder="yyyy-mm-dd">
+                    <input type="text" class="form-control text-center datepicker" name="ending_date"
+                           placeholder="yyyy-mm-dd">
                 </div>
             </div>
             <div class="form-row">
@@ -119,7 +122,8 @@
                         </div>
                         <div class="form-group col-md-3">
                             <label>Date of Registration:</label>
-                            <input type="text" class="form-control text-center datepicker" name="ending_date"  placeholder="yyyy-mm-dd">
+                            <input type="text" class="form-control text-center datepicker" name="ending_date"
+                                   placeholder="yyyy-mm-dd">
                         </div>
                     </div>
                     <div class="col-md-12 mt-2">
@@ -130,15 +134,18 @@
                             <div class="form-row">
                                 <div class="form-group col-md-4">
                                     <label>Actual:</label>
-                                    <input type="text" class="form-control text-center" id="inputAddress" placeholder="XXXXX">
+                                    <input type="text" class="form-control text-center" id="inputAddress"
+                                           placeholder="XXXXX">
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label>Late:</label>
-                                    <input type="text" class="form-control text-center " id="inputAddress" placeholder="XXXXX">
+                                    <input type="text" class="form-control text-center " id="inputAddress"
+                                           placeholder="XXXXX">
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label>Total:</label>
-                                    <input type="text" class="form-control text-center" id="inputAddress" placeholder="0000">
+                                    <input type="text" class="form-control text-center" id="inputAddress"
+                                           placeholder="0000">
                                 </div>
                             </div>
                         </div>

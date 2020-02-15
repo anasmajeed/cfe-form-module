@@ -14,7 +14,7 @@
                 </div>
                 <div class="form-group  col-md-3">
                     <label>Bus Stop:</label>
-                    <input type="text" class="form-control text-center" name="bus_stop"  placeholder="XXXXX">
+                    <input type="text" class="form-control text-center" name="bus_stop" placeholder="XXXXX">
                 </div>
             </div>
         </div>
@@ -36,19 +36,20 @@
             <div class="form-row">
                 <div class="form-group col-md-3">
                     <label>Hostel Name:</label>
-                    <input type="text" class="form-control text-center" name="hostel_name"  placeholder="XXXXX">
+                    <input type="text" class="form-control text-center" name="hostel_name" placeholder="XXXXX">
                 </div>
                 <div class="form-group col-md-3">
                     <label>Address:</label>
-                    <input type="text" class="form-control text-center" name="address"  placeholder="XXXXX">
+                    <input type="text" class="form-control text-center" name="address" placeholder="XXXXX">
                 </div>
                 <div class="form-group  col-md-3">
                     <label>Manager's Name:</label>
-                    <input type="text" class="form-control text-center" name="manager_name"  placeholder="XXXXX">
+                    <input type="text" class="form-control text-center" name="manager_name" placeholder="XXXXX">
                 </div>
                 <div class="form-group  col-md-3">
                     <label>Manager's Contact No:</label>
-                    <input type="text" class="form-control text-center" name="manager_contact"  placeholder="+92-XXX-XXXXXXX">
+                    <input type="text" class="form-control text-center" name="manager_contact"
+                           placeholder="+92-XXX-XXXXXXX">
                 </div>
             </div>
         </div>

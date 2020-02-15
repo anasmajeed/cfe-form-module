@@ -8,7 +8,7 @@
                 <label for="">Examination Status in Affiliated Body:</label>
             </div>
             <div class="card shadow p-3 w-100">
-                <div class="card-body" >
+                <div class="card-body">
                     <div class="col-md-12 mt-4">
                         <label for="">Exam Fee:</label>
                     </div>
@@ -24,15 +24,18 @@
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label>Date:</label>
-                                    <input type="text" class="form-control text-center datepicker" name="date"  placeholder="yyyy-mm-dd">
+                                    <input type="text" class="form-control text-center datepicker" name="date"
+                                           placeholder="yyyy-mm-dd">
                                 </div>
                                 <div class="form-group  col-md-3">
                                     <label>Amount:</label>
-                                    <input type="text" class="form-control text-center" name="amount"  placeholder="XXXXX">
+                                    <input type="text" class="form-control text-center" name="amount"
+                                           placeholder="XXXXX">
                                 </div>
                                 <div class="form-group  col-md-3">
                                     <label>Roll No:</label>
-                                    <input type="text" class="form-control text-center" name="roll_no"  placeholder="XXXXX">
+                                    <input type="text" class="form-control text-center" name="roll_no"
+                                           placeholder="XXXXX">
                                 </div>
                             </div>
                         </div>
@@ -42,7 +45,8 @@
                             <label for="">Result Status:</label>
                         </div>
                         <div class="float-right ml-auto mr-2">
-                            <button type="button" class="btn btn-primary float-right" onclick="cloneFamilyDetails()"><strong>+</strong></button>
+                            <button type="button" class="btn btn-primary float-right" onclick="cloneFamilyDetails()">
+                                <strong>+</strong></button>
                         </div>
                     </div>
                     <!-- result status -->
@@ -63,7 +67,8 @@
                                 </div>
                                 <div class="col-md-2 text-center">
                                     <label>Last Chance Date:</label>
-                                </div><div class="col-md-2 text-center">
+                                </div>
+                                <div class="col-md-2 text-center">
                                     <label>Passing Date:</label>
                                 </div>
                             </div>
@@ -87,16 +92,21 @@
                                     </select>
                                 </div>
                                 <div class="col-md-2 p-0">
-                                    <input type="text" class="form-control text-center datepicker" name="next_appearance_date"  placeholder="yyyy-mm-dd">
+                                    <input type="text" class="form-control text-center datepicker"
+                                           name="next_appearance_date" placeholder="yyyy-mm-dd">
                                 </div>
                                 <div class="col-md-2 p-0">
-                                    <input type="text" class="form-control text-center datepicker" name="last_chance_date"  placeholder="yyyy-mm-dd">
+                                    <input type="text" class="form-control text-center datepicker"
+                                           name="last_chance_date" placeholder="yyyy-mm-dd">
                                 </div>
                                 <div class="col-md-2 p-0">
-                                    <input type="text" class="form-control text-center datepicker" name="passing_date"  placeholder="yyyy-mm-dd">
+                                    <input type="text" class="form-control text-center datepicker" name="passing_date"
+                                           placeholder="yyyy-mm-dd">
                                 </div>
                                 <div class="col-md-1">
-                                    <button id="removeFamilyDetailButton" type="button" class="btn btn-danger" onclick="removeFamilyDetail(event)" disabled>-</button>
+                                    <button id="removeFamilyDetailButton" type="button" class="btn btn-danger"
+                                            onclick="removeFamilyDetail(event)" disabled>-
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -127,11 +137,11 @@
                 </div>
             </div>
         </div>
-    </div> 
+    </div>
 </div>
 @section('scripts')
     <script>
-        function cloneResultStatus(){
+        function cloneResultStatus() {
             let clone = $('#result_status').clone();
             $('#result_status_parent').append(clone);
             let button = clone.find('#removeResultStatusButton').removeAttr('disabled');
