@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateImsTable extends Migration
+class CreateImsDetailsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateImsTable extends Migration
      */
     public function up()
     {
-        Schema::create('ims', function (Blueprint $table) {
+        Schema::create('ims_details', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('index_table_id');
             $table->foreign('index_table_id')
@@ -35,8 +35,6 @@ class CreateImsTable extends Migration
             $table->string('actual_fee')->nullable();
             $table->string('late_fee')->nullable();
             $table->string('total_fee')->nullable();
-
-
             $table->timestamps();
         });
     }
@@ -48,9 +46,9 @@ class CreateImsTable extends Migration
      */
     public function down()
     {
-        Schema::table('ims', function(Blueprint $table) {
+        Schema::table('ims_details', function(Blueprint $table) {
             $table->dropForeign(['index_table_id']);
         });
-        Schema::dropIfExists('ims');
+        Schema::dropIfExists('ims_details');
     }
 }

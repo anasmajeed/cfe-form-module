@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBisesTable extends Migration
+class CreateBiseDetailsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateBisesTable extends Migration
      */
     public function up()
     {
-        Schema::create('bises', function (Blueprint $table) {
+        Schema::create('bise_details', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('index_table_id');
             $table->foreign('index_table_id')
@@ -38,7 +38,6 @@ class CreateBisesTable extends Migration
             $table->string('actual_fee')->nullable();
             $table->string('late_fee')->nullable();
             $table->string('total_fee')->nullable();
-
             $table->timestamps();
         });
     }
@@ -50,9 +49,9 @@ class CreateBisesTable extends Migration
      */
     public function down()
     {
-        Schema::table('bises', function(Blueprint $table) {
+        Schema::table('bise_details', function(Blueprint $table) {
             $table->dropForeign(['index_table_id']);
         });
-        Schema::dropIfExists('bises');
+        Schema::dropIfExists('bise_details');
     }
 }

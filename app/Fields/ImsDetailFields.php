@@ -4,7 +4,7 @@
 namespace App\Fields;
 
 
-class ImsFields
+class ImsDetailFields
 {
     const TABLE_NAME = 'factory_death_manager_details';
     const ID = 'id';

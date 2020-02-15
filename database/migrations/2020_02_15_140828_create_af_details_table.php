@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAfsTable extends Migration
+class CreateAfDetailsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateAfsTable extends Migration
      */
     public function up()
     {
-        Schema::create('afs', function (Blueprint $table) {
+        Schema::create('af_details', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('index_table_id');
             $table->foreign('index_table_id')
@@ -36,7 +36,6 @@ class CreateAfsTable extends Migration
             $table->string('late_fee')->nullable();
             $table->string('total_fee')->nullable();
             
-            
             $table->timestamps();
         });
     }
@@ -48,9 +47,9 @@ class CreateAfsTable extends Migration
      */
     public function down()
     {
-        Schema::table('afs', function(Blueprint $table) {
+        Schema::table('af_details', function(Blueprint $table) {
             $table->dropForeign(['index_table_id']);
         });
-        Schema::dropIfExists('afs');
+        Schema::dropIfExists('af_details');
     }
 }
