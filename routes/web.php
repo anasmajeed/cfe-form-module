@@ -17,4 +17,4 @@ Route::post('/worker-family-detail-delete','IndexTableController@deleteWorkerDet
 Route::get('/home','HomeController@index');
 Route::get('/view/{index_id}','HomeController@view');
 Route::post('/worker-personal-details','WorkerPersonalDetailController@post');
-
+Route::post('/worker-bank-security-details','workerBankSecurityDetailController@post');
