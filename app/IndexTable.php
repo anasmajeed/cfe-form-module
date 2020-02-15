@@ -29,4 +29,8 @@ class IndexTable extends Model
     public function factoryDeathManagerDetail(){
         return $this->hasOne(FactoryDeathManagerDetail::class);
     }
+
+    public function studentPersonalDetail(){
+        return $this->hasOne(StudentPersonalDetail::class);
+    }
 }

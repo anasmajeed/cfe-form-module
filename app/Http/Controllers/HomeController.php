@@ -22,6 +22,7 @@ class HomeController extends Controller
         $object['factory_details'] = $mainObject->factoryDetail ? $mainObject->factoryDetail->toArray() : null;
         $object['service_details'] = $mainObject->serviceDetail ? $mainObject->serviceDetail->toArray() : null;
         $object['factory_death_manager_details'] = $mainObject->factoryDeathManagerDetail ? $mainObject->factoryDeathManagerDetail->toArray() : null;
+        $object['student_personal_detail'] = $mainObject->studentPersonalDetail ? $mainObject->studentPersonalDetail->toArray() : null;
         $sessionDates = ['2019-2021','2021-2023','2023-2025'];
         $districtNames = ['RahimYarKhan','Lahore','Attock','Bahawalpur'];
         return view('welcome',['data' => $object,'sessionDates' => $sessionDates,'districtNames' => $districtNames]);
