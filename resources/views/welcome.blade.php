@@ -12,7 +12,8 @@
 
     <title>CFE FORM</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta name="index_id" content="{{ $data['index_id'] ?? ''}}">
+{{--    <meta name="index_id" content="{{ $data['index_id'] ?? ''}}">--}}
+    <meta name="index_id" content="13">
 </head>
 <body>
 
@@ -38,9 +39,6 @@
         @include('pages.page_17')
         @include('pages.page_18')
     </div>
-    {{--    @include('pages.page_01')--}}
-    {{--    @include('pages.page_02')--}}
-    {{--    @include('pages.page_03')--}}
     <div class="mt-4 mb-4 pb-5 clearfix">
         <button id="prevButton" type="button" class="btn btn-primary float-left" onclick="prevForm()">Previous</button>
         <button id="nextButton" type="button" class="btn btn-primary float-right" onclick="nextForm()">Next</button>
@@ -63,7 +61,7 @@
 <script>
     let container_no = 0;
     let container_array = ['#page_01', '#page_02', '#page_03', '#page_04', '#page_05', '#page_06', '#page_07', '#page_08', '#page_09', '#page_10', '#page_11', '#page_12', '#page_13', '#page_14', '#page_15', '#page_16', '#page_17', '#page_18'];
-    let api_url_array = ['/index-table'];
+    let api_url_array = ['/index-table','/worker-personal-details'];
     let index_id = $('meta[name="index_id"]').attr('content');
     setDisplayForButtons();
     $('.datepicker').each(function (index, pick) {
@@ -142,7 +140,8 @@
 
             request.done(function (response) {
                 if (api_url_array[index_number] == '/index-table') {
-                    index_id = response.indexObject.id;
+                    if(response.indexObject)
+                        index_id = response.indexObject.id;
                 }
             });
 

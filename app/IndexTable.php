@@ -6,7 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class IndexTable extends Model
 {
-    public function WorkerFamilyMemberDetail(){
+    public function workerFamilyMemberDetail(){
         return $this->hasMany(WorkerFamilyMemberDetail::class);
+    }
+
+    public function workerPersonalDetail(){
+        return $this->hasOne(WorkerPersonalDetail::class);
     }
 }
