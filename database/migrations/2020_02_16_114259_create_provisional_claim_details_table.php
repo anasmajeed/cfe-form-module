@@ -20,7 +20,7 @@ class CreateProvisionalClaimDetailsTable extends Migration
                 ->references('id')->on('index_tables')
                 ->onDelete('cascade');
             $table->string('status')->nullable();
-            $table->date('pprovisional_letter_date')->nullable();
+            $table->date('provisional_letter_date')->nullable();
             $table->string('claim_due')->nullable();
             $table->string('claim_status')->nullable();
             $table->string('claim_received')->nullable();
@@ -28,7 +28,7 @@ class CreateProvisionalClaimDetailsTable extends Migration
             $table->string('reason')->nullable();
             $table->string('cfe_fee')->nullable();
             $table->string('recovery_from_student')->nullable();
-            
+
             $table->timestamps();
         });
     }

@@ -24,6 +24,7 @@ Route::post('/educational-wing-details','EducationalWingCfeController@post');
 Route::post('/dual_course-details','DualCourseDetailController@post');
 Route::post('/transport-hostel-details','TransportHostelDetailController@post');
 Route::post('/document-attachment-details','DocumentAttachmentDetailController@post');
+Route::post('/provisional-claim-details','ProvisionalClaimDetailController@post');
 
 
 //delete calls

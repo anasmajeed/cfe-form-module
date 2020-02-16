@@ -1,4 +1,5 @@
 <div id="page_14" style="display:none;">
+    <form id="page_14_form">
     <div class="col-md-12 mt-2">
         <label for="">Provisional Letter From PWWB:</label>
     </div>
@@ -16,8 +17,8 @@
                 </div>
                 <div class="form-group  col-md-3">
                     <label>Date:</label>
-                    <input type="text" class="form-control text-center datepicker" name="pprovisional_letter_date" placeholder="yyyy-mm-dd"
-                    value="{{$data ? $data['provisional_claim_details']['pprovisional_letter_date'] : ''}}">
+                    <input type="text" class="form-control text-center datepicker" name="provisional_letter_date" placeholder="yyyy-mm-dd"
+                    value="{{$data ? $data['provisional_claim_details']['provisional_letter_date'] : ''}}">
                 </div>
             </div>
         </div>
@@ -29,7 +30,7 @@
         <div class="card-body ">
             <div class="form-row">
                 <div class="form-group col-md-3">
-                    <label>Ammount of Claim Due:</label>
+                    <label>Amount of Claim Due:</label>
                     <input type="text" class="form-control text-center" name="claim_due" placeholder="XXXXX"
                     value="{{$data ? $data['provisional_claim_details']['claim_due'] : ''}}">
                 </div>
@@ -73,4 +74,5 @@
             </div>
         </div>
     </div>
+    </form>
 </div>
