@@ -36,16 +36,19 @@
                 </div>
                 @foreach($mainTable as $value)
                     <div class="form-row mb-2">
-                        <div class="col-md-5">
+                        <div class="col-md-4">
                             <input class="form-control text-center" name="index_id" disabled
                                    value="{{$value->id}}"></input>
                         </div>
-                        <div class="col-md-5">
+                        <div class="col-md-4">
                             <input class="form-control text-center" disabled
                                    value="{{$value->file_received_number}}"></input>
                         </div>
                         <div class="col-md-2">
-                            <a href="/view/{{$value->id}}" class="btn btn-success w-100">VIEW</a>
+                            <a href="/view/{{$value->id}}" class="btn btn-outline-primary w-100">EDIT</a>
+                        </div>
+                        <div class="col-md-2">
+                            <a href="#" class="btn btn-outline-info w-100">VIEW</a>
                         </div>
                     </div>
                 @endforeach
