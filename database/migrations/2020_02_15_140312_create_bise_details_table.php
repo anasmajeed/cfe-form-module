@@ -20,24 +20,24 @@ class CreateBiseDetailsTable extends Migration
                 ->references('id')->on('index_tables')
                 ->onDelete('cascade');
 
-            $table->string('educational_wing_cfe')->nullable();
-            $table->string('course_applied_in')->nullable();
-            $table->string('optional_subject')->nullable();
-            $table->string('others')->nullable();
-            $table->string('course_enrolled_cfe')->nullable();
-            $table->string('course_registered_in')->nullable();
-            $table->string('roll_no')->nullable();
-            $table->string('affiliated_body')->nullable();
-            $table->string('duration_of_course')->nullable();
-            $table->date('admission_date')->nullable();
-            $table->date('ending_date')->nullable();
-            $table->string('academic_term')->nullable();
-            $table->string('shift')->nullable();
-            $table->string('registration_status')->nullable();
-            $table->date('registration_date')->nullable();
-            $table->string('actual_fee')->nullable();
-            $table->string('late_fee')->nullable();
-            $table->string('total_fee')->nullable();
+            $table->string('bise_educational_wing_cfe')->nullable();
+            $table->string('bise_course_applied_in')->nullable();
+            $table->string('bise_optional_subject')->nullable();
+            $table->string('bise_others')->nullable();
+            $table->string('bise_course_enrolled_cfe')->nullable();
+            $table->string('bise_course_registered_in')->nullable();
+            $table->string('bise_roll_no')->nullable();
+            $table->string('bise_affiliated_body')->nullable();
+            $table->string('bise_duration_of_course')->nullable();
+            $table->date('bise_admission_date')->nullable();
+            $table->date('bise_ending_date')->nullable();
+            $table->string('bise_academic_term')->nullable();
+            $table->string('bise_shift')->nullable();
+            $table->string('bise_registration_status')->nullable();
+            $table->date('bise_registration_date')->nullable();
+            $table->string('bise_actual_fee')->nullable();
+            $table->string('bise_late_fee')->nullable();
+            $table->string('bise_total_fee')->nullable();
             $table->timestamps();
         });
     }

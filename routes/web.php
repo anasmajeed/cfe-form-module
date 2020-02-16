@@ -20,6 +20,7 @@ Route::post('/worker-bank-security-details','WorkerBankSecurityDetailController@
 Route::post('/factory-service-details','FactoryDetailController@post');
 Route::post('/factory-death-manager-details','FactoryDeathManagerDetailController@post');
 Route::post('/student-personal-details','StudentPersonalDetailController@post');
+Route::post('/educational-wing-details','EducationalWingCfeController@post');
 
 
 //delete calls

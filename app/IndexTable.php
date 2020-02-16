@@ -33,4 +33,24 @@ class IndexTable extends Model
     public function studentPersonalDetail(){
         return $this->hasOne(StudentPersonalDetail::class);
     }
+
+    public function educationalWingCfe(){
+        return $this->hasOne(EducationalWingCfe::class);
+    }
+
+    public function afDetail(){
+        return $this->hasOne(AfDetail::class);
+    }
+
+    public function biseDetail(){
+        return $this->hasOne(BiseDetail::class);
+    }
+
+    public function imsDetail(){
+        return $this->hasOne(ImsDetail::class);
+    }
+
+    public function vtiDetail(){
+        return $this->hasOne(VtiDetail::class);
+    }
 }

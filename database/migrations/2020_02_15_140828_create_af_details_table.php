@@ -19,23 +19,23 @@ class CreateAfDetailsTable extends Migration
             $table->foreign('index_table_id')
                 ->references('id')->on('index_tables')
                 ->onDelete('cascade');
-            
-            $table->string('course_applied_in')->nullable();
-            $table->string('course_enrolled_in')->nullable();
-            $table->string('Course_Registered_in')->nullable();
-            $table->string('roll_no')->nullable();
-            $table->string('affiliated_body')->nullable();
-            $table->string('duration_of_course')->nullable();
-            $table->date('admission_date')->nullable();
-            $table->date('ending_date')->nullable();
-            $table->string('academic_term')->nullable();
-            $table->string('shift')->nullable();
-            $table->string('registration_status')->nullable();
-            $table->date('registration_date')->nullable();
-            $table->string('actual_fee')->nullable();
-            $table->string('late_fee')->nullable();
-            $table->string('total_fee')->nullable();
-            
+
+            $table->string('af_course_applied_in')->nullable();
+            $table->string('af_course_enrolled_in')->nullable();
+            $table->string('af_course_registered_in')->nullable();
+            $table->string('af_roll_no')->nullable();
+            $table->string('af_affiliated_body')->nullable();
+            $table->string('af_duration_of_course')->nullable();
+            $table->date('af_admission_date')->nullable();
+            $table->date('af_ending_date')->nullable();
+            $table->string('af_academic_term')->nullable();
+            $table->string('af_shift')->nullable();
+            $table->string('af_registration_status')->nullable();
+            $table->date('af_registration_date')->nullable();
+            $table->string('af_actual_fee')->nullable();
+            $table->string('af_late_fee')->nullable();
+            $table->string('af_total_fee')->nullable();
+
             $table->timestamps();
         });
     }
