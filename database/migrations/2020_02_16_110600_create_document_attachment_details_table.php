@@ -36,8 +36,8 @@ class CreateDocumentAttachmentDetailsTable extends Migration
             $table->string('affidavit_original')->nullable();
             $table->string('affidavit_worker_sign')->nullable();
             $table->string('worker_thumb')->nullable();
-            $table->string('outh_commission_attested')->nullable();
-            
+            $table->string('oath_commission_attested')->nullable();
+
             $table->timestamps();
         });
     }

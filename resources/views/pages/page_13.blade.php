@@ -1,4 +1,5 @@
 <div id="page_13" style="display:none;">
+    <form id="page_13_form">
     <div class="col-md-12 mt-2">
         <label for="">Documents Attached:</label>
     </div>
@@ -16,7 +17,7 @@
                             value="{{$data ? $data['document_attachment_details']['result_card_quantity'] : ''}}">
                         </div>
                         <div class="form-group  col-md-4">
-                            <label>Attested by Gazzeted Officer:</label>
+                            <label>Attested by Gazetted Officer:</label>
                             <select  name="result_card_attested" class="form-control">
                                 <option value="yes" {{ $data ? $data['document_attachment_details']['result_card_attested'] == 'yes' ? 'selected' : '' : ''}}>
                                 Yes</option>
@@ -59,7 +60,7 @@
                             value="{{$data ? $data['document_attachment_details']['certificate_quantity'] : ''}}">
                         </div>
                         <div class="form-group  col-md-4">
-                            <label>Attested by Gazzeted Officer:</label>
+                            <label>Attested by Gazetted Officer:</label>
                             <select  name="character_certificate_attested" class="form-control">
                                 <option value="yes" {{ $data ? $data['document_attachment_details']['character_certificate_attested'] == 'yes' ? 'selected' : '' : ''}}>
                                 Yes</option>
@@ -205,11 +206,11 @@
                             </select>
                         </div>
                         <div class="form-group  col-md-3">
-                            <label>Attestation by Outh Commissioner:</label>
-                            <select  name="outh_commission_attested" class="form-control">
-                                <option value="yes" {{ $data ? $data['document_attachment_details']['outh_commission_attested'] == 'yes' ? 'selected' : '' : ''}}>
+                            <label>Attestation by Oath Commissioner:</label>
+                            <select  name="oath_commission_attested" class="form-control">
+                                <option value="yes" {{ $data ? $data['document_attachment_details']['oath_commission_attested'] == 'yes' ? 'selected' : '' : ''}}>
                                 Yes</option>
-                                <option value="no" {{ $data ? $data['document_attachment_details']['outh_commission_attested'] == 'no' ? 'selected' : '' : ''}}>
+                                <option value="no" {{ $data ? $data['document_attachment_details']['oath_commission_attested'] == 'no' ? 'selected' : '' : ''}}>
                                 No</option>
                             </select>
                         </div>
@@ -218,4 +219,5 @@
             </div>
         </div>
     </div>
+    </form>
 </div>
