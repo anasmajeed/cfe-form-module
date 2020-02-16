@@ -9,8 +9,6 @@ class DualCourseDetailFields
     const TABLE_NAME = 'dual_course_details';
     const ID = 'id';
     const INDEX_TABLE_ID = 'index_table_id';
-
-
     const COURSE = 'course';
     const ROLL_NO = 'roll_no';
     const AFFILIATED_BODY = 'affiliated_body';
