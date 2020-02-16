@@ -6,10 +6,10 @@ namespace App\Fields;
 
 class DualCourseDetailFields
 {
-    const TABLE_NAME = 'bise_details';
+    const TABLE_NAME = 'dual_course_details';
     const ID = 'id';
     const INDEX_TABLE_ID = 'index_table_id';
-    
+
 
     const COURSE = 'course';
     const ROLL_NO = 'roll_no';
@@ -25,6 +25,14 @@ class DualCourseDetailFields
     const ACTUAL_FEE = 'actual_fee';
     const LATE_FEE = 'late_fee';
     const TOTAL_FEE = 'total_fee';
+    const PREVIOUS_COURSE = 'previous_course';
+    const PREVIOUS_AFFILIATED_BODY = 'previous_affiliated_body';
+    const PREVIOUS_DURATION_OF_COURSE = 'previous_duration_of_course';
+    const PREVIOUS_ROLL_NO = 'previous_roll_no';
+    const PREVIOUS_PASSING_DATE = 'previous_passing_date';
+    const PREVIOUS_TOTAL_MARKS = 'previous_total_marks';
+    const PREVIOUS_MARKS_OBTAINED = 'previous_marks_obtained';
+    const PREVIOUS_CGPA = 'previous_cgpa';
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 }

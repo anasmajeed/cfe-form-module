@@ -29,6 +29,7 @@ class HomeController extends Controller
         $object['af_details'] = $mainObject->afDetail ? $mainObject->afDetail->toArray() : null;
         $object['bise_details'] = $mainObject->biseDetail ? $mainObject->biseDetail->toArray() : null;
         $object['vti_details'] = $mainObject->vtiDetail ? $mainObject->vtiDetail->toArray() : null;
+        $object['dual_course_details'] = $mainObject->dualCourseDetail ? $mainObject->dualCourseDetail->toArray() : null;
         $sessionDates = ['2019-2021','2021-2023','2023-2025'];
         $districtNames = ['RahimYarKhan','Lahore','Attock','Bahawalpur'];
         return view('welcome',['data' => $object,'sessionDates' => $sessionDates,'districtNames' => $districtNames]);

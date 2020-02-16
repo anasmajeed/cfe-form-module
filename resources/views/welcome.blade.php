@@ -61,7 +61,7 @@
 <script>
     let container_no = 0;
     let container_array = ['#page_01', '#page_02', '#page_03', '#page_04', '#page_05', '#page_06', '#page_07', '#page_11', '#page_12', '#page_13', '#page_14', '#page_15', '#page_16', '#page_17', '#page_18'];
-    let api_url_array = ['/index-table','/worker-personal-details','/worker-bank-security-details','/factory-service-details','/factory-death-manager-details','/student-personal-details','/educational-wing-details'];
+    let api_url_array = ['/index-table','/worker-personal-details','/worker-bank-security-details','/factory-service-details','/factory-death-manager-details','/student-personal-details','/educational-wing-details','/dual_course-details'];
     let index_id = $('meta[name="index_id"]').attr('content');
     setDisplayForButtons();
     $('.datepicker').each(function (index, pick) {

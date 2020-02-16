@@ -454,7 +454,7 @@
                                     </div>
                                     <div class="form-group  col-md-2">
                                         <label>Dual course:</label>
-                                        <select name="vti_dual_course" class="form-control">
+                                        <select id="vti_dual_course" name="vti_dual_course" class="form-control" onchange="setDualCoursePageDisplay()">
                                             <option value="yes" {{ $data ? $data['vti_details']['vti_dual_course'] == 'yes' ? 'selected' : '' : ''}}>Yes</option>
                                             <option value="no" {{ $data ? $data['vti_details']['vti_dual_course'] == 'no' ? 'selected' : '' : ''}}>No</option>
                                         </select>
@@ -639,6 +639,21 @@
             else{
                 $('#vti_further_file_div').fadeOut();
                 $('#vti_follow_up_date').fadeOut();
+            }
+        }
+
+        function setDualCoursePageDisplay() {
+            let selected = $('#vti_dual_course option:selected').val();
+            if(selected == 'yes'){
+                if(container_array.indexOf('#page_11') === -1) {
+                    container_array.splice(7, 0, '#page_11');
+                    api_url_array.splice(7, 0, '/dual_course-details');
+                }
+            }
+            else{
+                $('#page_11').attr('style','display:none');
+                container_array.splice(7,1);
+                api_url_array.splice(7,1);
             }
         }
     </script>

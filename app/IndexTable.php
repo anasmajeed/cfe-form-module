@@ -53,4 +53,8 @@ class IndexTable extends Model
     public function vtiDetail(){
         return $this->hasOne(VtiDetail::class);
     }
+
+    public function dualCourseDetail(){
+        return $this->hasOne(DualCourseDetail::class);
+    }
 }
