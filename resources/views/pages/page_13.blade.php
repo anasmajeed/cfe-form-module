@@ -56,7 +56,7 @@
                         <div class="form-group  col-md-4">
                             <label>Quantity Min(04):</label>
                             <input type="text" class="form-control text-center" name="certificate_quantity" placeholder="XXXXX"
-                            value="{{$data ? $data['document_attachment_details']['certificate_quantity'] : ''}}>
+                            value="{{$data ? $data['document_attachment_details']['certificate_quantity'] : ''}}">
                         </div>
                         <div class="form-group  col-md-4">
                             <label>Attested by Gazzeted Officer:</label>
