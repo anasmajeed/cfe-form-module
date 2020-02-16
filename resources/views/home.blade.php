@@ -24,13 +24,13 @@
             </div>
             <div class="card-body">
                 <div class="form-row mb-3">
-                    <div class="col-md-5 text-center border-1 border border-dark">
+                    <div class="col-md-4 text-center border-1 border border-dark">
                         Index Id
                     </div>
-                    <div class="col-md-5 text-center border-1 border border-dark">
+                    <div class="col-md-4 text-center border-1 border border-dark">
                         File Receiving Number
                     </div>
-                    <div class="col-md-2 text-center border-1 border border-dark">
+                    <div class="col-md-4 text-center border-1 border border-dark">
                         Action
                     </div>
                 </div>
