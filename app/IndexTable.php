@@ -57,4 +57,16 @@ class IndexTable extends Model
     public function dualCourseDetail(){
         return $this->hasOne(DualCourseDetail::class);
     }
+
+    public function transportHotelDetail(){
+        return $this->hasOne(TransportHostelDetail::class);
+    }
+
+    public function documentAttachmentDetail(){
+        return $this->hasOne(DocumentAttachmentDetail::class);
+    }
+
+    public function provisionalClaimDetail(){
+        return $this->hasOne(ProvisionalClaimDetail::class);
+    }
 }

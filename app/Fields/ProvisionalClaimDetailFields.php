@@ -4,12 +4,12 @@
 namespace App\Fields;
 
 
-class DualCourseDetailFields
+class ProvisionalClaimDetailFields
 {
     const TABLE_NAME = 'provisional_claim_details';
     const ID = 'id';
     const INDEX_TABLE_ID = 'index_table_id';
-    
+
     const STATUS = 'status';
     const PROVISIONAL_LETTER_DATE = 'pprovisional_letter_date';
     const CLAIM_DUE = 'claim_due';

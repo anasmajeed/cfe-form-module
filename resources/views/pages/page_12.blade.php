@@ -1,4 +1,5 @@
 <div id="page_12" style="display:none;">
+    <form id="page_12_form">
     <div class="col-md-12 mt-2">
         <label for="">Transport Details:</label>
     </div>
@@ -30,7 +31,8 @@
             <div class="form-row">
                 <div class="form-group col-md-3">
                     <label>Hostel Facility:</label>
-                    <select  name="hostel_facility" class="form-control">
+                    <select id="hostel_facility_select" name="hostel_facility" class="form-control" onchange="setHostelRowDisplay()">
+                        <option disabled selected value="">Select Hostel Facility</option>
                         <option value="yes" {{ $data ? $data['transport_hostel_details']['hostel_facility'] == 'yes' ? 'selected' : '' : ''}}>
                         Yes</option>
                         <option value="no" {{ $data ? $data['transport_hostel_details']['hostel_facility'] == 'no' ? 'selected' : '' : ''}}>
@@ -38,7 +40,7 @@
                     </select>
                 </div>
             </div>
-            <div class="form-row">
+            <div class="form-row" id="hostel_facility_div" style="display: none">
                 <div class="form-group col-md-3">
                     <label>Hostel Name:</label>
                     <input type="text" class="form-control text-center" name="hostel_name" placeholder="XXXXX"
@@ -63,4 +65,20 @@
             </div>
         </div>
     </div>
+    </form>
 </div>
+
+@section('script_page_12')
+    <script>
+        setHostelRowDisplay();
+        function setHostelRowDisplay() {
+            let selected = $('#hostel_facility_select option:selected').val();
+            if(selected == 'yes') {
+                $('#hostel_facility_div').fadeIn();
+            }
+            else{
+                $('#hostel_facility_div').fadeOut();
+            }
+        }
+    </script>
+@endsection

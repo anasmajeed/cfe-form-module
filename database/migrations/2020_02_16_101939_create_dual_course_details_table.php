@@ -33,6 +33,7 @@ class CreateDualCourseDetailsTable extends Migration
             $table->string('registration_date')->nullable();
             $table->string('late_fee')->nullable();
             $table->string('total_fee')->nullable();
+            $table->string('actual_fee')->nullable();
             $table->string('previous_course')->nullable();
             $table->string('previous_affiliated_body')->nullable();
             $table->string('previous_duration_of_course')->nullable();

@@ -613,6 +613,7 @@
             $('#' + wings_array[$('#cfe_wing_selection option:selected').val()]).fadeIn();
             setBiseFieldsDisplay();
             setVtiFieldsDisplay();
+            setDualCoursePageDisplay();
         }
 
         function setBiseFieldsDisplay() {
