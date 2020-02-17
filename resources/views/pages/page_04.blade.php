@@ -274,6 +274,7 @@
 
             $('#service_detail_parent').append(clone);
             let button = clone.find('#removeServiceDetailButton').removeAttr('disabled');
+            setAccumulatedYears();
         }
 
         function removeServiceDetail(event) {
@@ -299,6 +300,7 @@
                 });
             }
             $(event.target).parent().parent().remove();
+            setAccumulatedYears();
         }
 
         function setAccumulatedYears() {
