@@ -45,10 +45,10 @@
                                    value="{{$value->file_received_number}}"></input>
                         </div>
                         <div class="col-md-2">
-                            <a href="/view/{{$value->id}}" class="btn btn-outline-primary w-100">EDIT</a>
+                            <a href="/edit/{{$value->id}}" class="btn btn-outline-primary w-100">EDIT</a>
                         </div>
                         <div class="col-md-2">
-                            <a href="#" class="btn btn-outline-info w-100">VIEW</a>
+                            <a href="/view/{{$value->id}}" class="btn btn-outline-info w-100">VIEW</a>
                         </div>
                     </div>
                 @endforeach
