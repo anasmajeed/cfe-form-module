@@ -1,4 +1,5 @@
 <div id="page_11" style="display:none;">
+    <form id="page_11_form">
     <div class="col-md-12 mt-2">
         <label for="">Dual Course(For CFE purpose):</label>
     </div>
@@ -129,46 +130,47 @@
             <div class="form-row">
                 <div class="form-group col-md-3">
                     <label>Course:</label>
-                    <select  name="" class="form-control">
-                        <option value="xxxxx">XXXXX</option>
+                    <select  name="previous_course" class="form-control">
+                        <option value="xxxxx" {{ $data ? $data['dual_course_details']['previous_course'] == 'xxxxx' ? 'selected' : '' : ''}}>XXXXX</option>
                     </select>
                 </div>
                 <div class="form-group  col-md-3">
                     <label>Affiliated Body:</label>
-                    <select  name="" class="form-control">
-                        <option value="xxxxx">XXXXX</option>
+                    <select  name="previous_affiliated_body" class="form-control">
+                        <option value="xxxxx" {{ $data ? $data['dual_course_details']['previous_affiliated_body'] == 'xxxxx' ? 'selected' : '' : ''}}>XXXXX</option>
                     </select>
                 </div>
                 <div class="form-group  col-md-3">
                     <label>Duration of Course:</label>
-                    <select  name="" class="form-control">
-                        <option value="xxxxx">XXXXX</option>
+                    <select  name="previous_duration_of_course" class="form-control">
+                        <option value="xxxxx" {{ $data ? $data['dual_course_details']['previous_duration_of_course'] == 'xxxxx' ? 'selected' : '' : ''}}>XXXXX</option>
                     </select>
                 </div>
                 <div class="form-group  col-md-3">
                     <label>Roll No:</label>
-                    <input type="text" class="form-control text-center" name="roll_no" placeholder="XXXXX">
+                    <input type="text" class="form-control text-center" name="previous_roll_no" placeholder="XXXXX" value="{{$data ? $data['dual_course_details']['previous_roll_no'] : ''}}">
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-3">
                     <label>Passing Date:</label>
-                    <input type="text" class="form-control text-center datepicker" name="passing_date"
+                    <input type="text" class="form-control text-center datepicker" name="previous_passing_date" value="{{$data ? $data['dual_course_details']['previous_passing_date'] : ''}}"
                            placeholder="yyyy-mm-dd">
                 </div>
                 <div class="form-group  col-md-3">
                     <label>Total Marks:</label>
-                    <input type="text" class="form-control text-center" name="total_marks" placeholder="XXXXX">
+                    <input type="text" class="form-control text-center" name="previous_total_marks" placeholder="XXXXX" value="{{$data ? $data['dual_course_details']['previous_total_marks'] : ''}}">
                 </div>
                 <div class="form-group  col-md-3">
                     <label>Marks Obtained:</label>
-                    <input type="text" class="form-control text-center" name="marks_obtained" placeholder="XXXXX">
+                    <input type="text" class="form-control text-center" name="previous_marks_obtained" placeholder="XXXXX" value="{{$data ? $data['dual_course_details']['previous_marks_obtained'] : ''}}">
                 </div>
                 <div class="form-group  col-md-3">
                     <label>Percentage/CGPA:</label>
-                    <input type="text" class="form-control text-center" name="cgpa" placeholder="XXXXX">
+                    <input type="text" class="form-control text-center" name="previous_cgpa" placeholder="XXXXX" value="{{$data ? $data['dual_course_details']['previous_cgpa'] : ''}}">
                 </div>
             </div>
         </div>
     </div>
+    </form>
 </div>

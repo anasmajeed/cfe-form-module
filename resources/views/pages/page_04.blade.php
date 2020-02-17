@@ -187,11 +187,11 @@
                             <input class="form-control rounded-0" name="name[]" type="text" placeholder="XXXXX">
                         </div>
                         <div class="border border-bottom-0 col-md-1 p-0">
-                            <input type="text" class="form-control rounded-0 datepicker" name="appointment_date[]"
+                            <input type="text" class="form-control rounded-0 datepickerAccumulated" name="appointment_date[]"
                                    placeholder="dd/mm/yyyy">
                         </div>
                         <div class="border border-bottom-0 col-md-1 p-0">
-                            <input type="text" class="form-control rounded-0 datepicker" name="job_leaving_date[]"
+                            <input type="text" class="form-control rounded-0 datepickerAccumulated" name="job_leaving_date[]"
                                    placeholder="dd/mm/yyyy">
                         </div>
                         <div class="border border-bottom-0 col-md-1 p-0">
@@ -313,7 +313,7 @@
                 // differenceInYears = yearsDiff(new Date(date1Array[0],date1Array[1]-1,date1Array[2]),new Date(date2Array[0],date2Array[1]-1,date2Array[2]));
 
 
-                differenceInYears = differenceInMonths / 12;
+                let differenceInYears = differenceInMonths / 12;
                 // differenceInMonths = differenceInMonths % 12;
                 // $(element).find('input[name="total_period[]"]').val('');
                 $(element).find('input[name="total_period[]"]').val((differenceInYears).toFixed(2));

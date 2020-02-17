@@ -24,28 +24,31 @@
             </div>
             <div class="card-body">
                 <div class="form-row mb-3">
-                    <div class="col-md-5 text-center border-1 border border-dark">
+                    <div class="col-md-4 text-center border-1 border border-dark">
                         Index Id
                     </div>
-                    <div class="col-md-5 text-center border-1 border border-dark">
+                    <div class="col-md-4 text-center border-1 border border-dark">
                         File Receiving Number
                     </div>
-                    <div class="col-md-2 text-center border-1 border border-dark">
+                    <div class="col-md-4 text-center border-1 border border-dark">
                         Action
                     </div>
                 </div>
                 @foreach($mainTable as $value)
                     <div class="form-row mb-2">
-                        <div class="col-md-5">
+                        <div class="col-md-4">
                             <input class="form-control text-center" name="index_id" disabled
                                    value="{{$value->id}}"></input>
                         </div>
-                        <div class="col-md-5">
+                        <div class="col-md-4">
                             <input class="form-control text-center" disabled
                                    value="{{$value->file_received_number}}"></input>
                         </div>
                         <div class="col-md-2">
-                            <a href="/view/{{$value->id}}" class="btn btn-success w-100">VIEW</a>
+                            <a href="/view/{{$value->id}}" class="btn btn-outline-primary w-100">EDIT</a>
+                        </div>
+                        <div class="col-md-2">
+                            <a href="#" class="btn btn-outline-info w-100">VIEW</a>
                         </div>
                     </div>
                 @endforeach

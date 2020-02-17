@@ -18,7 +18,7 @@ class HomeController extends Controller
         $object['index_id'] = $mainObject->id;
         $object['worker_family_member_details'] = $mainObject->workerFamilyMemberDetail ? $mainObject->workerFamilyMemberDetail->toArray() : null;
         $object['worker_personal_details'] = $mainObject->workerPersonalDetail ? $mainObject->workerPersonalDetail->toArray() : null;
-        $object['worker_bank_security_details'] = $mainObject->workerBankSecurityDetail->toArray();
+        $object['worker_bank_security_details'] = $mainObject->workerBankSecurityDetail ? $mainObject->workerBankSecurityDetail->toArray() : null;
         $object['factory_details'] = $mainObject->factoryDetail ? $mainObject->factoryDetail->toArray() : null;
         $object['service_details'] = $mainObject->serviceDetail ? $mainObject->serviceDetail->toArray() : null;
         $object['factory_death_manager_details'] = $mainObject->factoryDeathManagerDetail ? $mainObject->factoryDeathManagerDetail->toArray() : null;
@@ -29,6 +29,10 @@ class HomeController extends Controller
         $object['af_details'] = $mainObject->afDetail ? $mainObject->afDetail->toArray() : null;
         $object['bise_details'] = $mainObject->biseDetail ? $mainObject->biseDetail->toArray() : null;
         $object['vti_details'] = $mainObject->vtiDetail ? $mainObject->vtiDetail->toArray() : null;
+        $object['dual_course_details'] = $mainObject->dualCourseDetail ? $mainObject->dualCourseDetail->toArray() : null;
+        $object['transport_hostel_details'] = $mainObject->transportHotelDetail ? $mainObject->transportHotelDetail->toArray() : null;
+        $object['document_attachment_details'] = $mainObject->documentAttachmentDetail ? $mainObject->documentAttachmentDetail->toArray() : null;
+        $object['provisional_claim_details'] = $mainObject->provisionalClaimDetail ? $mainObject->provisionalClaimDetail->toArray() : null;
         $sessionDates = ['2019-2021','2021-2023','2023-2025'];
         $districtNames = ['RahimYarKhan','Lahore','Attock','Bahawalpur'];
         return view('welcome',['data' => $object,'sessionDates' => $sessionDates,'districtNames' => $districtNames]);

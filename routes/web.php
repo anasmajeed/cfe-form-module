@@ -21,6 +21,10 @@ Route::post('/factory-service-details','FactoryDetailController@post');
 Route::post('/factory-death-manager-details','FactoryDeathManagerDetailController@post');
 Route::post('/student-personal-details','StudentPersonalDetailController@post');
 Route::post('/educational-wing-details','EducationalWingCfeController@post');
+Route::post('/dual_course-details','DualCourseDetailController@post');
+Route::post('/transport-hostel-details','TransportHostelDetailController@post');
+Route::post('/document-attachment-details','DocumentAttachmentDetailController@post');
+Route::post('/provisional-claim-details','ProvisionalClaimDetailController@post');
 
 
 //delete calls

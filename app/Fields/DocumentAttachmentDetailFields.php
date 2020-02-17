@@ -19,7 +19,7 @@ class DocumentAttachmentDetailFields
     const COLLAGE_CARD_QUANTITY = 'collage_card_quantity';
     const TRANSPORT_CARD_QUANTITY = 'transport_card_quantity';
     const ADMISSION_LETTER_ORIGINAL = 'admission_letter_original';
-    const ASMISSION_LETTER_PRINCIPAL_SIGN = 'admission_letter_principal_sign';
+    const ADMISSION_LETTER_PRINCIPAL_SIGN = 'admission_letter_principal_sign';
     const BONAFIDE_LETTER_ORIGINAL = 'bonafide_letter_original';
     const BONAFIDE_LETTER_PRINCIPAL_SIGN = 'bonafide_letter_principal_sign';
     const CLAIM_LETTER_ORIGINAL = 'claim_letter_original';
@@ -27,7 +27,7 @@ class DocumentAttachmentDetailFields
     const AFFIDAVIT_ORIGINAL = 'affidavit_original';
     const AFFIDAVIT_WORKER_SIGN = 'affidavit_worker_sign';
     const WORKER_THUMB = 'worker_thumb';
-    const OUTH_COMMISSION_ATTESTED = 'outh_commission_attested';
+    const OATH_COMMISSION_ATTESTED = 'oath_commission_attested';
 
 
     const CREATED_AT = 'created_at';
