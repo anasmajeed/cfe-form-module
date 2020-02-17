@@ -17,25 +17,30 @@
                             <div class="form-row">
                                 <div class="form-group col-md-3">
                                     <label>Exam Fee Deposit status:</label>
-                                    <select id="districts" name="districtlist" class="form-control">
-                                        <option value="yes">Yes</option>
-                                        <option value="no">No</option>
+                                    <select  name="fee_deposit_status" class="form-control">
+                                        <option value="yes" {{ $data ? $data['first_annual_details']['status'] == 'issued' ? 'selected' : '' : ''}}>
+                                        Yes</option>
+                                        <option value="no" {{ $data ? $data['first_annual_details']['status'] == 'issued' ? 'selected' : '' : ''}}>
+                                        No</option>
                                     </select>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label>Date:</label>
-                                    <input type="text" class="form-control text-center datepicker" name="date"
-                                           placeholder="yyyy-mm-dd">
+                                    <input type="text" class="form-control text-center datepicker" name="exam_fee_date"
+                                            placeholder="yyyy-mm-dd"
+                                            value="{{$data ? $data['first_annual_details']['exam_fee_date'] : ''}}">
                                 </div>
                                 <div class="form-group  col-md-3">
                                     <label>Amount:</label>
                                     <input type="text" class="form-control text-center" name="amount"
-                                           placeholder="XXXXX">
+                                            placeholder="XXXXX"
+                                            value="{{$data ? $data['first_annual_details']['amount'] : ''}}">
                                 </div>
                                 <div class="form-group  col-md-3">
                                     <label>Roll No:</label>
                                     <input type="text" class="form-control text-center" name="roll_no"
-                                           placeholder="XXXXX">
+                                            placeholder="XXXXX"
+                                            value="{{$data ? $data['first_annual_details']['roll_no'] : ''}}">
                                 </div>
                             </div>
                         </div>
@@ -74,34 +79,34 @@
                             </div>
                             <div class="form-row" id="worker_detail">
                                 <div class="col-md-1 p-0">
-                                    <select id="" name="result" class="form-control">
+                                    <select name="result[]" class="form-control">
                                         <option value="pass">Pass</option>
                                         <option value="fail">Fail</option>
                                     </select>
                                 </div>
                                 <div class="col-md-1 p-0">
-                                    <select id="" name="fail" class="form-control">
+                                    <select name="fail[]" class="form-control">
                                         <option value="promoted">Promoted</option>
                                         <option value="notPromoted">Not Promoted</option>
                                     </select>
                                 </div>
                                 <div class="col-md-3 p-0">
-                                    <select id="" name="next_appearance" class="form-control">
+                                    <select name="next_appearance[]" class="form-control">
                                         <option value="yes">Yes</option>
                                         <option value="no">No</option>
                                     </select>
                                 </div>
                                 <div class="col-md-2 p-0">
                                     <input type="text" class="form-control text-center datepicker"
-                                           name="next_appearance_date" placeholder="yyyy-mm-dd">
+                                    name="next_appearance_date[]" placeholder="yyyy-mm-dd">
                                 </div>
                                 <div class="col-md-2 p-0">
                                     <input type="text" class="form-control text-center datepicker"
-                                           name="last_chance_date" placeholder="yyyy-mm-dd">
+                                    name="last_chance_date[]" placeholder="yyyy-mm-dd">
                                 </div>
                                 <div class="col-md-2 p-0">
                                     <input type="text" class="form-control text-center datepicker" name="passing_date"
-                                           placeholder="yyyy-mm-dd">
+                                    placeholder="yyyy-mm-dd">
                                 </div>
                                 <div class="col-md-1">
                                     <button id="removeFamilyDetailButton" type="button" class="btn btn-danger"
@@ -119,16 +124,20 @@
                             <div class="form-row">
                                 <div class="form-group col-md-4">
                                     <label>Same Course:</label>
-                                    <select id="districts" name="districtlist" class="form-control">
-                                        <option value="yes">Yes</option>
-                                        <option value="no">No</option>
+                                    <select  name="same_course" class="form-control">
+                                        <option value="yes" {{ $data ? $data['first_annual_details']['same_course'] == 'yes' ? 'selected' : '' : ''}}>
+                                        Yes</option>
+                                        <option value="no" {{ $data ? $data['first_annual_details']['same_course'] == 'no' ? 'selected' : '' : ''}}>
+                                        No</option>
                                     </select>
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label>Changed Course:</label>
-                                    <select id="districts" name="districtlist" class="form-control">
-                                        <option value="yes">Yes</option>
-                                        <option value="no">No</option>
+                                    <select  name="changed_course" class="form-control">
+                                        <option value="yes" {{ $data ? $data['first_annual_details']['changed_course'] == 'yes' ? 'selected' : '' : ''}}>
+                                        Yes</option>
+                                        <option value="no" {{ $data ? $data['first_annual_details']['changed_course'] == 'no' ? 'selected' : '' : ''}}>
+                                        No</option>
                                     </select>
                                 </div>
                             </div>
