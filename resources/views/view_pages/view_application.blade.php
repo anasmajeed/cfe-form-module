@@ -20,6 +20,8 @@
         <!-- Content here -->
         <div id="container_holder">
             @include('view_pages.page_01_view')
+            @include('view_pages.page_02_view')
+            @include('view_pages.page_03_view')
         </div>
     </div>
 </body>
