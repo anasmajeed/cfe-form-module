@@ -20,7 +20,7 @@
             </div>
         </div>
         <div class="col-md-12">
-          <label for="">Receipt and Submission</label>
+            <label for="">Receipt and Submission</label>
         </div>
         <div class="card shadow p-3 w-100">
             <div class="card-body">
@@ -70,12 +70,9 @@
                         <input type="text" class="form-control" id="inputAddress" placeholder="XXXXX" name="pending_files_with_remarks" value="{{$data ? $data['pending_files_with_remarks'] : ''}}">
                     </div>
                 </div>
-
             </div>
         </div>
-
         <!-- Add Details -->
-
         <div class="card shadow mt-5 p-3 w-100">
             <div class="card-body" id="worker_detail_parent">
                 <div class="form-row">
