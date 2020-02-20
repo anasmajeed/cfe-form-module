@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSecondSemesterDetailsTable extends Migration
+class CreateFourthSemesterDetailsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateSecondSemesterDetailsTable extends Migration
      */
     public function up()
     {
-        Schema::create('second_semester_details', function (Blueprint $table) {
+        Schema::create('fourth_semester_details', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('index_table_id');
             $table->foreign('index_table_id')
@@ -32,7 +32,6 @@ class CreateSecondSemesterDetailsTable extends Migration
             $table->date('exam_date')->nullable();
             $table->string('amount')->nullable();
             $table->string('roll_no')->nullable();
-
             $table->timestamps();
         });
     }
@@ -44,9 +43,9 @@ class CreateSecondSemesterDetailsTable extends Migration
      */
     public function down()
     {
-        Schema::table('second_semester_details', function(Blueprint $table) {
+        Schema::table('fourth_semester_details', function(Blueprint $table) {
             $table->dropForeign(['index_table_id']);
         });
-        Schema::dropIfExists('second_semester_details');
+        Schema::dropIfExists('fourth_semester_details');
     }
 }
