@@ -119,22 +119,22 @@
                         <div class="form-row" id="worker_detail">
                             <div class="border col-md-1 p-0">
                                 <label>
-                                    {{$worker_details['serial_no']? $$worker_details['serial_no'] : '--'}}
+                                    {{$worker_details['serial_no']? $worker_details['serial_no'] : '--'}}
                                 </label>
                             </div>
                             <div class="border col-md-2 p-0">
                                 <label>
-                                    {{$worker_details['worker_name']? $$worker_details['worker_name'] : '--'}}
+                                    {{$worker_details['worker_name']? $worker_details['worker_name'] : '--'}}
                                 </label>
                             </div>
                             <div class="border col-md-2 p-0">
                                 <label>
-                                    {{$worker_details['worker_cnic']? $$worker_details['worker_cnic'] : '--'}}
+                                    {{$worker_details['worker_cnic']? $worker_details['worker_cnic'] : '--'}}
                                 </label>
                             </div>
                             <div class="border col-md-1 p-0">
                                 <label>
-                                    {{$worker_details['student_name']? $$worker_details['student_name'] : '--'}}
+                                    {{$worker_details['student_name']? $worker_details['student_name'] : '--'}}
                                 </label>
                             </div>
                             <div class="border col-md-1 p-0">

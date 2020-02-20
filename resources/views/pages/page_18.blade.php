@@ -14,15 +14,18 @@
                             <div class="form-row">
                                 <div class="form-group col-md-3">
                                     <label>Status:</label>
-                                    <select id="districts" name="districtlist" class="form-control">
-                                        <option value="yes">Yes</option>
-                                        <option value="no">No</option>
+                                    <select  name="cell_status" class="form-control">
+                                        <option value="yes" {{ $data ? $data['first_semester_details']['cell_status'] == 'yes' ? 'selected' : '' : ''}}>
+                                        Yes</option>
+                                        <option value="no" {{ $data ? $data['first_semester_details']['cell_status'] == 'no' ? 'selected' : '' : ''}}>
+                                        No</option>
                                     </select>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label>Date:</label>
-                                    <input type="text" class="form-control text-center datepicker" name="date"
-                                           placeholder="yyyy-mm-dd">
+                                    <input type="text" class="form-control text-center datepicker" name="cell_date"
+                                           placeholder="yyyy-mm-dd"
+                                           value="{{$data ? $data['first_semester_details']['cell_date'] : ''}}">
                                 </div>
                             </div>
                         </div>
@@ -37,19 +40,23 @@
                     <div class="form-row">
                         <div class="form-group col-md-3">
                             <label>Status:</label>
-                            <select id="districts" name="districtlist" class="form-control">
-                                <option value="yes">Yes</option>
-                                <option value="no">No</option>
+                            <select  name="pwwb_status" class="form-control">
+                                <option value="yes" {{ $data ? $data['first_semester_details']['pwwb_status'] == 'yes' ? 'selected' : '' : ''}}>
+                                Yes</option>
+                                <option value="no" {{ $data ? $data['first_semester_details']['pwwb_status'] == 'no' ? 'selected' : '' : ''}}>
+                                No</option>
                             </select>
                         </div>
                         <div class="form-group col-md-3">
                             <label>Date:</label>
-                            <input type="text" class="form-control text-center datepicker" name="date"
-                                   placeholder="yyyy-mm-dd">
+                            <input type="text" class="form-control text-center datepicker" name="pwwb_date"
+                                   placeholder="yyyy-mm-dd"
+                                   value="{{$data ? $data['first_semester_details']['pwwb_date'] : ''}}">
                         </div>
                         <div class="form-group col-md-3">
                             <label>Diary No. in PWWB:</label>
-                            <input type="text" class="form-control text-center" name="diary_pwwb" placeholder="XXXXX">
+                            <input type="text" class="form-control text-center" name="diary_pwwb" placeholder="XXXXX"
+                            value="{{$data ? $data['first_semester_details']['diary_pwwb'] : ''}}">
                         </div>
                     </div>
                 </div>
@@ -63,24 +70,29 @@
                         <div class="form-group col-md-3">
                             <label>Amount of Claim Due:</label>
                             <input type="text" class="form-control text-center" name="amount_claim_due"
-                                   placeholder="XXXXX">
+                                   placeholder="XXXXX"
+                                   value="{{$data ? $data['first_semester_details']['amount_claim_due'] : ''}}">
                         </div>
                         <div class="form-group col-md-3">
                             <label>Status of Claimed Received:</label>
-                            <select id="districts" name="districtlist" class="form-control">
-                                <option value="yes">Yes</option>
-                                <option value="no">No</option>
+                            <select  name="claim_status" class="form-control">
+                                <option value="yes" {{ $data ? $data['first_semester_details']['claim_status'] == 'yes' ? 'selected' : '' : ''}}>
+                                Yes</option>
+                                <option value="no" {{ $data ? $data['first_semester_details']['claim_status'] == 'no' ? 'selected' : '' : ''}}>
+                                No</option>
                             </select>
                         </div>
                         <div class="form-group col-md-3">
                             <label>Amount Received:</label>
                             <input type="text" class="form-control text-center" name="amount_received"
-                                   placeholder="XXXXX">
+                                   placeholder="XXXXX"
+                                   value="{{$data ? $data['first_semester_details']['amount_received'] : ''}}">
                         </div>
                         <div class="form-group col-md-3">
                             <label>Date:</label>
-                            <input type="text" class="form-control text-center datepicker" name="date"
-                                   placeholder="yyyy-mm-dd">
+                            <input type="text" class="form-control text-center datepicker" name="claim_date"
+                                   placeholder="yyyy-mm-dd"
+                                   value="{{$data ? $data['first_semester_details']['claim_date'] : ''}}">
                         </div>
                     </div>
                 </div>
@@ -98,26 +110,31 @@
                             <div class="form-row">
                                 <div class="form-group col-md-3">
                                     <label>Status:</label>
-                                    <select id="districts" name="districtlist" class="form-control">
-                                        <option value="yes">Yes</option>
-                                        <option value="no">No</option>
+                                    <select  name="exam_status" class="form-control">
+                                        <option value="yes" {{ $data ? $data['first_semester_details']['exam_status'] == 'yes' ? 'selected' : '' : ''}}>
+                                        Yes</option>
+                                        <option value="no" {{ $data ? $data['first_semester_details']['exam_status'] == 'no' ? 'selected' : '' : ''}}>
+                                        No</option>
                                     </select>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label>Date:</label>
-                                    <input type="text" class="form-control text-center datepicker" name="date"
-                                           placeholder="yyyy-mm-dd">
+                                    <input type="text" class="form-control text-center datepicker" name="exam_date"
+                                           placeholder="yyyy-mm-dd"
+                                           value="{{$data ? $data['first_semester_details']['exam_date'] : ''}}">
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label>Amount:</label>
                                     <input type="text" class="form-control text-center" name="amount"
-                                           placeholder="XXXXX">
+                                           placeholder="XXXXX"
+                                           value="{{$data ? $data['first_semester_details']['amount'] : ''}}">
                                 </div>
 
                                 <div class="form-group col-md-3">
                                     <label>Roll No:</label>
                                     <input type="text" class="form-control text-center" name="roll_no"
-                                           placeholder="XXXXX">
+                                           placeholder="XXXXX"
+                                           value="{{$data ? $data['first_semester_details']['roll_no'] : ''}}">
                                 </div>
                             </div>
                         </div>
