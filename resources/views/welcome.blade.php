@@ -12,8 +12,8 @@
 
     <title>CFE FORM</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta name="index_id" content="{{ $data['index_id'] ?? ''}}">
-{{--    <meta name="index_id" content="13">--}}
+{{--    <meta name="index_id" content="{{ $data['index_id'] ?? ''}}">--}}
+    <meta name="index_id" content="13">
 </head>
 <body>
 
@@ -27,10 +27,6 @@
         @include('pages.page_05')
         @include('pages.page_06')
         @include('pages.page_07')
-        @include('pages.page_08')
-        @include('pages.page_09')
-        @include('pages.page_10')
-        @include('pages.page_11')
         @include('pages.page_12')
         @include('pages.page_13')
         @include('pages.page_14')
@@ -60,8 +56,8 @@
 <script src="{{asset('js/bootstrap-datepicker.js')}}"></script>
 <script>
     let container_no = 0;
-    let container_array = ['#page_01', '#page_02', '#page_03', '#page_04', '#page_05', '#page_06', '#page_07', '#page_11', '#page_12', '#page_13', '#page_14', '#page_15', '#page_16', '#page_17', '#page_18'];
-    let api_url_array = ['/index-table','/worker-personal-details','/worker-bank-security-details','/factory-service-details','/factory-death-manager-details','/student-personal-details','/educational-wing-details','/dual_course-details','/transport-hostel-details','/document-attachment-details','/provisional-claim-details'];
+    let container_array = ['#page_01', '#page_02', '#page_03', '#page_04', '#page_05', '#page_06', '#page_07', '#page_12', '#page_13', '#page_14', '#page_15','#page_16', '#page_17', '#page_18'];
+    let api_url_array = ['/index-table','/worker-personal-details','/worker-bank-security-details','/factory-service-details','/factory-death-manager-details','/student-personal-details','/educational-wing-details','/transport-hostel-details','/document-attachment-details','/provisional-claim-details'];
     let index_id = $('meta[name="index_id"]').attr('content');
     setDisplayForButtons();
     $('.datepicker').each(function (index, pick) {

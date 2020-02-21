@@ -8,16 +8,16 @@
                 <div class="form-group col-md-3">
                     <label>Status:</label>
                     <select  name="status" class="form-control">
-                        <option value="yes" {{ $data ? $data['first_semester_details']['status'] == 'yes' ? 'selected' : '' : ''}}>
+                        <option value="yes" {{ $data && isset($data['first_semester_details']) ? $data['first_semester_details']['status'] == 'yes' ? 'selected' : '' : ''}}>
                         Yes</option>
-                        <option value="no" {{ $data ? $data['first_semester_details']['status'] == 'no' ? 'selected' : '' : ''}}>
+                        <option value="no" {{ $data && isset($data['first_semester_details']) ? $data['first_semester_details']['status'] == 'no' ? 'selected' : '' : ''}}>
                         No</option>
                     </select>
                 </div>
                 <div class="form-group col-md-3">
                     <label>Date:</label>
                     <input type="text" class="form-control text-center datepicker" name="degree_date" placeholder="yyyy-mm-dd"
-                    value="{{$data ? $data['first_semester_details']['degree_date'] : ''}}">
+                    value="{{$data && isset($data['first_semester_details']) ? $data['first_semester_details']['degree_date'] : ''}}">
                 </div>
             </div>
         </div>
@@ -41,9 +41,9 @@
                                 <div class="form-group col-md-3">
                                     <label>Status:</label>
                                     <select  name="exam_status" class="form-control">
-                                        <option value="yes" {{ $data ? $data['first_semester_details']['exam_status'] == 'yes' ? 'selected' : '' : ''}}>
+                                        <option value="yes" {{ $data && isset($data['first_semester_details']) ? $data['first_semester_details']['exam_status'] == 'yes' ? 'selected' : '' : ''}}>
                                         Yes</option>
-                                        <option value="no" {{ $data ? $data['first_semester_details']['exam_status'] == 'no' ? 'selected' : '' : ''}}>
+                                        <option value="no" {{ $data && isset($data['first_semester_details']) ? $data['first_semester_details']['exam_status'] == 'no' ? 'selected' : '' : ''}}>
                                         No</option>
                                     </select>
                                 </div>
@@ -51,20 +51,20 @@
                                     <label>Date:</label>
                                     <input type="text" class="form-control text-center datepicker" name="exam_date"
                                            placeholder="yyyy-mm-dd"
-                                           value="{{$data ? $data['first_semester_details']['exam_date'] : ''}}">
+                                           value="{{$data && isset($data['first_semester_details']) ? $data['first_semester_details']['exam_date'] : ''}}">
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label>Amount:</label>
                                     <input type="text" class="form-control text-center" name="amount"
                                            placeholder="XXXXX"
-                                           value="{{$data ? $data['first_semester_details']['amount'] : ''}}">
+                                           value="{{$data && isset($data['first_semester_details']) ? $data['first_semester_details']['amount'] : ''}}">
                                 </div>
 
                                 <div class="form-group col-md-3">
                                     <label>Roll No:</label>
                                     <input type="text" class="form-control text-center" name="roll_no"
                                            placeholder="XXXXX"
-                                           value="{{$data ? $data['first_semester_details']['roll_no'] : ''}}">
+                                           value="{{$data && isset($data['first_semester_details']) ? $data['first_semester_details']['roll_no'] : ''}}">
                                 </div>
                             </div>
                         </div>

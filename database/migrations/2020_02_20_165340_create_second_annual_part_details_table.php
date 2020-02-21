@@ -20,7 +20,7 @@ class CreateSecondAnnualPartDetailsTable extends Migration
                 ->references('id')->on('index_tables')
                 ->onDelete('cascade');
             $table->string('result')->nullable();
-            $table->string('recipt_status')->nullable();
+            $table->string('receipt_status')->nullable();
             $table->date('second_part_date')->nullable();
             $table->string('pwwb_status')->nullable();
             $table->date('pwwb_date')->nullable();
@@ -33,8 +33,6 @@ class CreateSecondAnnualPartDetailsTable extends Migration
             $table->date('exam_date')->nullable();
             $table->string('exam_amount')->nullable();
             $table->string('roll_no')->nullable();
-            
-                
             $table->timestamps();
         });
     }

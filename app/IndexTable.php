@@ -69,4 +69,8 @@ class IndexTable extends Model
     public function provisionalClaimDetail(){
         return $this->hasOne(ProvisionalClaimDetail::class);
     }
+
+    public function firstAnnualDetail(){
+        return $this->hasOne(FirstAnnualDetail::class);
+    }
 }

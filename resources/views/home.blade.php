@@ -38,11 +38,11 @@
                     <div class="form-row mb-2">
                         <div class="col-md-4">
                             <input class="form-control text-center" name="index_id" disabled
-                                   value="{{$value->id}}"></input>
+                                   value="{{$value->id}}">
                         </div>
                         <div class="col-md-4">
                             <input class="form-control text-center" disabled
-                                   value="{{$value->file_received_number}}"></input>
+                                   value="{{$value->file_received_number}}">
                         </div>
                         <div class="col-md-2">
                             <a href="/edit/{{$value->id}}" class="btn btn-outline-primary w-100">EDIT</a>

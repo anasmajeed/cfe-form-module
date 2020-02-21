@@ -592,6 +592,7 @@
                 </div>
             </div>
         </div>
+        @include('pages.page_11')
     </form>
 </div>
 
@@ -645,16 +646,19 @@
 
         function setDualCoursePageDisplay() {
             let selected = $('#vti_dual_course option:selected').val();
-            if(selected == 'yes'){
-                if(container_array.indexOf('#page_11') === -1) {
-                    container_array.splice(7, 0, '#page_11');
-                    api_url_array.splice(7, 0, '/dual_course-details');
-                }
+            let parent = $('#cfe_wing_selection option:selected').val();
+            if(selected == 'yes' && parent == 'vti'){
+                $('#dual_course_div').fadeIn();
+                // if(container_array.indexOf('#page_11') === -1) {
+                //     container_array.splice(7, 0, '#page_11');
+                //     api_url_array.splice(7, 0, '/dual_course-details');
+                // }
             }
             else{
-                $('#page_11').attr('style','display:none');
-                container_array.splice(7,1);
-                api_url_array.splice(7,1);
+                $('#dual_course_div').fadeOut();
+                // $('#page_11').attr('style','display:none');
+                // container_array.splice(7,1);
+                // api_url_array.splice(7,1);
             }
         }
     </script>
