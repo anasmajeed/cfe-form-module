@@ -34,6 +34,7 @@
         @include('pages.page_16')
         @include('pages.page_17')
         @include('pages.page_18')
+        @include('pages.page_19')
     </div>
     <div class="mt-4 mb-4 pb-5 clearfix">
         <button id="prevButton" type="button" class="btn btn-primary float-left" onclick="prevForm()">Previous</button>
@@ -172,5 +173,6 @@
 @yield('script_page_15')
 @yield('script_page_16')
 @yield('script_page_17')
+@yield('script_page_18')
 </body>
 </html>
