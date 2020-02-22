@@ -26,6 +26,10 @@
             @include('view_pages.page_05_view')
             @include('view_pages.page_06_view')
             @include('view_pages.page_07_view')
+            @include('view_pages.page_11_view')
+            @include('view_pages.page_12_view')
+            @include('view_pages.page_13_view')
+            @include('view_pages.page_14_view')
         </div>
     </div>
 </body>
