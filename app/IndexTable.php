@@ -77,4 +77,12 @@ class IndexTable extends Model
     public function firstAnnualResultStatusDetail(){
         return $this->hasMany(FirstAnnualResultStatusDetail::class);
     }
+
+    public function secondAnnualPartDetail(){
+        return $this->hasOne(SecondAnnualPartDetail::class);
+    }
+
+    public function secondAnnualPartResultStatusDetail(){
+        return $this->hasMany(SecondAnnualPartResultStatusDetail::class);
+    }
 }

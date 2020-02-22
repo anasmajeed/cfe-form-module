@@ -35,6 +35,8 @@ class HomeController extends Controller
         $object['provisional_claim_details'] = $mainObject->provisionalClaimDetail ? $mainObject->provisionalClaimDetail->toArray() : null;
         $object['first_annual_details'] = $mainObject->firstAnnualDetail ? $mainObject->firstAnnualDetail->toArray() : null;
         $object['first_annual_result_status_details'] = $mainObject->firstAnnualResultStatusDetail ? $mainObject->firstAnnualResultStatusDetail->toArray() : null;
+        $object['second_annual_part_details'] = $mainObject->secondAnnualPartDetail ? $mainObject->secondAnnualPartDetail->toArray() : null;
+        $object['second_annual_result_status_details'] = $mainObject->secondAnnualPartResultStatusDetail ? $mainObject->secondAnnualPartResultStatusDetail->toArray() : null;
 
         $sessionDates = ['2019-2021','2021-2023','2023-2025'];
         $districtNames = ['RahimYarKhan','Lahore','Attock','Bahawalpur'];

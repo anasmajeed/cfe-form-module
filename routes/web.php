@@ -27,10 +27,12 @@ Route::post('/transport-hostel-details','TransportHostelDetailController@post');
 Route::post('/document-attachment-details','DocumentAttachmentDetailController@post');
 Route::post('/provisional-claim-details','ProvisionalClaimDetailController@post');
 Route::post('/annual-part-one','FirstAnnualDetailController@post');
+Route::post('/annual-part-two','SecondAnnualPartDetailController@post');
 
 
 //delete calls
 Route::post('/worker-family-detail-delete','IndexTableController@deleteWorkerDetail');
 Route::post('/service-detail-delete','FactoryDetailController@deleteServiceDetail');
 Route::post('/annual-part-one-delete','FirstAnnualDetailController@deleteFirstAnnualResultStatusDetail');
+Route::post('/annual-part-two-delete','SecondAnnualPartDetailController@deleteSecondAnnualResultStatusDetail');
 

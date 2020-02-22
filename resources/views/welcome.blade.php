@@ -82,6 +82,13 @@
         $(container_array[container_no]).attr('style', 'display:block');
     }
 
+    function saveForm(){
+        if(container_no < container_array.length){
+            apiRequest();
+            window.location.href = "http://cfe-form-module.com/home";
+        }
+    }
+
     function nextForm() {
         if (container_no < container_array.length) {
             apiRequest();
@@ -163,5 +170,6 @@
 @yield('script_page_7')
 @yield('script_page_12')
 @yield('script_page_15')
+@yield('script_page_16')
 </body>
 </html>
