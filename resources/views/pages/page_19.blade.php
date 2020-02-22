@@ -8,7 +8,7 @@
                 <div class="card shadow p-3 w-100">
                     <div class="card-body">
                         <div class="col-md-12 mt-4">
-                            <label for="">2nd Semester File Received in CFE Cell:</label>
+                            <label for="">3rd Semester File Received in CFE Cell:</label>
                         </div>
                         <div class="card shadow p-3 w-100">
                             <div class="card-body ">

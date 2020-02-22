@@ -4,9 +4,9 @@
 namespace App\Fields;
 
 
-class ThirdSemesterResultStatusDetailFields
+class FourthSemesterResultStatusDetailFields
 {
-    const TABLE_NAME = 'third_semester_result_status_details';
+    const TABLE_NAME = 'fourth_semester_result_status_details';
     const ID = 'id';
     const INDEX_TABLE_ID = 'index_table_id';
 

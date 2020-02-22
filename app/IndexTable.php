@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Fields\FourthSemesterResultStatusDetailFields;
 use Illuminate\Database\Eloquent\Model;
 
 class IndexTable extends Model
@@ -108,5 +109,13 @@ class IndexTable extends Model
 
     public function thirdSemesterResultStatusDetail(){
         return $this->hasMany(ThirdSemesterResultStatusDetail::class);
+    }
+
+    public function fourthSemesterDetail(){
+        return $this->hasOne(FourthSemesterDetail::class);
+    }
+
+    public function fourthSemesterResultStatusDetail(){
+        return $this->hasMany(FourthSemesterResultStatusDetail::class);
     }
 }
