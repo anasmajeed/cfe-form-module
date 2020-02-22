@@ -73,4 +73,8 @@ class IndexTable extends Model
     public function firstAnnualDetail(){
         return $this->hasOne(FirstAnnualDetail::class);
     }
+
+    public function firstAnnualResultStatusDetail(){
+        return $this->hasMany(FirstAnnualResultStatusDetail::class);
+    }
 }

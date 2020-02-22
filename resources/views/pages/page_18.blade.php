@@ -1,4 +1,5 @@
-<div id="page_16" style="display:none;">
+<div id="page_18" style="display:none;">
+    <form id="page_18_form">
     <div class="card shadow p-3 w-100">
         <div class="card-header text-center bg-success">
             Continue 1(Second Semester)
@@ -214,4 +215,5 @@
             </div>
         </div>
     </div>
+    </form>
 </div>

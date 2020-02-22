@@ -14,7 +14,7 @@ class FirstAnnualResultStatusDetailFields
     const FAIL = 'fail';
     const NEXT_APPEARANCE = 'next_appearance';
     const NEXT_APPEARANCE_DATE = 'next_appearance_date';
-    const LAST_APPEARANCE = 'last_chance_date';
+    const LAST_CHANCE_DATE = 'last_chance_date';
     const PASSING_DATE = 'passing_date';
 
     const CREATED_AT = 'created_at';

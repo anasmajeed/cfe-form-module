@@ -19,10 +19,10 @@ class CreateFirstAnnualDetailsTable extends Migration
             $table->foreign('index_table_id')
                 ->references('id')->on('index_tables')
                 ->onDelete('cascade');
-            $table->string('cfe_fee')->nullable();
             $table->string('fee_deposit_status')->nullable();
-            $table->date('exam_fee_date')->nullable();
-            $table->string('amount')->nullable();
+            $table->string('exam_fee_date')->nullable();
+            $table->date('amount')->nullable();
+            $table->string('roll_no')->nullable();
             $table->string('same_course')->nullable();
             $table->string('changed_course')->nullable();
             $table->timestamps();

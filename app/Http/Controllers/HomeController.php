@@ -34,6 +34,7 @@ class HomeController extends Controller
         $object['document_attachment_details'] = $mainObject->documentAttachmentDetail ? $mainObject->documentAttachmentDetail->toArray() : null;
         $object['provisional_claim_details'] = $mainObject->provisionalClaimDetail ? $mainObject->provisionalClaimDetail->toArray() : null;
         $object['first_annual_details'] = $mainObject->firstAnnualDetail ? $mainObject->firstAnnualDetail->toArray() : null;
+        $object['first_annual_result_status_details'] = $mainObject->firstAnnualResultStatusDetail ? $mainObject->firstAnnualResultStatusDetail->toArray() : null;
 
         $sessionDates = ['2019-2021','2021-2023','2023-2025'];
         $districtNames = ['RahimYarKhan','Lahore','Attock','Bahawalpur'];

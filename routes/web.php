@@ -26,8 +26,11 @@ Route::post('/educational-wing-details','EducationalWingCfeController@post');
 Route::post('/transport-hostel-details','TransportHostelDetailController@post');
 Route::post('/document-attachment-details','DocumentAttachmentDetailController@post');
 Route::post('/provisional-claim-details','ProvisionalClaimDetailController@post');
+Route::post('/annual-part-one','FirstAnnualDetailController@post');
 
 
 //delete calls
 Route::post('/worker-family-detail-delete','IndexTableController@deleteWorkerDetail');
 Route::post('/service-detail-delete','FactoryDetailController@deleteServiceDetail');
+Route::post('/annual-part-one-delete','FirstAnnualDetailController@deleteFirstAnnualResultStatusDetail');
+
