@@ -28,6 +28,7 @@ Route::post('/document-attachment-details','DocumentAttachmentDetailController@p
 Route::post('/provisional-claim-details','ProvisionalClaimDetailController@post');
 Route::post('/annual-part-one','FirstAnnualDetailController@post');
 Route::post('/annual-part-two','SecondAnnualPartDetailController@post');
+Route::post('/first-semester','FirstSemesterDetailController@post');
 
 
 //delete calls
@@ -35,4 +36,5 @@ Route::post('/worker-family-detail-delete','IndexTableController@deleteWorkerDet
 Route::post('/service-detail-delete','FactoryDetailController@deleteServiceDetail');
 Route::post('/annual-part-one-delete','FirstAnnualDetailController@deleteFirstAnnualResultStatusDetail');
 Route::post('/annual-part-two-delete','SecondAnnualPartDetailController@deleteSecondAnnualResultStatusDetail');
+Route::post('/first-semester-delete','FirstSemesterDetailController@deleteFirstSemesterResultStatusDetail');
 

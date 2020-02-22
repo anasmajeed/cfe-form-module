@@ -81,7 +81,7 @@
                                 </div>
                             </div>
                             <!-- Result Status Edit Mode-->
-                            @if($data && isset($data['first_annual_result_status_details']))
+                            @if($data && isset($data['first_annual_result_status_details']) && count($data['first_annual_result_status_details']))
                                 @foreach($data['first_annual_result_status_details'] as $firstAnnualResultStatusDetails)
                                     <div class="form-row mt-2" id="result_status_annual_part_one_div">
                                         <input type="hidden" value="{{$firstAnnualResultStatusDetails['id']}}" id="result_status_annual_part_one_delete_id">
@@ -275,23 +275,31 @@
 
         function setDisplayForAnnualPartTwo(){
             let check = true;
-            let allResults = $('.result_annual_part_one');
-            let length = allResults.length;
-            if($(allResults[length-1]).val() == 'pass'){
-                container_array.splice(11, 0, '#page_16');
-                api_url_array.splice(11, 0, '/annual-part-two');
-            }
-            else{
-                let allPromotions = $('.promotion_annual_part_one');
-                let lengthForPromotion = allPromotions.length;
-                if($(allPromotions[lengthForPromotion-1]).val() == 'promoted'){
+            let term_array = {
+                'cs': '#bise_academic_term',
+                'ims': '#ims_academic_term',
+                'af': '#af_academic_term',
+                'vti': '#vti_scheme_of_study'
+            };
+            let parent = $('#cfe_wing_selection option:selected').val();
+            let selectedTerm = $(term_array[parent]).val();
+            if(selectedTerm == 'annual') {
+                let allResults = $('.result_annual_part_one');
+                let length = allResults.length;
+                if ($(allResults[length - 1]).val() == 'pass') {
                     container_array.splice(11, 0, '#page_16');
                     api_url_array.splice(11, 0, '/annual-part-two');
-                }
-                else{
-                    container_array.splice(11,container_array.length - 11);
-                    api_url_array.splice(11,api_url_array.length - 11);
-                    container_no = 10;
+                } else {
+                    let allPromotions = $('.promotion_annual_part_one');
+                    let lengthForPromotion = allPromotions.length;
+                    if ($(allPromotions[lengthForPromotion - 1]).val() == 'promoted') {
+                        container_array.splice(11, 0, '#page_16');
+                        api_url_array.splice(11, 0, '/annual-part-two');
+                    } else {
+                        container_array.splice(11, container_array.length - 11);
+                        api_url_array.splice(11, api_url_array.length - 11);
+                        container_no = 10;
+                    }
                 }
             }
             setDisplayForButtons();

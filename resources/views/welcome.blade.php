@@ -171,5 +171,6 @@
 @yield('script_page_12')
 @yield('script_page_15')
 @yield('script_page_16')
+@yield('script_page_17')
 </body>
 </html>
