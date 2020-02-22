@@ -29,6 +29,12 @@ Route::post('/provisional-claim-details','ProvisionalClaimDetailController@post'
 Route::post('/annual-part-one','FirstAnnualDetailController@post');
 Route::post('/annual-part-two','SecondAnnualPartDetailController@post');
 Route::post('/first-semester','FirstSemesterDetailController@post');
+Route::post('/second-semester','SecondSemesterDetailController@post');
+Route::post('/third-semester','ThirdSemesterDetailController@post');
+Route::post('/fourth-semester','FourthSemesterDetailController@post');
+Route::post('/fifth-semester','FifthSemesterDetailController@post');
+Route::post('/sixth-semester','SixthSemesterDetailController@post');
+Route::post('/seventh-semester','SeventhSemesterDetailController@post');
 
 
 //delete calls
@@ -37,4 +43,10 @@ Route::post('/service-detail-delete','FactoryDetailController@deleteServiceDetai
 Route::post('/annual-part-one-delete','FirstAnnualDetailController@deleteFirstAnnualResultStatusDetail');
 Route::post('/annual-part-two-delete','SecondAnnualPartDetailController@deleteSecondAnnualResultStatusDetail');
 Route::post('/first-semester-delete','FirstSemesterDetailController@deleteFirstSemesterResultStatusDetail');
+Route::post('/second-semester-delete','SecondSemesterDetailController@deleteSecondSemesterResultStatusDetail');
+Route::post('/third-semester-delete','ThirdSemesterDetailController@deleteThirdSemesterResultStatusDetail');
+Route::post('/fourth-semester-delete','FourthSemesterDetailController@deleteFourthSemesterResultStatusDetail');
+Route::post('/fifth-semester-delete','FifthSemesterDetailController@deleteFifthSemesterResultStatusDetail');
+Route::post('/sixth-semester-delete','SixthSemesterDetailController@deleteSixthSemesterResultStatusDetail');
+Route::post('/seventh-semester-delete','SeventhSemesterDetailController@deleteSeventhSemesterResultStatusDetail');
 

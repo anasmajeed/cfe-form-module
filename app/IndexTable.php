@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Fields\FourthSemesterResultStatusDetailFields;
 use Illuminate\Database\Eloquent\Model;
 
 class IndexTable extends Model
@@ -92,5 +93,53 @@ class IndexTable extends Model
 
     public function firstSemesterResultStatusDetail(){
         return $this->hasMany(FirstSemesterResultStatusDetail::class);
+    }
+
+    public function secondSemesterDetail(){
+        return $this->hasOne(SecondSemesterDetail::class);
+    }
+
+    public function secondSemesterResultStatusDetail(){
+        return $this->hasMany(SecondSemesterResultStatusDetail::class);
+    }
+
+    public function thirdSemesterDetail(){
+        return $this->hasOne(ThirdSemesterDetail::class);
+    }
+
+    public function thirdSemesterResultStatusDetail(){
+        return $this->hasMany(ThirdSemesterResultStatusDetail::class);
+    }
+
+    public function fourthSemesterDetail(){
+        return $this->hasOne(FourthSemesterDetail::class);
+    }
+
+    public function fourthSemesterResultStatusDetail(){
+        return $this->hasMany(FourthSemesterResultStatusDetail::class);
+    }
+
+    public function fifthSemesterDetail(){
+        return $this->hasOne(FifthSemesterDetail::class);
+    }
+
+    public function fifthSemesterResultStatusDetail(){
+        return $this->hasMany(FifthSemesterResultStatusDetail::class);
+    }
+
+    public function sixthSemesterDetail(){
+        return $this->hasOne(SixthSemesterDetail::class);
+    }
+
+    public function sixthSemesterResultStatusDetail(){
+        return $this->hasMany(SixthSemesterResultStatusDetail::class);
+    }
+
+    public function seventhSemesterDetail(){
+        return $this->hasOne(SeventhSemesterDetail::class);
+    }
+
+    public function seventhSemesterResultStatusDetail(){
+        return $this->hasMany(SeventhSemesterResultStatusDetail::class);
     }
 }
