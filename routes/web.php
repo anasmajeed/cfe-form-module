@@ -35,6 +35,7 @@ Route::post('/fourth-semester','FourthSemesterDetailController@post');
 Route::post('/fifth-semester','FifthSemesterDetailController@post');
 Route::post('/sixth-semester','SixthSemesterDetailController@post');
 Route::post('/seventh-semester','SeventhSemesterDetailController@post');
+Route::post('/eighth-semester','EighthSemesterDetailController@post');
 
 
 //delete calls
@@ -49,4 +50,5 @@ Route::post('/fourth-semester-delete','FourthSemesterDetailController@deleteFour
 Route::post('/fifth-semester-delete','FifthSemesterDetailController@deleteFifthSemesterResultStatusDetail');
 Route::post('/sixth-semester-delete','SixthSemesterDetailController@deleteSixthSemesterResultStatusDetail');
 Route::post('/seventh-semester-delete','SeventhSemesterDetailController@deleteSeventhSemesterResultStatusDetail');
+Route::post('/eighth-semester-delete','EighthSemesterDetailController@deleteEighthSemesterResultStatusDetail');
 
