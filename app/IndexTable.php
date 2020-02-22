@@ -134,4 +134,12 @@ class IndexTable extends Model
     public function sixthSemesterResultStatusDetail(){
         return $this->hasMany(SixthSemesterResultStatusDetail::class);
     }
+
+    public function seventhSemesterDetail(){
+        return $this->hasOne(SeventhSemesterDetail::class);
+    }
+
+    public function seventhSemesterResultStatusDetail(){
+        return $this->hasMany(SeventhSemesterResultStatusDetail::class);
+    }
 }
