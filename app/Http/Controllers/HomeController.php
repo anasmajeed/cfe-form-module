@@ -66,6 +66,12 @@ class HomeController extends Controller
         $object['transport_hostel_details'] = $mainObject->transportHotelDetail ? $mainObject->transportHotelDetail->toArray() : null;
         $object['document_attachment_details'] = $mainObject->documentAttachmentDetail ? $mainObject->documentAttachmentDetail->toArray() : null;
         $object['provisional_claim_details'] = $mainObject->provisionalClaimDetail ? $mainObject->provisionalClaimDetail->toArray() : null;
+         $object['first_annual_details'] = $mainObject->firstAnnualDetail ? $mainObject->firstAnnualDetail->toArray() : null;
+        $object['first_annual_result_status_details'] = $mainObject->firstAnnualResultStatusDetail ? $mainObject->firstAnnualResultStatusDetail->toArray() : null;
+        $object['second_annual_part_details'] = $mainObject->secondAnnualPartDetail ? $mainObject->secondAnnualPartDetail->toArray() : null;
+        $object['second_annual_result_status_details'] = $mainObject->secondAnnualPartResultStatusDetail ? $mainObject->secondAnnualPartResultStatusDetail->toArray() : null;
+        $object['first_semester_details'] = $mainObject->firstSemesterDetail ? $mainObject->firstSemesterDetail->toArray() : null;
+        $object['first_semester_result_status_details'] = $mainObject->firstSemesterResultStatusDetail ? $mainObject->firstSemesterResultStatusDetail->toArray() : null;
         return view('view_pages.view_application',['data' => $object]);
     }
 }
