@@ -182,5 +182,6 @@
 @yield('script_page_19')
 @yield('script_page_20')
 @yield('script_page_21')
+@yield('script_page_22')
 </body>
 </html>
