@@ -16,6 +16,7 @@ Route::post('/index-table','IndexTableController@post');
 Route::get('/home','HomeController@index');
 Route::get('/edit/{index_id}','HomeController@edit');
 Route::get('/view/{index_id}','HomeController@view');
+Route::get('/worker-family','HomeController@workerFamily');
 
 Route::post('/worker-personal-details','WorkerPersonalDetailController@post');
 Route::post('/worker-bank-security-details','WorkerBankSecurityDetailController@post');

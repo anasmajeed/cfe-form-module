@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\IndexTable;
+use App\WorkerFamilyMemberDetail;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -10,6 +11,14 @@ class HomeController extends Controller
     public function index(){
         $mainTable = IndexTable::all();
         return view('home',['mainTable' => $mainTable]);
+    }
+    public function workerFamily(Request $request){
+        $date = $request->date;
+        $workerFamily = WorkerFamilyMemberDetail::all();
+        if($date){
+            $workerFamily = WorkerFamilyMemberDetail::whereFollowUp($date)->get();
+        }
+        return view('worker_family',['workerFamily'=>$workerFamily, 'date' => $date]);
     }
 
     public function edit($index_id){

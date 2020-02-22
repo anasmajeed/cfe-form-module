@@ -110,7 +110,7 @@
                     <div class="border col-md-1 text-center">
                         <label><strong>File Received Status</strong></label>
                     </div>
-                    <div class="border col-md-2 text-center">
+                    <div class="border col-md-1 text-center">
                         <label><strong>Follow-up</strong></label>
                     </div>
                 </div>
@@ -152,9 +152,9 @@
                                     {{$worker_details['file_received_status']? $worker_details['file_received_status'] : '--'}}
                                 </label>
                             </div>
-                            <div class="border col-md-2 p-0">
+                            <div class="border col-md-1 p-0">
                                 <label>
-                                    {{$worker_details['file_received_status']? $worker_details['file_received_status'] : '--'}}
+                                    {{$worker_details['follow_up']? $worker_details['follow_up'] : '--'}}
                                 </label>
                             </div>
                         </div>
