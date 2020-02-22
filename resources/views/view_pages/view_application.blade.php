@@ -34,6 +34,12 @@
             @include('view_pages.page_16_view')
             @include('view_pages.page_17_view')
             @include('view_pages.page_18_view')
+            @include('view_pages.page_19_view')
+            @include('view_pages.page_20_view')
+            @include('view_pages.page_21_view')
+            @include('view_pages.page_22_view')
+            @include('view_pages.page_23_view')
+            @include('view_pages.page_24_view')
         </div>
     </div>
 </body>
