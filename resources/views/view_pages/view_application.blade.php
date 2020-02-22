@@ -32,6 +32,8 @@
             @include('view_pages.page_14_view')
             @include('view_pages.page_15_view')
             @include('view_pages.page_16_view')
+            @include('view_pages.page_17_view')
+            @include('view_pages.page_18_view')
         </div>
     </div>
 </body>

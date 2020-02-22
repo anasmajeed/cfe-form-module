@@ -1,26 +1,26 @@
     <div class="card shadow p-3 w-100">
         <div class="card-header text-center bg-success">
-            Continue 1(Annual Part 2)
+            Continue 1(Second Semester)
         </div>
         <div class="card-body ">
             <div class="card shadow p-3 w-100">
                 <div class="card-body">
                     <div class="col-md-12 mt-4">
-                        <label for="">Annual Part 2 File Received in CFE Cell:</label>
+                        <label for="">2nd Semester File Received in CFE Cell:</label>
                     </div>
                     <div class="card shadow p-3 w-100">
                         <div class="card-body ">
                             <div class="form-row">
                                 <div class="form-group col-md-3">
-                                    <label><strong>Receipt Status:</strong></label>
+                                    <label><strong>Status:</strong></label>
                                     <label>
-                                        {{$data && $data['second_annual_part_details']['receipt_status'] ? $data['second_annual_part_details']['receipt_status'] : '--'}}
+                                        {{$data && $data['second_semester_details']['cell_status'] ? $data['second_semester_details']['cell_status'] : '--'}}
                                     </label>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label><strong>Date:</strong></label>
                                     <label>
-                                        {{$data && $data['second_annual_part_details']['second_part_date'] ? $data['second_annual_part_details']['second_part_date'] : '--'}}
+                                        {{$data && $data['second_semester_details']['cell_date'] ? $data['second_semester_details']['cell_date'] : '--'}}
                                     </label>
                                 </div>
                             </div>
@@ -37,19 +37,19 @@
                         <div class="form-group col-md-3">
                             <label><strong>Status:</strong></label>
                             <label>
-                                {{$data && $data['second_annual_part_details']['pwwb_status'] ? $data['second_annual_part_details']['pwwb_status'] : '--'}}
+                                {{$data && $data['second_semester_details']['pwwb_status'] ? $data['second_semester_details']['pwwb_status'] : '--'}}
                             </label>
                         </div>
                         <div class="form-group col-md-3">
                             <label><strong>Date:</strong></label>
                             <label>
-                                {{$data && $data['second_annual_part_details']['pwwb_date'] ? $data['second_annual_part_details']['pwwb_date'] : '--'}}
+                                {{$data && $data['second_semester_details']['pwwb_date'] ? $data['second_semester_details']['pwwb_date'] : '--'}}
                             </label>
                         </div>
                         <div class="form-group col-md-3">
                             <label><strong>Diary No. in PWWB:</strong></label>
                             <label>
-                                {{$data && $data['second_annual_part_details']['diary_pwwb'] ? $data['second_annual_part_details']['diary_pwwb'] : '--'}}
+                                {{$data && $data['second_semester_details']['diary_pwwb'] ? $data['second_semester_details']['diary_pwwb'] : '--'}}
                             </label>
                         </div>
                     </div>
@@ -64,25 +64,25 @@
                         <div class="form-group col-md-3">
                             <label><strong>Amount of Claim Due:</strong></label>
                             <label>
-                                {{$data && $data['second_annual_part_details']['amount_claim_due'] ? $data['second_annual_part_details']['amount_claim_due'] : '--'}}
+                                {{$data && $data['second_semester_details']['amount_claim_due'] ? $data['second_semester_details']['amount_claim_due'] : '--'}}
                             </label>
                         </div>
                         <div class="form-group col-md-3">
                             <label><strong>Status of Claimed Received:</strong></label>
                             <label>
-                                {{$data && $data['second_annual_part_details']['claim_status'] ? $data['second_annual_part_details']['claim_status'] : '--'}}
+                                {{$data && $data['second_semester_details']['claim_status'] ? $data['second_semester_details']['claim_status'] : '--'}}
                             </label>
                         </div>
                         <div class="form-group col-md-3">
                             <label><strong>Amount Received:</strong></label>
                             <label>
-                                {{$data && $data['second_annual_part_details']['amount_received'] ? $data['second_annual_part_details']['amount_received'] : '--'}}
+                                {{$data && $data['second_semester_details']['amount_received'] ? $data['second_semester_details']['amount_received'] : '--'}}
                             </label>
                         </div>
                         <div class="form-group col-md-3">
                             <label><strong>Date:</strong></label>
                             <label>
-                                {{$data && $data['second_annual_part_details']['claim_date'] ? $data['second_annual_part_details']['claim_date'] : '--'}}
+                                {{$data && $data['second_semester_details']['claim_date'] ? $data['second_semester_details']['claim_date'] : '--'}}
                             </label>
                         </div>
                     </div>
@@ -92,7 +92,7 @@
                 <label for="">Examination Status in Affiliated Body:</label>
             </div>
             <div class="card shadow p-3 mt-1 w-100">
-                <div class="card-body" id="result_status_annual_part_two_parent">
+                <div class="card-body" id="result_status_second_semester_parent">
                     <div class="col-md-12 mt-4">
                         <label for="">Exam Fee:</label>
                     </div>
@@ -102,36 +102,40 @@
                                 <div class="form-group col-md-3">
                                     <label><strong>Status:</strong></label>
                                     <label>
-                                        {{$data && $data['second_annual_part_details']['exam_status'] ? $data['second_annual_part_details']['exam_status'] : '--'}}
+                                        {{$data && $data['second_semester_details']['exam_status'] ? $data['second_semester_details']['exam_status'] : '--'}}
                                     </label>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label><strong>Date:</strong></label>
                                     <label>
-                                        {{$data && $data['second_annual_part_details']['exam_date'] ? $data['second_annual_part_details']['exam_date'] : '--'}}
+                                        {{$data && $data['second_semester_details']['exam_date'] ? $data['second_semester_details']['exam_date'] : '--'}}
                                     </label>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label><strong>Amount:</strong></label>
                                     <label>
-                                        {{$data && $data['second_annual_part_details']['exam_amount'] ? $data['second_annual_part_details']['exam_amount'] : '--'}}
+                                        {{$data && $data['second_semester_details']['amount'] ? $data['second_semester_details']['amount'] : '--'}}
                                     </label>
                                 </div>
-
                                 <div class="form-group col-md-3">
                                     <label><strong>Roll No:</strong></label>
                                     <label>
-                                        {{$data && $data['second_annual_part_details']['roll_no'] ? $data['second_annual_part_details']['roll_no'] : '--'}}
+                                        {{$data && $data['second_semester_details']['roll_no'] ? $data['second_semester_details']['roll_no'] : '--'}}
                                     </label>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="form-row mt-4">
+                        <div class="ml-2">
+                            <label for="">Result Status:</label>
+                        </div>
+                    </div>
+                    <div class="form-row pt-2">
                         <div class="col-md-1 text-center">
                             <label><strong>Result:</strong></label>
                         </div>
-                        <div class="form-row col-md-10 ml-0" id="result_status_annual_part_two_pass_headers" >
+                        <div class="form-row col-md-1 ml-0" id="result_status_second_semester_pass_headers>
                             <div class="col-md-2 text-center">
                                 <label><strong>Fail:</strong></label>
                             </div>
@@ -149,54 +153,50 @@
                             </div>
                         </div>
                     </div>
-                    <!-- result status -->
-                    @if($data && isset($data['second_annual_result_status_details']))
-                        @if(count($data['second_annual_result_status_details'])>0)
-                            @foreach($data['second_annual_result_status_details'] as $secondAnnualResultStatusDetails)
-                                <div class="form-row mt-2" id="result_status_annual_part_two_div">
-                                    <div class="col-md-1 p-0">
-                                        <label>
-                                            {{$secondAnnualResultStatusDetails['result'] ? $secondAnnualResultStatusDetails['result'] : ''}}
-                                        </label>
-                                    </div>
-                                    <div class="col-md-10 form-row m-0" id="result_status_annual_part_two_pass_values" style="display: none">
-                                        <div class="col-md-2 p-0">
-                                            <label>
-                                                {{$secondAnnualResultStatusDetails['fail'] ? $secondAnnualResultStatusDetails['fail'] : ''}}
-                                            </label>
-                                        </div>
-                                        <div class="col-md-3 p-0">
-                                            <label>
-                                                {{$secondAnnualResultStatusDetails['next_appearance'] ? $secondAnnualResultStatusDetails['next_appearance'] : ''}}
-                                            </label>
-                                        </div>
-                                        <div class="col-md-2 p-0">
-                                            <label>
-                                                {{$secondAnnualResultStatusDetails['next_appearance_date'] ? $secondAnnualResultStatusDetails['next_appearance_date'] : ''}}
-                                            </label>
-                                        </div>
-                                        <div class="col-md-2 p-0">
-                                            <label>
-                                                {{$secondAnnualResultStatusDetails['last_chance_date'] ? $secondAnnualResultStatusDetails['last_chance_date'] : ''}}
-                                            </label>
-                                        </div>
-                                        <div class="col-md-2 p-0">
-                                            <label>
-                                                {{$secondAnnualResultStatusDetails['passing_date'] ? $secondAnnualResultStatusDetails['passing_date'] : ''}}
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach    
-                        @else
-                            <div class="form-row mt-2" id="result_status_annual_part_two_div">
-                                <div class="col-md-2 ml-2 p-0">
+                    @if($data && isset($data['second_semester_result_status_details']) && count($data['second_semester_result_status_details']))
+                        @foreach($data['second_semester_result_status_details'] as $secondSemesterResultStatusDetails)
+                            <div class="form-row mt-2" id="result_status_second_semester_div">
+                                <input type="hidden" value="{{$secondSemesterResultStatusDetails['id']}}" id="result_status_second_semester_delete_id">
+                                <div class="col-md-1 p-0">
                                     <label>
-                                        No Record Found
+                                        {{$secondSemesterResultStatusDetails['result'] ? $secondSemesterResultStatusDetails['result'] : ''}}
                                     </label>
                                 </div>
+                                <div class="col-md-10 form-row m-0" id="result_status_second_semester_pass_values" style="display: none">
+                                    <div class="col-md-2 p-0">
+                                        <label>
+                                            {{$secondSemesterResultStatusDetails['fail'] ? $secondSemesterResultStatusDetails['fail'] : ''}}
+                                        </label>
+                                    </div>
+                                    <div class="col-md-3 p-0">
+                                        <label>
+                                            {{$secondSemesterResultStatusDetails['next_appearance'] ? $secondSemesterResultStatusDetails['next_appearance'] : ''}}
+                                        </label>
+                                    </div>
+                                    <div class="col-md-2 p-0">
+                                        <label>
+                                            {{$secondSemesterResultStatusDetails['next_appearance_date'] ? $secondSemesterResultStatusDetails['next_appearance_date'] : ''}}
+                                        </label>
+                                    </div>
+                                    <div class="col-md-2 p-0">
+                                        <label>
+                                            {{$secondSemesterResultStatusDetails['last_chance_date'] ? $secondSemesterResultStatusDetails['last_chance_date'] : ''}}
+                                        </label>
+                                    </div>
+                                    <div class="col-md-2 p-0">
+                                        <label>
+                                            {{$secondSemesterResultStatusDetails['passing_date'] ? $secondSemesterResultStatusDetails['passing_date'] : ''}}
+                                        </label>
+                                    </div>
+                                </div>
                             </div>
-                        @endif
+                        @endforeach
+                    @else
+                        <div class="form-row mt-2 ml-4" id="result_status_second_semester_div">
+                            <div class="col-md-2 p-0">
+                                No Data Found
+                            </div>
+                        </div>
                     @endif
                 </div>
             </div>
