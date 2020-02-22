@@ -12,8 +12,8 @@
 
     <title>CFE FORM</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta name="index_id" content="{{ $data['index_id'] ?? ''}}">
-{{--    <meta name="index_id" content="13">--}}
+{{--    <meta name="index_id" content="{{ $data['index_id'] ?? ''}}">--}}
+    <meta name="index_id" content="13">
 </head>
 <body>
 
@@ -27,10 +27,6 @@
         @include('pages.page_05')
         @include('pages.page_06')
         @include('pages.page_07')
-        @include('pages.page_08')
-        @include('pages.page_09')
-        @include('pages.page_10')
-        @include('pages.page_11')
         @include('pages.page_12')
         @include('pages.page_13')
         @include('pages.page_14')
@@ -43,6 +39,10 @@
         <button id="prevButton" type="button" class="btn btn-primary float-left" onclick="prevForm()">Previous</button>
         <button id="nextButton" type="button" class="btn btn-primary float-right" onclick="nextForm()">Next</button>
         <button id="saveButton" type="button" class="btn btn-primary float-right" onclick="saveForm()">Save</button>
+    </div>
+    <div class="mt-4">
+        <input type="number" id="goToPage">
+        <button type="button" onclick="goToPage()" class="btn btn-outline-success">GO</button>
     </div>
 </div>
 <!-- Optional JavaScript -->
@@ -60,8 +60,8 @@
 <script src="{{asset('js/bootstrap-datepicker.js')}}"></script>
 <script>
     let container_no = 0;
-    let container_array = ['#page_01', '#page_02', '#page_03', '#page_04', '#page_05', '#page_06', '#page_07', '#page_11', '#page_12', '#page_13', '#page_14', '#page_15', '#page_16', '#page_17', '#page_18'];
-    let api_url_array = ['/index-table','/worker-personal-details','/worker-bank-security-details','/factory-service-details','/factory-death-manager-details','/student-personal-details','/educational-wing-details','/dual_course-details','/transport-hostel-details','/document-attachment-details','/provisional-claim-details'];
+    let container_array = ['#page_01', '#page_02', '#page_03', '#page_04', '#page_05', '#page_06', '#page_07', '#page_12', '#page_13', '#page_14'];
+    let api_url_array = ['/index-table','/worker-personal-details','/worker-bank-security-details','/factory-service-details','/factory-death-manager-details','/student-personal-details','/educational-wing-details','/transport-hostel-details','/document-attachment-details','/provisional-claim-details'];
     let index_id = $('meta[name="index_id"]').attr('content');
     setDisplayForButtons();
     $('.datepicker').each(function (index, pick) {
@@ -80,6 +80,13 @@
             $(value).attr('style', 'display:none');
         });
         $(container_array[container_no]).attr('style', 'display:block');
+    }
+
+    function saveForm(){
+        if(container_no < container_array.length){
+            apiRequest();
+            window.location.href = "http://cfe-form-module.com/home";
+        }
     }
 
     function nextForm() {
@@ -150,10 +157,20 @@
             });
         }
     }
+
+    function goToPage() {
+        let page = $('#goToPage').val();
+        container_no = page-1;
+        setDisplayNone();
+        setDisplayForButtons();
+    }
 </script>
 @yield('script_page_1')
 @yield('script_page_4')
 @yield('script_page_7')
 @yield('script_page_12')
+@yield('script_page_15')
+@yield('script_page_16')
+@yield('script_page_17')
 </body>
 </html>

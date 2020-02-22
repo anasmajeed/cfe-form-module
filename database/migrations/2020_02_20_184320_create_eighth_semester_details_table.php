@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEightthSemesterDetailsTable extends Migration
+class CreateEighthSemesterDetailsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateEightthSemesterDetailsTable extends Migration
      */
     public function up()
     {
-        Schema::create('eightth_semester_details', function (Blueprint $table) {
+        Schema::create('eighth_semester_details', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('index_table_id');
             $table->foreign('index_table_id')
@@ -43,9 +43,9 @@ class CreateEightthSemesterDetailsTable extends Migration
      */
     public function down()
     {
-        Schema::table('eightth_semester_details', function(Blueprint $table) {
+        Schema::table('eighth_semester_details', function(Blueprint $table) {
             $table->dropForeign(['index_table_id']);
         });
-        Schema::dropIfExists('eightth_semester_details');
+        Schema::dropIfExists('eighth_semester_details');
     }
 }

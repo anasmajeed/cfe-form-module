@@ -9,7 +9,7 @@ class SecondAnnualPartDetailFields
     const TABLE_NAME = 'second_annual_part_details';
     const ID = 'id';
     const INDEX_TABLE_ID = 'index_table_id';
-    const RECIPT_STATUS = 'recipt_status';
+    const RECEIPT_STATUS = 'receipt_status';
     const SECOND_PART_DATE = 'second_part_date';
     const PWWB_STATUS = 'pwwb_status';
     const PWWB_DATE = 'pwwb_date';

@@ -99,8 +99,9 @@
                                 <div class="form-row">
                                     <div class="form-group col-md-4">
                                         <label>Academic Term:</label>
-                                        <select name="bise_academic_term" class="form-control">
-                                            <option value="annual" {{ $data ? $data['bise_details']['bise_academic_term'] == 'annual' ? 'selected' : '' : ''}}>ANNUAL</option>
+                                        <select id="bise_academic_term" name="bise_academic_term" class="form-control" onchange="setDisplayForAnnualAndSemester()">
+                                            <option value="annual" {{ $data ? $data['bise_details']['bise_academic_term'] == 'annual' ? 'selected' : '' : ''}}>Annual</option>
+                                            <option value="semester" {{ $data ? $data['bise_details']['bise_academic_term'] == 'semester' ? 'selected' : '' : ''}}>Semester</option>
                                         </select>
                                     </div>
                                     <div class="form-group col-md-4">
@@ -224,7 +225,7 @@
                                     </div>
                                     <div class="form-group  col-md-4">
                                         <label>Academic Term:</label>
-                                        <select name="ims_academic_term" class="form-control">
+                                        <select id="ims_academic_term" name="ims_academic_term" class="form-control" onchange="setDisplayForAnnualAndSemester()">
                                             <option value="annual" {{ $data ? $data['ims_details']['ims_academic_term'] == 'annual' ? 'selected' : '' : ''}}>Annual</option>
                                             <option value="semester" {{ $data ? $data['ims_details']['ims_academic_term'] == 'semester' ? 'selected' : '' : ''}}>Semester</option>
                                         </select>
@@ -359,7 +360,7 @@
                                     </div>
                                     <div class="form-group  col-md-4">
                                         <label>Academic Term:</label>
-                                        <select name="af_academic_term" class="form-control">
+                                        <select id="af_academic_term" name="af_academic_term" class="form-control" onchange="setDisplayForAnnualAndSemester()">
                                             <option value="annual" {{ $data ? $data['af_details']['af_academic_term'] == 'annual' ? 'selected' : '' : ''}}>Annual</option>
                                             <option value="semester" {{ $data ? $data['af_details']['af_academic_term'] == 'semester' ? 'selected' : '' : ''}}>Semester</option>
                                         </select>
@@ -519,7 +520,7 @@
                                 <div class="form-row">
                                     <div class="form-group  col-md-4">
                                         <label>Scheme of Study:</label>
-                                        <select name="vti_scheme_of_study" class="form-control">
+                                        <select id="vti_scheme_of_study" name="vti_scheme_of_study" class="form-control" onchange="setDisplayForAnnualAndSemester()">
                                             <option value="annual" {{ $data ? $data['vti_details']['vti_scheme_of_study'] == 'annual' ? 'selected' : '' : ''}}>Annual</option>
                                             <option value="semester" {{ $data ? $data['vti_details']['vti_scheme_of_study'] == 'semester' ? 'selected' : '' : ''}}>Semester</option>
                                         </select>
@@ -592,12 +593,14 @@
                 </div>
             </div>
         </div>
+        @include('pages.page_11')
     </form>
 </div>
 
 @section('script_page_7')
     <script>
         setWingCorrespondingSectionDisplay();
+        setDisplayForAnnualAndSemester();
 
         function setWingCorrespondingSectionDisplay() {
             let wings_array = {
@@ -645,17 +648,46 @@
 
         function setDualCoursePageDisplay() {
             let selected = $('#vti_dual_course option:selected').val();
-            if(selected == 'yes'){
-                if(container_array.indexOf('#page_11') === -1) {
-                    container_array.splice(7, 0, '#page_11');
-                    api_url_array.splice(7, 0, '/dual_course-details');
-                }
+            let parent = $('#cfe_wing_selection option:selected').val();
+            if(selected == 'yes' && parent == 'vti'){
+                $('#dual_course_div').fadeIn();
+                // if(container_array.indexOf('#page_11') === -1) {
+                //     container_array.splice(7, 0, '#page_11');
+                //     api_url_array.splice(7, 0, '/dual_course-details');
+                // }
             }
             else{
-                $('#page_11').attr('style','display:none');
-                container_array.splice(7,1);
-                api_url_array.splice(7,1);
+                $('#dual_course_div').fadeOut();
+                // $('#page_11').attr('style','display:none');
+                // container_array.splice(7,1);
+                // api_url_array.splice(7,1);
             }
+        }
+
+        function setDisplayForAnnualAndSemester() {
+            //clearing All Pages for annual and semester
+            for(let index = 15; index <= 24 ;index++){
+                $('#page_'+index).hide();
+            }
+            container_array.splice(10,container_array.length - 10);
+            api_url_array.splice(10,api_url_array.length - 10);
+            let term_array = {
+                'cs': '#bise_academic_term',
+                'ims': '#ims_academic_term',
+                'af': '#af_academic_term',
+                'vti': '#vti_scheme_of_study'
+            };
+            let parent = $('#cfe_wing_selection option:selected').val();
+            let selectedTerm = $(term_array[parent]).val();
+            if(selectedTerm == 'annual'){
+                container_array.splice(10, 0, '#page_15');
+                api_url_array.splice(10, 0, '/annual-part-one');
+            }
+            else{
+                container_array.splice(10, 0, '#page_17');
+                api_url_array.splice(10, 0, '/first-semester');
+            }
+            setDisplayForButtons();
         }
     </script>
 @endsection

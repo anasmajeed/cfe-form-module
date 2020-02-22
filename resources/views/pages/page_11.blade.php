@@ -1,5 +1,4 @@
-<div id="page_11" style="display:none;">
-    <form id="page_11_form">
+<div id="dual_course_div" class="mt-4" style="display:none;">
     <div class="col-md-12 mt-2">
         <label for="">Dual Course(For CFE purpose):</label>
     </div>
@@ -172,5 +171,4 @@
             </div>
         </div>
     </div>
-    </form>
 </div>

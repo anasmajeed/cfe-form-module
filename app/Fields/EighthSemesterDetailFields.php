@@ -4,12 +4,12 @@
 namespace App\Fields;
 
 
-class EightthSemesterDetailFields
+class EighthSemesterDetailFields
 {
-    const TABLE_NAME = 'eightth_semester_details';
+    const TABLE_NAME = 'eighth_semester_details';
     const ID = 'id';
     const INDEX_TABLE_ID = 'index_table_id';
-    
+
     const CELL_STATUS = 'cell_status';
     const CELL_DATE = 'cell_date';
     const PWWB_STATUS = 'pwwb_status';

@@ -4,9 +4,9 @@
 namespace App\Fields;
 
 
-class FirstAnnualResultStatusDetailFields
+class FirstSemesterResultStatusDetailFields
 {
-    const TABLE_NAME = 'first_annual_result_status_details';
+    const TABLE_NAME = 'first_semester_result_status_details';
     const ID = 'id';
     const INDEX_TABLE_ID = 'index_table_id';
 

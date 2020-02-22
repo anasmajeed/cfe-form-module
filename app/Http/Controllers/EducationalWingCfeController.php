@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\AfDetail;
 use App\BiseDetail;
+use App\DualCourseDetail;
 use App\EducationalWingCfe;
 use App\Fields\AfDetailFields;
 use App\Fields\BiseDetailFields;
+use App\Fields\DualCourseDetailFields;
 use App\Fields\EducationWingCfeFields;
 use App\Fields\ImsDetailFields;
 use App\Fields\VtiDetailFields;
@@ -100,6 +102,30 @@ class EducationalWingCfeController extends Controller
         $vti_registration_late_fee = Arr::get($params,VtiDetailFields::VTI_REGISTRATION_LATE_FEE);
         $vti_registration_total_fee = Arr::get($params,VtiDetailFields::VTI_REGISTRATION_TOTAL_FEE);
 
+        //Dual Course Detail
+        $course = Arr::get($params,DualCourseDetailFields::COURSE);
+        $roll_no = Arr::get($params,DualCourseDetailFields::ROLL_NO);
+        $affiliated_body = Arr::get($params,DualCourseDetailFields::AFFILIATED_BODY);
+        $duration_of_course = Arr::get($params,DualCourseDetailFields::DURATION_OF_COURSE);
+        $admission_date = Arr::get($params,DualCourseDetailFields::ADMISSION_DATE);
+        $ending_date = Arr::get($params,DualCourseDetailFields::ENDING_DATE);
+        $scheme_of_study = Arr::get($params,DualCourseDetailFields::SCHEME_OF_STUDY);
+        $semester_category = Arr::get($params,DualCourseDetailFields::SEMESTER_CATEGORY);
+        $shift = Arr::get($params,DualCourseDetailFields::SHIFT);
+        $registration_status = Arr::get($params,DualCourseDetailFields::REGISTRATION_STATUS);
+        $registration_date = Arr::get($params,DualCourseDetailFields::REGISTRATION_DATE);
+        $actual_fee = Arr::get($params,DualCourseDetailFields::ACTUAL_FEE);
+        $late_fee = Arr::get($params,DualCourseDetailFields::LATE_FEE);
+        $total_fee = Arr::get($params,DualCourseDetailFields::TOTAL_FEE);
+        $previous_course = Arr::get($params,DualCourseDetailFields::PREVIOUS_COURSE);
+        $previous_affiliated_body = Arr::get($params,DualCourseDetailFields::PREVIOUS_AFFILIATED_BODY);
+        $previous_duration_of_course = Arr::get($params,DualCourseDetailFields::PREVIOUS_DURATION_OF_COURSE);
+        $previous_roll_no = Arr::get($params,DualCourseDetailFields::PREVIOUS_ROLL_NO);
+        $previous_passing_date = Arr::get($params,DualCourseDetailFields::PREVIOUS_PASSING_DATE);
+        $previous_total_marks = Arr::get($params,DualCourseDetailFields::PREVIOUS_TOTAL_MARKS);
+        $previous_marks_obtained = Arr::get($params,DualCourseDetailFields::PREVIOUS_MARKS_OBTAINED);
+        $previous_cgpa = Arr::get($params,DualCourseDetailFields::PREVIOUS_CGPA);
+
         if(!$indexTableId) {
             return response()->json([
                 'message' => 'Index Table Id Not Found'
@@ -125,6 +151,10 @@ class EducationalWingCfeController extends Controller
             $vtiObject = VtiDetail::where(VtiDetailFields::INDEX_TABLE_ID,$indexTableId)->first();
             if(!$vtiObject){
                 $vtiObject = new VtiDetail();
+            }
+            $dualCourseObject = DualCourseDetail::where(DualCourseDetailFields::INDEX_TABLE_ID,$indexTableId)->first();
+            if(!$dualCourseObject){
+                $dualCourseObject = new DualCourseDetail();
             }
         }
 
@@ -216,6 +246,32 @@ class EducationalWingCfeController extends Controller
         $vtiObject->vti_registration_late_fee = $vti_registration_late_fee;
         $vtiObject->vti_registration_total_fee = $vti_registration_total_fee;
         $vtiObject->save();
+
+        //Dual Course Detail
+        $dualCourseObject->index_table_id = $indexTableId;
+        $dualCourseObject->course = $course;
+        $dualCourseObject->roll_no = $roll_no;
+        $dualCourseObject->affiliated_body = $affiliated_body;
+        $dualCourseObject->duration_of_course = $duration_of_course;
+        $dualCourseObject->admission_date = $admission_date;
+        $dualCourseObject->ending_date = $ending_date;
+        $dualCourseObject->scheme_of_study = $scheme_of_study;
+        $dualCourseObject->semester_category = $semester_category;
+        $dualCourseObject->shift = $shift;
+        $dualCourseObject->registration_status = $registration_status;
+        $dualCourseObject->registration_date = $registration_date;
+        $dualCourseObject->actual_fee = $actual_fee;
+        $dualCourseObject->late_fee = $late_fee;
+        $dualCourseObject->total_fee = $total_fee;
+        $dualCourseObject->previous_course = $previous_course;
+        $dualCourseObject->previous_affiliated_body = $previous_affiliated_body;
+        $dualCourseObject->previous_duration_of_course = $previous_duration_of_course;
+        $dualCourseObject->previous_roll_no = $previous_roll_no;
+        $dualCourseObject->previous_passing_date = $previous_passing_date;
+        $dualCourseObject->previous_total_marks = $previous_total_marks;
+        $dualCourseObject->previous_marks_obtained = $previous_marks_obtained;
+        $dualCourseObject->previous_cgpa = $previous_cgpa;
+        $dualCourseObject->save();
 
         return response()->json([
             'message' => 'Saved Successfully',

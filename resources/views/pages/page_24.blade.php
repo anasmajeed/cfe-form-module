@@ -1,7 +1,8 @@
-<div id="page_16" style="display:none;">
+<div id="page_24" style="display:none;">
+    <form id="page_24_form">
     <div class="card shadow p-3 w-100">
         <div class="card-header text-center bg-success">
-            Continue 1(Sixth Semester)
+            Continue 1(Eighth Semester)
         </div>
         <div class="card-body ">
             <div class="card shadow p-3 w-100">
@@ -15,9 +16,9 @@
                                 <div class="form-group col-md-3">
                                     <label>Status:</label>
                                     <select  name="cell_status" class="form-control">
-                                        <option value="yes" {{ $data ? $data['eightth_semester_details']['cell_status'] == 'yes' ? 'selected' : '' : ''}}>
+                                        <option value="yes" {{ $data && isset($data['eighth_semester_details']) ? $data['eighth_semester_details']['cell_status'] == 'yes' ? 'selected' : '' : ''}}>
                                         Yes</option>
-                                        <option value="no" {{ $data ? $data['eightth_semester_details']['cell_status'] == 'no' ? 'selected' : '' : ''}}>
+                                        <option value="no" {{ $data && isset($data['eighth_semester_details']) ? $data['eighth_semester_details']['cell_status'] == 'no' ? 'selected' : '' : ''}}>
                                         No</option>
                                     </select>
                                 </div>
@@ -25,7 +26,7 @@
                                     <label>Date:</label>
                                     <input type="text" class="form-control text-center datepicker" name="cell_date"
                                            placeholder="yyyy-mm-dd"
-                                           value="{{$data ? $data['eightth_semester_details']['cell_date'] : ''}}">
+                                           value="{{$data && isset($data['eighth_semester_details']) ? $data['eighth_semester_details']['cell_date'] : ''}}">
                                 </div>
                             </div>
                         </div>
@@ -41,9 +42,9 @@
                         <div class="form-group col-md-3">
                             <label>Status:</label>
                             <select  name="pwwb_status" class="form-control">
-                                <option value="yes" {{ $data ? $data['eightth_semester_details']['pwwb_status'] == 'yes' ? 'selected' : '' : ''}}>
+                                <option value="yes" {{ $data && isset($data['eighth_semester_details']) ? $data['eighth_semester_details']['pwwb_status'] == 'yes' ? 'selected' : '' : ''}}>
                                 Yes</option>
-                                <option value="no" {{ $data ? $data['eightth_semester_details']['pwwb_status'] == 'no' ? 'selected' : '' : ''}}>
+                                <option value="no" {{ $data && isset($data['eighth_semester_details']) ? $data['eighth_semester_details']['pwwb_status'] == 'no' ? 'selected' : '' : ''}}>
                                 No</option>
                             </select>
                         </div>
@@ -51,12 +52,12 @@
                             <label>Date:</label>
                             <input type="text" class="form-control text-center datepicker" name="pwwb_date"
                                    placeholder="yyyy-mm-dd"
-                                   value="{{$data ? $data['eightth_semester_details']['pwwb_date'] : ''}}">
+                                   value="{{$data && isset($data['eighth_semester_details']) ? $data['eighth_semester_details']['pwwb_date'] : ''}}">
                         </div>
                         <div class="form-group col-md-3">
                             <label>Diary No. in PWWB:</label>
                             <input type="text" class="form-control text-center" name="diary_pwwb" placeholder="XXXXX"
-                            value="{{$data ? $data['eightth_semester_details']['diary_pwwb'] : ''}}">
+                            value="{{$data && isset($data['eighth_semester_details']) ? $data['eighth_semester_details']['diary_pwwb'] : ''}}">
                         </div>
                     </div>
                 </div>
@@ -71,14 +72,14 @@
                             <label>Amount of Claim Due:</label>
                             <input type="text" class="form-control text-center" name="amount_claim_due"
                                    placeholder="XXXXX"
-                                   value="{{$data ? $data['eightth_semester_details']['amount_claim_due'] : ''}}">
+                                   value="{{$data && isset($data['eighth_semester_details']) ? $data['eighth_semester_details']['amount_claim_due'] : ''}}">
                         </div>
                         <div class="form-group col-md-3">
                             <label>Status of Claimed Received:</label>
                             <select  name="claim_status" class="form-control">
-                                <option value="yes" {{ $data ? $data['eightth_semester_details']['claim_status'] == 'yes' ? 'selected' : '' : ''}}>
+                                <option value="yes" {{ $data && isset($data['eighth_semester_details']) ? $data['eighth_semester_details']['claim_status'] == 'yes' ? 'selected' : '' : ''}}>
                                 Yes</option>
-                                <option value="no" {{ $data ? $data['eightth_semester_details']['claim_status'] == 'no' ? 'selected' : '' : ''}}>
+                                <option value="no" {{ $data && isset($data['eighth_semester_details']) ? $data['eighth_semester_details']['claim_status'] == 'no' ? 'selected' : '' : ''}}>
                                 No</option>
                             </select>
                         </div>
@@ -86,13 +87,13 @@
                             <label>Amount Received:</label>
                             <input type="text" class="form-control text-center" name="amount_received"
                                    placeholder="XXXXX"
-                                   value="{{$data ? $data['eightth_semester_details']['amount_received'] : ''}}">
+                                   value="{{$data && isset($data['eighth_semester_details']) ? $data['eighth_semester_details']['amount_received'] : ''}}">
                         </div>
                         <div class="form-group col-md-3">
                             <label>Date:</label>
                             <input type="text" class="form-control text-center datepicker" name="claim_date"
                                    placeholder="yyyy-mm-dd"
-                                   value="{{$data ? $data['eightth_semester_details']['claim_date'] : ''}}">
+                                   value="{{$data && isset($data['eighth_semester_details']) ? $data['eighth_semester_details']['claim_date'] : ''}}">
                         </div>
                     </div>
                 </div>
@@ -111,9 +112,9 @@
                                 <div class="form-group col-md-3">
                                     <label>Status:</label>
                                     <select  name="exam_status" class="form-control">
-                                        <option value="yes" {{ $data ? $data['eightth_semester_details']['exam_status'] == 'yes' ? 'selected' : '' : ''}}>
+                                        <option value="yes" {{ $data && isset($data['eighth_semester_details']) ? $data['eighth_semester_details']['exam_status'] == 'yes' ? 'selected' : '' : ''}}>
                                         Yes</option>
-                                        <option value="no" {{ $data ? $data['eightth_semester_details']['exam_status'] == 'no' ? 'selected' : '' : ''}}>
+                                        <option value="no" {{ $data && isset($data['eighth_semester_details']) ? $data['eighth_semester_details']['exam_status'] == 'no' ? 'selected' : '' : ''}}>
                                         No</option>
                                     </select>
                                 </div>
@@ -121,20 +122,20 @@
                                     <label>Date:</label>
                                     <input type="text" class="form-control text-center datepicker" name="exam_date"
                                            placeholder="yyyy-mm-dd"
-                                           value="{{$data ? $data['eightth_semester_details']['exam_date'] : ''}}">
+                                           value="{{$data && isset($data['eighth_semester_details']) ? $data['eighth_semester_details']['exam_date'] : ''}}">
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label>Amount:</label>
                                     <input type="text" class="form-control text-center" name="amount"
                                            placeholder="XXXXX"
-                                           value="{{$data ? $data['eightth_semester_details']['amount'] : ''}}">
+                                           value="{{$data && isset($data['eighth_semester_details']) ? $data['eighth_semester_details']['amount'] : ''}}">
                                 </div>
 
                                 <div class="form-group col-md-3">
                                     <label>Roll No:</label>
                                     <input type="text" class="form-control text-center" name="roll_no"
                                            placeholder="XXXXX"
-                                           value="{{$data ? $data['eightth_semester_details']['roll_no'] : ''}}">
+                                           value="{{$data && isset($data['eighth_semester_details']) ? $data['eighth_semester_details']['roll_no'] : ''}}">
                                 </div>
                             </div>
                         </div>
@@ -214,4 +215,5 @@
             </div>
         </div>
     </div>
+    </form>
 </div>
