@@ -41,6 +41,8 @@ class HomeController extends Controller
         $object['first_semester_result_status_details'] = $mainObject->firstSemesterResultStatusDetail ? $mainObject->firstSemesterResultStatusDetail->toArray() : null;
         $object['second_semester_details'] = $mainObject->secondSemesterDetail ? $mainObject->secondSemesterDetail->toArray() : null;
         $object['second_semester_result_status_details'] = $mainObject->secondSemesterResultStatusDetail ? $mainObject->secondSemesterResultStatusDetail->toArray() : null;
+        $object['third_semester_details'] = $mainObject->thirdSemesterDetail ? $mainObject->thirdSemesterDetail->toArray() : null;
+        $object['third_semester_result_status_details'] = $mainObject->thirdSemesterResultStatusDetail ? $mainObject->thirdSemesterResultStatusDetail->toArray() : null;
 
         $sessionDates = ['2019-2021','2021-2023','2023-2025'];
         $districtNames = ['RahimYarKhan','Lahore','Attock','Bahawalpur'];
