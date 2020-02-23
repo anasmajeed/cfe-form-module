@@ -9,10 +9,10 @@
                 <div class="form-group col-md-3">
                     <label>Status:</label>
                     <select  name="status" class="form-control">
-                        <option value="yes" {{ $data && isset($data['first_semester_details']) ? $data['first_semester_details']['status'] == 'yes' ? 'selected' : '' : ''}}>
-                        Yes</option>
-                        <option value="no" {{ $data && isset($data['first_semester_details']) ? $data['first_semester_details']['status'] == 'no' ? 'selected' : '' : ''}}>
-                        No</option>
+                        <option value="" selected disabled>--select--</option>
+                        @foreach(\Config::get('constants.general_yes_no') as $key => $value)
+                            <option value="{{$key}}" {{ $data ? $data['first_semester_details']['status'] == $key ? 'selected' : '' : ''}}>{{$value}}</option>
+                        @endforeach
                     </select>
                 </div>
                 <div class="form-group col-md-3">
@@ -42,10 +42,10 @@
                                 <div class="form-group col-md-3">
                                     <label>Status:</label>
                                     <select  name="exam_status" class="form-control">
-                                        <option value="yes" {{ $data && isset($data['first_semester_details']) ? $data['first_semester_details']['exam_status'] == 'yes' ? 'selected' : '' : ''}}>
-                                        Yes</option>
-                                        <option value="no" {{ $data && isset($data['first_semester_details']) ? $data['first_semester_details']['exam_status'] == 'no' ? 'selected' : '' : ''}}>
-                                        No</option>
+                                        <option value="" selected disabled>--select--</option>
+                                        @foreach(\Config::get('constants.general_yes_no') as $key => $value)
+                                            <option value="{{$key}}" {{ $data ? $data['first_semester_details']['exam_status'] == $key ? 'selected' : '' : ''}}>{{$value}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div class="form-group col-md-3">

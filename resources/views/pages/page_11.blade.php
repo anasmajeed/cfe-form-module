@@ -8,8 +8,10 @@
                 <div class="form-group  col-md-3">
                     <label>Course:</label>
                     <select  name="course" class="form-control">
-                        <option value="allCourses" {{ $data ? $data['dual_course_details']['course'] == 'allCourses' ? 'selected' : '' : ''}}>
-                        All Courses</option>
+                        <option value="" selected disabled>--select--</option>
+                        @foreach(\Config::get('constants.course') as $key => $value)
+                            <option value="{{$key}}" {{ $data ? $data['dual_course_details']['course'] == $key ? 'selected' : '' : ''}}>{{$value}}</option>
+                        @endforeach
                     </select>
                 </div>
             </div>
@@ -22,15 +24,19 @@
                 <div class="form-group  col-md-3">
                     <label>Affiliated Body:</label>
                     <select  name="affiliated_body" class="form-control">
-                        <option value="xxxxx" {{ $data ? $data['dual_course_details']['affiliated_body'] == 'xxxxx' ? 'selected' : '' : ''}}>
-                        XXXXX</option>
+                        <option value="" selected disabled>--select--</option>
+                        @foreach(\Config::get('constants.affiliated_body') as $key => $value)
+                            <option value="{{$key}}" {{ $data ? $data['dual_course_details']['affiliated_body'] == $key ? 'selected' : '' : ''}}>{{$value}}</option>
+                        @endforeach
                     </select>
                 </div>
                 <div class="form-group  col-md-3">
                     <label>Duration of Course:</label>
                     <select  name="duration_of_course" class="form-control">
-                        <option value="xxxxx" {{ $data ? $data['dual_course_details']['duration_of_course'] == 'yes' ? 'selected' : '' : ''}}>
-                        XXXXX</option>
+                        <option value="" selected disabled>--select--</option>
+                        @foreach(\Config::get('constants.duration_of_course') as $key => $value)
+                            <option value="{{$key}}" {{ $data ? $data['dual_course_details']['duration_of_course'] == $key ? 'selected' : '' : ''}}>{{$value}}</option>
+                        @endforeach
                     </select>
                 </div>
                 <div class="form-group  col-md-3">
@@ -48,30 +54,28 @@
                 <div class="form-group  col-md-3">
                     <label>Scheme of Study:</label>
                     <select  name="scheme_of_study" class="form-control">
-                        <option value="annual" {{ $data ? $data['dual_course_details']['scheme_of_study'] == 'annual' ? 'selected' : '' : ''}}>
-                        Annual</option>
-                        <option value="semester" {{ $data ? $data['dual_course_details']['scheme_of_study'] == 'semester' ? 'selected' : '' : ''}}>
-                        Semester</option>
+                        <option value="" selected disabled>--select--</option>
+                        @foreach(\Config::get('constants.academic_term') as $key => $value)
+                            <option value="{{$key}}" {{ $data ? $data['dual_course_details']['scheme_of_study'] == $key ? 'selected' : '' : ''}}>{{$value}}</option>
+                        @endforeach
                     </select>
                 </div>
                 <div class="form-group  col-md-3">
                     <label>Semester Category:</label>
                     <select  name="semester_category" class="form-control">
-                        <option value="fall" {{ $data ? $data['dual_course_details']['semester_category'] == 'fall' ? 'selected' : '' : ''}}>
-                        Fall</option>
-                        <option value="spring" {{ $data ? $data['dual_course_details']['semester_category'] == 'spring' ? 'selected' : '' : ''}}>
-                        Spring</option>
+                        <option value="" selected disabled>--select--</option>
+                        @foreach(\Config::get('constants.semester_category') as $key => $value)
+                            <option value="{{$key}}" {{ $data ? $data['dual_course_details']['semester_category'] == $key ? 'selected' : '' : ''}}>{{$value}}</option>
+                        @endforeach
                     </select>
                 </div>
                 <div class="form-group  col-md-3">
                     <label>Shift:</label>
                     <select  name="shift" class="form-control">
-                        <option value="morning" {{ $data ? $data['dual_course_details']['shift'] == 'morning' ? 'selected' : '' : ''}}>
-                        Morning</option>
-                        <option value="evening" {{ $data ? $data['dual_course_details']['shift'] == 'evening' ? 'selected' : '' : ''}}>
-                        Evening</option>
-                        <option value="weekend" {{ $data ? $data['dual_course_details']['shift'] == 'weekend' ? 'selected' : '' : ''}}>
-                        Weekend</option>
+                        <option value="" selected disabled>--select--</option>
+                        @foreach(\Config::get('constants.shift') as $key => $value)
+                            <option value="{{$key}}" {{ $data ? $data['dual_course_details']['shift'] == $key ? 'selected' : '' : ''}}>{{$value}}</option>
+                        @endforeach
                     </select>
                 </div>
             </div>
@@ -81,10 +85,10 @@
                         <div class="form-group col-md-4">
                             <label>Registration Status with Affiliated Body:</label>
                             <select  name="registration_status" class="form-control">
-                                <option value="registered" {{ $data ? $data['dual_course_details']['registration_status'] == 'registered' ? 'selected' : '' : ''}}>
-                                Registered</option>
-                                <option value="notRegistered" {{ $data ? $data['dual_course_details']['registration_status'] == 'notRegistered' ? 'selected' : '' : ''}}>
-                                Not Registered</option>
+                                <option value="" selected disabled>--select--</option>
+                                @foreach(\Config::get('constants.registration_status') as $key => $value)
+                                    <option value="{{$key}}" {{ $data ? $data['dual_course_details']['registration_status'] == $key ? 'selected' : '' : ''}}>{{$value}}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="form-group col-md-3">
@@ -130,19 +134,28 @@
                 <div class="form-group col-md-3">
                     <label>Course:</label>
                     <select  name="previous_course" class="form-control">
-                        <option value="xxxxx" {{ $data ? $data['dual_course_details']['previous_course'] == 'xxxxx' ? 'selected' : '' : ''}}>XXXXX</option>
+                        <option value="" selected disabled>--select--</option>
+                        @foreach(\Config::get('constants.previous_course') as $key => $value)
+                            <option value="{{$key}}" {{ $data ? $data['dual_course_details']['previous_course'] == $key ? 'selected' : '' : ''}}>{{$value}}</option>
+                        @endforeach
                     </select>
                 </div>
                 <div class="form-group  col-md-3">
                     <label>Affiliated Body:</label>
                     <select  name="previous_affiliated_body" class="form-control">
-                        <option value="xxxxx" {{ $data ? $data['dual_course_details']['previous_affiliated_body'] == 'xxxxx' ? 'selected' : '' : ''}}>XXXXX</option>
+                        <option value="" selected disabled>--select--</option>
+                        @foreach(\Config::get('constants.previous_affiliated_body') as $key => $value)
+                            <option value="{{$key}}" {{ $data ? $data['dual_course_details']['previous_affiliated_body'] == $key ? 'selected' : '' : ''}}>{{$value}}</option>
+                        @endforeach
                     </select>
                 </div>
                 <div class="form-group  col-md-3">
                     <label>Duration of Course:</label>
                     <select  name="previous_duration_of_course" class="form-control">
-                        <option value="xxxxx" {{ $data ? $data['dual_course_details']['previous_duration_of_course'] == 'xxxxx' ? 'selected' : '' : ''}}>XXXXX</option>
+                        <option value="" selected disabled>--select--</option>
+                        @foreach(\Config::get('constants.previous_duration_of_course') as $key => $value)
+                            <option value="{{$key}}" {{ $data ? $data['dual_course_details']['previous_duration_of_course'] == $key ? 'selected' : '' : ''}}>{{$value}}</option>
+                        @endforeach
                     </select>
                 </div>
                 <div class="form-group  col-md-3">

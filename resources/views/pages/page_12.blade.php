@@ -9,10 +9,10 @@
                 <div class="form-group  col-md-4">
                     <label>Transport Facility:</label>
                     <select  name="transport_facility" class="form-control">
-                        <option value="yes" {{ $data ? $data['transport_hostel_details']['transport_facility'] == 'yes' ? 'selected' : '' : ''}}>
-                        Yes</option>
-                        <option value="no" {{ $data ? $data['transport_hostel_details']['transport_facility'] == 'no' ? 'selected' : '' : ''}}>
-                        No</option>
+                        <option value="" selected disabled>--select--</option>
+                        @foreach(\Config::get('constants.general_yes_no') as $key => $value)
+                            <option value="{{$key}}" {{ $data ? $data['transport_hostel_details']['transport_facility'] == $key ? 'selected' : '' : ''}}>{{$value}}</option>
+                        @endforeach
                     </select>
                 </div>
                 <div class="form-group  col-md-3">
@@ -32,11 +32,10 @@
                 <div class="form-group col-md-3">
                     <label>Hostel Facility:</label>
                     <select id="hostel_facility_select" name="hostel_facility" class="form-control" onchange="setHostelRowDisplay()">
-                        <option disabled selected value="">Select Hostel Facility</option>
-                        <option value="yes" {{ $data ? $data['transport_hostel_details']['hostel_facility'] == 'yes' ? 'selected' : '' : ''}}>
-                        Yes</option>
-                        <option value="no" {{ $data ? $data['transport_hostel_details']['hostel_facility'] == 'no' ? 'selected' : '' : ''}}>
-                        No</option>
+                        <option value="" selected disabled>--select--</option>
+                        @foreach(\Config::get('constants.general_yes_no') as $key => $value)
+                            <option value="{{$key}}" {{ $data ? $data['transport_hostel_details']['hostel_facility'] == $key ? 'selected' : '' : ''}}>{{$value}}</option>
+                        @endforeach
                     </select>
                 </div>
             </div>

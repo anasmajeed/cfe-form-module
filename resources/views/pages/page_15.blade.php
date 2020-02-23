@@ -19,10 +19,10 @@
                                 <div class="form-group col-md-3">
                                     <label>Exam Fee Deposit status:</label>
                                     <select  name="fee_deposit_status" class="form-control">
-                                        <option value="yes" {{ $data ? $data['first_annual_details']['fee_deposit_status'] == 'issued' ? 'selected' : '' : ''}}>
-                                        Yes</option>
-                                        <option value="no" {{ $data ? $data['first_annual_details']['fee_deposit_status'] == 'issued' ? 'selected' : '' : ''}}>
-                                        No</option>
+                                        <option value="" selected disabled>--select--</option>
+                                        @foreach(\Config::get('constants.general_yes_no') as $key => $value)
+                                            <option value="{{$key}}" {{ $data ? $data['first_annual_details']['fee_deposit_status'] == $key ? 'selected' : '' : ''}}>{{$value}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div class="form-group col-md-3">
@@ -176,19 +176,19 @@
                                 <div class="form-group col-md-4">
                                     <label>Same Course:</label>
                                     <select  name="same_course" class="form-control">
-                                        <option value="yes" {{ $data ? $data['first_annual_details']['same_course'] == 'yes' ? 'selected' : '' : ''}}>
-                                        Yes</option>
-                                        <option value="no" {{ $data ? $data['first_annual_details']['same_course'] == 'no' ? 'selected' : '' : ''}}>
-                                        No</option>
+                                        <option value="" selected disabled>--select--</option>
+                                        @foreach(\Config::get('constants.general_yes_no') as $key => $value)
+                                            <option value="{{$key}}" {{ $data ? $data['first_annual_details']['same_course'] == $key ? 'selected' : '' : ''}}>{{$value}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label>Changed Course:</label>
                                     <select  name="changed_course" class="form-control">
-                                        <option value="yes" {{ $data ? $data['first_annual_details']['changed_course'] == 'yes' ? 'selected' : '' : ''}}>
-                                        Yes</option>
-                                        <option value="no" {{ $data ? $data['first_annual_details']['changed_course'] == 'no' ? 'selected' : '' : ''}}>
-                                        No</option>
+                                        <option value="" selected disabled>--select--</option>
+                                        @foreach(\Config::get('constants.general_yes_no') as $key => $value)
+                                            <option value="{{$key}}" {{ $data ? $data['first_annual_details']['changed_course'] == $key ? 'selected' : '' : ''}}>{{$value}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>

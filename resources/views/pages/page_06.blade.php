@@ -37,14 +37,10 @@
                             <div class="form-group col-md-4">
                                 <label>Attested by Gazzeted Officer:</label>
                                 <select name="student_cnic_attested" class="form-control">
-                                    <option
-                                        value="yes" {{ $data ? $data['student_personal_detail']['student_cnic_attested'] == 'yes' ? 'selected' : '' : ''}}>
-                                        Yes
-                                    </option>
-                                    <option
-                                        value="no" {{ $data ? $data['student_personal_detail']['student_cnic_attested'] == 'no' ? 'selected' : '' : ''}}>
-                                        No
-                                    </option>
+                                    <option value="" selected disabled>--select--</option>
+                                    @foreach(\Config::get('constants.general_yes_no') as $key => $value)
+                                        <option value="{{$key}}" {{ $data ? $data['student_personal_detail']['student_cnic_attested'] == $key ? 'selected' : '' : ''}}>{{$value}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
@@ -68,8 +64,10 @@
                             <div class="form-group col-md-3">
                                 <label>Marital Status:</label>
                                 <select name="marital_status" class="form-control">
-                                    <option value="married">Married</option>
-                                    <option value="unmarried">Unmarries</option>
+                                    <option value="" selected disabled>--select--</option>
+                                    @foreach(\Config::get('constants.marital_status') as $key => $value)
+                                        <option value="{{$key}}" {{ $data ? $data['student_personal_detail']['marital_status'] == $key ? 'selected' : '' : ''}}>{{$value}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="form-group col-md-3">
@@ -101,14 +99,10 @@
                             <div class="form-group col-md-3">
                                 <label>Signature on page2(once)& 3(twice):</label>
                                 <select name="signature" class="form-control">
-                                    <option
-                                        value="yes" {{ $data ? $data['student_personal_detail']['signature'] == 'yes' ? 'selected' : '' : ''}}>
-                                        Yes
-                                    </option>
-                                    <option
-                                        value="no" {{ $data ? $data['student_personal_detail']['signature'] == 'no' ? 'selected' : '' : ''}}>
-                                        No
-                                    </option>
+                                    <option value="" selected disabled>--select--</option>
+                                    @foreach(\Config::get('constants.general_yes_no') as $key => $value)
+                                        <option value="{{$key}}" {{ $data ? $data['student_personal_detail']['signature'] == $key ? 'selected' : '' : ''}}>{{$value}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>

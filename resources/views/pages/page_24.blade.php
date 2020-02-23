@@ -16,10 +16,10 @@
                                     <div class="form-group col-md-3">
                                         <label>Status:</label>
                                         <select  name="cell_status" class="form-control">
-                                            <option value="yes" {{ $data && isset($data['eighth_semester_details']) ? $data['eighth_semester_details']['cell_status'] == 'yes' ? 'selected' : '' : ''}}>
-                                                Yes</option>
-                                            <option value="no" {{ $data && isset($data['eighth_semester_details']) ? $data['eighth_semester_details']['cell_status'] == 'no' ? 'selected' : '' : ''}}>
-                                                No</option>
+                                            <option value="" selected disabled>--select--</option>
+                                            @foreach(\Config::get('constants.general_yes_no') as $key => $value)
+                                                <option value="{{$key}}" {{ $data ? $data['eighth_semester_details']['cell_status'] == $key ? 'selected' : '' : ''}}>{{$value}}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                     <div class="form-group col-md-3">
@@ -42,10 +42,10 @@
                             <div class="form-group col-md-3">
                                 <label>Status:</label>
                                 <select  name="pwwb_status" class="form-control">
-                                    <option value="yes" {{ $data && isset($data['eighth_semester_details']) ? $data['eighth_semester_details']['pwwb_status'] == 'yes' ? 'selected' : '' : ''}}>
-                                        Yes</option>
-                                    <option value="no" {{ $data && isset($data['eighth_semester_details']) ? $data['eighth_semester_details']['pwwb_status'] == 'no' ? 'selected' : '' : ''}}>
-                                        No</option>
+                                    <option value="" selected disabled>--select--</option>
+                                    @foreach(\Config::get('constants.general_yes_no') as $key => $value)
+                                        <option value="{{$key}}" {{ $data ? $data['eighth_semester_details']['pwwb_status'] == $key ? 'selected' : '' : ''}}>{{$value}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="form-group col-md-3">
@@ -77,10 +77,10 @@
                             <div class="form-group col-md-3">
                                 <label>Status of Claimed Received:</label>
                                 <select  name="claim_status" class="form-control">
-                                    <option value="yes" {{ $data && isset($data['eighth_semester_details']) ? $data['eighth_semester_details']['claim_status'] == 'yes' ? 'selected' : '' : ''}}>
-                                        Yes</option>
-                                    <option value="no" {{ $data && isset($data['eighth_semester_details']) ? $data['eighth_semester_details']['claim_status'] == 'no' ? 'selected' : '' : ''}}>
-                                        No</option>
+                                    <option value="" selected disabled>--select--</option>
+                                    @foreach(\Config::get('constants.general_yes_no') as $key => $value)
+                                        <option value="{{$key}}" {{ $data ? $data['eighth_semester_details']['claim_status'] == $key ? 'selected' : '' : ''}}>{{$value}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="form-group col-md-3">
@@ -112,10 +112,10 @@
                                     <div class="form-group col-md-3">
                                         <label>Status:</label>
                                         <select  name="exam_status" class="form-control">
-                                            <option value="yes" {{ $data && isset($data['eighth_semester_details']) ? $data['eighth_semester_details']['exam_status'] == 'yes' ? 'selected' : '' : ''}}>
-                                                Yes</option>
-                                            <option value="no" {{ $data && isset($data['eighth_semester_details']) ? $data['eighth_semester_details']['exam_status'] == 'no' ? 'selected' : '' : ''}}>
-                                                No</option>
+                                            <option value="" selected disabled>--select--</option>
+                                            @foreach(\Config::get('constants.general_yes_no') as $key => $value)
+                                                <option value="{{$key}}" {{ $data ? $data['eighth_semester_details']['exam_status'] == $key ? 'selected' : '' : ''}}>{{$value}}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                     <div class="form-group col-md-3">

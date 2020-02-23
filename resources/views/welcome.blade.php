@@ -13,7 +13,7 @@
     <title>CFE FORM</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
 {{--    <meta name="index_id" content="{{ $data['index_id'] ?? ''}}">--}}
-    <meta name="index_id" content="13">
+    <meta name="index_id" content="1">
 </head>
 <body>
 
@@ -91,7 +91,7 @@
     function saveForm(){
         if(container_no < container_array.length){
             apiRequest();
-            window.location.href = "http://cfe-form-module.com/home";
+            window.location.href = "/home";
         }
     }
 

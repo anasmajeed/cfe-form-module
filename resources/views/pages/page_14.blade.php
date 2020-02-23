@@ -9,10 +9,10 @@
                 <div class="form-group  col-md-4">
                     <label>Status:</label>
                     <select  name="status" class="form-control">
-                        <option value="issued" {{ $data ? $data['provisional_claim_details']['status'] == 'issued' ? 'selected' : '' : ''}}>
-                        Issued</option>
-                        <option value="not_issued" {{ $data ? $data['provisional_claim_details']['status'] == 'not_issued' ? 'selected' : '' : ''}}>
-                        Not Issued</option>
+                        <option value="" selected disabled>--select--</option>
+                        @foreach(\Config::get('constants.status') as $key => $value)
+                            <option value="{{$key}}" {{ $data ? $data['provisional_claim_details']['status'] == $key ? 'selected' : '' : ''}}>{{$value}}</option>
+                        @endforeach
                     </select>
                 </div>
                 <div class="form-group  col-md-3">
@@ -37,10 +37,10 @@
                 <div class="form-group col-md-3">
                     <label>Status of Claim Received:</label>
                     <select  name="claim_status" class="form-control">
-                        <option value="received" {{ $data ? $data['provisional_claim_details']['claim_status'] == 'received' ? 'selected' : '' : ''}}>
-                        Received</option>
-                        <option value="Rejected" {{ $data ? $data['provisional_claim_details']['claim_status'] == 'Rejected' ? 'selected' : '' : ''}}>
-                        Rejected</option>
+                        <option value="" selected disabled>--select--</option>
+                        @foreach(\Config::get('constants.claim_status') as $key => $value)
+                            <option value="{{$key}}" {{ $data ? $data['provisional_claim_details']['claim_status'] == $key ? 'selected' : '' : ''}}>{{$value}}</option>
+                        @endforeach
                     </select>
                 </div>
                 <div class="form-group  col-md-3">
