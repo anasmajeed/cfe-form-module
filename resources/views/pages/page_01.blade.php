@@ -4,8 +4,9 @@
             <div class="form-group pt-3 col-md-2">
                 <label for="session">Session:</label>
                 <select id="sessions" name="session" class="form-control">
-                    @foreach($sessionDates as $sessionDate)
-                        <option value="{{$sessionDate}}" {{ $data ? $data['session'] == $sessionDate ? 'selected' : '' : ''}}>{{$sessionDate}}</option>
+                    <option value="" selected disabled>Select Session</option>
+                    @foreach(\Config::get('constants.sessions') as $key => $sessionDate)
+                            <option value="{{$key}}" {{ $data ? $data['session'] == $key ? 'selected' : '' : ''}}>{{$sessionDate}}</option>
                     @endforeach
                 </select>
             </div>
@@ -13,8 +14,8 @@
                 <label for="districts">District:</label>
                 <select id="districts" name="district" class="form-control">
                     <option value="" selected disabled>Select District Name</option>
-                    @foreach($districtNames as $districtName)
-                        <option value="{{$districtName}}" {{ $data ? $data['district'] == $districtName ? 'selected' : '' : ''}}>{{$districtName}}</option>
+                    @foreach(\Config::get('constants.districts') as $key => $districtName)
+                        <option value="{{$key}}" {{ $data ? $data['district'] == $key ? 'selected' : '' : ''}}>{{$districtName}}</option>
                     @endforeach
                 </select>
             </div>
@@ -49,10 +50,11 @@
                     </div>
                     <div class="form-group col-md-4">
                         <label>Priority of Submission:</label>
-                        <select id="districts" name="priority_of_submission" class="form-control">
-                            <option value="high" {{ $data ? $data['priority_of_submission'] == 'high' ? 'selected' : '' : ''}}>High</option>
-                            <option value="medium" {{ $data ? $data['priority_of_submission'] == 'medium' ? 'selected' : '' : ''}}>Medium</option>
-                            <option value="low" {{ $data ? $data['priority_of_submission'] == 'low' ? 'selected' : '' : ''}}>Low</option>
+                        <select name="priority_of_submission" class="form-control">
+                            <option value="" selected disabled>Select Priority</option>
+                            @foreach(\Config::get('constants.priority_of_submission') as $key => $priority_of_submission)
+                                <option value="{{$key}}" {{ $data ? $data['priority_of_submission'] == $key ? 'selected' : '' : ''}}>{{$priority_of_submission}}</option>
+                            @endforeach
                         </select>
                     </div>
                 </div>
@@ -126,14 +128,18 @@
                             </div>
                             <div class="border border-bottom-0 col-md-1 p-0">
                                 <select id="districts" name="potential_degree[]" class="form-control rounded-0">
-                                    <option value="yes" {{ $worker_details ? $worker_details['potential_degree'] == 'yes' ? 'selected' : '' : ''}}>XXXXX</option>
-                                    <option value="no" {{ $worker_details ? $worker_details['potential_degree'] == 'no' ? 'selected' : '' : ''}}>XXXXX</option>
+                                    <option value="" selected disabled>Select Potential Degree</option>
+                                    @foreach(\Config::get('constants.potential_degree') as $key => $potential_degree)
+                                        <option value="{{$key}}" {{ $worker_details ? $worker_details['potential_degree'] == $key ? 'selected' : '' : ''}}>{{$potential_degree}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="border border-bottom-0 col-md-1 p-0">
                                 <select id="districts" name="file_received_status[]" class="form-control rounded-0">
-                                    <option value="yes" {{ $worker_details ? $worker_details['file_received_status'] == 'yes' ? 'selected' : '' : ''}}>Yes</option>
-                                    <option value="no" {{ $worker_details ? $worker_details['file_received_status'] == 'no' ? 'selected' : '' : ''}}>No</option>
+                                    <option value="" selected disabled>Select Status</option>
+                                    @foreach(\Config::get('constants.general_yes_no') as $key => $file_received_status)
+                                        <option value="{{$key}}" {{ $worker_details ? $worker_details['file_received_status'] == $key ? 'selected' : '' : ''}}>{{$file_received_status}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="border border-bottom-0 col-md-2 p-0">
@@ -163,15 +169,18 @@
                             <input type="text" class="form-control rounded-0" name="passed_degree[]" placeholder="XXXXX">
                         </div>
                         <div class="border border-bottom-0 col-md-1 p-0">
-                            <select id="districts" name="potential_degree[]" class="form-control rounded-0">
-                                <option value="yes">XXXXX</option>
-                                <option value="no">XXXXX</option>
+                            <select name="potential_degree[]" class="form-control rounded-0">
+                                <option value="" selected disabled>Select Potential Degree</option>
+                                @foreach(\Config::get('constants.potential_degree') as $key => $potential_degree)
+                                    <option value="{{$key}}">{{$potential_degree}}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="border border-bottom-0 col-md-1 p-0">
-                            <select id="districts" name="file_received_status[]" class="form-control rounded-0">
-                                <option value="yes">Yes</option>
-                                <option value="no">No</option>
+                            <select name="file_received_status[]" class="form-control rounded-0">
+                                @foreach(\Config::get('constants.general_yes_no') as $key => $file_received_status)
+                                    <option value="{{$key}}">{{$file_received_status}}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="border border-bottom-0 col-md-2 p-0">

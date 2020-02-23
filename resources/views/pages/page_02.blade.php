@@ -76,43 +76,19 @@
                     <div class="form-group col-md-4">
                         <label>Worker's Current Status:</label>
                         <select name="worker_current_status" class="form-control">
-                            <option
-                                value="active" {{ $data ? $data['worker_personal_details']['worker_current_status'] == 'active' ? 'selected' : '' : ''}}>
-                                Active
-                            </option>
-                            <option
-                                value="disabled" {{ $data ? $data['worker_personal_details']['worker_current_status'] == 'disabled' ? 'selected' : '' : ''}}>
-                                Disabled
-                            </option>
-                            <option
-                                value="died" {{ $data ? $data['worker_personal_details']['worker_current_status'] == 'died' ? 'selected' : '' : ''}}>
-                                Died
-                            </option>
-                            <option
-                                value="retired" {{ $data ? $data['worker_personal_details']['worker_current_status'] == 'retired' ? 'selected' : '' : ''}}>
-                                Retired
-                            </option>
-                            <option
-                                value="resigned" {{ $data ? $data['worker_personal_details']['worker_current_status'] == 'resigned' ? 'selected' : '' : ''}}>
-                                Resigned
-                            </option>
-                            <option
-                                value="jobless" {{ $data ? $data['worker_personal_details']['worker_current_status'] == 'jobless' ? 'selected' : '' : ''}}>
-                                Jobless
-                            </option>
+                            <option value="" selected disabled>Select Status</option>
+                            @foreach(\Config::get('constants.workers_current_status') as $key => $workers_current_status)
+                                <option value="{{$key}}" {{ $data ? $data['worker_personal_details']['worker_current_status'] == $key ? 'selected' : '' : ''}}>{{$workers_current_status}}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="form-group col-md-4">
                         <label>Worker's Job Nature:</label>
                         <select name="worker_job_nature" class="form-control">
-                            <option
-                                value="permanent" {{ $data ? $data['worker_personal_details']['worker_job_nature'] == 'permanent' ? 'selected' : '' : ''}}>
-                                Permanent
-                            </option>
-                            <option
-                                value="contract" {{ $data ? $data['worker_personal_details']['worker_job_nature'] == 'contract' ? 'selected' : '' : ''}}>
-                                Through Contract
-                            </option>
+                            <option value="" selected disabled>Select</option>
+                            @foreach(\Config::get('constants.workers_job_nature') as $key => $workers_job_nature)
+                                <option value="{{$key}}" {{ $data ? $data['worker_personal_details']['worker_job_nature'] == $key ? 'selected' : '' : ''}}>{{$workers_job_nature}}</option>
+                            @endforeach
                         </select>
                     </div>
                 </div>
