@@ -29,16 +29,21 @@
                     </div>
                     <div class="form-group col-md-4">
                         <label>Factory Registration Certificate Attested by Factory Manager:</label>
+                        
                         <select name="factory_registration_certificate_attested_by_manager" class="form-control">
-                            <option value="yes" {{ $data ? $data['factory_details']['factory_registration_certificate_attested_by_manager'] == 'yes' ? 'selected' : '' : ''}}>Yes</option>
-                            <option value="no" {{ $data ? $data['factory_details']['factory_registration_certificate_attested_by_manager'] == 'no' ? 'selected' : '' : ''}}>No</option>
+                            <option value="" selected disabled>--select--</option>
+                            @foreach(\Config::get('constants.general_yes_no') as $key => $value)
+                                <option value="{{$key}}" {{ $data ? $data['factory_details']['factory_registration_certificate_attested_by_manager'] == $key ? 'selected' : '' : ''}}>{{$value}}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="form-group col-md-5">
                         <label>Factory Registration Certificate Attested by District Officer Labor(DOL):</label>
                         <select name="factory_registration_certificate_attested_by_officer" class="form-control">
-                            <option value="yes" {{ $data ? $data['factory_details']['factory_registration_certificate_attested_by_officer'] == 'yes' ? 'selected' : '' : ''}}>Yes</option>
-                            <option value="no" {{ $data ? $data['factory_details']['factory_registration_certificate_attested_by_officer'] == 'no' ? 'selected' : '' : ''}}>No</option>
+                            <option value="" selected disabled>--select--</option>
+                            @foreach(\Config::get('constants.general_yes_no') as $key => $value)
+                                <option value="{{$key}}" {{ $data ? $data['factory_details']['factory_registration_certificate_attested_by_officer'] == $key ? 'selected' : '' : ''}}>{{$value}}</option>
+                            @endforeach
                         </select>
                     </div>
                 </div>
@@ -46,8 +51,10 @@
                     <div class="form-group  col-md-3">
                         <label>Factory Registration Certificate Attested by Dir. Labor:</label>
                         <select name="factory_registration_certificate_attested_by_director" class="form-control">
-                            <option value="yes" {{ $data ? $data['factory_details']['factory_registration_certificate_attested_by_director'] == 'yes' ? 'selected' : '' : ''}}>Yes</option>
-                            <option value="no" {{ $data ? $data['factory_details']['factory_registration_certificate_attested_by_director'] == 'no' ? 'selected' : '' : ''}}>No</option>
+                            <option value="" selected disabled>--select--</option>
+                            @foreach(\Config::get('constants.general_yes_no') as $key => $value)
+                                <option value="{{$key}}" {{ $data ? $data['factory_details']['factory_registration_certificate_attested_by_director'] == $key ? 'selected' : '' : ''}}>{{$value}}</option>
+                            @endforeach
                         </select>
                     </div>
                 </div>
@@ -62,8 +69,10 @@
                     <div class="form-group  col-md-6">
                         <label>Signature of worker on pg 1 & 3 of PWWB form:</label>
                         <select name="signature_of_worker" class="form-control">
-                            <option value="yes" {{ $data ? $data['factory_details']['signature_of_worker'] == 'yes' ? 'selected' : '' : ''}}>Yes</option>
-                            <option value="no" {{ $data ? $data['factory_details']['signature_of_worker'] == 'no' ? 'selected' : '' : ''}}>No</option>
+                            <option value="" selected disabled>--select--</option>
+                            @foreach(\Config::get('constants.general_yes_no') as $key => $value)
+                                <option value="{{$key}}" {{ $data ? $data['factory_details']['signature_of_worker'] == $key ? 'selected' : '' : ''}}>{{$value}}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="form-group col-md-6">
@@ -148,6 +157,7 @@
                     </div>
                     <div class="border border-bottom-0 col-md-1 p-0">
                         <select name="service_completion_status[]" class="form-control rounded-0">
+                            
                             <option value="yes" {{ $service_details ? $service_details['service_completion_status'] == 'yes' ? 'selected' : '' : ''}}>Yes</option>
                             <option value="no" {{ $service_details ? $service_details['service_completion_status'] == 'no' ? 'selected' : '' : ''}}>No</option>
                         </select>

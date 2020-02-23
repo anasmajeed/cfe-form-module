@@ -15,14 +15,10 @@
                     <div class="form-group col-md-5">
                         <label>Worker's Social Security Card Attested by Factory Manager:</label>
                         <select name="social_security_attested" class="form-control">
-                            <option
-                                value="yes" {{ $data ? $data['worker_bank_security_details']['social_security_attested'] == 'yes' ? 'selected' : '' : ''}}>
-                                Yes
-                            </option>
-                            <option
-                                value="no" {{ $data ? $data['worker_bank_security_details']['social_security_attested'] == 'no' ? 'selected' : '' : ''}}>
-                                No
-                            </option>
+                            <option value="" selected disabled>--select--</option>
+                            @foreach(\Config::get('constants.general_yes_no') as $key => $value)
+                                <option value="{{$key}}" {{ $data ? $data['worker_bank_security_details']['social_security_attested'] == $key ? 'selected' : '' : ''}}>{{$value}}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="form-group col-md-4">
@@ -49,14 +45,10 @@
                     <div class="form-group col-md-6">
                         <label>EOBI Card Attested by Factory Manager:</label>
                         <select name="eobi_card_attested" class="form-control">
-                            <option
-                                value="yes" {{ $data ? $data['worker_bank_security_details']['eobi_card_attested'] == 'yes' ? 'selected' : '' : ''}}>
-                                Yes
-                            </option>
-                            <option
-                                value="no" {{ $data ? $data['worker_bank_security_details']['eobi_card_attested'] == 'no' ? 'selected' : '' : ''}}>
-                                No
-                            </option>
+                            <option value="" selected disabled>--select--</option>
+                            @foreach(\Config::get('constants.general_yes_no') as $key => $value)
+                                <option value="{{$key}}" {{ $data ? $data['worker_bank_security_details']['eobi_card_attested'] == $key ? 'selected' : '' : ''}}>{{$value}}</option>
+                            @endforeach
                         </select>
                     </div>
                 </div>

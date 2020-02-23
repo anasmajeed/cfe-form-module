@@ -35,5 +35,16 @@ return [
     'workers_job_nature' => [
         'permanent' => 'Permanent',
         'contract' => 'Through Contract'
+    ],
+    'factory_status'=>[
+        'active' => 'Active',
+        'closed' => 'Closed'
+    ],
+    'worker_relationship' => [
+        'self' => 'Self',
+        'mother' => 'Mother',
+        'father' => 'Father',
+        'sibling' => 'Sibling'
     ]
+
 ];
