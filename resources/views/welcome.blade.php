@@ -12,8 +12,8 @@
 
     <title>CFE FORM</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
-{{--    <meta name="index_id" content="{{ $data['index_id'] ?? ''}}">--}}
-    <meta name="index_id" content="1">
+    <meta name="index_id" content="{{ $data['index_id'] ?? ''}}">
+{{--    <meta name="index_id" content="13">--}}
 </head>
 <body>
 
@@ -46,10 +46,10 @@
         <button id="nextButton" type="button" class="btn btn-primary float-right" onclick="nextForm()">Next</button>
         <button id="saveButton" type="button" class="btn btn-primary float-right" onclick="saveForm()">Save</button>
     </div>
-    <div class="mt-4">
-        <input type="number" id="goToPage">
-        <button type="button" onclick="goToPage()" class="btn btn-outline-success">GO</button>
-    </div>
+{{--    <div class="mt-4">--}}
+{{--        <input type="number" id="goToPage">--}}
+{{--        <button type="button" onclick="goToPage()" class="btn btn-outline-success">GO</button>--}}
+{{--    </div>--}}
 </div>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->

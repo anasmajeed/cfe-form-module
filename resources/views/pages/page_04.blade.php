@@ -25,11 +25,11 @@
                     <div class="form-group  col-md-3">
                         <label>Date of Factory/Establishment Registration:</label>
                         <input type="text" class="form-control text-center datepicker" name="factory_registration_date"
-                               placeholder="dd/mm/yyyy" value="{{$data ? $data['factory_details']['factory_registration_date'] : ''}}">
+                               placeholder="yyyy-mm-dd" value="{{$data ? $data['factory_details']['factory_registration_date'] : ''}}">
                     </div>
                     <div class="form-group col-md-4">
                         <label>Factory Registration Certificate Attested by Factory Manager:</label>
-                        
+
                         <select name="factory_registration_certificate_attested_by_manager" class="form-control">
                             <option value="" selected disabled>--select--</option>
                             @foreach(\Config::get('constants.general_yes_no') as $key => $value)
@@ -77,8 +77,8 @@
                     </div>
                     <div class="form-group col-md-6">
                         <label>Date of form Submission:</label>
-                        <input type="text" class="form-control text-center datepicker" name="date_of_submission"
-                               placeholder="dd/mm/yyyy" value="{{$data ? $data['factory_details']['date_of_submission'] : ''}}">
+                        <input type="text" id="date_of_form_submission" class="form-control text-center datepickerAccumulated" name="date_of_submission"
+                               placeholder="yyyy-mm-dd" value="{{$data ? $data['factory_details']['date_of_submission'] : ''}}">
                     </div>
                 </div>
             </div>
@@ -130,7 +130,7 @@
                         <label>Attestation by Dir. Labor</label>
                     </div>
                 </div>
-                @if($data['service_details'])
+                @if(isset($data['service_details']) && count($data['service_details']))
                     @foreach($data['service_details'] as $service_details)
                 <div class="form-row accumulatedRows" id="service_detail">
                     <div class="border border-bottom-0 col-md-1 p-0">
@@ -142,22 +142,22 @@
                     </div>
                     <div class="border border-bottom-0 col-md-1 p-0">
                         <input type="text" class="form-control rounded-0 datepickerAccumulated" name="appointment_date[]"
-                               placeholder="dd/mm/yyyy" value="{{$service_details['appointment_date']}}">
+                               placeholder="yyyy-mm-dd" value="{{$service_details['appointment_date']}}">
                     </div>
                     <div class="border border-bottom-0 col-md-1 p-0">
                         <input type="text" class="form-control rounded-0 datepickerAccumulated" name="job_leaving_date[]"
-                               placeholder="dd/mm/yyyy" value="{{$service_details['job_leaving_date']}}">
+                               placeholder="yyyy-mm-dd" value="{{$service_details['job_leaving_date']}}">
                     </div>
                     <div class="border border-bottom-0 col-md-1 p-0">
                         <input type="text" class="form-control rounded-0" name="total_period[]" placeholder="XXXXX" value="{{$service_details['total_period']}}">
                     </div>
                     <div class="border border-bottom-0 col-md-2 p-0">
                         <input type="text" class="form-control rounded-0 datepicker" name="completion_date[]" value="{{$service_details['completion_date']}}"
-                               placeholder="dd/mm/yyyy">
+                               placeholder="yyyy-mm-dd">
                     </div>
                     <div class="border border-bottom-0 col-md-1 p-0">
                         <select name="service_completion_status[]" class="form-control rounded-0">
-                            
+
                             <option value="yes" {{ $service_details ? $service_details['service_completion_status'] == 'yes' ? 'selected' : '' : ''}}>Yes</option>
                             <option value="no" {{ $service_details ? $service_details['service_completion_status'] == 'no' ? 'selected' : '' : ''}}>No</option>
                         </select>
@@ -198,18 +198,18 @@
                         </div>
                         <div class="border border-bottom-0 col-md-1 p-0">
                             <input type="text" class="form-control rounded-0 datepickerAccumulated" name="appointment_date[]"
-                                   placeholder="dd/mm/yyyy">
+                                   onchange="setAccumulatedYears()" placeholder="yyyy-mm-dd">
                         </div>
                         <div class="border border-bottom-0 col-md-1 p-0">
                             <input type="text" class="form-control rounded-0 datepickerAccumulated" name="job_leaving_date[]"
-                                   placeholder="dd/mm/yyyy">
+                                   onchange="setAccumulatedYears()" placeholder="yyyy-mm-dd">
                         </div>
                         <div class="border border-bottom-0 col-md-1 p-0">
                             <input type="text" class="form-control rounded-0" name="total_period[]" placeholder="XXXXX">
                         </div>
                         <div class="border border-bottom-0 col-md-2 p-0">
                             <input type="text" class="form-control rounded-0 datepicker" name="completion_date[]"
-                                   placeholder="dd/mm/yyyy">
+                                   placeholder="yyyy-mm-dd">
                         </div>
                         <div class="border border-bottom-0 col-md-1 p-0">
                             <select name="service_completion_status[]" class="form-control rounded-0">
@@ -255,7 +255,7 @@
         setAccumulatedYears();
         $('.datepickerAccumulated').each(function (index, pick) {
             let picker = $(pick).datepicker({
-                format: 'yyyy-mm-dd'
+                format: 'yyyy-mm-dd',
             }).on('changeDate', function (ev) {
                 setAccumulatedYears();
                 picker.hide();
@@ -266,7 +266,7 @@
             let clone = $('#service_detail').clone();
             clone.find('.datepicker').each(function (index, pick) {
                 let picker = $(pick).datepicker({
-                    format: 'yyyy-mm-dd'
+                    format: 'yyyy-mm-dd',
                 }).on('changeDate', function (ev) {
                     setAccumulatedYears();
                     picker.hide();
@@ -275,7 +275,7 @@
 
             clone.find('.datepickerAccumulated').each(function (index, pick) {
                 let picker = $(pick).datepicker({
-                    format: 'yyyy-mm-dd'
+                    format: 'yyyy-mm-dd',
                 }).on('changeDate', function (ev) {
                     setAccumulatedYears();
                     picker.hide();
@@ -315,24 +315,31 @@
 
         function setAccumulatedYears() {
             let totalYears = 0;
-            let totalMonths = 0;
+            let secondDateArray = $('#date_of_form_submission').val();
             $('.accumulatedRows').each(function (index, element) {
 
                 let date1Array = $(element).find('input[name="appointment_date[]"]').val().split('-');
                 let date2Array = $(element).find('input[name="job_leaving_date[]"]').val().split('-');
+                if($(element).find('input[name="job_leaving_date[]"]').val() == ''){
+                    date2Array = secondDateArray.split('-');
+                }
 
                 let differenceInMonths = monthDiff(new Date(date1Array[0],date1Array[1]-1,date1Array[2]),new Date(date2Array[0],date2Array[1]-1,date2Array[2]));
-                // differenceInYears = yearsDiff(new Date(date1Array[0],date1Array[1]-1,date1Array[2]),new Date(date2Array[0],date2Array[1]-1,date2Array[2]));
+                let differenceInYears = yearsDiff(new Date(date1Array[0],date1Array[1]-1,date1Array[2]),new Date(date2Array[0],date2Array[1]-1,date2Array[2]));
+                differenceInMonths = differenceInMonths % 13;
 
-
-                let differenceInYears = differenceInMonths / 12;
-                // differenceInMonths = differenceInMonths % 12;
-                // $(element).find('input[name="total_period[]"]').val('');
-                $(element).find('input[name="total_period[]"]').val((differenceInYears).toFixed(2));
-                totalYears += differenceInYears;
+                let sum = differenceInYears +'.'+differenceInMonths;
+                $(element).find('input[name="total_period[]"]').val('');
+                $(element).find('input[name="total_period[]"]').val(sum);
+                totalYears += parseFloat(sum);
             });
-            let value = totalYears.toFixed(2);
-            $('#accumulated_years').text('Accumulated Service Period : '+value+' Years');
+            let value = totalYears;
+            if(value >= 3)
+                $('#accumulated_years').attr('style','color:green');
+            else
+                $('#accumulated_years').attr('style','color:red');
+
+            $('#accumulated_years').text('Accumulated Service Period : '+value.toFixed(2)+' Years');
         }
 
         function monthDiff(dt1, dt2) {
@@ -342,8 +349,7 @@
         }
 
         function yearsDiff(d1, d2) {
-            let yearsDiff =  d2.getFullYear() - d1.getFullYear();
-            return yearsDiff;
+            return d2.getFullYear() - d1.getFullYear();
         }
 
     </script>
