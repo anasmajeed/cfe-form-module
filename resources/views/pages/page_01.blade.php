@@ -32,17 +32,17 @@
                     </div>
                     <div class="form-group col-md-4">
                         <label>Receiving Date:</label>
-                        <input class="form-control datepicker" type="text" placeholder="yyyy-mm-dd" name="receiving_date" value="{{$data ? $data['receiving_date'] : ''}}">
+                        <input class="form-control datepicker" type="text" placeholder="dd/mm/yyyy" name="receiving_date" value="{{$data ? date('d/m/Y',strtotime($data['receiving_date'])) : ''}}">
                     </div>
                     <div class="form-group col-md-4">
                         <label>File Receipt Voucher No:</label>
-                        <input type="text" class="form-control" id="inputAddress" placeholder="XXXXX" name="file_receipt_voucher_number" value="{{$data ? $data['file_receipt_voucher_number'] : ''}}">
+                        <input type="text" class="form-control" id="inputAddress" placeholder="aaaaa" name="file_receipt_voucher_number" value="{{$data ? $data['file_receipt_voucher_number'] : ''}}">
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-4">
                         <label>FRV Date:</label>
-                        <input class="form-control datepicker" type="text" placeholder="yyyy-mm-dd" name="file_receipt_voucher_date" value="{{$data ? $data['file_receipt_voucher_date'] : ''}}">
+                        <input class="form-control datepicker" type="text" placeholder="dd/mm/yyyy" name="file_receipt_voucher_date" value="{{$data ? date('d/m/Y',strtotime($data['file_receipt_voucher_date'])) : ''}}">
                     </div>
                     <div class="form-group col-md-4">
                         <label>Fresh Fle Submission in PWWB No:</label>
@@ -65,11 +65,11 @@
                     </div>
                     <div class="form-group col-md-4">
                         <label>PWWB Diary Date:</label>
-                        <input class="form-control datepicker" type="text" placeholder="yyyy-mm-dd" name="pwwb_diary_date" value="{{$data ? $data['pwwb_diary_date'] : ''}}">
+                        <input class="form-control datepicker" type="text" placeholder="dd/mm/yyyy" name="pwwb_diary_date" value="{{$data && $data['pwwb_diary_date'] ? date('d/m/Y',strtotime($data['pwwb_diary_date'])) : ''}}">
                     </div>
                     <div class="form-group col-md-4">
-                        <label>Pending Files(With Remarks):</label>
-                        <input type="text" class="form-control" id="inputAddress" placeholder="XXXXX" name="pending_files_with_remarks" value="{{$data ? $data['pending_files_with_remarks'] : ''}}">
+                        <label>Pending Files (With Remarks):</label>
+                        <input type="text" class="form-control" id="inputAddress" placeholder="aaaaa" name="pending_files_with_remarks" value="{{$data ? $data['pending_files_with_remarks'] : ''}}">
                     </div>
                 </div>
             </div>
@@ -90,13 +90,13 @@
                         <label>Serial No.</label>
                     </div>
                     <div class="border border-bottom-0 col-md-2 text-center">
-                        <label>Worker Name</label>
+                        <label>Worker's Name</label>
                     </div>
                     <div class="border border-bottom-0 col-md-2 text-center">
                         <label>Worker's CNIC</label>
                     </div>
                     <div class="border border-bottom-0 col-md-1 text-center">
-                        <label>Student Name</label>
+                        <label>Student's Name</label>
                     </div>
                     <div class="border border-bottom-0 col-md-1 text-center">
                         <label>Passed Degree</label>
@@ -112,19 +112,19 @@
                     @foreach($data['worker_family_member_details'] as $worker_details)
                         <div class="form-row" id="worker_detail">
                             <div class="border border-bottom-0 col-md-1 p-0">
-                                <input id="worker_family_serial_no" type="text" class="form-control rounded-0" name="serial_no[]" placeholder="01" value="{{$worker_details['serial_no']}}">
+                                <input readonly id="worker_family_serial_no" type="text" class="form-control rounded-0 text-center" name="serial_no[]" placeholder="1" value="{{$worker_details['serial_no']}}">
                             </div>
                             <div class="border border-bottom-0 col-md-2 p-0">
-                                <input class="form-control rounded-0" type="text" name="worker_name[]" placeholder="XXXXX" value="{{$worker_details['worker_name']}}">
+                                <input class="form-control rounded-0" type="text" name="worker_name[]" placeholder="aaaaa" value="{{$worker_details['worker_name']}}">
                             </div>
                             <div class="border border-bottom-0 col-md-2 p-0">
-                                <input type="text" class="form-control rounded-0" name="worker_cnic[]" placeholder="XXXXX" value="{{$worker_details['worker_cnic']}}">
+                                <input type="text" class="form-control rounded-0" name="worker_cnic[]" placeholder="00000-0000000-0" value="{{$worker_details['worker_cnic']}}">
                             </div>
                             <div class="border border-bottom-0 col-md-1 p-0">
-                                <input type="text" class="form-control rounded-0" name="student_name[]" placeholder="XXXXX" value="{{$worker_details['student_name']}}">
+                                <input type="text" class="form-control rounded-0" name="student_name[]" placeholder="aaaaa" value="{{$worker_details['student_name']}}">
                             </div>
                             <div class="border border-bottom-0 col-md-1 p-0">
-                                <input type="text" class="form-control rounded-0" name="passed_degree[]" placeholder="XXXXX" value="{{$worker_details['passed_degree']}}">
+                                <input type="text" class="form-control rounded-0" name="passed_degree[]" placeholder="aaaaa" value="{{$worker_details['passed_degree']}}">
                             </div>
                             <div class="border border-bottom-0 col-md-1 p-0">
                                 <select id="districts" name="potential_degree[]" class="form-control rounded-0">
@@ -143,7 +143,7 @@
                                 </select>
                             </div>
                             <div class="border border-bottom-0 col-md-2 p-0">
-                                <input type="text" class="form-control rounded-0 datepicker" name="follow_up[]"  placeholder="yyyy-mm-dd" value="{{$worker_details['follow_up']}}">
+                                <input type="text" class="form-control rounded-0 datepickerFollowUp" name="follow_up[]"  placeholder="dd/mm/yyyy" value="{{$worker_details['follow_up'] ? date('d/m/Y',strtotime($worker_details['follow_up'])) : ''}}">
                             </div>
                             <div class="col-md-1">
                                 <button id="removeFamilyDetailButton" type="button" class="btn btn-danger" onclick="removeFamilyDetail(event)"
@@ -154,19 +154,19 @@
                 @else
                     <div class="form-row" id="worker_detail">
                         <div class="border border-bottom-0 col-md-1 p-0">
-                            <input id="worker_family_serial_no" type="text" class="form-control rounded-0" name="serial_no[]" placeholder="01">
+                            <input readonly id="worker_family_serial_no" type="text" class="form-control rounded-0 text-center" name="serial_no[]" value="1">
                         </div>
                         <div class="border border-bottom-0 col-md-2 p-0">
-                            <input class="form-control rounded-0" type="text" name="worker_name[]" placeholder="XXXXX">
+                            <input class="form-control rounded-0" type="text" name="worker_name[]" placeholder="XXXX">
                         </div>
                         <div class="border border-bottom-0 col-md-2 p-0">
-                            <input type="text" class="form-control rounded-0" name="worker_cnic[]" placeholder="XXXXX">
+                            <input type="text" class="form-control rounded-0" name="worker_cnic[]" placeholder="00000-0000000-0">
                         </div>
                         <div class="border border-bottom-0 col-md-1 p-0">
-                            <input type="text" class="form-control rounded-0" name="student_name[]" placeholder="XXXXX">
+                            <input type="text" class="form-control rounded-0" name="student_name[]" placeholder="aaaaa">
                         </div>
                         <div class="border border-bottom-0 col-md-1 p-0">
-                            <input type="text" class="form-control rounded-0" name="passed_degree[]" placeholder="XXXXX">
+                            <input type="text" class="form-control rounded-0" name="passed_degree[]" placeholder="aaaaa">
                         </div>
                         <div class="border border-bottom-0 col-md-1 p-0">
                             <select name="potential_degree[]" class="form-control rounded-0">
@@ -178,13 +178,14 @@
                         </div>
                         <div class="border border-bottom-0 col-md-1 p-0">
                             <select name="file_received_status[]" class="form-control rounded-0">
+                                <option value="" selected disabled>Select Status</option>
                                 @foreach(\Config::get('constants.general_yes_no') as $key => $file_received_status)
                                     <option value="{{$key}}">{{$file_received_status}}</option>
                                 @endforeach
                             </select>
                         </div>
                         <div class="border border-bottom-0 col-md-2 p-0">
-                            <input type="text" class="form-control rounded-0 datepicker" name="follow_up[]"  placeholder="yyyy-mm-dd">
+                            <input type="text" class="form-control rounded-0 datepickerFollowUp" name="follow_up[]"  placeholder="dd/mm/yyyy">
                         </div>
                         <div class="col-md-1">
                             <button id="removeFamilyDetailButton" type="button" class="btn btn-danger" disabled onclick="removeFamilyDetail(event)">-</button>
@@ -198,16 +199,31 @@
 
 @section('script_page_1')
     <script>
+
+        $('input[name="worker_cnic[]"').each(function (index,value) {
+            $(value).mask('00000-0000000-0');
+        });
+
+        $('.datepickerFollowUp').datepicker({
+            format:'dd/mm/yyyy',
+            autoclose: true
+        });
+
         function cloneFamilyDetails(){
             let clone = $('#worker_detail').clone();
-            let picker = clone.find('.datepicker').datepicker({
-                format:'yyyy-mm-dd'
-            }).on('changeDate', function(ev) {
-                picker.hide();
-            }).data('datepicker');
+            clone.find('.datepickerFollowUp').datepicker({
+                format:'dd/mm/yyyy',
+                autoclose: true
+            });
 
+            clone.find('input:text').val('');
             $('#worker_detail_parent').append(clone);
             let button = clone.find('#removeFamilyDetailButton').removeAttr('disabled');
+            clone.find('#worker_family_serial_no').val($('#worker_detail input[name="serial_no[]"').length);
+
+            $('input[name="worker_cnic[]"').each(function (index,value) {
+                $(value).mask('00000-0000000-0');
+            });
         }
 
         function removeFamilyDetail(event) {
@@ -229,10 +245,13 @@
                 });
 
                 request.fail(function (jqXHR, textStatus) {
-                    alert("Request failed: " + textStatus);
+                    // alert("Request failed: " + textStatus);
                 });
             }
             $(event.target).parent().parent().remove();
+            $('#worker_detail input[name="serial_no[]"').each(function (index,value) {
+                $(value).val(index+1);
+            });
         }
     </script>
 @endsection

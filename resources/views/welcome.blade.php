@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{asset('css/datepicker.css')}}">
+    <link rel="stylesheet" href="{{asset('css/bootstrap-datepicker3.css')}}">
 
     <title>CFE FORM</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -64,6 +64,7 @@
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
 <script src="{{asset('js/bootstrap-datepicker.js')}}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
 <script>
     let container_no = 0;
     let container_array = ['#page_01', '#page_02', '#page_03', '#page_04', '#page_05', '#page_06', '#page_07', '#page_12', '#page_13', '#page_14'];
@@ -72,10 +73,10 @@
     setDisplayForButtons();
     $('.datepicker').each(function (index, pick) {
         let picker = $(pick).datepicker({
-            format: 'yyyy-mm-dd'
-        }).on('changeDate', function (ev) {
-            picker.hide();
-        }).data('datepicker');
+            format: 'dd/mm/yyyy',
+            endDate:'0d',
+            autoclose : true
+        });
     });
 
     setDisplayNone();

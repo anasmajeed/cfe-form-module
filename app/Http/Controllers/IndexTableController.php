@@ -6,6 +6,7 @@ use App\Fields\IndexTableFields;
 use App\Fields\WorkerFamilyMemberDetailFields;
 use App\IndexTable;
 use App\WorkerFamilyMemberDetail;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 
@@ -24,13 +25,31 @@ class IndexTableController extends Controller
         $session = Arr::get($params,IndexTableFields::SESSION);
         $district = Arr::get($params,IndexTableFields::DISTRICT);
         $fileReceivedNumber = 'R-'.str_replace('R-','',Arr::get($params,IndexTableFields::FILE_RECEIVED_NUMBER));
-        $receivingDate = Arr::get($params,IndexTableFields::RECEIVING_DATE);
+
+        $receivingDateExplode = explode('/',Arr::get($params,IndexTableFields::RECEIVING_DATE));
+        if(count($receivingDateExplode) == 3)
+            $receivingDate = Carbon::createFromDate($receivingDateExplode[2],$receivingDateExplode[1],$receivingDateExplode[0])->format('Y-m-d');
+        else
+            $receivingDate = Arr::get($params,IndexTableFields::RECEIVING_DATE);
+
         $fileReceiptVoucherNumber = Arr::get($params,IndexTableFields::FILE_RECEIPT_VOUCHER_NUMBER);
-        $fileReceiptVoucherDate = Arr::get($params,IndexTableFields::FILE_RECEIPT_VOUCHER_DATE);
+
+        $fileReceiptVoucherDateExplode = explode('/',Arr::get($params,IndexTableFields::FILE_RECEIPT_VOUCHER_DATE));
+        if(count($fileReceiptVoucherDateExplode) == 3)
+            $fileReceiptVoucherDate = Carbon::createFromDate($fileReceiptVoucherDateExplode[2],$fileReceiptVoucherDateExplode[1],$fileReceiptVoucherDateExplode[0])->format('Y-m-d');
+        else
+            $fileReceiptVoucherDate = Arr::get($params,IndexTableFields::FILE_RECEIPT_VOUCHER_DATE);
+
         $freshFileSubmissionInPwwbNumber = 'S-'.str_replace('S-','',Arr::get($params,IndexTableFields::FRESH_FILE_SUBMISSION_IN_PWWB_NUMBER));
         $priorityOfSubmission = Arr::get($params,IndexTableFields::PRIORITY_OF_SUBMISSION);
         $pwwbDiaryNumber = Arr::get($params,IndexTableFields::PWWB_DIARY_NUMBER);
-        $pwwbDiaryDate = Arr::get($params,IndexTableFields::PWWB_DIARY_DATE);
+
+        $pwwbDiaryDateExplode = explode('/',Arr::get($params,IndexTableFields::PWWB_DIARY_DATE));
+        if(count($pwwbDiaryDateExplode) == 3)
+            $pwwbDiaryDate = Carbon::createFromDate($pwwbDiaryDateExplode[2],$pwwbDiaryDateExplode[1],$pwwbDiaryDateExplode[0])->format('Y-m-d');
+        else
+            $pwwbDiaryDate = Arr::get($params,IndexTableFields::PWWB_DIARY_DATE);
+
         $pendingFilesWithRemarks = Arr::get($params,IndexTableFields::PENDING_FILES_WITH_REMARKS);
 
         //Worker Family Details
@@ -66,7 +85,7 @@ class IndexTableController extends Controller
         $index_table->save();
 
         if(!$index_id){
-            for($i = 0 ; $i < count($fileReceivedStatus); $i++){
+            for($i = 0 ; $i < count($serialNo); $i++){
                 $workerFamilyMemberDetail = new WorkerFamilyMemberDetail();
                 $this->fillWorkerFamilyDetailData($i,$workerFamilyMemberDetail,$serialNo,$index_table,$workerName,$workerCNIC,$passedDegree,$potentialDegree,$studentName,$fileReceivedStatus,$followUp);
             }
@@ -78,8 +97,8 @@ class IndexTableController extends Controller
                 $this->fillWorkerFamilyDetailData($j,$workerFamilyMemberDetailSingle,$serialNo,$index_table,$workerName,$workerCNIC,$passedDegree,$potentialDegree,$studentName,$fileReceivedStatus,$followUp);
                 $j++;
             }
-            if($j < count($fileReceivedStatus)){
-                for($k = $j ; $k < count($fileReceivedStatus); $k++){
+            if($j < count($serialNo)){
+                for($k = $j ; $k < count($serialNo); $k++){
                     $workerFamilyMemberDetail = new WorkerFamilyMemberDetail();
                     $this->fillWorkerFamilyDetailData($k,$workerFamilyMemberDetail,$serialNo,$index_table,$workerName,$workerCNIC,$passedDegree,$potentialDegree,$studentName,$fileReceivedStatus,$followUp);
                 }
@@ -100,7 +119,17 @@ class IndexTableController extends Controller
         $workerObject->potential_degree = isset($potentialDegree[$index]) ? $potentialDegree[$index] : null;
         $workerObject->student_name = isset($studentName[$index]) ? $studentName[$index] : null;
         $workerObject->file_received_status = isset($fileReceivedStatus[$index]) ? $fileReceivedStatus[$index] : null;
-        $workerObject->follow_up = isset($followUp[$index]) ? $followUp[$index] : null;
+
+        $followUpValue = null;
+        if(isset($followUp[$index])){
+            $followUpExplode = explode('/',$followUp[$index]);
+            if(count($followUpExplode) == 3)
+                $followUpValue = Carbon::createFromDate($followUpExplode[2],$followUpExplode[1],$followUpExplode[0])->format('Y-m-d');
+            else
+                $followUpValue = $followUp[$index];
+        }
+
+        $workerObject->follow_up = $followUpValue;
         $workerObject->save();
     }
 
