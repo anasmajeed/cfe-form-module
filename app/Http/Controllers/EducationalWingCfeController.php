@@ -35,12 +35,30 @@ class EducationalWingCfeController extends Controller
         $bise_roll_no = Arr::get($params,BiseDetailFields::BISE_ROLL_NO);
         $bise_affiliated_body = Arr::get($params,BiseDetailFields::BISE_AFFILIATED_BODY);
         $bise_duration_of_course = Arr::get($params,BiseDetailFields::BISE_DURATION_OF_COURSE);
-        $bise_admission_date = Arr::get($params,BiseDetailFields::BISE_ADMISSION_DATE);
-        $bise_ending_date = Arr::get($params,BiseDetailFields::BISE_ENDING_DATE);
+
+        
+        $bise_admission_date_explode = explode('/',Arr::get($params,BiseDetailFields::BISE_ADMISSION_DATE));
+        if(count($bise_admission_date_explode) == 3)
+            $bise_admission_date = Carbon::createFromDate($bise_admission_date_explode[2],$bise_admission_date_explode[1],$bise_admission_date_explode[0])->format('Y-m-d');
+        else
+            $bise_admission_date = Arr::get($params,BiseDetailFields::BISE_ADMISSION_DATE);
+
+        $bise_ending_date_explode = explode('/',Arr::get($params,BiseDetailFields::BISE_ENDING_DATE));
+        if(count($bise_ending_date_explode) == 3)
+            $bise_ending_date = Carbon::createFromDate($bise_ending_date_explode[2],$bise_ending_date_explode[1],$bise_ending_date_explode[0])->format('Y-m-d');
+        else
+            $bise_ending_date = Arr::get($params,BiseDetailFields::BISE_ENDING_DATE);
+        
         $bise_academic_term = Arr::get($params,BiseDetailFields::BISE_ACADEMIC_TERM);
         $bise_shift = Arr::get($params,BiseDetailFields::BISE_SHIFT);
         $bise_registration_status = Arr::get($params,BiseDetailFields::BISE_REGISTRATION_STATUS);
-        $bise_registration_date = Arr::get($params,BiseDetailFields::BISE_REGISTRATION_DATE);
+        
+        $bise_registration_date_explode = explode('/',Arr::get($params,BiseDetailFields::BISE_REGISTRATION_DATE));
+        if(count($bise_registration_date_explode) == 3)
+            $bise_registration_date = Carbon::createFromDate($bise_registration_date_explode[2],$bise_registration_date_explode[1],$bise_registration_date_explode[0])->format('Y-m-d');
+        else
+            $bise_registration_date = Arr::get($params,BiseDetailFields::BISE_REGISTRATION_DATE);
+
         $bise_actual_fee = Arr::get($params,BiseDetailFields::BISE_ACTUAL_FEE);
         $bise_late_fee = Arr::get($params,BiseDetailFields::BISE_LATE_FEE);
         $bise_total_fee = Arr::get($params,BiseDetailFields::BISE_TOTAL_FEE);
@@ -52,13 +70,32 @@ class EducationalWingCfeController extends Controller
         $ims_roll_no = Arr::get($params,ImsDetailFields::IMS_ROLL_NO);
         $ims_affiliated_body = Arr::get($params,ImsDetailFields::IMS_AFFILIATED_BODY);
         $ims_duration_of_course = Arr::get($params,ImsDetailFields::IMS_DURATION_OF_COURSE);
-        $ims_admission_date = Arr::get($params,ImsDetailFields::IMS_ADMISSION_DATE);
-        $ims_ending_date = Arr::get($params,ImsDetailFields::IMS_ENDING_DATE);
+
+        $ims_admission_date_explode = explode('/',Arr::get($params,BiseDetailFields::IMS_ADMISSION_DATE));
+        if(count($ims_admission_date_explode) == 3)
+            $ims_admission_date = Carbon::createFromDate($ims_admission_date_explode[2],$ims_admission_date_explode[1],$ims_admission_date_explode[0])->format('Y-m-d');
+        else
+            $ims_admission_date = Arr::get($params,ImsDetailFields::IMS_ADMISSION_DATE);
+
+        $ims_ending_date_explode = explode('/',Arr::get($params,BiseDetailFields::IMS_ENDING_DATE));
+        if(count($ims_ending_date_explode) == 3)
+            $ims_ending_date = Carbon::createFromDate($ims_ending_date_explode[2],$ims_ending_date_explode[1],$ims_ending_date_explode[0])->format('Y-m-d');
+        else
+            $ims_ending_date = Arr::get($params,ImsDetailFields::IMS_ENDING_DATE);
+
+
         $ims_academic_term = Arr::get($params,ImsDetailFields::IMS_ACADEMIC_TERM);
         $ims_semester_category = Arr::get($params,ImsDetailFields::IMS_SEMESTER_CATEGORY);
         $ims_shift = Arr::get($params,ImsDetailFields::IMS_SEMESTER_CATEGORY);
         $ims_registration_status = Arr::get($params,ImsDetailFields::IMS_REGISTRATION_STATUS);
-        $ims_registration_date = Arr::get($params,ImsDetailFields::IMS_REGISTRATION_DATE);
+
+        $ims_registration_date_explode = explode('/',Arr::get($params,BiseDetailFields::IMS_REGISTRATION_DATE));
+        if(count($ims_registration_date_explode) == 3)
+            $ims_registration_date = Carbon::createFromDate($ims_registration_date_explode[2],$ims_registration_date_explode[1],$ims_registration_date_explode[0])->format('Y-m-d');
+        else
+            $ims_registration_date = Arr::get($params,ImsDetailFields::IMS_REGISTRATION_DATE);
+
+            
         $ims_actual_fee = Arr::get($params,ImsDetailFields::IMS_ACTUAL_FEE);
         $ims_late_fee = Arr::get($params,ImsDetailFields::IMS_LATE_FEE);
         $ims_total_fee = Arr::get($params,ImsDetailFields::IMS_TOTAL_FEE);
@@ -70,12 +107,30 @@ class EducationalWingCfeController extends Controller
         $af_roll_no = Arr::get($params,AfDetailFields::AF_ROLL_NO);
         $af_affiliated_body = Arr::get($params,AfDetailFields::AF_AFFILIATED_BODY);
         $af_duration_of_course = Arr::get($params,AfDetailFields::AF_DURATION_OF_COURSE);
-        $af_admission_date = Arr::get($params,AfDetailFields::AF_ADMISSION_DATE);
-        $af_ending_date = Arr::get($params,AfDetailFields::AF_ENDING_DATE);
+
+        $af_admission_date_explode = explode('/',Arr::get($params,BiseDetailFields::AF_ADMISSION_DATE));
+        if(count($af_admission_date_explode) == 3)
+            $af_admission_date = Carbon::createFromDate($af_admission_date_explode[2],$af_admission_date_explode[1],$af_admission_date_explode[0])->format('Y-m-d');
+        else
+            $af_admission_date = Arr::get($params,AfDetailFields::AF_ADMISSION_DATE);
+
+        $af_ending_date_explode = explode('/',Arr::get($params,BiseDetailFields::AF_ENDING_DATE));
+        if(count($af_ending_date_explode) == 3)
+            $af_ending_date = Carbon::createFromDate($af_ending_date_explode[2],$af_ending_date_explode[1],$af_ending_date_explode[0])->format('Y-m-d');
+        else
+            $af_ending_date = Arr::get($params,AfDetailFields::AF_ENDING_DATE);
+
+
         $af_academic_term = Arr::get($params,AfDetailFields::AF_ACADEMIC_TERM);
         $af_shift = Arr::get($params,AfDetailFields::AF_SHIFT);
         $af_registration_status = Arr::get($params,AfDetailFields::AF_REGISTRATION_STATUS);
-        $af_registration_date = Arr::get($params,AfDetailFields::AF_REGISTRATION_DATE);
+
+        $af_registration_date_explode = explode('/',Arr::get($params,BiseDetailFields::AF_REGISTRATION_DATE));
+        if(count($af_registration_date_explode) == 3)
+            $af_registration_date = Carbon::createFromDate($af_registration_date_explode[2],$af_registration_date_explode[1],$af_registration_date_explode[0])->format('Y-m-d');
+        else
+            $af_registration_date = Arr::get($params,AfDetailFields::AF_REGISTRATION_DATE);
+
         $af_actual_fee = Arr::get($params,AfDetailFields::AF_ACTUAL_FEE);
         $af_late_fee = Arr::get($params,AfDetailFields::AF_LATE_FEE);
         $af_total_fee = Arr::get($params,AfDetailFields::AF_TOTAL_FEE);
@@ -91,13 +146,30 @@ class EducationalWingCfeController extends Controller
         $vti_roll_no = Arr::get($params,VtiDetailFields::VTI_ROLL_NO);
         $vti_affiliated_body = Arr::get($params,VtiDetailFields::VTI_AFFILIATED_BODY);
         $vti_duration_of_diploma = Arr::get($params,VtiDetailFields::VTI_DURATION_OF_DIPLOMA);
-        $vti_admission_date = Arr::get($params,VtiDetailFields::VTI_ADMISSION_DATE);
-        $vti_ending_date = Arr::get($params,VtiDetailFields::VTI_ENDING_DATE);
+
+        $vti_admission_date_explode = explode('/',Arr::get($params,BiseDetailFields::VTI_ADMISSION_DATE));
+        if(count($vti_admission_date_explode) == 3)
+            $vti_admission_date = Carbon::createFromDate($vti_admission_date_explode[2],$vti_admission_date_explode[1],$vti_admission_date_explode[0])->format('Y-m-d');
+        else
+            $vti_admission_date = Arr::get($params,VtiDetailFields::VTI_ADMISSION_DATE);
+
+        $vti_ending_date_explode = explode('/',Arr::get($params,BiseDetailFields::VTI_ENDING_DATE));
+        if(count($vti_ending_date_explode) == 3)
+            $vti_ending_date = Carbon::createFromDate($vti_ending_date_explode[2],$vti_ending_date_explode[1],$vti_ending_date_explode[0])->format('Y-m-d');
+        else
+            $vti_ending_date = Arr::get($params,VtiDetailFields::VTI_ENDING_DATE);
+
         $vti_scheme_of_study = Arr::get($params,VtiDetailFields::VTI_SCHEME_OF_STUDY);
         $vti_semester_category = Arr::get($params,VtiDetailFields::VTI_SEMESTER_CATEGORY);
         $vti_shift = Arr::get($params,VtiDetailFields::VTI_SHIFT);
         $vti_registration_status = Arr::get($params,VtiDetailFields::VTI_REGISTRATION_STATUS);
-        $vti_date_of_registration = Arr::get($params,VtiDetailFields::VTI_DATE_OF_REGISTRATION);
+
+        $vti_registration_date_explode = explode('/',Arr::get($params,BiseDetailFields::VTI_DATE_OF_REGISTRATION));
+        if(count($vti_registration_date_explode) == 3)
+            $vti_date_of_registration = Carbon::createFromDate($vti_registration_date_explode[2],$vti_registration_date_explode[1],$vti_registration_date_explode[0])->format('Y-m-d');
+        else
+            $vti_date_of_registration = Arr::get($params,VtiDetailFields::VTI_DATE_OF_REGISTRATION);
+
         $vti_registration_actual_fee = Arr::get($params,VtiDetailFields::VTI_REGISTRATION_ACTUAL_FEE);
         $vti_registration_late_fee = Arr::get($params,VtiDetailFields::VTI_REGISTRATION_LATE_FEE);
         $vti_registration_total_fee = Arr::get($params,VtiDetailFields::VTI_REGISTRATION_TOTAL_FEE);
@@ -107,13 +179,31 @@ class EducationalWingCfeController extends Controller
         $roll_no = Arr::get($params,DualCourseDetailFields::ROLL_NO);
         $affiliated_body = Arr::get($params,DualCourseDetailFields::AFFILIATED_BODY);
         $duration_of_course = Arr::get($params,DualCourseDetailFields::DURATION_OF_COURSE);
-        $admission_date = Arr::get($params,DualCourseDetailFields::ADMISSION_DATE);
-        $ending_date = Arr::get($params,DualCourseDetailFields::ENDING_DATE);
+
+        $admission_date_explode = explode('/',Arr::get($params,BiseDetailFields::ADMISSION_DATE));
+        if(count($admission_date_explode) == 3)
+            $admission_date = Carbon::createFromDate($admission_date_explode[2],$admission_date_explode[1],$admission_date_explode[0])->format('Y-m-d');
+        else
+            $admission_date = Arr::get($params,DualCourseDetailFields::ADMISSION_DATE);
+
+        $ending_date_explode = explode('/',Arr::get($params,BiseDetailFields::ENDING_DATE));
+        if(count($ending_date_explode) == 3)
+            $ending_date = Carbon::createFromDate($ending_date_explode[2],$ending_date_explode[1],$ending_date_explode[0])->format('Y-m-d');
+        else
+            $ending_date = Arr::get($params,DualCourseDetailFields::ENDING_DATE);
+
         $scheme_of_study = Arr::get($params,DualCourseDetailFields::SCHEME_OF_STUDY);
         $semester_category = Arr::get($params,DualCourseDetailFields::SEMESTER_CATEGORY);
         $shift = Arr::get($params,DualCourseDetailFields::SHIFT);
         $registration_status = Arr::get($params,DualCourseDetailFields::REGISTRATION_STATUS);
-        $registration_date = Arr::get($params,DualCourseDetailFields::REGISTRATION_DATE);
+
+        $registration_date_explode = explode('/',Arr::get($params,BiseDetailFields::REGISTRATION_DATE));
+        if(count($registration_date_explode) == 3)
+            $registration_date = Carbon::createFromDate($registration_date_explode[2],$registration_date_explode[1],$registration_date_explode[0])->format('Y-m-d');
+        else
+            $registration_date = Arr::get($params,DualCourseDetailFields::REGISTRATION_DATE);
+
+
         $actual_fee = Arr::get($params,DualCourseDetailFields::ACTUAL_FEE);
         $late_fee = Arr::get($params,DualCourseDetailFields::LATE_FEE);
         $total_fee = Arr::get($params,DualCourseDetailFields::TOTAL_FEE);
@@ -121,7 +211,13 @@ class EducationalWingCfeController extends Controller
         $previous_affiliated_body = Arr::get($params,DualCourseDetailFields::PREVIOUS_AFFILIATED_BODY);
         $previous_duration_of_course = Arr::get($params,DualCourseDetailFields::PREVIOUS_DURATION_OF_COURSE);
         $previous_roll_no = Arr::get($params,DualCourseDetailFields::PREVIOUS_ROLL_NO);
-        $previous_passing_date = Arr::get($params,DualCourseDetailFields::PREVIOUS_PASSING_DATE);
+
+        $previous_passing_date_explode = explode('/',Arr::get($params,BiseDetailFields::PREVIOUS_PASSING_DATE));
+        if(count($previous_passing_date_explode) == 3)
+            $previous_passing_date = Carbon::createFromDate($previous_passing_date_explode[2],$previous_passing_date_explode[1],$previous_passing_date_explode[0])->format('Y-m-d');
+        else
+            $previous_passing_date = Arr::get($params,DualCourseDetailFields::PREVIOUS_PASSING_DATE);
+
         $previous_total_marks = Arr::get($params,DualCourseDetailFields::PREVIOUS_TOTAL_MARKS);
         $previous_marks_obtained = Arr::get($params,DualCourseDetailFields::PREVIOUS_MARKS_OBTAINED);
         $previous_cgpa = Arr::get($params,DualCourseDetailFields::PREVIOUS_CGPA);
