@@ -16,26 +16,62 @@ class SeventhSemesterDetailController extends Controller
         $params = $request->all();
 
         $cell_status = Arr::get($params, SeventhSemesterDetailFields::CELL_STATUS);
-        $cell_date = Arr::get($params, SeventhSemesterDetailFields::CELL_DATE);
+
+        $cell_date_explode = explode('/',Arr::get($params,SeventhSemesterDetailFields::CELL_DATE));
+        if(count($cell_date_explode) == 3)
+            $cell_date = Carbon::createFromDate($cell_date_explode[2],$cell_date_explode[1],$cell_date_explode[0])->format('Y-m-d');
+        else
+            $cell_date = Arr::get($params, SeventhSemesterDetailFields::CELL_DATE);
         $pwwb_status = Arr::get($params, SeventhSemesterDetailFields::PWWB_STATUS);
-        $pwwb_date = Arr::get($params, SeventhSemesterDetailFields::PWWB_DATE);
+
+        $pwwb_date_explode = explode('/',Arr::get($params,SeventhSemesterDetailFields::PWWB_DATE));
+        if(count($pwwb_date_explode) == 3)
+            $pwwb_date = Carbon::createFromDate($pwwb_date_explode[2],$pwwb_date_explode[1],$pwwb_date_explode[0])->format('Y-m-d');
+        else
+            $pwwb_date = Arr::get($params, SeventhSemesterDetailFields::PWWB_DATE);
+
         $diary_pwwb = Arr::get($params, SeventhSemesterDetailFields::DIARY_PWWB);
         $amount_claim_due = Arr::get($params, SeventhSemesterDetailFields::AMOUNT_CLAIM_DUE);
         $amount_received = Arr::get($params, SeventhSemesterDetailFields::AMOUNT_RECEIVED);
         $exam_status = Arr::get($params, SeventhSemesterDetailFields::EXAM_STATUS);
-        $claim_date = Arr::get($params, SeventhSemesterDetailFields::CLAIM_DATE);
+
+        $claim_date_explode = explode('/',Arr::get($params,SeventhSemesterDetailFields::CLAIM_DATE));
+        if(count($claim_date_explode) == 3)
+            $claim_date = Carbon::createFromDate($claim_date_explode[2],$claim_date_explode[1],$claim_date_explode[0])->format('Y-m-d');
+        else
+            $claim_date = Arr::get($params, SeventhSemesterDetailFields::CLAIM_DATE);
         $claim_status = Arr::get($params, SeventhSemesterDetailFields::CLAIM_STATUS);
         $roll_no = Arr::get($params, SeventhSemesterDetailFields::ROLL_NO);
-        $exam_date = Arr::get($params, SeventhSemesterDetailFields::EXAM_DATE);
+
+        $exam_date_explode = explode('/',Arr::get($params,SeventhSemesterDetailFields::EXAM_DATE));
+        if(count($exam_date_explode) == 3)
+            $exam_date = Carbon::createFromDate($exam_date_explode[2],$exam_date_explode[1],$exam_date_explode[0])->format('Y-m-d');
+        else
+            $exam_date = Arr::get($params, SeventhSemesterDetailFields::EXAM_DATE);
         $amount = Arr::get($params, SeventhSemesterDetailFields::AMOUNT);
 
         //Result Status Details
         $result = Arr::get($params,SeventhSemesterResultStatusDetailFields::RESULT);
         $fail = Arr::get($params,SeventhSemesterResultStatusDetailFields::FAIL);
         $next_appearance = Arr::get($params,SeventhSemesterResultStatusDetailFields::NEXT_APPEARANCE);
-        $next_appearance_date = Arr::get($params,SeventhSemesterResultStatusDetailFields::NEXT_APPEARANCE_DATE);
-        $last_chance_date = Arr::get($params,SeventhSemesterResultStatusDetailFields::LAST_CHANCE_DATE);
-        $passing_date = Arr::get($params,SeventhSemesterResultStatusDetailFields::PASSING_DATE);
+        
+        $next_appearance_date_explode = explode('/',Arr::get($params,SeventhSemesterResultStatusDetailFields::NEXT_APPEARANCE_DATE));
+        if(count($next_appearance_date_explode) == 3)
+            $next_appearance_date = Carbon::createFromDate($next_appearance_date_explode[2],$next_appearance_date_explode[1],$next_appearance_date_explode[0])->format('Y-m-d');
+        else
+            $next_appearance_date = Arr::get($params,SeventhSemesterResultStatusDetailFields::NEXT_APPEARANCE_DATE);
+
+        $last_chance_date_explode = explode('/',Arr::get($params,SeventhSemesterResultStatusDetailFields::LAST_CHANCE_DATE));
+        if(count($last_chance_date_explode) == 3)
+            $last_chance_date = Carbon::createFromDate($last_chance_date_explode[2],$last_chance_date_explode[1],$last_chance_date_explode[0])->format('Y-m-d');
+        else
+            $last_chance_date = Arr::get($params,SeventhSemesterResultStatusDetailFields::LAST_CHANCE_DATE);
+
+        $passing_date_explode = explode('/',Arr::get($params,SeventhSemesterResultStatusDetailFields::PASSING_DATE));
+        if(count($passing_date_explode) == 3)
+            $passing_date = Carbon::createFromDate($passing_date_explode[2],$passing_date_explode[1],$passing_date_explode[0])->format('Y-m-d');
+        else
+            $passing_date = Arr::get($params,SeventhSemesterResultStatusDetailFields::PASSING_DATE);
 
         $index_id = Arr::get($params, 'index_id');
         if(!$index_id) {
