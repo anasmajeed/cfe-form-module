@@ -17,7 +17,7 @@ return [
     ],
     'priority_of_submission' => [
         'high' => 'High',
-        'medium' => 'medium',
+        'medium' => 'Medium',
         'low' => 'Low'
     ],
     'potential_degree' => [
