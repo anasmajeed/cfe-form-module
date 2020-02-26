@@ -14,11 +14,24 @@ class ProvisionalClaimDetailController extends Controller
 
         $indexTableId = Arr::get($params,'index_id');
         $status = Arr::get($params,ProvisionalClaimDetailFields::STATUS);
-        $provisional_letter_date = Arr::get($params,ProvisionalClaimDetailFields::PROVISIONAL_LETTER_DATE);
+
+        $provisional_letter_date_explode = explode('/',Arr::get($params,ProvisionalClaimDetailFields::PROVISIONAL_LETTER_DATE));
+        if(count($provisional_letter_date_explode) == 3)
+            $provisional_letter_date = Carbon::createFromDate($provisional_letter_date_explode[2],$provisional_letter_date_explode[1],$provisional_letter_date_explode[0])->format('Y-m-d');
+        else
+            $provisional_letter_date = Arr::get($params,ProvisionalClaimDetailFields::PROVISIONAL_LETTER_DATE);
+
         $claim_due = Arr::get($params,ProvisionalClaimDetailFields::CLAIM_DUE);
         $claim_status = Arr::get($params,ProvisionalClaimDetailFields::CLAIM_STATUS);
         $claim_received = Arr::get($params,ProvisionalClaimDetailFields::CLAIM_RECEIVED);
-        $claim_date = Arr::get($params,ProvisionalClaimDetailFields::CLAIM_DATE);
+
+        $claim_date_explode = explode('/',Arr::get($params,ProvisionalClaimDetailFields::CLAIM_DATE));
+        if(count($claim_date_explode) == 3)
+            $claim_date = Carbon::createFromDate($claim_date_explode[2],$claim_date_explode[1],$claim_date_explode[0])->format('Y-m-d');
+        else
+            $claim_date = Arr::get($params,ProvisionalClaimDetailFields::CLAIM_DATE);
+
+
         $reason = Arr::get($params,ProvisionalClaimDetailFields::REASON);
         $cfe_fee = Arr::get($params,ProvisionalClaimDetailFields::CFE_FEE);
         $recovery_from_student = Arr::get($params,ProvisionalClaimDetailFields::RECOVERY_FROM_STUDENT);
