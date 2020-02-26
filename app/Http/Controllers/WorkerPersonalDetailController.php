@@ -24,7 +24,12 @@ class WorkerPersonalDetailController extends Controller
         $workerJobNature = Arr::get($params,WorkerPersonalDetailFields::WORKER_JOB_NATURE);
         $factoryStatus = Arr::get($params,WorkerPersonalDetailFields::FACTORY_STATUS);
         $workerRelationship = Arr::get($params,WorkerPersonalDetailFields::WORKER_RELATIONSHIP);
-        $dateOfBirth = Arr::get($params,WorkerPersonalDetailFields::DATE_OF_BIRTH);
+
+        $birth_date_explode = explode('/',Arr::get($params,WorkerPersonalDetailFields::DATE_OF_BIRTH));
+        if(count($birth_date_explode) == 3)
+            $dateOfBirth = Carbon::createFromDate($birth_date_explode[2],$birth_date_explode[1],$birth_date_explode[0])->format('Y-m-d');
+        else
+            $dateOfBirth = Arr::get($params,WorkerPersonalDetailFields::DATE_OF_BIRTH);
         $contactNo1 = Arr::get($params,WorkerPersonalDetailFields::CONTACT_No_1);
         $contactNo2 = Arr::get($params,WorkerPersonalDetailFields::CONTACT_No_2);
         $contactNo3 = Arr::get($params,WorkerPersonalDetailFields::CONTACT_No_3);
