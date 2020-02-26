@@ -16,7 +16,13 @@ class FirstAnnualDetailController extends Controller
         $params = $request->all();
 
         $fee_deposit_status = Arr::get($params, FirstAnnualDetailFields::FEE_DEPOSIT_STATUS);
-        $exam_fee_date = Arr::get($params, FirstAnnualDetailFields::EXAM_FEE_DATE);
+
+        $exam_fee_date_explode = explode('/',Arr::get($params,FirstAnnualDetailFields::EXAM_FEE_DATE));
+        if(count($exam_fee_date_explode) == 3)
+            $exam_fee_date = Carbon::createFromDate($exam_fee_date_explode[2],$exam_fee_date_explode[1],$exam_fee_date_explode[0])->format('Y-m-d');
+        else
+            $exam_fee_date = Arr::get($params, FirstAnnualDetailFields::EXAM_FEE_DATE);
+
         $amount = Arr::get($params, FirstAnnualDetailFields::AMOUNT);
         $roll_no = Arr::get($params, FirstAnnualDetailFields::ROLL_NO);
         $same_course = Arr::get($params, FirstAnnualDetailFields::SAME_COURSE);
@@ -26,9 +32,24 @@ class FirstAnnualDetailController extends Controller
         $result = Arr::get($params,FirstAnnualResultStatusDetailFields::RESULT);
         $fail = Arr::get($params,FirstAnnualResultStatusDetailFields::FAIL);
         $next_appearance = Arr::get($params,FirstAnnualResultStatusDetailFields::NEXT_APPEARANCE);
-        $next_appearance_date = Arr::get($params,FirstAnnualResultStatusDetailFields::NEXT_APPEARANCE_DATE);
-        $last_chance_date = Arr::get($params,FirstAnnualResultStatusDetailFields::LAST_CHANCE_DATE);
-        $passing_date = Arr::get($params,FirstAnnualResultStatusDetailFields::PASSING_DATE);
+        
+        $next_appearance_date_explode = explode('/',Arr::get($params,FirstAnnualResultStatusDetailFields::NEXT_APPEARANCE_DATE));
+        if(count($next_appearance_date_explode) == 3)
+            $next_appearance_date = Carbon::createFromDate($next_appearance_date_explode[2],$next_appearance_date_explode[1],$next_appearance_date_explode[0])->format('Y-m-d');
+        else
+            $next_appearance_date = Arr::get($params,FirstAnnualResultStatusDetailFields::NEXT_APPEARANCE_DATE);
+
+        $last_chance_date_explode = explode('/',Arr::get($params,FirstAnnualResultStatusDetailFields::LAST_CHANCE_DATE));
+        if(count($last_chance_date_explode) == 3)
+            $last_chance_date = Carbon::createFromDate($last_chance_date_explode[2],$last_chance_date_explode[1],$last_chance_date_explode[0])->format('Y-m-d');
+        else
+            $last_chance_date = Arr::get($params,FirstAnnualResultStatusDetailFields::LAST_CHANCE_DATE);
+
+        $passing_date_explode = explode('/',Arr::get($params,FirstAnnualResultStatusDetailFields::PASSING_DATE));
+        if(count($passing_date_explode) == 3)
+            $passing_date = Carbon::createFromDate($passing_date_explode[2],$passing_date_explode[1],$passing_date_explode[0])->format('Y-m-d');
+        else
+            $passing_date = Arr::get($params,FirstAnnualResultStatusDetailFields::PASSING_DATE);
 
         $index_id = Arr::get($params, 'index_id');
         if(!$index_id) {
