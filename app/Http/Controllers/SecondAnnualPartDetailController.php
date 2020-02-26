@@ -16,16 +16,40 @@ class SecondAnnualPartDetailController extends Controller
         $params = $request->all();
 
         $receipt_status = Arr::get($params, SecondAnnualPartDetailFields::RECEIPT_STATUS);
-        $second_part_date = Arr::get($params, SecondAnnualPartDetailFields::SECOND_PART_DATE);
+        
+        $second_part_date_explode = explode('/',Arr::get($params,SecondAnnualPartDetailFields::SECOND_PART_DATE));
+        if(count($second_part_date_explode) == 3)
+            $second_part_date = Carbon::createFromDate($second_part_date_explode[2],$second_part_date_explode[1],$second_part_date_explode[0])->format('Y-m-d');
+        else
+            $second_part_date = Arr::get($params, SecondAnnualPartDetailFields::SECOND_PART_DATE);
+
         $pwwb_status = Arr::get($params, SecondAnnualPartDetailFields::PWWB_STATUS);
-        $pwwb_date = Arr::get($params, SecondAnnualPartDetailFields::PWWB_DATE);
+
+        $pwwb_date_explode = explode('/',Arr::get($params,SecondAnnualPartDetailFields::PWWB_DATE));
+        if(count($pwwb_date_explode) == 3)
+            $pwwb_date = Carbon::createFromDate($pwwb_date_explode[2],$pwwb_date_explode[1],$pwwb_date_explode[0])->format('Y-m-d');
+        else
+            $pwwb_date = Arr::get($params, SecondAnnualPartDetailFields::PWWB_DATE);
+
         $diary_pwwb = Arr::get($params, SecondAnnualPartDetailFields::DIARY_PWWB);
         $amount_claim_due = Arr::get($params, SecondAnnualPartDetailFields::AMOUNT_CLAIM_DUE);
         $claim_status = Arr::get($params, SecondAnnualPartDetailFields::CLAIM_STATUS);
         $amount_received = Arr::get($params, SecondAnnualPartDetailFields::AMOUNT_RECEIVED);
-        $claim_date = Arr::get($params, SecondAnnualPartDetailFields::CLAIM_DATE);
+
+        $claim_date_explode = explode('/',Arr::get($params,SecondAnnualPartDetailFields::CLAIM_DATE));
+        if(count($$claim_date_explode) == 3)
+            $claim_date = Carbon::createFromDate($$claim_date_explode[2],$$claim_date_explode[1],$$claim_date_explode[0])->format('Y-m-d');
+        else
+            $claim_date = Arr::get($params, SecondAnnualPartDetailFields::CLAIM_DATE);
+
         $exam_status = Arr::get($params, SecondAnnualPartDetailFields::EXAM_STATUS);
-        $exam_date = Arr::get($params, SecondAnnualPartDetailFields::EXAM_DATE);
+
+        $exam_date_explode = explode('/',Arr::get($params,SecondAnnualPartDetailFields::EXAM_DATE));
+        if(count($exam_date_explode) == 3)
+            $exam_date = Carbon::createFromDate($exam_date_explode[2],$exam_date_explode[1],$exam_date_explode[0])->format('Y-m-d');
+        else
+            $exam_date = Arr::get($params, SecondAnnualPartDetailFields::EXAM_DATE);
+
         $exam_amount = Arr::get($params, SecondAnnualPartDetailFields::EXAM_AMOUNT);
         $roll_no = Arr::get($params, SecondAnnualPartDetailFields::ROLL_NO);
 
@@ -33,9 +57,24 @@ class SecondAnnualPartDetailController extends Controller
         $result = Arr::get($params,SecondAnnualPartResultStatusDetailFields::RESULT);
         $fail = Arr::get($params,SecondAnnualPartResultStatusDetailFields::FAIL);
         $next_appearance = Arr::get($params,SecondAnnualPartResultStatusDetailFields::NEXT_APPEARANCE);
-        $next_appearance_date = Arr::get($params,SecondAnnualPartResultStatusDetailFields::NEXT_APPEARANCE_DATE);
-        $last_chance_date = Arr::get($params,SecondAnnualPartResultStatusDetailFields::LAST_CHANCE_DATE);
-        $passing_date = Arr::get($params,SecondAnnualPartResultStatusDetailFields::PASSING_DATE);
+        
+        $next_appearance_date_explode = explode('/',Arr::get($params,SecondAnnualPartResultStatusDetailFields::NEXT_APPEARANCE_DATE));
+        if(count($next_appearance_date_explode) == 3)
+            $next_appearance_date = Carbon::createFromDate($next_appearance_date_explode[2],$next_appearance_date_explode[1],$next_appearance_date_explode[0])->format('Y-m-d');
+        else
+            $next_appearance_date = Arr::get($params,SecondAnnualPartResultStatusDetailFields::NEXT_APPEARANCE_DATE);
+
+        $last_chance_date_explode = explode('/',Arr::get($params,SecondAnnualPartResultStatusDetailFields::LAST_CHANCE_DATE));
+        if(count($last_chance_date_explode) == 3)
+            $last_chance_date = Carbon::createFromDate($last_chance_date_explode[2],$last_chance_date_explode[1],$last_chance_date_explode[0])->format('Y-m-d');
+        else
+            $last_chance_date = Arr::get($params,SecondAnnualPartResultStatusDetailFields::LAST_CHANCE_DATE);
+
+        $passing_date_explode = explode('/',Arr::get($params,SecondAnnualPartResultStatusDetailFields::PASSING_DATE));
+        if(count($passing_date_explode) == 3)
+            $passing_date = Carbon::createFromDate($passing_date_explode[2],$passing_date_explode[1],$passing_date_explode[0])->format('Y-m-d');
+        else
+            $passing_date = Arr::get($params,SecondAnnualPartResultStatusDetailFields::PASSING_DATE);
 
         $index_id = Arr::get($params, 'index_id');
         if(!$index_id) {
