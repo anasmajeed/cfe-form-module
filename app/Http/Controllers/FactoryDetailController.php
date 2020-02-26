@@ -116,10 +116,37 @@ class FactoryDetailController extends Controller
         $serviceObject->index_table_id = $index_id;
         $serviceObject->serial_no = isset($serialNo[$index]) ? $serialNo[$index] : null;
         $serviceObject->name = isset($name[$index]) ? $name[$index] : null;
-        $serviceObject->appointment_date = isset($appointmentDate[$index]) ? $appointmentDate[$index] : null;
-        $serviceObject->job_leaving_date = isset($jobLeavingDate[$index]) ? $jobLeavingDate[$index] : null;
+
+        $Appointment = null;
+        if(isset($appointmentDate[$index])){
+            $AppointmentExplode = explode('/',$appointmentDate[$index]);
+            if(count($AppointmentExplode) == 3)
+                $Appointment = Carbon::createFromDate($AppointmentExplode[2],$AppointmentExplode[1],$AppointmentExplode[0])->format('Y-m-d');
+            else
+                $Appointment = $appointmentDate[$index];
+        }
+        $serviceObject->appointment_date = $Appointment;
+
+        $JobLeaving = null;
+        if(isset($jobLeavingDate[$index])){
+            $JobLeavingExplode = explode('/',$jobLeavingDate[$index]);
+            if(count($JobLeavingExplode) == 3)
+                $JobLeaving = Carbon::createFromDate($JobLeavingExplode[2],$JobLeavingExplode[1],$JobLeavingExplode[0])->format('Y-m-d');
+            else
+                $JobLeaving = $jobLeavingDate[$index];
+        }
+        $serviceObject->job_leaving_date = $JobLeaving;
         $serviceObject->total_period = isset($totalPeriod[$index]) ? $totalPeriod[$index] : null;
-        $serviceObject->completion_date = isset($completionDate[$index]) ? $completionDate[$index] : null;
+        
+        $Completion = null;
+        if(isset($completionDate[$index])){
+            $CompletionExplode = explode('/',$completionDate[$index]);
+            if(count($CompletionExplode) == 3)
+                $Completion = Carbon::createFromDate($CompletionExplode[2],$CompletionExplode[1],$CompletionExplode[0])->format('Y-m-d');
+            else
+                $Completion = $completionDate[$index];
+        }
+        $serviceObject->completion_date = $Completion;
         $serviceObject->service_completion_status = isset($serviceCompletionStatus[$index]) ? $serviceCompletionStatus[$index] : null;
         $serviceObject->attested_by_factory_manager = isset($attestedByFactoryManager[$index]) ? $attestedByFactoryManager[$index] : null;
         $serviceObject->attested_by_dol = isset($attestedByDol[$index]) ? $attestedByDol[$index] : null;

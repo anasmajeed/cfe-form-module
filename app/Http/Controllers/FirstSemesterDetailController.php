@@ -109,9 +109,35 @@ class FirstSemesterDetailController extends Controller
         $firstSemesterResultStatusDetailObject->result = isset($result[$index]) ? $result[$index] : null;
         $firstSemesterResultStatusDetailObject->fail = isset($fail[$index]) ? $fail[$index] : null;
         $firstSemesterResultStatusDetailObject->next_appearance = isset($next_appearance[$index]) ? $next_appearance[$index] : null;
-        $firstSemesterResultStatusDetailObject->next_appearance_date = isset($next_appearance_date[$index]) ? $next_appearance_date[$index] : null;
-        $firstSemesterResultStatusDetailObject->last_chance_date = isset($last_chance_date[$index]) ? $last_chance_date[$index] : null;
-        $firstSemesterResultStatusDetailObject->passing_date = isset($passing_date[$index]) ? $passing_date[$index] : null;
+        $NextAppearance = null;
+        if(isset($next_appearance_date[$index])){
+            $NextAppearanceExplode = explode('/',$next_appearance_date[$index]);
+            if(count($NextAppearanceExplode) == 3)
+                $NextAppearance = Carbon::createFromDate($NextAppearanceExplode[2],$NextAppearanceExplode[1],$NextAppearanceExplode[0])->format('Y-m-d');
+            else
+                $NextAppearance = $next_appearance_date[$index];
+        }
+        $firstSemesterResultStatusDetailObject->next_appearance_date = $NextAppearance;
+
+        $LastChance = null;
+        if(isset($last_chance_date[$index])){
+            $LastChanceExplode = explode('/',$last_chance_date[$index]);
+            if(count($LastChanceExplode) == 3)
+                $LastChance = Carbon::createFromDate($LastChanceExplode[2],$LastChanceExplode[1],$LastChanceExplode[0])->format('Y-m-d');
+            else
+                $LastChance = $last_chance_date[$index];
+        }
+        $firstSemesterResultStatusDetailObject->last_chance_date = $LastChance;
+
+         $Passing = null;
+        if(isset($passing_date[$index])){
+            $PassingExplode = explode('/',$passing_date[$index]);
+            if(count($PassingExplode) == 3)
+                $Passing = Carbon::createFromDate($PassingExplode[2],$PassingExplode[1],$PassingExplode[0])->format('Y-m-d');
+            else
+                $Passing = $passing_date[$index];
+        }
+        $firstSemesterResultStatusDetailObject->passing_date = $Passing;
         $firstSemesterResultStatusDetailObject->save();
     }
 
