@@ -6,6 +6,7 @@ use App\Fields\ThirdSemesterDetailFields;
 use App\Fields\ThirdSemesterResultStatusDetailFields;
 use App\ThirdSemesterDetail;
 use App\ThirdSemesterResultStatusDetail;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 
@@ -23,7 +24,7 @@ class ThirdSemesterDetailController extends Controller
         else
             $cell_date = Arr::get($params, ThirdSemesterDetailFields::CELL_DATE);
         $pwwb_status = Arr::get($params, ThirdSemesterDetailFields::PWWB_STATUS);
-        
+
         $pwwb_date_explode = explode('/',Arr::get($params,ThirdSemesterDetailFields::PWWB_DATE));
         if(count($pwwb_date_explode) == 3)
             $pwwb_date = Carbon::createFromDate($pwwb_date_explode[2],$pwwb_date_explode[1],$pwwb_date_explode[0])->format('Y-m-d');
@@ -33,7 +34,7 @@ class ThirdSemesterDetailController extends Controller
         $amount_claim_due = Arr::get($params, ThirdSemesterDetailFields::AMOUNT_CLAIM_DUE);
         $amount_received = Arr::get($params, ThirdSemesterDetailFields::AMOUNT_RECEIVED);
         $exam_status = Arr::get($params, ThirdSemesterDetailFields::EXAM_STATUS);
-        
+
         $claim_date_explode = explode('/',Arr::get($params,ThirdSemesterDetailFields::CLAIM_DATE));
         if(count($claim_date_explode) == 3)
             $claim_date = Carbon::createFromDate($claim_date_explode[2],$claim_date_explode[1],$claim_date_explode[0])->format('Y-m-d');
@@ -41,7 +42,7 @@ class ThirdSemesterDetailController extends Controller
             $claim_date = Arr::get($params, ThirdSemesterDetailFields::CLAIM_DATE);
         $claim_status = Arr::get($params, ThirdSemesterDetailFields::CLAIM_STATUS);
         $roll_no = Arr::get($params, ThirdSemesterDetailFields::ROLL_NO);
-        
+
         $exam_date_explode = explode('/',Arr::get($params,ThirdSemesterDetailFields::EXAM_DATE));
         if(count($exam_date_explode) == 3)
             $exam_date = Carbon::createFromDate($exam_date_explode[2],$exam_date_explode[1],$exam_date_explode[0])->format('Y-m-d');
@@ -53,24 +54,9 @@ class ThirdSemesterDetailController extends Controller
         $result = Arr::get($params,ThirdSemesterResultStatusDetailFields::RESULT);
         $fail = Arr::get($params,ThirdSemesterResultStatusDetailFields::FAIL);
         $next_appearance = Arr::get($params,ThirdSemesterResultStatusDetailFields::NEXT_APPEARANCE);
-        
-        $next_appearance_date_explode = explode('/',Arr::get($params,ThirdSemesterResultStatusDetailFields::NEXT_APPEARANCE_DATE));
-        if(count($next_appearance_date_explode) == 3)
-            $next_appearance_date = Carbon::createFromDate($next_appearance_date_explode[2],$next_appearance_date_explode[1],$next_appearance_date_explode[0])->format('Y-m-d');
-        else
-            $next_appearance_date = Arr::get($params,ThirdSemesterResultStatusDetailFields::NEXT_APPEARANCE_DATE);
-
-        $last_chance_date_explode = explode('/',Arr::get($params,ThirdSemesterResultStatusDetailFields::LAST_CHANCE_DATE));
-        if(count($last_chance_date_explode) == 3)
-            $last_chance_date = Carbon::createFromDate($last_chance_date_explode[2],$last_chance_date_explode[1],$last_chance_date_explode[0])->format('Y-m-d');
-        else
-            $last_chance_date = Arr::get($params,ThirdSemesterResultStatusDetailFields::LAST_CHANCE_DATE);
-
-        $passing_date_explode = explode('/',Arr::get($params,ThirdSemesterResultStatusDetailFields::PASSING_DATE));
-        if(count($passing_date_explode) == 3)
-            $passing_date = Carbon::createFromDate($passing_date_explode[2],$passing_date_explode[1],$passing_date_explode[0])->format('Y-m-d');
-        else
-            $passing_date = Arr::get($params,ThirdSemesterResultStatusDetailFields::PASSING_DATE);
+        $next_appearance_date = Arr::get($params,ThirdSemesterResultStatusDetailFields::NEXT_APPEARANCE_DATE);
+        $last_chance_date = Arr::get($params,ThirdSemesterResultStatusDetailFields::LAST_CHANCE_DATE);
+        $passing_date = Arr::get($params,ThirdSemesterResultStatusDetailFields::PASSING_DATE);
 
         $index_id = Arr::get($params, 'index_id');
         if(!$index_id) {
@@ -131,7 +117,7 @@ class ThirdSemesterDetailController extends Controller
         $thirdSemesterResultStatusDetailObject->result = isset($result[$index]) ? $result[$index] : null;
         $thirdSemesterResultStatusDetailObject->fail = isset($fail[$index]) ? $fail[$index] : null;
         $thirdSemesterResultStatusDetailObject->next_appearance = isset($next_appearance[$index]) ? $next_appearance[$index] : null;
-        
+
         $NextAppearance = null;
         if(isset($next_appearance_date[$index])){
             $NextAppearanceExplode = explode('/',$next_appearance_date[$index]);

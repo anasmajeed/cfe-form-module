@@ -6,6 +6,7 @@ use App\Fields\FirstSemesterDetailFields;
 use App\Fields\FirstSemesterResultStatusDetailFields;
 use App\FirstSemesterDetail;
 use App\FirstSemesterResultStatusDetail;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 
@@ -38,24 +39,9 @@ class FirstSemesterDetailController extends Controller
         $result = Arr::get($params,FirstSemesterResultStatusDetailFields::RESULT);
         $fail = Arr::get($params,FirstSemesterResultStatusDetailFields::FAIL);
         $next_appearance = Arr::get($params,FirstSemesterResultStatusDetailFields::NEXT_APPEARANCE);
-        
-        $next_appearance_date_explode = explode('/',Arr::get($params,FirstSemesterResultStatusDetailFields::NEXT_APPEARANCE_DATE));
-        if(count($next_appearance_date_explode) == 3)
-            $next_appearance_date = Carbon::createFromDate($next_appearance_date_explode[2],$next_appearance_date_explode[1],$next_appearance_date_explode[0])->format('Y-m-d');
-        else
-            $next_appearance_date = Arr::get($params,FirstSemesterResultStatusDetailFields::NEXT_APPEARANCE_DATE);
-
-        $last_chance_date_explode = explode('/',Arr::get($params,FirstSemesterResultStatusDetailFields::LAST_CHANCE_DATE));
-        if(count($last_chance_date_explode) == 3)
-            $last_chance_date = Carbon::createFromDate($last_chance_date_explode[2],$last_chance_date_explode[1],$last_chance_date_explode[0])->format('Y-m-d');
-        else
-            $last_chance_date = Arr::get($params,FirstSemesterResultStatusDetailFields::LAST_CHANCE_DATE);
-
-        $passing_date_explode = explode('/',Arr::get($params,FirstSemesterResultStatusDetailFields::PASSING_DATE));
-        if(count($passing_date_explode) == 3)
-            $passing_date = Carbon::createFromDate($passing_date_explode[2],$passing_date_explode[1],$passing_date_explode[0])->format('Y-m-d');
-        else
-            $passing_date = Arr::get($params,FirstSemesterResultStatusDetailFields::PASSING_DATE);
+        $next_appearance_date = Arr::get($params,FirstSemesterResultStatusDetailFields::NEXT_APPEARANCE_DATE);
+        $last_chance_date = Arr::get($params,FirstSemesterResultStatusDetailFields::LAST_CHANCE_DATE);
+        $passing_date = Arr::get($params,FirstSemesterResultStatusDetailFields::PASSING_DATE);
 
         $index_id = Arr::get($params, 'index_id');
         if(!$index_id) {

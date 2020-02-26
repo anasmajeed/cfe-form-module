@@ -6,6 +6,7 @@ use App\FactoryDetail;
 use App\Fields\FactoryDetailFields;
 use App\Fields\ServiceDetailFields;
 use App\ServiceDetail;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 
@@ -19,7 +20,7 @@ class FactoryDetailController extends Controller
         $factoryName = Arr::get($params, FactoryDetailFields::FACTORY_NAME);
         $factoryAddress = Arr::get($params, FactoryDetailFields::FACTORY_ADDRESS);
         $factoryRegistrationNumber = Arr::get($params, FactoryDetailFields::FACTORY_REGISTRATION_NUMBER);
-        
+
         $factory_registration_date_explode = explode('/',Arr::get($params,FactoryDetailFields::FACTORY_REGISTRATION_DATE));
         if(count($factory_registration_date_explode) == 3)
             $factoryRegistrationDate = Carbon::createFromDate($factory_registration_date_explode[2],$factory_registration_date_explode[1],$factory_registration_date_explode[0])->format('Y-m-d');
@@ -30,33 +31,19 @@ class FactoryDetailController extends Controller
         $factoryRegistrationCertificateAttestedByO = Arr::get($params, FactoryDetailFields::FACTORY_REGISTRATION_CERTIFICATE_ATTESTED_BY_OFFICER);
         $factoryRegistrationCertificateAttestedByD = Arr::get($params, FactoryDetailFields::FACTORY_REGISTRATION_CERTIFICATE_ATTESTED_BY_DIRECTOR);
         $signatureOfWorker = Arr::get($params, FactoryDetailFields::SIGNATURE_OF_WORKER);
+        $dateOfSubmission_explode = explode('/',Arr::get($params,FactoryDetailFields::DATE_OF_SUBMISSION));
+        if(count($dateOfSubmission_explode) == 3)
+            $dateOfSubmission = Carbon::createFromDate($dateOfSubmission_explode[2],$dateOfSubmission_explode[1],$dateOfSubmission_explode[0])->format('Y-m-d');
+        else
         $dateOfSubmission = Arr::get($params, FactoryDetailFields::DATE_OF_SUBMISSION);
 
         //Service Details
         $serialNo = Arr::get($params,ServiceDetailFields::SERIAL_NO);
         $name = Arr::get($params,ServiceDetailFields::NAME);
-
-        $appointment_date_explode = explode('/',Arr::get($params,ServiceDetailFields::APPOINTMENT_DATE));
-        if(count($appointment_date_explode) == 3)
-            $appointmentDate = Carbon::createFromDate($appointment_date_explode[2],$appointment_date_explode[1],$appointment_date_explode[0])->format('Y-m-d');
-        else
-            $appointmentDate = Arr::get($params,ServiceDetailFields::APPOINTMENT_DATE);
-
-        $job_leaving_date_explode = explode('/',Arr::get($params,ServiceDetailFields::JOB_LEAVING_DATE));
-        if(count($job_leaving_date_explode) == 3)
-            $jobLeavingDate = Carbon::createFromDate($job_leaving_date_explode[2],$job_leaving_date_explode[1],$job_leaving_date_explode[0])->format('Y-m-d');
-        else
-            $jobLeavingDate = Arr::get($params,ServiceDetailFields::JOB_LEAVING_DATE);
-
+        $appointmentDate = Arr::get($params,ServiceDetailFields::APPOINTMENT_DATE);
+        $jobLeavingDate = Arr::get($params,ServiceDetailFields::JOB_LEAVING_DATE);
         $totalPeriod = Arr::get($params,ServiceDetailFields::TOTAL_PERIOD);
-
-        $completion_date_explode = explode('/',Arr::get($params,ServiceDetailFields::COMPLETION_DATE));
-        if(count($completion_date_explode) == 3)
-            $completionDate = Carbon::createFromDate($completion_date_explode[2],$completion_date_explode[1],$completion_date_explode[0])->format('Y-m-d');
-        else
-            $completionDate = Arr::get($params,ServiceDetailFields::COMPLETION_DATE);
-
-
+        $completionDate = Arr::get($params,ServiceDetailFields::COMPLETION_DATE);
         $serviceCompletionStatus = Arr::get($params,ServiceDetailFields::SERVICE_PERIOD_COMPLETION_STATUS);
         $attestedByFactoryManager = Arr::get($params,ServiceDetailFields::ATTESTED_BY_FACTORY_MANAGER);
         $attestedByDol = Arr::get($params,ServiceDetailFields::ATTESTED_BY_DOL);
@@ -88,7 +75,7 @@ class FactoryDetailController extends Controller
 
 
         if (!$index_id) {
-            for ($i = 0; $i < count($serviceCompletionStatus); $i++) {
+            for ($i = 0; $i < count($serialNo); $i++) {
                 $serviceDetail = new ServiceDetail();
                 $this->fillServiceDetailDate($i, $serviceDetail, $index_id,$serialNo,$name,$appointmentDate,$jobLeavingDate,$totalPeriod,$completionDate,$serviceCompletionStatus,$attestedByFactoryManager,$attestedByDol,$attestedByDirector);
             }
@@ -99,8 +86,8 @@ class FactoryDetailController extends Controller
                 $this->fillServiceDetailDate($j, $serviceDetailSingle, $index_id,$serialNo,$name,$appointmentDate,$jobLeavingDate,$totalPeriod,$completionDate,$serviceCompletionStatus,$attestedByFactoryManager,$attestedByDol,$attestedByDirector);
                 $j++;
             }
-            if ($j < count($serviceCompletionStatus)) {
-                for ($k = $j; $k < count($serviceCompletionStatus); $k++) {
+            if ($j < count($serialNo)) {
+                for ($k = $j; $k < count($serialNo); $k++) {
                     $serviceDetail = new ServiceDetail();
                     $this->fillServiceDetailDate($k, $serviceDetail, $index_id,$serialNo,$name,$appointmentDate,$jobLeavingDate,$totalPeriod,$completionDate,$serviceCompletionStatus,$attestedByFactoryManager,$attestedByDol,$attestedByDirector);
                 }
@@ -137,7 +124,7 @@ class FactoryDetailController extends Controller
         }
         $serviceObject->job_leaving_date = $JobLeaving;
         $serviceObject->total_period = isset($totalPeriod[$index]) ? $totalPeriod[$index] : null;
-        
+
         $Completion = null;
         if(isset($completionDate[$index])){
             $CompletionExplode = explode('/',$completionDate[$index]);

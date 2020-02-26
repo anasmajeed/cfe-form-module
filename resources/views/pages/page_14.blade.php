@@ -17,8 +17,8 @@
                 </div>
                 <div class="form-group  col-md-3">
                     <label>Date:</label>
-                    <input type="text" class="form-control text-center datepicker" name="provisional_letter_date" placeholder="yyyy-mm-dd"
-                    value="{{$data ? $data['provisional_claim_details']['provisional_letter_date'] : ''}}">
+                    <input type="text" class="form-control text-center datepicker" name="provisional_letter_date" placeholder="dd/mm/yyyy"
+                    value="{{$data && $data['provisional_claim_details']['provisional_letter_date']? date('d/m/Y',strtotime($data['provisional_claim_details']['provisional_letter_date'])) : ''}}">
                 </div>
             </div>
         </div>
@@ -50,8 +50,8 @@
                 </div>
                 <div class="form-group  col-md-3">
                     <label>Date:</label>
-                    <input type="text" class="form-control text-center datepicker" name="claim_date" placeholder="yyyy-mm-dd"
-                    value="{{$data ? $data['provisional_claim_details']['claim_date'] : ''}}">
+                    <input type="text" class="form-control text-center datepicker" name="claim_date" placeholder="dd/mm/yyyy"
+                    value="{{$data && $data['provisional_claim_details']['claim_date'] ? date('d/m/Y',strtotime($data['provisional_claim_details']['claim_date'])) : ''}}">
                 </div>
             </div>
             <div class="form-row">

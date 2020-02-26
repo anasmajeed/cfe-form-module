@@ -37,7 +37,7 @@
             <div class="card-body ">
                 <div class="form-row">
                     <div class="form-group  col-md-6">
-                        <label>EOBI Number:</label>
+                        <label>EOBI No:</label>
                         <input type="text" class="form-control text-center" name="eobi_number"
                                value="{{$data ? $data['worker_bank_security_details']['eobi_number'] : ''}}"
                                placeholder="XXXXX">

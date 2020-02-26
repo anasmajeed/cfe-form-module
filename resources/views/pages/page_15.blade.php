@@ -28,8 +28,8 @@
                                 <div class="form-group col-md-3">
                                     <label>Date:</label>
                                     <input type="text" class="form-control text-center datepicker" name="exam_fee_date"
-                                            placeholder="yyyy-mm-dd"
-                                            value="{{$data ? $data['first_annual_details']['exam_fee_date'] : ''}}">
+                                            placeholder="dd/mm/yyyy"
+                                            value="{{$data && $data['first_annual_details']['exam_fee_date'] ? date('d/m/Y',strtotime($data['first_annual_details']['exam_fee_date'])) : ''}}">
                                 </div>
                                 <div class="form-group  col-md-3">
                                     <label>Amount:</label>
@@ -106,15 +106,15 @@
                                             </div>
                                             <div class="col-md-2 p-0">
                                                 <input type="text" class="form-control text-center datepicker"
-                                                name="next_appearance_date[]" placeholder="yyyy-mm-dd" value="{{ $firstAnnualResultStatusDetails['next_appearance_date']}}">
+                                                name="next_appearance_date[]" placeholder="dd/mm/yyyy" value="{{$firstAnnualResultStatusDetails['next_appearance_date'] ?  date('d/m/Y',strtotime($firstAnnualResultStatusDetails['next_appearance_date'])) : ''}}">
                                             </div>
                                             <div class="col-md-2 p-0">
                                                 <input type="text" class="form-control text-center datepicker"
-                                                name="last_chance_date[]" placeholder="yyyy-mm-dd" value="{{ $firstAnnualResultStatusDetails['last_chance_date']}}">
+                                                name="last_chance_date[]" placeholder="dd/mm/yyyy" value="{{ $firstAnnualResultStatusDetails['last_chance_date'] ? date('d/m/Y',strtotime($firstAnnualResultStatusDetails['last_chance_date'])) : ''}}">
                                             </div>
                                             <div class="col-md-2 p-0">
                                                 <input type="text" class="form-control text-center datepicker" name="passing_date[]"
-                                                placeholder="yyyy-mm-dd" value="{{ $firstAnnualResultStatusDetails['passing_date']}}">
+                                                placeholder="dd/mm/yyyy" value="{{ $firstAnnualResultStatusDetails['passing_date'] ? date('d/m/Y',strtotime($firstAnnualResultStatusDetails['passing_date'])) : ''}}">
                                             </div>
                                         </div>
                                         <div class="col-md-1">
@@ -147,15 +147,15 @@
                                         </div>
                                         <div class="col-md-2 p-0">
                                             <input type="text" class="form-control text-center datepicker"
-                                                   name="next_appearance_date[]" placeholder="yyyy-mm-dd">
+                                                   name="next_appearance_date[]" placeholder="dd/mm/yyyy">
                                         </div>
                                         <div class="col-md-2 p-0">
                                             <input type="text" class="form-control text-center datepicker"
-                                                   name="last_chance_date[]" placeholder="yyyy-mm-dd">
+                                                   name="last_chance_date[]" placeholder="dd/mm/yyyy">
                                         </div>
                                         <div class="col-md-2 p-0">
                                             <input type="text" class="form-control text-center datepicker" name="passing_date[]"
-                                                   placeholder="yyyy-mm-dd">
+                                                   placeholder="dd/mm/yyyy">
                                         </div>
                                     </div>
                                     <div class="col-md-1">
@@ -212,7 +212,7 @@
             setResultHeaderDisplay();
             clone.find('.datepicker').each(function (index, pick) {
                 let picker = $(pick).datepicker({
-                    format: 'yyyy-mm-dd'
+                    format: 'dd/mm/yyyy'
                 }).on('changeDate', function (ev) {
                     setAccumulatedYears();
                     picker.hide();
@@ -303,6 +303,14 @@
                 }
             }
             setDisplayForButtons();
+            $('input[name="next_appearance_date[]"').datepicker({
+                format:'dd/mm/yyyy',
+                autoclose: true
+            });
+            $('input[name="last_chance_date[]"').datepicker({
+                format:'dd/mm/yyyy',
+                autoclose: true
+            });
         }
     </script>
 @endsection

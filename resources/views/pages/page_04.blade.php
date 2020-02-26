@@ -7,11 +7,11 @@
             <div class="card-body ">
                 <div class="form-row">
                     <div class="form-group  col-md-3">
-                        <label>Name of Factory/Establishment:</label>
+                        <label>Name of Factory/ Establishment:</label>
                         <input type="text" class="form-control text-center" placeholder="XXXXX" name="factory_name" value="{{$data ? $data['factory_details']['factory_name'] : ''}}">
                     </div>
                     <div class="form-group col-md-5">
-                        <label>Address of Factory/Establishment:</label>
+                        <label>Address of Factory/ Establishment:</label>
                         <input type="text" class="form-control text-center" placeholder="XXXXX" name="factory_address" value="{{$data ? $data['factory_details']['factory_address'] : ''}}">
 
                     </div>
@@ -25,7 +25,7 @@
                     <div class="form-group  col-md-3">
                         <label>Date of Factory/Establishment Registration:</label>
                         <input type="text" class="form-control text-center datepicker" name="factory_registration_date"
-                               placeholder="yyyy-mm-dd" value="{{$data ? $data['factory_details']['factory_registration_date'] : ''}}">
+                               placeholder="dd/mm/yyyy" value="{{$data && $data['factory_details']['factory_registration_date'] ? date('d/m/Y',strtotime($data['factory_details']['factory_registration_date'])) : ''}}">
                     </div>
                     <div class="form-group col-md-4">
                         <label>Factory Registration Certificate Attested by Factory Manager:</label>
@@ -78,7 +78,7 @@
                     <div class="form-group col-md-6">
                         <label>Date of form Submission:</label>
                         <input type="text" id="date_of_form_submission" class="form-control text-center datepickerAccumulated" name="date_of_submission"
-                               placeholder="yyyy-mm-dd" value="{{$data ? $data['factory_details']['date_of_submission'] : ''}}">
+                               placeholder="dd/mm/yyyy" value="{{$data && $data['factory_details']['date_of_submission'] ? date('d/m/Y',strtotime($data['factory_details']['date_of_submission'])) : ''}}">
                     </div>
                 </div>
             </div>
@@ -134,48 +134,51 @@
                     @foreach($data['service_details'] as $service_details)
                 <div class="form-row accumulatedRows" id="service_detail">
                     <div class="border border-bottom-0 col-md-1 p-0">
-                        <input type="text" id="service_serial_no" name="serial_no[]" class="form-control rounded-0 "
-                               placeholder="01" value="{{$service_details['serial_no']}}">
+                        <input type="text" id="service_serial_no" name="serial_no[]" class="form-control rounded-0 text-center"
+                               placeholder="1" value="{{$service_details['serial_no']}}" readonly>
                     </div>
                     <div class="border border-bottom-0 col-md-1 p-0">
                         <input class="form-control rounded-0" name="name[]" type="text" placeholder="XXXXX" value="{{$service_details['name']}}">
                     </div>
                     <div class="border border-bottom-0 col-md-1 p-0">
                         <input type="text" class="form-control rounded-0 datepickerAccumulated" name="appointment_date[]"
-                               placeholder="yyyy-mm-dd" value="{{$service_details['appointment_date']}}">
+                               placeholder="dd/mm/yyyy" value="{{$service_details['appointment_date'] ? date('d/m/Y',strtotime($service_details['appointment_date'])) : ''}}">
                     </div>
                     <div class="border border-bottom-0 col-md-1 p-0">
                         <input type="text" class="form-control rounded-0 datepickerAccumulated" name="job_leaving_date[]"
-                               placeholder="yyyy-mm-dd" value="{{$service_details['job_leaving_date']}}">
+                               placeholder="dd/mm/yyyy" value="{{$service_details['job_leaving_date'] ? date('d/m/Y',strtotime($service_details['job_leaving_date'])) : ''}}">
                     </div>
                     <div class="border border-bottom-0 col-md-1 p-0">
                         <input type="text" class="form-control rounded-0" name="total_period[]" placeholder="XXXXX" value="{{$service_details['total_period']}}">
                     </div>
                     <div class="border border-bottom-0 col-md-2 p-0">
-                        <input type="text" class="form-control rounded-0 datepicker" name="completion_date[]" value="{{$service_details['completion_date']}}"
-                               placeholder="yyyy-mm-dd">
+                        <input type="text" class="form-control rounded-0 datepicker" name="completion_date[]" value="{{ $service_details['completion_date'] ? date('d/m/Y',strtotime($service_details['completion_date'])) : ''}}"
+                               placeholder="dd/mm/yyyy">
                     </div>
                     <div class="border border-bottom-0 col-md-1 p-0">
                         <select name="service_completion_status[]" class="form-control rounded-0">
-
+                            <option value="" selected disabled>--select--</option>
                             <option value="yes" {{ $service_details ? $service_details['service_completion_status'] == 'yes' ? 'selected' : '' : ''}}>Yes</option>
                             <option value="no" {{ $service_details ? $service_details['service_completion_status'] == 'no' ? 'selected' : '' : ''}}>No</option>
                         </select>
                     </div>
                     <div class="border border-bottom-0 col-md-1 p-0">
                         <select id="" name="attested_by_factory_manager[]" class="form-control rounded-0">
+                            <option value="" selected disabled>--select--</option>
                             <option value="yes" {{ $service_details ? $service_details['attested_by_factory_manager'] == 'yes' ? 'selected' : '' : ''}}>Yes</option>
                             <option value="no" {{ $service_details ? $service_details['attested_by_factory_manager'] == 'no' ? 'selected' : '' : ''}}>No</option>
                         </select>
                     </div>
                     <div class="border border-bottom-0 col-md-1 p-0">
                         <select id="" name="attested_by_dol[]" class="form-control rounded-0">
+                            <option value="" selected disabled>--select--</option>
                             <option value="yes" {{ $service_details ? $service_details['attested_by_dol'] == 'yes' ? 'selected' : '' : ''}}>Yes</option>
                             <option value="no" {{ $service_details ? $service_details['attested_by_dol'] == 'no' ? 'selected' : '' : ''}}>No</option>
                         </select>
                     </div>
                     <div class="border border-bottom-0 col-md-1 p-0">
                         <select id="" name="attested_by_director[]" class="form-control rounded-0">
+                            <option value="" selected disabled>--select--</option>
                             <option value="yes" {{ $service_details ? $service_details['attested_by_director'] == 'yes' ? 'selected' : '' : ''}}>Yes</option>
                             <option value="no" {{ $service_details ? $service_details['attested_by_director'] == 'no' ? 'selected' : '' : ''}}>No</option>
                         </select>
@@ -190,47 +193,51 @@
                 @else
                     <div class="form-row accumulatedRows" id="service_detail">
                         <div class="border border-bottom-0 col-md-1 p-0">
-                            <input type="text" id="service_serial_no" name="serial_no[]" class="form-control rounded-0 "
-                                   placeholder="01">
+                            <input type="text" id="service_serial_no" name="serial_no[]" class="form-control rounded-0 text-center"
+                                   placeholder="1" readonly>
                         </div>
                         <div class="border border-bottom-0 col-md-1 p-0">
                             <input class="form-control rounded-0" name="name[]" type="text" placeholder="XXXXX">
                         </div>
                         <div class="border border-bottom-0 col-md-1 p-0">
                             <input type="text" class="form-control rounded-0 datepickerAccumulated" name="appointment_date[]"
-                                   onchange="setAccumulatedYears()" placeholder="yyyy-mm-dd">
+                                   onchange="setAccumulatedYears()" placeholder="dd/mm/yyyy">
                         </div>
                         <div class="border border-bottom-0 col-md-1 p-0">
                             <input type="text" class="form-control rounded-0 datepickerAccumulated" name="job_leaving_date[]"
-                                   onchange="setAccumulatedYears()" placeholder="yyyy-mm-dd">
+                                   onchange="setAccumulatedYears()" placeholder="dd/mm/yyyy">
                         </div>
                         <div class="border border-bottom-0 col-md-1 p-0">
                             <input type="text" class="form-control rounded-0" name="total_period[]" placeholder="XXXXX">
                         </div>
                         <div class="border border-bottom-0 col-md-2 p-0">
                             <input type="text" class="form-control rounded-0 datepicker" name="completion_date[]"
-                                   placeholder="yyyy-mm-dd">
+                                   placeholder="dd/mm/yyyy">
                         </div>
                         <div class="border border-bottom-0 col-md-1 p-0">
                             <select name="service_completion_status[]" class="form-control rounded-0">
+                                <option value="" selected disabled>--select--</option>
                                 <option value="yes">Yes</option>
                                 <option value="no">No</option>
                             </select>
                         </div>
                         <div class="border border-bottom-0 col-md-1 p-0">
                             <select id="" name="attested_by_factory_manager[]" class="form-control rounded-0">
+                                <option value="" selected disabled>--select--</option>
                                 <option value="yes">Yes</option>
                                 <option value="no">No</option>
                             </select>
                         </div>
                         <div class="border border-bottom-0 col-md-1 p-0">
                             <select id="" name="attested_by_dol[]" class="form-control rounded-0">
+                                <option value="" selected disabled>--select--</option>
                                 <option value="yes">Yes</option>
                                 <option value="no">No</option>
                             </select>
                         </div>
                         <div class="border border-bottom-0 col-md-1 p-0">
                             <select id="" name="attested_by_director[]" class="form-control rounded-0">
+                                <option value="" selected disabled>--select--</option>
                                 <option value="yes">Yes</option>
                                 <option value="no">No</option>
                             </select>
@@ -255,7 +262,7 @@
         setAccumulatedYears();
         $('.datepickerAccumulated').each(function (index, pick) {
             let picker = $(pick).datepicker({
-                format: 'yyyy-mm-dd',
+                format: 'dd/mm/yyyy',
             }).on('changeDate', function (ev) {
                 setAccumulatedYears();
                 picker.hide();
@@ -266,7 +273,7 @@
             let clone = $('#service_detail').clone();
             clone.find('.datepicker').each(function (index, pick) {
                 let picker = $(pick).datepicker({
-                    format: 'yyyy-mm-dd',
+                    format: 'dd/mm/yyyy',
                 }).on('changeDate', function (ev) {
                     setAccumulatedYears();
                     picker.hide();
@@ -275,15 +282,18 @@
 
             clone.find('.datepickerAccumulated').each(function (index, pick) {
                 let picker = $(pick).datepicker({
-                    format: 'yyyy-mm-dd',
+                    format: 'dd/mm/yyyy',
                 }).on('changeDate', function (ev) {
                     setAccumulatedYears();
                     picker.hide();
                 }).data('datepicker');
             });
 
+            clone.find('input:text').val('');
+
             $('#service_detail_parent').append(clone);
             let button = clone.find('#removeServiceDetailButton').removeAttr('disabled');
+            clone.find('#service_serial_no').val($('#service_detail input[name="serial_no[]"').length);
             setAccumulatedYears();
         }
 
@@ -310,6 +320,9 @@
                 });
             }
             $(event.target).parent().parent().remove();
+            $('#service_detail input[name="serial_no[]"').each(function (index,value) {
+                $(value).val(index+1);
+            });
             setAccumulatedYears();
         }
 
@@ -318,14 +331,14 @@
             let secondDateArray = $('#date_of_form_submission').val();
             $('.accumulatedRows').each(function (index, element) {
 
-                let date1Array = $(element).find('input[name="appointment_date[]"]').val().split('-');
-                let date2Array = $(element).find('input[name="job_leaving_date[]"]').val().split('-');
+                let date1Array = $(element).find('input[name="appointment_date[]"]').val().split('/');
+                let date2Array = $(element).find('input[name="job_leaving_date[]"]').val().split('/');
                 if($(element).find('input[name="job_leaving_date[]"]').val() == ''){
-                    date2Array = secondDateArray.split('-');
+                    date2Array = secondDateArray.split('/');
                 }
 
-                let differenceInMonths = monthDiff(new Date(date1Array[0],date1Array[1]-1,date1Array[2]),new Date(date2Array[0],date2Array[1]-1,date2Array[2]));
-                let differenceInYears = yearsDiff(new Date(date1Array[0],date1Array[1]-1,date1Array[2]),new Date(date2Array[0],date2Array[1]-1,date2Array[2]));
+                let differenceInMonths = monthDiff(new Date(date1Array[2],date1Array[1]-1,date1Array[0]),new Date(date2Array[2],date2Array[1]-1,date2Array[0]));
+                let differenceInYears = yearsDiff(new Date(date1Array[2],date1Array[1]-1,date1Array[0]),new Date(date2Array[2],date2Array[1]-1,date2Array[0]));
                 differenceInMonths = differenceInMonths % 13;
 
                 let sum = differenceInYears +'.'+differenceInMonths;

@@ -18,24 +18,24 @@
                     </div>
                 </div>
                 <div class="col-md-12 mt-2">
-                    <label for="">Student's CNIC/B-Form No</label>
+                    <label for="">Student's CNIC/ B-Form No</label>
                 </div>
                 <div class="card shadow p-3 w-100">
                     <div class="card-body ">
                         <div class="form-row">
                             <div class="form-group col-md-4">
-                                <label>CNIC/B-Form No:</label>
+                                <label>CNIC/ B-Form No:</label>
                                 <input type="text" class="form-control text-center" name="cnic_no"
                                        value="{{$data ? $data['student_personal_detail']['cnic_no'] : ''}}"
                                        placeholder="XXXXX-XXXXXXX-X">
                             </div>
                             <div class="form-group col-md-4">
-                                <label>Quantity(min 04):</label>
+                                <label>Quantity Min. (04):</label>
                                 <input type="text" class="form-control text-center" name='quantity' placeholder="XXXXX"
                                        value="{{$data ? $data['student_personal_detail']['quantity'] : ''}}">
                             </div>
                             <div class="form-group col-md-4">
-                                <label>Attested by Gazzeted Officer:</label>
+                                <label>Attested by Gazetted Officer:</label>
                                 <select name="student_cnic_attested" class="form-control">
                                     <option value="" selected disabled>--select--</option>
                                     @foreach(\Config::get('constants.general_yes_no') as $key => $value)
@@ -53,7 +53,7 @@
                                 <label>Date of Birth:</label>
                                 <input type="text" class="form-control text-center datepicker" name="date_of_birth"
                                        placeholder="dd/mm/yyyy"
-                                       value="{{$data ? $data['student_personal_detail']['date_of_birth'] : ''}}">
+                                       value="{{$data && $data['student_personal_detail']['date_of_birth'] ? date('d/m/Y',strtotime($data['student_personal_detail']['date_of_birth'])) : ''}}">
                             </div>
                             <div class="form-group col-md-3">
                                 <label>Present Address:</label>
@@ -72,7 +72,7 @@
                             </div>
                             <div class="form-group col-md-3">
                                 <label>Contact No 1:</label>
-                                <input type="text" class="form-control text-center" name="contact_no_1"
+                                <input onkeyup="appendPhonePrefix(event)" type="text" class="form-control text-center" name="contact_no_1"
                                        placeholder="+92-XXX-XXXXXXX"
                                        value="{{$data ? $data['student_personal_detail']['contact_no_1'] : ''}}">
                             </div>
@@ -80,7 +80,7 @@
                         <div class="form-row">
                             <div class="form-group  col-md-3">
                                 <label>Contact No 2:</label>
-                                <input type="text" class="form-control text-center " name="contact_no_2"
+                                <input onkeyup="appendPhonePrefix(event)" type="text" class="form-control text-center " name="contact_no_2"
                                        placeholder="+92-XXX-XXXXXXX"
                                        value="{{$data ? $data['student_personal_detail']['contact_no_2'] : ''}}">
                             </div>
@@ -97,7 +97,7 @@
                                        placeholder="example@gmail.com">
                             </div>
                             <div class="form-group col-md-3">
-                                <label>Signature on page2(once)& 3(twice):</label>
+                                <label>Signature on Page 2 (Once) &amp; 3 (Twice)</label>
                                 <select name="signature" class="form-control">
                                     <option value="" selected disabled>--select--</option>
                                     @foreach(\Config::get('constants.general_yes_no') as $key => $value)
@@ -112,3 +112,10 @@
         </div>
     </form>
 </div>
+@section('script_page_6')
+    <script>
+        $('input[name="cnic_no"').each(function (index,value) {
+            $(value).mask('00000-0000000-0');
+        });
+    </script>
+@endsection

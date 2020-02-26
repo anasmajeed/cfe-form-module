@@ -42,14 +42,14 @@
                 <div class="form-group  col-md-3">
                     <label>Date of Admission:</label>
                     <input type="text" class="form-control text-center datepicker" name="admission_date"
-                           placeholder="yyyy-mm-dd" value="{{$data ? $data['dual_course_details']['admission_date'] : ''}}">
+                           placeholder="dd/mm/yyyy" value="{{$data && $data['dual_course_details']['admission_date'] ? date('d/m/Y',strtotime($data['dual_course_details']['admission_date'])) : ''}}">
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group  col-md-3">
                     <label>Ending Date:</label>
                     <input type="text" class="form-control text-center datepicker" name="ending_date"
-                           placeholder="yyyy-mm-dd" value="{{$data ? $data['dual_course_details']['ending_date'] : ''}}">
+                           placeholder="dd/mm/yyyy" value="{{$data && $data['dual_course_details']['ending_date'] ? date('d/m/Y',strtotime($data['dual_course_details']['ending_date'])) : ''}}">
                 </div>
                 <div class="form-group  col-md-3">
                     <label>Scheme of Study:</label>
@@ -94,7 +94,7 @@
                         <div class="form-group col-md-3">
                             <label>Date of Registration:</label>
                             <input type="text" class="form-control text-center datepicker" name="registration_date"
-                                   placeholder="yyyy-mm-dd" value="{{$data ? $data['dual_course_details']['registration_date'] : ''}}">
+                                   placeholder="dd/mm/yyyy" value="{{$data && $data['dual_course_details']['registration_date'] ? date('d/m/Y',strtotime($data['dual_course_details']['registration_date'])) : ''}}">
                         </div>
                     </div>
                     <div class="col-md-12 mt-2">
@@ -166,8 +166,8 @@
             <div class="form-row">
                 <div class="form-group col-md-3">
                     <label>Passing Date:</label>
-                    <input type="text" class="form-control text-center datepicker" name="previous_passing_date" value="{{$data ? $data['dual_course_details']['previous_passing_date'] : ''}}"
-                           placeholder="yyyy-mm-dd">
+                    <input type="text" class="form-control text-center datepicker" name="previous_passing_date" value="{{$data && $data['dual_course_details']['previous_passing_date'] ? date('d/m/Y',strtotime($data['dual_course_details']['previous_passing_date'])) : ''}}"
+                           placeholder="dd/mm/yyyy">
                 </div>
                 <div class="form-group  col-md-3">
                     <label>Total Marks:</label>

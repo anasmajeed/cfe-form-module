@@ -32,7 +32,7 @@
                     </div>
                     <div class="form-group col-md-4">
                         <label>Receiving Date:</label>
-                        <input class="form-control datepicker" type="text" placeholder="dd/mm/yyyy" name="receiving_date" value="{{$data ? date('d/m/Y',strtotime($data['receiving_date'])) : ''}}">
+                        <input class="form-control datepicker" type="text" placeholder="dd/mm/yyyy" name="receiving_date" value="{{$data && $data['receiving_date'] ? date('d/m/Y',strtotime($data['receiving_date'])) : ''}}">
                     </div>
                     <div class="form-group col-md-4">
                         <label>File Receipt Voucher No:</label>
@@ -42,7 +42,7 @@
                 <div class="form-row">
                     <div class="form-group col-md-4">
                         <label>FRV Date:</label>
-                        <input class="form-control datepicker" type="text" placeholder="dd/mm/yyyy" name="file_receipt_voucher_date" value="{{$data ? date('d/m/Y',strtotime($data['file_receipt_voucher_date'])) : ''}}">
+                        <input class="form-control datepicker" type="text" placeholder="dd/mm/yyyy" name="file_receipt_voucher_date" value="{{$data && $data['file_receipt_voucher_date'] ? date('d/m/Y',strtotime($data['file_receipt_voucher_date'])) : ''}}">
                     </div>
                     <div class="form-group col-md-4">
                         <label>Fresh Fle Submission in PWWB No:</label>

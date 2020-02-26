@@ -25,8 +25,8 @@
                                     <div class="form-group col-md-3">
                                         <label>Date:</label>
                                         <input type="text" class="form-control text-center datepicker" name="cell_date"
-                                               placeholder="yyyy-mm-dd"
-                                               value="{{$data && isset($data['third_semester_details']) ? $data['third_semester_details']['cell_date'] : ''}}">
+                                               placeholder="dd/mm/yyyy"
+                                               value="{{$data && isset($data['third_semester_details']) ?  date('d/m/Y',strtotime($data['third_semester_details']['cell_date'])) : ''}}">
                                     </div>
                                 </div>
                             </div>
@@ -51,8 +51,8 @@
                             <div class="form-group col-md-3">
                                 <label>Date:</label>
                                 <input type="text" class="form-control text-center datepicker" name="pwwb_date"
-                                       placeholder="yyyy-mm-dd"
-                                       value="{{$data && isset($data['third_semester_details']) ? $data['third_semester_details']['pwwb_date'] : ''}}">
+                                       placeholder="dd/mm/yyyy"
+                                       value="{{$data && isset($data['third_semester_details']) ?  date('d/m/Y',strtotime($data['third_semester_details']['pwwb_date'])) : ''}}">
                             </div>
                             <div class="form-group col-md-3">
                                 <label>Diary No. in PWWB:</label>
@@ -92,8 +92,8 @@
                             <div class="form-group col-md-3">
                                 <label>Date:</label>
                                 <input type="text" class="form-control text-center datepicker" name="claim_date"
-                                       placeholder="yyyy-mm-dd"
-                                       value="{{$data && isset($data['third_semester_details']) ? $data['third_semester_details']['claim_date'] : ''}}">
+                                       placeholder="dd/mm/yyyy"
+                                       value="{{$data && isset($data['third_semester_details']) ?  date('d/m/Y',strtotime($data['third_semester_details']['claim_date'])) : ''}}">
                             </div>
                         </div>
                     </div>
@@ -121,8 +121,8 @@
                                     <div class="form-group col-md-3">
                                         <label>Date:</label>
                                         <input type="text" class="form-control text-center datepicker" name="exam_date"
-                                               placeholder="yyyy-mm-dd"
-                                               value="{{$data && isset($data['third_semester_details']) ? $data['third_semester_details']['exam_date'] : ''}}">
+                                               placeholder="dd/mm/yyyy"
+                                               value="{{$data && isset($data['third_semester_details']) ?  date('d/m/Y',strtotime($data['third_semester_details']['exam_date'])) : ''}}">
                                     </div>
                                     <div class="form-group col-md-3">
                                         <label>Amount:</label>
@@ -196,15 +196,15 @@
                                         </div>
                                         <div class="col-md-2 p-0">
                                             <input type="text" class="form-control text-center datepicker"
-                                                   name="next_appearance_date[]" placeholder="yyyy-mm-dd" value="{{ $thirdSemesterResultStatusDetails['next_appearance_date']}}">
+                                                   name="next_appearance_date[]" placeholder="dd/mm/yyyy" value="{{ $thirdSemesterResultStatusDetails['next_appearance_date'] ? date('d/m/Y',strtotime($thirdSemesterResultStatusDetails['next_appearance_date'])) : ''}}">
                                         </div>
                                         <div class="col-md-2 p-0">
                                             <input type="text" class="form-control text-center datepicker"
-                                                   name="last_chance_date[]" placeholder="yyyy-mm-dd" value="{{ $thirdSemesterResultStatusDetails['last_chance_date']}}">
+                                                   name="last_chance_date[]" placeholder="dd/mm/yyyy" value="{{ $thirdSemesterResultStatusDetails['last_chance_date'] ?  date('d/m/Y',strtotime($thirdSemesterResultStatusDetails['last_chance_date'])) : ''}}">
                                         </div>
                                         <div class="col-md-2 p-0">
                                             <input type="text" class="form-control text-center datepicker" name="passing_date[]"
-                                                   placeholder="yyyy-mm-dd" value="{{ $thirdSemesterResultStatusDetails['passing_date']}}">
+                                                   placeholder="dd/mm/yyyy" value="{{$thirdSemesterResultStatusDetails['passing_date'] ? date('d/m/Y',strtotime($thirdSemesterResultStatusDetails['passing_date'])) : ''}}">
                                         </div>
                                     </div>
                                     <div class="col-md-1">
@@ -237,15 +237,15 @@
                                     </div>
                                     <div class="col-md-2 p-0">
                                         <input type="text" class="form-control text-center datepicker"
-                                               name="next_appearance_date[]" placeholder="yyyy-mm-dd">
+                                               name="next_appearance_date[]" placeholder="dd/mm/yyyy">
                                     </div>
                                     <div class="col-md-2 p-0">
                                         <input type="text" class="form-control text-center datepicker"
-                                               name="last_chance_date[]" placeholder="yyyy-mm-dd">
+                                               name="last_chance_date[]" placeholder="dd/mm/yyyy">
                                     </div>
                                     <div class="col-md-2 p-0">
                                         <input type="text" class="form-control text-center datepicker" name="passing_date[]"
-                                               placeholder="yyyy-mm-dd">
+                                               placeholder="dd/mm/yyyy">
                                     </div>
                                 </div>
                                 <div class="col-md-1">
@@ -273,7 +273,7 @@
             setResultHeaderDisplayForThirdSemester();
             clone.find('.datepicker').each(function (index, pick) {
                 let picker = $(pick).datepicker({
-                    format: 'yyyy-mm-dd'
+                    format: 'dd/mm/yyyy'
                 }).on('changeDate', function (ev) {
                     setAccumulatedYears();
                     picker.hide();

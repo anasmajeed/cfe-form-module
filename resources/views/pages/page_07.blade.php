@@ -32,7 +32,7 @@
                                         </select>
                                     </div>
                                     <div class="form-group col-md-3" id="bise_optional_subject_div" style="display: none">
-                                        <label>Optional Subject:</label>
+                                        <label>Optional Subjects:</label>
                                         <select name="bise_optional_subject" class="form-control">
                                             <option value="" selected disabled>--select--</option>
                                             @foreach(\Config::get('constants.bise_optional_subject') as $key => $value)
@@ -93,13 +93,13 @@
                                     <div class="form-group col-md-4">
                                         <label>Date of Admission:</label>
                                         <input type="text" class="form-control text-center datepicker"
-                                               name="bise_admission_date" value="{{$data ? $data['bise_details']['bise_admission_date'] : ''}}"
+                                               name="bise_admission_date" value="{{$data && $data['bise_details']['bise_admission_date'] ? date('d/m/Y',strtotime($data['bise_details']['bise_admission_date'])) : ''}}"
                                                placeholder="dd/mm/yyyyy">
                                     </div>
                                     <div class="form-group col-md-4">
                                         <label>Ending Date:</label>
                                         <input type="text" class="form-control text-center datepicker"
-                                               name="bise_ending_date" value="{{$data ? $data['bise_details']['bise_ending_date'] : ''}}"
+                                               name="bise_ending_date" value="{{$data && $data['bise_details']['bise_ending_date'] ? date('d/m/Y',strtotime($data['bise_details']['bise_ending_date'])) : ''}}"
                                                placeholder="dd/mm/yyyyy">
                                     </div>
                                 </div>
@@ -128,7 +128,7 @@
                                         <div class="form-row">
                                             <div class="form-group col-md-4">
                                                 <label>Registration Status with Affiliated Body:</label>
-                                                
+
                                                 <select name="bise_registration_status" class="form-control">
                                                     <option value="" selected disabled>--select--</option>
                                                     @foreach(\Config::get('constants.registration_status') as $key => $value)
@@ -139,7 +139,7 @@
                                             <div class="form-group col-md-4">
                                                 <label>Date of Registration:</label>
                                                 <input type="text" class="form-control text-center datepicker"
-                                                       name="bise_registration_date" value="{{$data ? $data['bise_details']['bise_registration_date'] : ''}}"
+                                                       name="bise_registration_date" value="{{$data && $data['bise_details']['bise_registration_date'] ? date('d/m/Y',strtotime($data['bise_details']['bise_registration_date'])) : ''}}"
                                                        placeholder="dd/mm/yyyy">
                                             </div>
                                         </div>
@@ -239,13 +239,13 @@
                                     <div class="form-group  col-md-4">
                                         <label>Date of Admission:</label>
                                         <input type="text" class="form-control text-center datepicker"
-                                               name="ims_admission_date" value="{{$data ? $data['ims_details']['ims_admission_date'] : ''}}"
+                                               name="ims_admission_date" value="{{$data && $data['ims_details']['ims_admission_date'] ? date('d/m/Y',strtotime($data['ims_details']['ims_admission_date'])) : ''}}"
                                                placeholder="dd/mm/yyyy">
                                     </div>
                                     <div class="form-group  col-md-4">
                                         <label>Ending date:</label>
                                         <input type="text" class="form-control text-center datepicker"
-                                               name="ims_ending_date" value="{{$data ? $data['ims_details']['ims_ending_date'] : ''}}"
+                                               name="ims_ending_date" value="{{$data && $data['ims_details']['ims_ending_date'] ? date('d/m/Y',strtotime($data['ims_details']['ims_ending_date'])) : ''}}"
                                                placeholder="dd/mm/yyyy">
                                     </div>
                                     <div class="form-group  col-md-4">
@@ -293,7 +293,7 @@
                                             <div class="form-group col-md-3">
                                                 <label>Date of Registration:</label>
                                                 <input type="text" class="form-control text-center datepicker"
-                                                       name="ims_registration_date" value="{{$data ? $data['ims_details']['ims_registration_date'] : ''}}"
+                                                       name="ims_registration_date" value="{{$data && $data['ims_details']['ims_registration_date']? date('d/m/Y',strtotime($data['ims_details']['ims_registration_date'])) : ''}}"
                                                        placeholder="dd/mm/yyyy">
                                             </div>
                                         </div>
@@ -356,7 +356,6 @@
                                     </div>
                                     <div class="form-group  col-md-4">
                                         <label>Course Registered in:</label>
-                                        
                                         <select name="af_course_registered_in" class="form-control">
                                             <option value="" selected disabled>--select--</option>
                                             @foreach(\Config::get('constants.af_course_registered_in') as $key => $value)
@@ -394,13 +393,13 @@
                                     <div class="form-group  col-md-4">
                                         <label>Date of Admission:</label>
                                         <input type="text" class="form-control text-center datepicker"
-                                               name="af_admission_date" value="{{$data ? $data['af_details']['af_admission_date'] : ''}}"
+                                               name="af_admission_date" value="{{$data && $data['af_details']['af_admission_date'] ? date('d/m/Y',strtotime($data['af_details']['af_admission_date'])) : ''}}"
                                                placeholder="dd/mm/yyyy">
                                     </div>
                                     <div class="form-group  col-md-4">
                                         <label>Ending date:</label>
                                         <input type="text" class="form-control text-center datepicker"
-                                               name="af_ending_date" value="{{$data ? $data['af_details']['af_ending_date'] : ''}}"
+                                               name="af_ending_date" value="{{$data && $data['af_details']['af_ending_date'] ? date('d/m/Y',strtotime($data['af_details']['af_ending_date'])) : ''}}"
                                                placeholder="dd/mm/yyyy">
                                     </div>
                                     <div class="form-group  col-md-4">
@@ -439,7 +438,7 @@
                                             <div class="form-group col-md-3">
                                                 <label>Date of Registration:</label>
                                                 <input type="text" class="form-control text-center datepicker"
-                                                       name="af_registration_date" value="{{$data ? $data['af_details']['af_registration_date'] : ''}}"
+                                                       name="af_registration_date" value="{{$data && $data['af_details']['af_registration_date'] ? date('d/m/Y',strtotime($data['af_details']['af_registration_date'])) : ''}}"
                                                        placeholder="dd/mm/yyyy">
                                             </div>
                                         </div>
@@ -540,9 +539,9 @@
                                     </div>
                                     <div class="form-group  col-md-3" style="display: none" id="vti_follow_up_date">
                                         <label>Follow-Up Date:</label>
-                                        <input type="text" class="form-control text-center datepicker"
-                                               name="vti_follow_up" value="{{$data ? $data['vti_details']['vti_follow_up'] : ''}}"
-                                               placeholder="yyyy-mm-dd">
+                                        <input type="text" class="form-control text-center" id="vti_follow_up"
+                                               name="vti_follow_up" value="{{$data && $data['vti_details']['vti_follow_up'] ? date('d/m/Y',strtotime($data['vti_details']['vti_follow_up'])) : ''}}"
+                                               placeholder="dd/mm/yyyy">
                                     </div>
                                     <div class="form-group  col-md-3">
                                         <label>Roll No:</label>
@@ -572,14 +571,14 @@
                                     <div class="form-group  col-md-4">
                                         <label>Date of Admission:</label>
                                         <input type="text" class="form-control text-center datepicker"
-                                               name="vti_admission_date" value="{{$data ? $data['vti_details']['vti_admission_date'] : ''}}"
-                                               placeholder="yyyy-mm-dd">
+                                               name="vti_admission_date" value="{{$data && $data['vti_details']['vti_admission_date'] ? date('d/m/Y',strtotime($data['vti_details']['vti_admission_date'])) : ''}}"
+                                               placeholder="dd/mm/yyyy">
                                     </div>
                                     <div class="form-group  col-md-4">
                                         <label>Ending Date:</label>
                                         <input type="text" class="form-control text-center datepicker"
-                                               name="vti_ending_date" value="{{$data ? $data['vti_details']['vti_ending_date'] : ''}}"
-                                               placeholder="yyyy-mm-dd">
+                                               name="vti_ending_date" value="{{$data && $data['vti_details']['vti_ending_date'] ? date('d/m/Y',strtotime($data['vti_details']['vti_ending_date'])) : ''}}"
+                                               placeholder="dd/mm/yyyy">
                                     </div>
                                 </div>
                                 <div class="form-row">
@@ -626,8 +625,8 @@
                                             <div class="form-group col-md-3">
                                                 <label>Date of Registration:</label>
                                                 <input type="text" class="form-control text-center datepicker"
-                                                       name="vti_date_of_registration" value="{{$data ? $data['vti_details']['vti_date_of_registration'] : ''}}"
-                                                       placeholder="yyyy-mm-dd">
+                                                       name="vti_date_of_registration" value="{{$data && $data['vti_details']['vti_date_of_registration'] ? date('d/m/Y',strtotime($data['vti_details']['vti_date_of_registration'])) : ''}}"
+                                                       placeholder="dd/mm/yyyy">
                                             </div>
                                         </div>
                                         <div class="col-md-12 mt-2">
@@ -673,6 +672,11 @@
     <script>
         setWingCorrespondingSectionDisplay();
         setDisplayForAnnualAndSemester();
+
+        $('#vti_follow_up').datepicker({
+            format:'dd/mm/yyyy',
+            autoclose: true
+        });
 
         function setWingCorrespondingSectionDisplay() {
             let wings_array = {
@@ -760,6 +764,14 @@
                 api_url_array.splice(10, 0, '/first-semester');
             }
             setDisplayForButtons();
+            $('input[name="next_appearance_date[]"').datepicker({
+                format:'dd/mm/yyyy',
+                autoclose: true
+            });
+            $('input[name="last_chance_date[]"').datepicker({
+                format:'dd/mm/yyyy',
+                autoclose: true
+            });
         }
     </script>
 @endsection

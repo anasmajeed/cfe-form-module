@@ -6,6 +6,7 @@ use App\Fields\SecondAnnualPartDetailFields;
 use App\Fields\SecondAnnualPartResultStatusDetailFields;
 use App\SecondAnnualPartDetail;
 use App\SecondAnnualPartResultStatusDetail;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 
@@ -16,7 +17,7 @@ class SecondAnnualPartDetailController extends Controller
         $params = $request->all();
 
         $receipt_status = Arr::get($params, SecondAnnualPartDetailFields::RECEIPT_STATUS);
-        
+
         $second_part_date_explode = explode('/',Arr::get($params,SecondAnnualPartDetailFields::SECOND_PART_DATE));
         if(count($second_part_date_explode) == 3)
             $second_part_date = Carbon::createFromDate($second_part_date_explode[2],$second_part_date_explode[1],$second_part_date_explode[0])->format('Y-m-d');
@@ -57,24 +58,9 @@ class SecondAnnualPartDetailController extends Controller
         $result = Arr::get($params,SecondAnnualPartResultStatusDetailFields::RESULT);
         $fail = Arr::get($params,SecondAnnualPartResultStatusDetailFields::FAIL);
         $next_appearance = Arr::get($params,SecondAnnualPartResultStatusDetailFields::NEXT_APPEARANCE);
-        
-        $next_appearance_date_explode = explode('/',Arr::get($params,SecondAnnualPartResultStatusDetailFields::NEXT_APPEARANCE_DATE));
-        if(count($next_appearance_date_explode) == 3)
-            $next_appearance_date = Carbon::createFromDate($next_appearance_date_explode[2],$next_appearance_date_explode[1],$next_appearance_date_explode[0])->format('Y-m-d');
-        else
-            $next_appearance_date = Arr::get($params,SecondAnnualPartResultStatusDetailFields::NEXT_APPEARANCE_DATE);
-
-        $last_chance_date_explode = explode('/',Arr::get($params,SecondAnnualPartResultStatusDetailFields::LAST_CHANCE_DATE));
-        if(count($last_chance_date_explode) == 3)
-            $last_chance_date = Carbon::createFromDate($last_chance_date_explode[2],$last_chance_date_explode[1],$last_chance_date_explode[0])->format('Y-m-d');
-        else
-            $last_chance_date = Arr::get($params,SecondAnnualPartResultStatusDetailFields::LAST_CHANCE_DATE);
-
-        $passing_date_explode = explode('/',Arr::get($params,SecondAnnualPartResultStatusDetailFields::PASSING_DATE));
-        if(count($passing_date_explode) == 3)
-            $passing_date = Carbon::createFromDate($passing_date_explode[2],$passing_date_explode[1],$passing_date_explode[0])->format('Y-m-d');
-        else
-            $passing_date = Arr::get($params,SecondAnnualPartResultStatusDetailFields::PASSING_DATE);
+        $next_appearance_date = Arr::get($params,SecondAnnualPartResultStatusDetailFields::NEXT_APPEARANCE_DATE);
+        $last_chance_date = Arr::get($params,SecondAnnualPartResultStatusDetailFields::LAST_CHANCE_DATE);
+        $passing_date = Arr::get($params,SecondAnnualPartResultStatusDetailFields::PASSING_DATE);
 
         $index_id = Arr::get($params, 'index_id');
         if(!$index_id) {

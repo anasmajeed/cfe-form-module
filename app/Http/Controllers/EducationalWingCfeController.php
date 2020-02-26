@@ -14,6 +14,7 @@ use App\Fields\ImsDetailFields;
 use App\Fields\VtiDetailFields;
 use App\ImsDetail;
 use App\VtiDetail;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 
@@ -36,7 +37,7 @@ class EducationalWingCfeController extends Controller
         $bise_affiliated_body = Arr::get($params,BiseDetailFields::BISE_AFFILIATED_BODY);
         $bise_duration_of_course = Arr::get($params,BiseDetailFields::BISE_DURATION_OF_COURSE);
 
-        
+
         $bise_admission_date_explode = explode('/',Arr::get($params,BiseDetailFields::BISE_ADMISSION_DATE));
         if(count($bise_admission_date_explode) == 3)
             $bise_admission_date = Carbon::createFromDate($bise_admission_date_explode[2],$bise_admission_date_explode[1],$bise_admission_date_explode[0])->format('Y-m-d');
@@ -48,11 +49,11 @@ class EducationalWingCfeController extends Controller
             $bise_ending_date = Carbon::createFromDate($bise_ending_date_explode[2],$bise_ending_date_explode[1],$bise_ending_date_explode[0])->format('Y-m-d');
         else
             $bise_ending_date = Arr::get($params,BiseDetailFields::BISE_ENDING_DATE);
-        
+
         $bise_academic_term = Arr::get($params,BiseDetailFields::BISE_ACADEMIC_TERM);
         $bise_shift = Arr::get($params,BiseDetailFields::BISE_SHIFT);
         $bise_registration_status = Arr::get($params,BiseDetailFields::BISE_REGISTRATION_STATUS);
-        
+
         $bise_registration_date_explode = explode('/',Arr::get($params,BiseDetailFields::BISE_REGISTRATION_DATE));
         if(count($bise_registration_date_explode) == 3)
             $bise_registration_date = Carbon::createFromDate($bise_registration_date_explode[2],$bise_registration_date_explode[1],$bise_registration_date_explode[0])->format('Y-m-d');
@@ -95,7 +96,7 @@ class EducationalWingCfeController extends Controller
         else
             $ims_registration_date = Arr::get($params,ImsDetailFields::IMS_REGISTRATION_DATE);
 
-            
+
         $ims_actual_fee = Arr::get($params,ImsDetailFields::IMS_ACTUAL_FEE);
         $ims_late_fee = Arr::get($params,ImsDetailFields::IMS_LATE_FEE);
         $ims_total_fee = Arr::get($params,ImsDetailFields::IMS_TOTAL_FEE);
@@ -142,7 +143,11 @@ class EducationalWingCfeController extends Controller
         $vti_dual_course = Arr::get($params,VtiDetailFields::VTI_DUAL_COURSE);
         $vti_reason = Arr::get($params,VtiDetailFields::VTI_REASON);
         $vti_further_file_received = Arr::get($params,VtiDetailFields::VTI_FURTHER_FILE_RECEIVED);
-        $vti_follow_up = Arr::get($params,VtiDetailFields::VTI_FOLLOW_UP);
+        $vti_follow_up_explode = explode('/',Arr::get($params,VtiDetailFields::VTI_FOLLOW_UP));
+        if(count($vti_follow_up_explode) == 3)
+            $vti_follow_up = Carbon::createFromDate($vti_follow_up_explode[2],$vti_follow_up_explode[1],$vti_follow_up_explode[0])->format('Y-m-d');
+        else
+            $vti_follow_up = Arr::get($params,VtiDetailFields::VTI_FOLLOW_UP);
         $vti_roll_no = Arr::get($params,VtiDetailFields::VTI_ROLL_NO);
         $vti_affiliated_body = Arr::get($params,VtiDetailFields::VTI_AFFILIATED_BODY);
         $vti_duration_of_diploma = Arr::get($params,VtiDetailFields::VTI_DURATION_OF_DIPLOMA);
