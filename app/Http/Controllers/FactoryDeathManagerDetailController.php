@@ -13,9 +13,21 @@ class FactoryDeathManagerDetailController extends Controller
         $params = $request->all();
 
         $indexTableId = Arr::get($params,'index_id');
-        $deathDateOfWorker = Arr::get($params,FactoryDeathManagerFields::DEATH_DATE_OF_WORKER);
+
+        $worker_death_date_explode = explode('/',Arr::get($params,FactoryDeathManagerFields::DEATH_DATE_OF_WORKER));
+        if(count($worker_death_date_explode) == 3)
+            $deathDateOfWorker = Carbon::createFromDate($worker_death_date_explode[2],$worker_death_date_explode[1],$worker_death_date_explode[0])->format('Y-m-d');
+        else
+            $deathDateOfWorker = Arr::get($params,FactoryDeathManagerFields::DEATH_DATE_OF_WORKER);
+
         $deathGrantClaimed = Arr::get($params,FactoryDeathManagerFields::DEATH_GRANT_CLAIMED);
-        $retirementDateOfWorker = Arr::get($params,FactoryDeathManagerFields::RETIREMENT_DATE_OF_WORKER);
+
+        $worker_retirement_date_explode = explode('/',Arr::get($params,FactoryDeathManagerFields::RETIREMENT_DATE_OF_WORKER));
+        if(count($worker_retirement_date_explode) == 3)
+            $retirementDateOfWorker = Carbon::createFromDate($worker_retirement_date_explode[2],$worker_retirement_date_explode[1],$worker_retirement_date_explode[0])->format('Y-m-d');
+        else
+            $retirementDateOfWorker = Arr::get($params,FactoryDeathManagerFields::RETIREMENT_DATE_OF_WORKER);
+
         $factoryManagerName = Arr::get($params,FactoryDeathManagerFields::FACTORY_MANAGER_NAME);
         $factoryManagerDesignation = Arr::get($params,FactoryDeathManagerFields::FACTORY_MANAGER_DESIGNATION);
         $factoryManagerContactNo = Arr::get($params,FactoryDeathManagerFields::FACTORY_MANAGER_CONTACT_NO);
