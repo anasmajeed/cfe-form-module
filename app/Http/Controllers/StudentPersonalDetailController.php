@@ -18,7 +18,13 @@ class StudentPersonalDetailController extends Controller
         $CNICNo = Arr::get($params,StudentPersonalDetailFields::CNIC_NO);
         $quantity = Arr::get($params,StudentPersonalDetailFields::QUANTITY);
         $studentCNICAttested = Arr::get($params,StudentPersonalDetailFields::STUDENT_CNIC_ATTESTED);
-        $dateOfBirth = Arr::get($params,StudentPersonalDetailFields::DATE_OF_BIRTH);
+
+        $birth_date_explode = explode('/',Arr::get($params,StudentPersonalDetailFields::DATE_OF_BIRTH));
+        if(count($birth_date_explode) == 3)
+            $dateOfBirth = Carbon::createFromDate($birth_date_explode[2],$birth_date_explode[1],$birth_date_explode[0])->format('Y-m-d');
+        else
+            $dateOfBirth = Arr::get($params,StudentPersonalDetailFields::DATE_OF_BIRTH);
+
         $presentAddress = Arr::get($params,StudentPersonalDetailFields::PRESENT_ADDRESS);
         $maritalStatus = Arr::get($params,StudentPersonalDetailFields::MARITAL_STATUS);
         $contactNo1 = Arr::get($params,StudentPersonalDetailFields::CONTACT_NO_1);
