@@ -71,13 +71,13 @@ class EducationalWingCfeController extends Controller
         $ims_affiliated_body = Arr::get($params,ImsDetailFields::IMS_AFFILIATED_BODY);
         $ims_duration_of_course = Arr::get($params,ImsDetailFields::IMS_DURATION_OF_COURSE);
 
-        $ims_admission_date_explode = explode('/',Arr::get($params,BiseDetailFields::IMS_ADMISSION_DATE));
+        $ims_admission_date_explode = explode('/',Arr::get($params,ImsDetailFields::IMS_ADMISSION_DATE));
         if(count($ims_admission_date_explode) == 3)
             $ims_admission_date = Carbon::createFromDate($ims_admission_date_explode[2],$ims_admission_date_explode[1],$ims_admission_date_explode[0])->format('Y-m-d');
         else
             $ims_admission_date = Arr::get($params,ImsDetailFields::IMS_ADMISSION_DATE);
 
-        $ims_ending_date_explode = explode('/',Arr::get($params,BiseDetailFields::IMS_ENDING_DATE));
+        $ims_ending_date_explode = explode('/',Arr::get($params,ImsDetailFields::IMS_ENDING_DATE));
         if(count($ims_ending_date_explode) == 3)
             $ims_ending_date = Carbon::createFromDate($ims_ending_date_explode[2],$ims_ending_date_explode[1],$ims_ending_date_explode[0])->format('Y-m-d');
         else
@@ -89,7 +89,7 @@ class EducationalWingCfeController extends Controller
         $ims_shift = Arr::get($params,ImsDetailFields::IMS_SEMESTER_CATEGORY);
         $ims_registration_status = Arr::get($params,ImsDetailFields::IMS_REGISTRATION_STATUS);
 
-        $ims_registration_date_explode = explode('/',Arr::get($params,BiseDetailFields::IMS_REGISTRATION_DATE));
+        $ims_registration_date_explode = explode('/',Arr::get($params,ImsDetailFields::IMS_REGISTRATION_DATE));
         if(count($ims_registration_date_explode) == 3)
             $ims_registration_date = Carbon::createFromDate($ims_registration_date_explode[2],$ims_registration_date_explode[1],$ims_registration_date_explode[0])->format('Y-m-d');
         else
@@ -108,13 +108,13 @@ class EducationalWingCfeController extends Controller
         $af_affiliated_body = Arr::get($params,AfDetailFields::AF_AFFILIATED_BODY);
         $af_duration_of_course = Arr::get($params,AfDetailFields::AF_DURATION_OF_COURSE);
 
-        $af_admission_date_explode = explode('/',Arr::get($params,BiseDetailFields::AF_ADMISSION_DATE));
+        $af_admission_date_explode = explode('/',Arr::get($params,AfDetailFields::AF_ADMISSION_DATE));
         if(count($af_admission_date_explode) == 3)
             $af_admission_date = Carbon::createFromDate($af_admission_date_explode[2],$af_admission_date_explode[1],$af_admission_date_explode[0])->format('Y-m-d');
         else
             $af_admission_date = Arr::get($params,AfDetailFields::AF_ADMISSION_DATE);
 
-        $af_ending_date_explode = explode('/',Arr::get($params,BiseDetailFields::AF_ENDING_DATE));
+        $af_ending_date_explode = explode('/',Arr::get($params,AfDetailFields::AF_ENDING_DATE));
         if(count($af_ending_date_explode) == 3)
             $af_ending_date = Carbon::createFromDate($af_ending_date_explode[2],$af_ending_date_explode[1],$af_ending_date_explode[0])->format('Y-m-d');
         else
@@ -125,7 +125,7 @@ class EducationalWingCfeController extends Controller
         $af_shift = Arr::get($params,AfDetailFields::AF_SHIFT);
         $af_registration_status = Arr::get($params,AfDetailFields::AF_REGISTRATION_STATUS);
 
-        $af_registration_date_explode = explode('/',Arr::get($params,BiseDetailFields::AF_REGISTRATION_DATE));
+        $af_registration_date_explode = explode('/',Arr::get($params,AfDetailFields::AF_REGISTRATION_DATE));
         if(count($af_registration_date_explode) == 3)
             $af_registration_date = Carbon::createFromDate($af_registration_date_explode[2],$af_registration_date_explode[1],$af_registration_date_explode[0])->format('Y-m-d');
         else
@@ -147,13 +147,13 @@ class EducationalWingCfeController extends Controller
         $vti_affiliated_body = Arr::get($params,VtiDetailFields::VTI_AFFILIATED_BODY);
         $vti_duration_of_diploma = Arr::get($params,VtiDetailFields::VTI_DURATION_OF_DIPLOMA);
 
-        $vti_admission_date_explode = explode('/',Arr::get($params,BiseDetailFields::VTI_ADMISSION_DATE));
+        $vti_admission_date_explode = explode('/',Arr::get($params,VtiDetailFields::VTI_ADMISSION_DATE));
         if(count($vti_admission_date_explode) == 3)
             $vti_admission_date = Carbon::createFromDate($vti_admission_date_explode[2],$vti_admission_date_explode[1],$vti_admission_date_explode[0])->format('Y-m-d');
         else
             $vti_admission_date = Arr::get($params,VtiDetailFields::VTI_ADMISSION_DATE);
 
-        $vti_ending_date_explode = explode('/',Arr::get($params,BiseDetailFields::VTI_ENDING_DATE));
+        $vti_ending_date_explode = explode('/',Arr::get($params,VtiDetailFields::VTI_ENDING_DATE));
         if(count($vti_ending_date_explode) == 3)
             $vti_ending_date = Carbon::createFromDate($vti_ending_date_explode[2],$vti_ending_date_explode[1],$vti_ending_date_explode[0])->format('Y-m-d');
         else
@@ -164,7 +164,7 @@ class EducationalWingCfeController extends Controller
         $vti_shift = Arr::get($params,VtiDetailFields::VTI_SHIFT);
         $vti_registration_status = Arr::get($params,VtiDetailFields::VTI_REGISTRATION_STATUS);
 
-        $vti_registration_date_explode = explode('/',Arr::get($params,BiseDetailFields::VTI_DATE_OF_REGISTRATION));
+        $vti_registration_date_explode = explode('/',Arr::get($params,VtiDetailFields::VTI_DATE_OF_REGISTRATION));
         if(count($vti_registration_date_explode) == 3)
             $vti_date_of_registration = Carbon::createFromDate($vti_registration_date_explode[2],$vti_registration_date_explode[1],$vti_registration_date_explode[0])->format('Y-m-d');
         else
@@ -180,13 +180,13 @@ class EducationalWingCfeController extends Controller
         $affiliated_body = Arr::get($params,DualCourseDetailFields::AFFILIATED_BODY);
         $duration_of_course = Arr::get($params,DualCourseDetailFields::DURATION_OF_COURSE);
 
-        $admission_date_explode = explode('/',Arr::get($params,BiseDetailFields::ADMISSION_DATE));
+        $admission_date_explode = explode('/',Arr::get($params,DualCourseDetailFields::ADMISSION_DATE));
         if(count($admission_date_explode) == 3)
             $admission_date = Carbon::createFromDate($admission_date_explode[2],$admission_date_explode[1],$admission_date_explode[0])->format('Y-m-d');
         else
             $admission_date = Arr::get($params,DualCourseDetailFields::ADMISSION_DATE);
 
-        $ending_date_explode = explode('/',Arr::get($params,BiseDetailFields::ENDING_DATE));
+        $ending_date_explode = explode('/',Arr::get($params,DualCourseDetailFields::ENDING_DATE));
         if(count($ending_date_explode) == 3)
             $ending_date = Carbon::createFromDate($ending_date_explode[2],$ending_date_explode[1],$ending_date_explode[0])->format('Y-m-d');
         else
@@ -197,7 +197,7 @@ class EducationalWingCfeController extends Controller
         $shift = Arr::get($params,DualCourseDetailFields::SHIFT);
         $registration_status = Arr::get($params,DualCourseDetailFields::REGISTRATION_STATUS);
 
-        $registration_date_explode = explode('/',Arr::get($params,BiseDetailFields::REGISTRATION_DATE));
+        $registration_date_explode = explode('/',Arr::get($params,DualCourseDetailFields::REGISTRATION_DATE));
         if(count($registration_date_explode) == 3)
             $registration_date = Carbon::createFromDate($registration_date_explode[2],$registration_date_explode[1],$registration_date_explode[0])->format('Y-m-d');
         else
@@ -212,7 +212,7 @@ class EducationalWingCfeController extends Controller
         $previous_duration_of_course = Arr::get($params,DualCourseDetailFields::PREVIOUS_DURATION_OF_COURSE);
         $previous_roll_no = Arr::get($params,DualCourseDetailFields::PREVIOUS_ROLL_NO);
 
-        $previous_passing_date_explode = explode('/',Arr::get($params,BiseDetailFields::PREVIOUS_PASSING_DATE));
+        $previous_passing_date_explode = explode('/',Arr::get($params,DualCourseDetailFields::PREVIOUS_PASSING_DATE));
         if(count($previous_passing_date_explode) == 3)
             $previous_passing_date = Carbon::createFromDate($previous_passing_date_explode[2],$previous_passing_date_explode[1],$previous_passing_date_explode[0])->format('Y-m-d');
         else
