@@ -6,19 +6,19 @@
             <div class="card-body ">
                 <div class="form-row">
                     <div class="form-group  col-md-3">
-                        <label><strong>Name of Factory/Establishment:</strong></label>
+                        <label @if( !$data['factory_details']['factory_name']) class="text-danger" @endif><strong>Name of Factory/Establishment:</strong></label>
                         <label>
                             {{$data && $data['factory_details']['factory_name'] ? $data['factory_details']['factory_name'] : '--'}}
                         </label>
                     </div>
                     <div class="form-group col-md-5">
-                        <label><strong>Address of Factory/Establishment:</strong></label>
+                        <label @if( !$data['factory_details']['factory_address']) class="text-danger" @endif><strong>Address of Factory/Establishment:</strong></label>
                         <label>
                             {{$data && $data['factory_details']['factory_address'] ? $data['factory_details']['factory_address'] : '--'}}
                         </label>
                     </div>
                     <div class="form-group col-md-4">
-                        <label><strong>Factory/ Establishment Registration No:</strong></label>
+                        <label @if( !$data['factory_details']['factory_registration_number']) class="text-danger" @endif><strong>Factory/ Establishment Registration No:</strong></label>
                         <label>
                             {{$data && $data['factory_details']['factory_registration_number'] ? $data['factory_details']['factory_registration_number'] : '--'}}
                         </label>
@@ -26,19 +26,19 @@
                 </div>
                 <div class="form-row">
                     <div class="form-group  col-md-3">
-                        <label><strong>Date of Factory/Establishment Registration:</strong></label>
+                        <label @if( !$data['factory_details']['factory_registration_date']) class="text-danger" @endif><strong>Date of Factory/Establishment Registration:</strong></label>
                         <label>
                             {{$data && $data['factory_details']['factory_registration_date'] ? $data['factory_details']['factory_registration_date'] : '--'}}
                         </label>
                     </div>
                     <div class="form-group col-md-4">
-                        <label><strong>Factory Registration Certificate Attested by Factory Manager:</strong></label>
+                        <label @if( !$data['factory_details']['factory_registration_certificate_attested_by_manager']) class="text-danger" @endif><strong>Factory Registration Certificate Attested by Factory Manager:</strong></label>
                         <label>
                             {{$data && $data['factory_details']['factory_registration_certificate_attested_by_manager'] ? $data['factory_details']['factory_registration_certificate_attested_by_manager'] : '--'}}
                         </label>
                     </div>
                     <div class="form-group col-md-5">
-                        <label><strong>Factory Registration Certificate Attested by District Officer Labor(DOL):</strong></label>
+                        <label @if( !$data['factory_details']['factory_registration_certificate_attested_by_officer']) class="text-danger" @endif><strong>Factory Registration Certificate Attested by District Officer Labor(DOL):</strong></label>
                         <label>
                             {{$data && $data['factory_details']['factory_registration_certificate_attested_by_officer'] ? $data['factory_details']['factory_registration_certificate_attested_by_officer'] : '--'}}
                         </label>
@@ -46,7 +46,7 @@
                 </div>
                 <div class="form-row">
                     <div class="form-group  col-md-3">
-                        <label><strong>Factory Registration Certificate Attested by Dir. Labor:</strong></label>
+                        <label @if( !$data['factory_details']['factory_registration_certificate_attested_by_director']) class="text-danger" @endif><strong>Factory Registration Certificate Attested by Dir. Labor:</strong></label>
                         <label>
                             {{$data && $data['factory_details']['factory_registration_certificate_attested_by_director'] ? $data['factory_details']['factory_registration_certificate_attested_by_director'] : '--'}}
                         </label>
@@ -61,13 +61,13 @@
             <div class="card-body ">
                 <div class="form-row">
                     <div class="form-group  col-md-6">
-                        <label><strong>Signature of worker on pg 1 & 3 of PWWB form:</strong></label>
+                        <label @if( !$data['factory_details']['signature_of_worker']) class="text-danger" @endif><strong>Signature of worker on pg 1 & 3 of PWWB form:</strong></label>
                         <label>
                             {{$data && $data['factory_details']['signature_of_worker'] ? $data['factory_details']['signature_of_worker'] : '--'}}
                         </label>
                     </div>
                     <div class="form-group col-md-6">
-                        <label><strong>Date of form Submission:</strong></label>
+                        <label @if( !$data['factory_details']['date_of_submission']) class="text-danger" @endif><strong>Date of form Submission:</strong></label>
                         <label>
                             {{$data && $data['factory_details']['date_of_submission'] ? $data['factory_details']['date_of_submission'] : '--'}}
                         </label>
@@ -87,34 +87,34 @@
                 </div>
                 <div class="form-row pt-4">
                     <div class="border col-md-1 text-center">
-                        <label><strong>Serial.</strong></label>
+                        <label ><strong>Serial.</strong></label>
                     </div>
                     <div class="border col-md-1 text-center">
-                        <label><strong>Name</strong></label>
+                        <label ><strong>Name</strong></label>
                     </div>
                     <div class="border col-md-1 text-center">
-                        <label><strong>Appointment Date</strong></label>
+                        <label ><strong>Appointment Date</strong></label>
                     </div>
                     <div class="border col-md-1 text-center">
-                        <label><strong>Job Leaving Date</strong></label>
+                        <label ><strong>Job Leaving Date</strong></label>
                     </div>
                     <div class="border col-md-1 text-center">
-                        <label><strong>Total Period</strong></label>
+                        <label ><strong>Total Period</strong></label>
                     </div>
                     <div class="border col-md-2 text-center">
-                        <label><strong>Completion Date of 3 years Service Period</strong></label>
+                        <label ><strong>Completion Date of 3 years Service Period</strong></label>
                     </div>
                     <div class="border col-md-1 text-center">
-                        <label><strong>Service Period Completion Status</strong></label>
+                        <label ><strong>Service Period Completion Status</strong></label>
                     </div>
                     <div class="border col-md-1 text-center">
-                        <label><strong>Attested by Factory Manager</strong></label>
+                        <label ><strong>Attested by Factory Manager</strong></label>
                     </div>
                     <div class="border col-md-1 text-center">
-                        <label><strong>Attestation by DOL</strong></label>
+                        <label ><strong>Attestation by DOL</strong></label>
                     </div>
                     <div class="border col-md-1 text-center">
-                        <label><strong>Attestation by Dir. Labor</strong></label>
+                        <label ><strong>Attestation by Dir. Labor</strong></label>
                     </div>
                 </div>
                 @if($data['service_details'])
