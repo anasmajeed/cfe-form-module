@@ -306,10 +306,12 @@
             setDisplayForButtons();
             $('input[name="next_appearance_date[]"').datepicker({
                 format:'dd/mm/yyyy',
+                startDate: new Date(),
                 autoclose: true
             });
             $('input[name="last_chance_date[]"').datepicker({
                 format:'dd/mm/yyyy',
+                startDate: new Date(),
                 autoclose: true
             });
         }
