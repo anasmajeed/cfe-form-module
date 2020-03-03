@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Fields\WorkerContactNumberFields;
 use App\Fields\WorkerPersonalDetailFields;
+use App\WorkerContactNumber;
 use App\WorkerPersonalDetail;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -31,9 +33,6 @@ class WorkerPersonalDetailController extends Controller
             $dateOfBirth = Carbon::createFromDate($birth_date_explode[2],$birth_date_explode[1],$birth_date_explode[0])->format('Y-m-d');
         else
             $dateOfBirth = Arr::get($params,WorkerPersonalDetailFields::DATE_OF_BIRTH);
-        $contactNo1 = Arr::get($params,WorkerPersonalDetailFields::CONTACT_No_1);
-        $contactNo2 = Arr::get($params,WorkerPersonalDetailFields::CONTACT_No_2);
-        $contactNo3 = Arr::get($params,WorkerPersonalDetailFields::CONTACT_No_3);
         $pwwbScholarshipForm = Arr::get($params,WorkerPersonalDetailFields::PWWB_SCHOLARSHIP_FORM);
         $factoryCard = Arr::get($params,WorkerPersonalDetailFields::FACTORY_CARD);
         $serviceLetter = Arr::get($params,WorkerPersonalDetailFields::SERVICE_LETTER);
@@ -63,18 +62,63 @@ class WorkerPersonalDetailController extends Controller
         $object->factory_status = $factoryStatus;
         $object->worker_relationship = $workerRelationship;
         $object->date_of_birth = $dateOfBirth;
-        $object->contact_no_1 = $contactNo1;
-        $object->contact_no_2 = $contactNo2;
-        $object->contact_no_3 = $contactNo3;
         $object->pwwb_scholarship_form = $pwwbScholarshipForm;
         $object->factory_card = $factoryCard;
         $object->service_letter = $serviceLetter;
         $object->save();
 
+        \Log::info('Error');
+
+        //Worker Contact Number
+        $serialNo = Arr::get($params, WorkerContactNumberFields::SERIAL_NO);
+        $workerContactRelationship = Arr::get($params, WorkerContactNumberFields::WORKER_CONTACT_RELATIONSHIP);
+        $contactNo = Arr::get($params, WorkerContactNumberFields::CONTACT_NO);
+
+        if (!$indexTableId) {
+            for ($i = 0; $i < count($serialNo); $i++) {
+                $workerContactNumber = new WorkerContactNumber();
+                $this->fillWorkerContactNumberData($i, $workerContactNumber, $indexTableId,$serialNo, $workerContactRelationship, $contactNo);
+            }
+        } else {
+            $j = 0;
+            foreach (WorkerContactNumber::where('index_table_id', $indexTableId)->get() as $workerContactNumber) {
+                $workerContactNumberSingle = WorkerContactNumber::find($workerContactNumber->id);
+                $this->fillWorkerContactNumberData($j, $workerContactNumberSingle, $indexTableId,$serialNo, $workerContactRelationship, $contactNo);
+                $j++;
+            }
+            if ($j < count($serialNo)) {
+                for ($k = $j; $k < count($serialNo); $k++) {
+                    $workerContactNumber = new WorkerContactNumber();
+                    $this->fillWorkerContactNumberData($k, $workerContactNumber, $indexTableId, $serialNo, $workerContactRelationship, $contactNo);
+                }
+            }
+        }
+
 
         return response()->json([
             'message' => 'Saved Successfully',
             'object' => $object
+        ],200);
+    }
+
+    private function fillWorkerContactNumberData($index,$workerContactNumberObject,$indexTableId, $serialNo, $workerContactRelationship, $contactNo){
+        $workerContactNumberObject->index_table_id = $indexTableId;
+        $workerContactNumberObject->serial_no = isset($serialNo[$index]) ? $serialNo[$index] : null;
+        $workerContactNumberObject->worker_contact_relationship = isset($workerContactRelationship[$index]) ? $workerContactRelationship[$index] : null;
+        $workerContactNumberObject->contact_no = isset($contactNo[$index]) ? $contactNo[$index] : null;
+        $workerContactNumberObject->save();
+    }
+
+    public function deleteWorkerContactNumber(Request $request){
+        $params = $request->all();
+        $id = Arr::get($params,WorkerContactNumberFields::SERIAL_NO);
+        $indexId = Arr::get($params,'index_id');
+        $object = WorkerContactNumber::where('serial_no',$id)->where('index_table_id',$indexId);
+        if($object->first()){
+            $object->delete();
+        }
+        return response()->json([
+            'message' => 'deleted'
         ],200);
     }
 }

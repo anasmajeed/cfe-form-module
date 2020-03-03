@@ -109,21 +109,71 @@
                                value="{{$data && $data['worker_personal_details']['date_of_birth'] ? date('d/m/Y',strtotime($data['worker_personal_details']['date_of_birth'])) : '' }}">
                     </div>
                 </div>
-                <div class="form-row ">
-                    <div class="form-group col-md-4">
-                        <label>Contact No. 1:</label>
-                        <input onkeyup="appendPhonePrefix(event)" type="text" class="form-control text-center" name="contact_no_1"
-                               placeholder="+92-000-0000000" value="{{$data ? $data['worker_personal_details']['contact_no_1'] : ''}}">
-                    </div>
-                    <div class="form-group col-md-4">
-                        <label>Contact No. 2:</label>
-                        <input onkeyup="appendPhonePrefix(event)" type="text" class="form-control text-center" name="contact_no_2"
-                               placeholder="+92-000-0000000" value="{{$data ? $data['worker_personal_details']['contact_no_2'] : ''}}">
-                    </div>
-                    <div class="form-group col-md-4">
-                        <label>Contact No. 3:</label>
-                        <input onkeyup="appendPhonePrefix(event)" type="text" class="form-control text-center" name="contact_no_3"
-                               placeholder="+92-000-0000000" value="{{$data ? $data['worker_personal_details']['contact_no_3'] : ''}}">
+                <div class="card shadow mt-5 p-3 w-100">
+                    <div class="card-body" id="worker_contact_number_parent">
+                        <div class="form-row">
+                            <div class="">
+                                <label >Worker's Contact Numbers</label>
+                            </div>
+                            <div class="float-right ml-auto">
+                                <button type="button" class="btn btn-primary float-right" onclick="cloneWorkerContactNumber()">+ Add Details</button>
+                            </div>
+                        </div>
+                        <div class="form-row pt-3">
+                            <div class="border border-bottom-0 col-md-1 text-center">
+                                <label>Serial No.</label>
+                            </div>
+                            <div class="border border-bottom-0 col-md-2 text-center">
+                                <label>Contact No</label>
+                            </div>
+                            <div class="border border-bottom-0 col-md-2 text-center">
+                                <label>Worker's Relationship</label>
+                            </div>
+                        </div>
+                        @if($data && isset($data['worker_contact_numbers']) && count($data['worker_contact_numbers']))
+                            @foreach($data['worker_contact_numbers'] as $workerContactNumber)
+                                <div class="form-row" id="worker_contact_number">
+                                    <div class="border border-bottom-0 col-md-1 p-0">
+                                        <input readonly id="worker_contact_number_serial_no" type="text" class="form-control rounded-0 text-center" name="serial_no[]" placeholder="1" value="{{$workerContactNumber['serial_no']}}">
+                                    </div>
+                                    <div class="border border-bottom-0 col-md-2 p-0">
+                                        <input onkeyup="appendPhonePrefix(event)" type="text" class="form-control rounded-0" name="contact_no[]" placeholder="+92-000-0000000" value="{{$workerContactNumber['contact_no']}}">
+                                    </div>
+                                    <div class="border border-bottom-0 col-md-2 p-0">
+                                        <select name="worker_contact_relationship[]" class="form-control rounded-0">
+                                            <option value="" selected disabled>Select Relation</option>
+                                            @foreach(\Config::get('constants.worker_relationship') as $key => $worker_relationship)
+                                                <option value="{{$key}}" {{ $workerContactNumber ? $workerContactNumber['worker_contact_relationship'] == $key ? 'selected' : '' : ''}}>{{$worker_relationship}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <button id="removeContactNumberButton" type="button" class="btn btn-danger" onclick="removeContactNumber(event)"
+                                        @if ($workerContactNumber == reset($data['worker_contact_numbers'])) {{'disabled'}} @endif>-</button>
+                                    </div>
+                                </div>
+                            @endforeach
+                        @else
+                            <div class="form-row" id="worker_contact_number">
+                                <div class="border border-bottom-0 col-md-1 p-0">
+                                    <input readonly id="worker_contact_number_serial_no" type="text" class="form-control rounded-0 text-center" name="serial_no[]" value="1">
+                                </div>
+                                <div class="border border-bottom-0 col-md-2 p-0">
+                                    <input onkeyup="appendPhonePrefix(event)" class="form-control rounded-0" type="text" name="contact_no[]" placeholder="+92-000-0000000">
+                                </div>
+                                <div class="border border-bottom-0 col-md-2 p-0">
+                                    <select id="districts" name="worker_contact_relationship[]" class="form-control rounded-0">
+                                        <option value="" selected disabled>Select Relation</option>
+                                        @foreach(\Config::get('constants.worker_relationship') as $key => $worker_relationship)
+                                            <option value="{{$key}}">{{$worker_relationship}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="col-md-1">
+                                    <button id="removeContactNumberButton" type="button" class="btn btn-danger" disabled onclick="removeContactNumber(event)">-</button>
+                                </div>
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -161,13 +211,7 @@
             $(value).mask('00000-0000000-0');
         });
 
-        $('input[name="contact_no_1"]').each(function (index,value) {
-            $(value).mask('+92-000-0000000');
-        });
-        $('input[name="contact_no_2"]').each(function (index,value) {
-            $(value).mask('+92-000-0000000');
-        });
-        $('input[name="contact_no_3"]').each(function (index,value) {
+        $('input[name="contact_no[]"]').each(function (index,value) {
             $(value).mask('+92-000-0000000');
         });
         $('#contact_no_page5').each(function (index,value) {
@@ -193,6 +237,46 @@
             if($(e.target).val() == 'died'){
                 $('#death_date_page5').show();
             }
+        }
+
+        function cloneWorkerContactNumber(){
+            let clone = $('#worker_contact_number').clone();
+
+            clone.find('input:text').val('');
+            $('#worker_contact_number_parent').append(clone);
+            let button = clone.find('#removeContactNumberButton').removeAttr('disabled');
+            clone.find('#worker_contact_number_serial_no').val($('#worker_contact_number input[name="serial_no[]"').length);
+            $('input[name="contact_no[]"]').each(function (index,value) {
+                $(value).mask('+92-000-0000000');
+            });
+        }
+
+        function removeContactNumber(event) {
+            if(index_id) {
+                let csrf_token = $('meta[name="csrf-token"]').attr('content');
+                let request = $.ajax({
+                    url: '/worker-contact-number-delete',
+                    method: "POST",
+                    data: {
+                        'index_id' : index_id,
+                        'serial_no' : $(event.target).parent().parent().find('#worker_contact_number_serial_no').val()
+                    },
+                    headers:{
+                        'X-CSRF-TOKEN':csrf_token
+                    }
+                });
+
+                request.done(function (response) {
+                });
+
+                request.fail(function (jqXHR, textStatus) {
+                    // alert("Request failed: " + textStatus);
+                });
+            }
+            $(event.target).parent().parent().remove();
+            $('#worker_contact_number input[name="serial_no[]"').each(function (index,value) {
+                $(value).val(index+1);
+            });
         }
     </script>
 @endsection
