@@ -6,7 +6,7 @@
         <div class="card shadow p-3 w-100">
             <div class="card-body ">
                 <div class="form-row">
-                    <div class="form-group  col-md-4">
+                    <div id="death_date_page5" class="form-group col-md-4" style="display: none">
                         <label>Death Date of Worker:</label>
                         <input type="text" class="form-control text-center datepicker" name="death_date_of_worker"
                                value="{{$data && $data['factory_death_manager_details']['death_date_of_worker'] ? date('d/m/Y',strtotime($data['factory_death_manager_details']['death_date_of_worker'])) : ''}}"
@@ -19,6 +19,7 @@
                             @foreach(\Config::get('constants.general_yes_no') as $key => $value)
                                 <option value="{{$key}}" {{ $data ? $data['factory_death_manager_details']['death_grant_claimed'] == $key ? 'selected' : '' : ''}}>{{$value}}</option>
                             @endforeach
+                            <option value="na" {{ $data ? $data['factory_death_manager_details']['death_grant_claimed'] == 'na' ? 'selected' : '' : ''}}>N/A</option>
                         </select>
                     </div>
                     <div class="form-group col-md-4">
@@ -38,14 +39,14 @@
                 <div class="form-row">
                     <div class="form-group  col-md-3">
                         <label>Name:</label>
-                        <input type="text" class="form-control text-center" name="factory_manager_name"
-                               placeholder="XXXXX"
+                        <input onkeyup="alphabetsOnly(event)" type="text" class="form-control text-center" name="factory_manager_name"
+                               placeholder="Enter Name"
                                value="{{$data ? $data['factory_death_manager_details']['factory_manager_name'] : ''}}">
                     </div>
                     <div class="form-group col-md-3">
                         <label>Designation:</label>
-                        <input type="text" class="form-control text-center" name="factory_manager_designation"
-                               placeholder="XXXXX"
+                        <input onkeyup="alphabetsOnly(event)" type="text" class="form-control text-center" name="factory_manager_designation"
+                               placeholder="Enter Designation"
                                value="{{$data ? $data['factory_death_manager_details']['factory_manager_designation'] : ''}}">
                     </div>
                     <div class="form-group col-md-3">
@@ -66,7 +67,7 @@
         <div class="form-row">
             <div class="form-group col-md-6">
                 <div class="mt-4">
-                    <label>PWWB Scholorship Form Attested by Factory Manager</label>
+                    <label>PWWB Scholarship Form Attested by Factory Manager</label>
                 </div>
                 <div class="card shadow p-3">
                     <div class="card-body ">

@@ -179,7 +179,8 @@ return [
     ],
     'claim_status'=>[
         'received'=>'Received',
-        'rejected'=>'Rejected'
+        'rejected'=>'Rejected',
+        'notReceived' => 'Not Received'
     ]
 
 ];

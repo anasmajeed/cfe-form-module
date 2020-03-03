@@ -27,6 +27,7 @@ class HomeController extends Controller
         $object['index_id'] = $mainObject->id;
         $object['worker_family_member_details'] = $mainObject->workerFamilyMemberDetail ? $mainObject->workerFamilyMemberDetail->toArray() : null;
         $object['worker_personal_details'] = $mainObject->workerPersonalDetail ? $mainObject->workerPersonalDetail->toArray() : null;
+        $object['worker_contact_numbers'] = $mainObject->workerContactNumber ? $mainObject->workerContactNumber->toArray() : null;
         $object['worker_bank_security_details'] = $mainObject->workerBankSecurityDetail ? $mainObject->workerBankSecurityDetail->toArray() : null;
         $object['factory_details'] = $mainObject->factoryDetail ? $mainObject->factoryDetail->toArray() : null;
         $object['service_details'] = $mainObject->serviceDetail ? $mainObject->serviceDetail->toArray() : null;

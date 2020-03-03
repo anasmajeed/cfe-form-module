@@ -8,12 +8,12 @@
                 <div class="form-row">
                     <div class="form-group  col-md-6">
                         <label>Name:</label>
-                        <input type="text" name="name" class="form-control text-center" placeholder="XXXXX"
+                        <input onkeyup="alphabetsOnly(event)" type="text" name="name" class="form-control text-center" placeholder="Enter Name"
                                value="{{$data ? $data['student_personal_detail']['name'] : ''}}">
                     </div>
                     <div class="form-group col-md-6">
                         <label>Father's Name:</label>
-                        <input type="text" class="form-control text-center" name="father_name" placeholder="XXXXX"
+                        <input onkeyup="alphabetsOnly(event)" type="text" class="form-control text-center" name="father_name" placeholder="Enter Father's Name"
                                value="{{$data ? $data['student_personal_detail']['father_name'] : ''}}">
                     </div>
                 </div>
@@ -31,7 +31,7 @@
                             </div>
                             <div class="form-group col-md-4">
                                 <label>Quantity Min. (04):</label>
-                                <input type="text" class="form-control text-center" name='quantity' placeholder="XXXXX"
+                                <input onkeyup="numericOnly(event)" type="text" class="form-control text-center" name='quantity' placeholder="Enter Quantity"
                                        value="{{$data ? $data['student_personal_detail']['quantity'] : ''}}">
                             </div>
                             <div class="form-group col-md-4">
@@ -114,7 +114,7 @@
 </div>
 @section('script_page_6')
     <script>
-        $('input[name="cnic_no"').each(function (index,value) {
+        $('input[name="cnic_no"]').each(function (index,value) {
             $(value).mask('00000-0000000-0');
         });
     </script>

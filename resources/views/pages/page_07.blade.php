@@ -151,21 +151,21 @@
                                                 <div class="form-row">
                                                     <div class="form-group col-md-3">
                                                         <label>Actual:</label>
-                                                        <input type="text" class="form-control text-center"
+                                                        <input onkeyup="setTotalFeeBise()" id="actual_fee_bise" type="number" class="form-control text-center"
                                                                name="bise_actual_fee" value="{{$data ? $data['bise_details']['bise_actual_fee'] : ''}}"
-                                                               placeholder="">
+                                                               placeholder="Enter Actual Fee">
                                                     </div>
                                                     <div class="form-group col-md-3">
                                                         <label>Late:</label>
-                                                        <input type="text" class="form-control text-center "
+                                                        <input onkeyup="setTotalFeeBise()" id="late_fee_bise" type="number" class="form-control text-center "
                                                                name="bise_late_fee" value="{{$data ? $data['bise_details']['bise_late_fee'] : ''}}"
-                                                               placeholder="XXXXX">
+                                                               placeholder="Enter Late Fee">
                                                     </div>
                                                     <div class="form-group col-md-3">
                                                         <label>Total:</label>
-                                                        <input type="text" class="form-control text-center"
+                                                        <input readonly id="total_fee_bise" type="number" class="form-control text-center"
                                                                name="bise_total_fee" value="{{$data ? $data['bise_details']['bise_total_fee'] : ''}}"
-                                                               placeholder="0000">
+                                                               placeholder="">
                                                     </div>
                                                 </div>
                                             </div>
@@ -305,21 +305,21 @@
                                                 <div class="form-row">
                                                     <div class="form-group col-md-3">
                                                         <label>Actual:</label>
-                                                        <input type="text" class="form-control text-center"
+                                                        <input onkeyup="setTotalFeeIms()" id="actual_fee_ims" type="number" class="form-control text-center"
                                                                name="ims_actual_fee" value="{{$data ? $data['ims_details']['ims_actual_fee'] : ''}}"
-                                                               placeholder="XXXXX">
+                                                               placeholder="Enter Actual Fee">
                                                     </div>
                                                     <div class="form-group col-md-3">
                                                         <label>Late:</label>
-                                                        <input type="text" class="form-control text-center "
+                                                        <input onkeyup="setTotalFeeIms()" id="late_fee_ims" type="number" class="form-control text-center "
                                                                name="ims_late_fee" value="{{$data ? $data['ims_details']['ims_late_fee'] : ''}}"
-                                                               placeholder="XXXXX">
+                                                               placeholder="Enter Late Fee">
                                                     </div>
                                                     <div class="form-group col-md-3">
                                                         <label>Total:</label>
-                                                        <input type="text" class="form-control text-center"
+                                                        <input id="total_fee_ims" type="number" class="form-control text-center"
                                                                name="ims_total_fee" value="{{$data ? $data['ims_details']['ims_total_fee'] : ''}}"
-                                                               placeholder="0000">
+                                                               readonly>
                                                     </div>
                                                 </div>
                                             </div>
@@ -450,21 +450,21 @@
                                                 <div class="form-row">
                                                     <div class="form-group col-md-3">
                                                         <label>Actual:</label>
-                                                        <input type="text" class="form-control text-center"
+                                                        <input onkeyup="setTotalFeeAf()" id="actual_fee_af" type="number" class="form-control text-center"
                                                                name="af_actual_fee" value="{{$data ? $data['af_details']['af_actual_fee'] : ''}}"
-                                                               placeholder="XXXXX">
+                                                               placeholder="Enter Actual Fee">
                                                     </div>
                                                     <div class="form-group col-md-3">
                                                         <label>Late:</label>
-                                                        <input type="text" class="form-control text-center "
+                                                        <input onkeyup="setTotalFeeAf()" id="late_fee_af" type="number" class="form-control text-center "
                                                                name="af_late_fee" value="{{$data ? $data['af_details']['af_late_fee'] : ''}}"
-                                                               placeholder="XXXXX">
+                                                               placeholder="Enter Late Fee">
                                                     </div>
                                                     <div class="form-group col-md-3">
                                                         <label>Total:</label>
-                                                        <input type="text" class="form-control text-center"
+                                                        <input id="total_fee_af" type="number" class="form-control text-center"
                                                                name="af_total_fee" value="{{$data ? $data['af_details']['af_total_fee'] : ''}}"
-                                                               placeholder="0000">
+                                                               readonly>
                                                     </div>
                                                 </div>
                                             </div>
@@ -637,21 +637,21 @@
                                                 <div class="form-row">
                                                     <div class="form-group col-md-4">
                                                         <label>Actual:</label>
-                                                        <input type="text" class="form-control text-center"
+                                                        <input onkeyup="setTotalFeeVti()" id="actual_fee_vti" type="number" class="form-control text-center"
                                                                name="vti_registration_actual_fee" value="{{$data ? $data['vti_details']['vti_registration_actual_fee'] : ''}}"
-                                                               placeholder="XXXXX">
+                                                               placeholder="Enter Actual Fee">
                                                     </div>
                                                     <div class="form-group col-md-4">
                                                         <label>Late:</label>
-                                                        <input type="text" class="form-control text-center "
+                                                        <input onkeyup="setTotalFeeVti()" id="late_fee_vti" type="number" class="form-control text-center "
                                                                name="vti_registration_late_fee" value="{{$data ? $data['vti_details']['vti_registration_late_fee'] : ''}}"
-                                                               placeholder="XXXXX">
+                                                               placeholder="Enter Late Fee">
                                                     </div>
                                                     <div class="form-group col-md-4">
                                                         <label>Total:</label>
-                                                        <input type="text" class="form-control text-center"
+                                                        <input id="total_fee_vti" type="number" class="form-control text-center"
                                                                name="vti_registration_total_fee" value="{{$data ? $data['vti_details']['vti_registration_total_fee'] : ''}}"
-                                                               placeholder="0000">
+                                                               readonly>
                                                     </div>
                                                 </div>
                                             </div>
@@ -670,11 +670,16 @@
 
 @section('script_page_7')
     <script>
+        setTotalFeeBise();
+        setTotalFeeIms();
+        setTotalFeeAf();
+        setTotalFeeVti();
         setWingCorrespondingSectionDisplay();
         setDisplayForAnnualAndSemester();
 
         $('#vti_follow_up').datepicker({
             format:'dd/mm/yyyy',
+            startDate: new Date(),
             autoclose: true
         });
 
@@ -759,7 +764,7 @@
                 container_array.splice(10, 0, '#page_15');
                 api_url_array.splice(10, 0, '/annual-part-one');
             }
-            else{
+            else if(selectedTerm == 'semester'){
                 container_array.splice(10, 0, '#page_17');
                 api_url_array.splice(10, 0, '/first-semester');
             }
@@ -772,6 +777,27 @@
                 format:'dd/mm/yyyy',
                 autoclose: true
             });
+        }
+
+        function setTotalFeeBise() {
+            let actual = $('#actual_fee_bise').val();
+            let late = $('#late_fee_bise').val();
+            $('#total_fee_bise').val(parseInt(actual)+parseInt(late));
+        }
+        function setTotalFeeIms() {
+            let actual = $('#actual_fee_ims').val();
+            let late = $('#late_fee_ims').val();
+            $('#total_fee_ims').val(parseInt(actual)+parseInt(late));
+        }
+        function setTotalFeeAf() {
+            let actual = $('#actual_fee_af').val();
+            let late = $('#late_fee_af').val();
+            $('#total_fee_af').val(parseInt(actual)+parseInt(late));
+        }
+        function setTotalFeeVti() {
+            let actual = $('#actual_fee_vti').val();
+            let late = $('#late_fee_vti').val();
+            $('#total_fee_vti').val(parseInt(actual)+parseInt(late));
         }
     </script>
 @endsection

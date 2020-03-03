@@ -8,7 +8,7 @@
                 <div class="form-row">
                     <div class="form-group  col-md-3">
                         <label>Social Security R-8 No. &amp;/or CNIC of worker:</label>
-                        <input type="text" class="form-control text-center" name="social_security"
+                        <input onkeyup="alphabetsOnly(event)" type="text" class="form-control text-center" name="social_security"
                                value="{{$data ? $data['worker_bank_security_details']['social_security'] : ''}}"
                                placeholder="Worker CNIC = Social Security">
                     </div>
@@ -23,9 +23,9 @@
                     </div>
                     <div class="form-group col-md-4">
                         <label>Social Security Local Office Name:</label>
-                        <input type="text" class="form-control text-center" name="social_security_office_name"
+                        <input onkeyup="alphabetsOnly(event)" type="text" class="form-control text-center" name="social_security_office_name"
                                value="{{$data ? $data['worker_bank_security_details']['social_security_office_name'] : ''}}"
-                               placeholder="XXXXX">
+                               placeholder="Enter Name">
                     </div>
                 </div>
             </div>
@@ -62,21 +62,21 @@
                 <div class="form-row">
                     <div class="form-group  col-md-4">
                         <label>Name of Bank:</label>
-                        <input type="text" class="form-control text-center" name="name_of_bank"
+                        <input onkeyup="alphabetsOnly(event)" type="text" class="form-control text-center" name="name_of_bank"
                                value="{{$data ? $data['worker_bank_security_details']['name_of_bank'] : ''}}"
-                               placeholder="XXXXX">
+                               placeholder="Enter Bank Name">
                     </div>
                     <div class="form-group col-md-4">
                         <label>Branch Address:</label>
                         <input type="text" class="form-control text-center" name="bank_branch_address"
                                value="{{$data ? $data['worker_bank_security_details']['bank_branch_address'] : ''}}"
-                               placeholder="XXXXX">
+                               placeholder="Enter Branch Address">
                     </div>
                     <div class="form-group col-md-4">
                         <label>Branch Code:</label>
-                        <input type="text" class="form-control text-center" name="bank_branch_code"
+                        <input onkeyup="numericOnly(event)" type="text" class="form-control text-center" name="bank_branch_code"
                                value="{{$data ? $data['worker_bank_security_details']['bank_branch_code'] : ''}}"
-                               placeholder="XXXXX">
+                               placeholder="Enter Branch Code">
                     </div>
                 </div>
                 <div class="form-row">
