@@ -70,7 +70,7 @@
                     <div class="form-row">
                         <div class="form-group col-md-3">
                             <label>Amount of Claim Due:</label>
-                            <input type="text" class="form-control text-center" name="amount_claim_due"
+                            <input type="number" class="form-control text-center" name="amount_claim_due"
                                    placeholder="XXXXX"
                                    value="{{$data && isset($data['second_annual_part_details']) ? $data['second_annual_part_details']['amount_claim_due'] : ''}}">
                         </div>
