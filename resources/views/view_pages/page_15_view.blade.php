@@ -16,25 +16,25 @@
                         <div class="card-body ">
                             <div class="form-row">
                                 <div class="form-group col-md-3">
-                                    <label><strong>Exam Fee Deposit status:</strong></label>
+                                    <label @if( !$data['first_annual_details']['fee_deposit_status']) class="text-danger" @endif><strong>Exam Fee Deposit status:</strong></label>
                                     <label>
                                         {{$data && $data['first_annual_details']['fee_deposit_status'] ? $data['first_annual_details']['fee_deposit_status'] : '--'}}
                                     </label>
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <label><strong>Date:</strong></label>
+                                    <label @if( !$data['first_annual_details']['exam_fee_date']) class="text-danger" @endif><strong>Date:</strong></label>
                                     <label>
                                         {{$data && $data['first_annual_details']['exam_fee_date'] ? $data['first_annual_details']['exam_fee_date'] : '--'}}
                                     </label>
                                 </div>
                                 <div class="form-group  col-md-3">
-                                    <label><strong>Amount:</strong></label>
+                                    <label @if( !$data['first_annual_details']['amount']) class="text-danger" @endif><strong>Amount:</strong></label>
                                     <label>
                                         {{$data && $data['first_annual_details']['amount'] ? $data['first_annual_details']['amount'] : '--'}}
                                     </label>
                                 </div>
                                 <div class="form-group  col-md-3">
-                                    <label><strong>Roll No:</strong></label>
+                                    <label @if( !$data['first_annual_details']['roll_no']) class="text-danger" @endif><strong>Roll No:</strong></label>
                                     <label>
                                         {{$data && $data['first_annual_details']['roll_no'] ? $data['first_annual_details']['roll_no'] : '--'}}
                                     </label>
@@ -131,13 +131,13 @@
                         <div class="card-body ">
                             <div class="form-row">
                                 <div class="form-group col-md-4">
-                                    <label><strong>Same Course:</strong></label>
+                                    <label @if( !$data['first_annual_details']['same_course']) class="text-danger" @endif><strong>Same Course:</strong></label>
                                     <label>
                                         {{$data && $data['first_annual_details']['same_course'] ? $data['first_annual_details']['same_course'] : '--'}}
                                     </label>
                                 </div>
                                 <div class="form-group col-md-4">
-                                    <label><strong>Changed Course:</strong></label>
+                                    <label @if( !$data['first_annual_details']['changed_course']) class="text-danger" @endif><strong>Changed Course:</strong></label>
                                     <label>
                                         {{$data && $data['first_annual_details']['changed_course'] ? $data['first_annual_details']['changed_course'] : '--'}}
                                     </label>
