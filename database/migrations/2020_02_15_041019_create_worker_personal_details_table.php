@@ -31,9 +31,6 @@ class CreateWorkerPersonalDetailsTable extends Migration
             $table->string('factory_status')->nullable();
             $table->string('worker_relationship')->nullable();
             $table->string('date_of_birth')->nullable();
-            $table->string('contact_no_1')->nullable();
-            $table->string('contact_no_2')->nullable();
-            $table->string('contact_no_3')->nullable();
             $table->string('pwwb_scholarship_form')->nullable();
             $table->string('factory_card')->nullable();
             $table->string('service_letter')->nullable();

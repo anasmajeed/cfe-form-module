@@ -42,6 +42,7 @@ Route::post('/eighth-semester','EighthSemesterDetailController@post');
 //delete calls
 Route::post('/worker-family-detail-delete','IndexTableController@deleteWorkerDetail');
 Route::post('/service-detail-delete','FactoryDetailController@deleteServiceDetail');
+Route::post('/worker-contact-number-delete','WorkerPersonalDetailController@deleteWorkerContactNumber');
 Route::post('/annual-part-one-delete','FirstAnnualDetailController@deleteFirstAnnualResultStatusDetail');
 Route::post('/annual-part-two-delete','SecondAnnualPartDetailController@deleteSecondAnnualResultStatusDetail');
 Route::post('/first-semester-delete','FirstSemesterDetailController@deleteFirstSemesterResultStatusDetail');

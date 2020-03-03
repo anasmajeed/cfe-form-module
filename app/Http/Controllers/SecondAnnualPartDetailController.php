@@ -38,8 +38,8 @@ class SecondAnnualPartDetailController extends Controller
         $amount_received = Arr::get($params, SecondAnnualPartDetailFields::AMOUNT_RECEIVED);
 
         $claim_date_explode = explode('/',Arr::get($params,SecondAnnualPartDetailFields::CLAIM_DATE));
-        if(count($$claim_date_explode) == 3)
-            $claim_date = Carbon::createFromDate($$claim_date_explode[2],$$claim_date_explode[1],$$claim_date_explode[0])->format('Y-m-d');
+        if(count($claim_date_explode) == 3)
+            $claim_date = Carbon::createFromDate($claim_date_explode[2],$claim_date_explode[1],$claim_date_explode[0])->format('Y-m-d');
         else
             $claim_date = Arr::get($params, SecondAnnualPartDetailFields::CLAIM_DATE);
 

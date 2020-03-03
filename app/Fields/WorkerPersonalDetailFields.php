@@ -21,9 +21,6 @@ class WorkerPersonalDetailFields
     const FACTORY_STATUS = 'factory_status';
     const WORKER_RELATIONSHIP = 'worker_relationship';
     const DATE_OF_BIRTH = 'date_of_birth';
-    const CONTACT_No_1 = 'contact_no_1';
-    const CONTACT_No_2 = 'contact_no_2';
-    const CONTACT_No_3 = 'contact_no_3';
     const PWWB_SCHOLARSHIP_FORM = 'pwwb_scholarship_form';
     const FACTORY_CARD = 'factory_card';
     const SERVICE_LETTER = 'service_letter';
