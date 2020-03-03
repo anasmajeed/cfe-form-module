@@ -98,7 +98,7 @@
                                     </div>
                                     <div class="form-group col-md-4">
                                         <label>Ending Date:</label>
-                                        <input type="text" class="form-control text-center datepicker"
+                                        <input id="ending_date_page7" type="text" class="form-control text-center datepicker"
                                                name="bise_ending_date" value="{{$data && $data['bise_details']['bise_ending_date'] ? date('d/m/Y',strtotime($data['bise_details']['bise_ending_date'])) : ''}}"
                                                placeholder="dd/mm/yyyyy">
                                     </div>
@@ -683,6 +683,12 @@
             autoclose: true
         });
 
+        $('#ending_date_page7').datepicker({
+            format:'dd/mm/yyyy',
+            startDate: new Date(),
+            autoclose: true
+        });
+
         function setWingCorrespondingSectionDisplay() {
             let wings_array = {
                 'cs': 'wing_div_bise',
@@ -771,10 +777,12 @@
             setDisplayForButtons();
             $('input[name="next_appearance_date[]"').datepicker({
                 format:'dd/mm/yyyy',
+                startDate: new Date(),
                 autoclose: true
             });
             $('input[name="last_chance_date[]"').datepicker({
                 format:'dd/mm/yyyy',
+                startDate: new Date(),
                 autoclose: true
             });
         }
