@@ -26,7 +26,7 @@
                     </div>
                     <div class="form-group col-md-4">
                         <label>Photographs Quantity (Min. 6):</label>
-                        <input onkeyup="photographQuantityPage2(event)" type="number" min="6" class="form-control text-center" placeholder="INT"
+                        <input type="number" min="6" class="form-control text-center" placeholder="INT"
                                name="photograph_quantity" value="{{$data ? $data['worker_personal_details']['photograph_quantity'] : ''}}">
                     </div>
                 </div>
@@ -40,12 +40,12 @@
                 <div class="form-row">
                     <div class="form-group col-md-4">
                         <label>Name of Worker:</label>
-                        <input type="text" class="form-control text-center" name="worker_name" placeholder="00000"
+                        <input onkeyup="alphabetsOnly(event)" type="text" class="form-control text-center" name="worker_name" placeholder="Enter Name"
                                value="{{$data ? $data['worker_personal_details']['worker_name'] : ''}}">
                     </div>
                     <div class="form-group col-md-4">
                         <label>Applicant's Name (Widow of Worker):</label>
-                        <input type="text" class="form-control text-center" name="applicant_name" placeholder="00000"
+                        <input onkeyup="alphabetsOnly(event)" type="text" class="form-control text-center" name="applicant_name" placeholder="Enter Name"
                                value="{{$data ? $data['worker_personal_details']['applicant_name'] : ''}}">
                     </div>
                     <div class="form-group col-md-4">
@@ -67,7 +67,7 @@
                     </div>
                     <div class="form-group col-md-4">
                         <label>Worker's Current Status:</label>
-                        <select name="worker_current_status" class="form-control">
+                        <select onchange="workerDeathStatus(event)" name="worker_current_status" class="form-control">
                             <option value="" selected disabled>--select--</option>
                             @foreach(\Config::get('constants.workers_current_status') as $key => $workers_current_status)
                                 <option value="{{$key}}" {{ $data ? $data['worker_personal_details']['worker_current_status'] == $key ? 'selected' : '' : ''}}>{{$workers_current_status}}</option>
@@ -136,17 +136,17 @@
                 <div class="form-row ">
                     <div class="form-group col-md-4">
                         <label>PWWB Scholarship Form:</label>
-                        <input type="text" class="form-control text-center" name="pwwb_scholarship_form"
-                               placeholder="00000" value="{{$data ? $data['worker_personal_details']['pwwb_scholarship_form'] : ''}}">
+                        <input onkeyup="alphabetsOnly(event)" type="text" class="form-control text-center" name="pwwb_scholarship_form"
+                               placeholder="Enter Form" value="{{$data ? $data['worker_personal_details']['pwwb_scholarship_form'] : ''}}">
                     </div>
                     <div class="form-group col-md-4">
                         <label>Factory Card:</label>
-                        <input type="text" class="form-control text-center" name="factory_card" placeholder="00000"
+                        <input onkeyup="alphabetsOnly(event)" type="text" class="form-control text-center" name="factory_card" placeholder="Enter Factory Card"
                                value="{{$data ? $data['worker_personal_details']['factory_card'] : ''}}">
                     </div>
                     <div class="form-group col-md-4">
                         <label>Service Letter:</label>
-                        <input type="text" class="form-control text-center" name="service_letter" placeholder="00000"
+                        <input onkeyup="alphabetsOnly(event)" type="text" class="form-control text-center" name="service_letter" placeholder="Enter Service Letter"
                                value="{{$data ? $data['worker_personal_details']['service_letter'] : ''}}">
                     </div>
                 </div>
@@ -156,6 +156,7 @@
 </div>
 @section('script_page_2')
     <script>
+        workerDeathStatusFirstTime();
         $('input[name="worker_cnic"]').each(function (index,value) {
             $(value).mask('00000-0000000-0');
         });
@@ -172,15 +173,26 @@
         $('#contact_no_page5').each(function (index,value) {
             $(value).mask('+92-000-0000000');
         });
-        function photographQuantityPage2(event) {
-            if($(event.target).val() < 6)
-                $(event.target).val('');
+
+        function workerDeathStatusFirstTime(){
+            let selected = $('select[name="worker_current_status"]').val();
+            if(selected == 'died'){
+                $('#death_date_page5').show();
+            }
+            else
+                $('#death_date_page5').hide();
         }
 
         function appendPhonePrefix(event) {
             let value = $(event.target).val().replace('+92-','');
             $(event.target).val('');
             $(event.target).val('+92-'+value);
+        }
+
+        function workerDeathStatus(e){
+            if($(e.target).val() == 'died'){
+                $('#death_date_page5').show();
+            }
         }
     </script>
 @endsection

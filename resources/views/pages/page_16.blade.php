@@ -167,7 +167,7 @@
                         </div>
                     </div>
                     <!-- result status -->
-                    @if($data && isset($data['second_annual_result_status_details']))
+                    @if($data && isset($data['second_annual_result_status_details']) && count($data['second_annual_result_status_details']))
                         @foreach($data['second_annual_result_status_details'] as $secondAnnualResultStatusDetails)
                             <div class="form-row mt-2" id="result_status_annual_part_two_div">
                                 <input type="hidden" value="{{$secondAnnualResultStatusDetails['id']}}" id="result_status_annual_part_two_delete_id">
@@ -179,7 +179,7 @@
                                 </div>
                                 <div class="col-md-10 form-row m-0" id="result_status_annual_part_two_pass_values" style="display: none">
                                     <div class="col-md-2 p-0">
-                                        <select name="fail[]" class="form-control promotion_annual_part_two" onchange="setDisplayForAnnualPartTwo()">
+                                        <select name="fail[]" class="form-control promotion_annual_part_two">
                                             <option value="promoted" {{ $secondAnnualResultStatusDetails['fail'] == 'promoted' ? 'selected' : ''}}>Promoted</option>
                                             <option value="notPromoted" {{ $secondAnnualResultStatusDetails['fail'] == 'notPromoted' ? 'selected' : ''}}>Not Promoted</option>
                                         </select>
@@ -220,7 +220,7 @@
                             </div>
                             <div class="col-md-10 form-row m-0" id="result_status_annual_part_two_pass_values" style="display: none">
                                 <div class="col-md-2 p-0">
-                                    <select name="fail[]" class="form-control promotion_annual_part_two" onchange="setDisplayForAnnualPartTwo()">
+                                    <select name="fail[]" class="form-control promotion_annual_part_two">
                                         <option value="promoted">Promoted</option>
                                         <option value="notPromoted" selected>Not Promoted</option>
                                     </select>

@@ -151,7 +151,8 @@
                                 <div class="form-row mt-2" id="result_status_first_semester_div">
                                     <div class="col-md-1 p-0">
                                         <select id="result_field_for_first_semester" name="result[]" class="form-control result_first_semester" onchange="resultChangedForFirstSemester(event)">
-                                            <option value="pass" selected>Pass</option>
+                                            <option value="" selected disabled>--select--</option>
+                                            <option value="pass" >Pass</option>
                                             <option value="fail">Fail</option>
                                         </select>
                                     </div>

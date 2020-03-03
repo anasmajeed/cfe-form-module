@@ -28,7 +28,7 @@
                 <div class="form-row">
                     <div class="form-group col-md-4">
                         <label>File Received No:</label>
-                        <input type="text" class="form-control" id="inputAddress" placeholder="R-" name="file_received_number" value="{{$data ? $data['file_received_number'] : ''}}">
+                        <input type="text" class="form-control" id="file_received_no_page1" placeholder="R-" name="file_received_number" value="{{$data ? $data['file_received_number'] : ''}}">
                     </div>
                     <div class="form-group col-md-4">
                         <label>Receiving Date:</label>
@@ -36,7 +36,7 @@
                     </div>
                     <div class="form-group col-md-4">
                         <label>File Receipt Voucher No:</label>
-                        <input type="text" class="form-control" id="inputAddress" placeholder="aaaaa" name="file_receipt_voucher_number" value="{{$data ? $data['file_receipt_voucher_number'] : ''}}">
+                        <input type="text" class="form-control" id="file_receipt_voucher_no_page1" placeholder="00000" name="file_receipt_voucher_number" value="{{$data ? $data['file_receipt_voucher_number'] : ''}}">
                     </div>
                 </div>
                 <div class="form-row">
@@ -45,8 +45,8 @@
                         <input class="form-control datepicker" type="text" placeholder="dd/mm/yyyy" name="file_receipt_voucher_date" value="{{$data && $data['file_receipt_voucher_date'] ? date('d/m/Y',strtotime($data['file_receipt_voucher_date'])) : ''}}">
                     </div>
                     <div class="form-group col-md-4">
-                        <label>Fresh Fle Submission in PWWB No:</label>
-                        <input type="text" class="form-control" id="inputAddress" placeholder="S-" name="fresh_file_submission_in_pwwb_number" value="{{$data ? $data['fresh_file_submission_in_pwwb_number'] : ''}}">
+                        <label>Fresh File Submission in PWWB No:</label>
+                        <input type="text" class="form-control" id="fresh_file_submission_page1" placeholder="S-" name="fresh_file_submission_in_pwwb_number" value="{{$data ? $data['fresh_file_submission_in_pwwb_number'] : ''}}">
                     </div>
                     <div class="form-group col-md-4">
                         <label>Priority of Submission:</label>
@@ -61,7 +61,7 @@
                 <div class="form-row ">
                     <div class="form-group col-md-4">
                         <label>PWWB Diary No:</label>
-                        <input type="text" class="form-control" id="inputAddress" placeholder="INT" name="pwwb_diary_number" value="{{$data ? $data['pwwb_diary_number'] : ''}}">
+                        <input type="text" class="form-control" id="diary_no_page1" placeholder="INT" name="pwwb_diary_number" value="{{$data ? $data['pwwb_diary_number'] : ''}}">
                     </div>
                     <div class="form-group col-md-4">
                         <label>PWWB Diary Date:</label>
@@ -69,7 +69,7 @@
                     </div>
                     <div class="form-group col-md-4">
                         <label>Pending Files (With Remarks):</label>
-                        <input type="text" class="form-control" id="inputAddress" placeholder="aaaaa" name="pending_files_with_remarks" value="{{$data ? $data['pending_files_with_remarks'] : ''}}">
+                        <input type="text" class="form-control" id="inputAddress" placeholder="Enter Remarks" name="pending_files_with_remarks" value="{{$data ? $data['pending_files_with_remarks'] : ''}}">
                     </div>
                 </div>
             </div>
@@ -115,16 +115,16 @@
                                 <input readonly id="worker_family_serial_no" type="text" class="form-control rounded-0 text-center" name="serial_no[]" placeholder="1" value="{{$worker_details['serial_no']}}">
                             </div>
                             <div class="border border-bottom-0 col-md-2 p-0">
-                                <input class="form-control rounded-0" type="text" name="worker_name[]" placeholder="aaaaa" value="{{$worker_details['worker_name']}}">
+                                <input onkeyup="alphabetsOnly(event)" class="form-control rounded-0" type="text" name="worker_name[]" placeholder="Enter Name" value="{{$worker_details['worker_name']}}">
                             </div>
                             <div class="border border-bottom-0 col-md-2 p-0">
                                 <input type="text" class="form-control rounded-0" name="worker_cnic[]" placeholder="00000-0000000-0" value="{{$worker_details['worker_cnic']}}">
                             </div>
                             <div class="border border-bottom-0 col-md-1 p-0">
-                                <input type="text" class="form-control rounded-0" name="student_name[]" placeholder="aaaaa" value="{{$worker_details['student_name']}}">
+                                <input onkeyup="alphabetsOnly(event)"  type="text" class="form-control rounded-0" name="student_name[]" placeholder="Enter Name" value="{{$worker_details['student_name']}}">
                             </div>
                             <div class="border border-bottom-0 col-md-1 p-0">
-                                <input type="text" class="form-control rounded-0" name="passed_degree[]" placeholder="aaaaa" value="{{$worker_details['passed_degree']}}">
+                                <input onkeyup="alphabetsOnly(event)" type="text" class="form-control rounded-0" name="passed_degree[]" placeholder="Enter Degree" value="{{$worker_details['passed_degree']}}">
                             </div>
                             <div class="border border-bottom-0 col-md-1 p-0">
                                 <select id="districts" name="potential_degree[]" class="form-control rounded-0">
@@ -135,7 +135,7 @@
                                 </select>
                             </div>
                             <div class="border border-bottom-0 col-md-1 p-0">
-                                <select id="districts" name="file_received_status[]" class="form-control rounded-0">
+                                <select onchange="fileReceivedStatusPage1Check(event)" name="file_received_status[]" class="form-control rounded-0">
                                     <option value="" selected disabled>Select Status</option>
                                     @foreach(\Config::get('constants.general_yes_no') as $key => $file_received_status)
                                         <option value="{{$key}}" {{ $worker_details ? $worker_details['file_received_status'] == $key ? 'selected' : '' : ''}}>{{$file_received_status}}</option>
@@ -157,16 +157,16 @@
                             <input readonly id="worker_family_serial_no" type="text" class="form-control rounded-0 text-center" name="serial_no[]" value="1">
                         </div>
                         <div class="border border-bottom-0 col-md-2 p-0">
-                            <input class="form-control rounded-0" type="text" name="worker_name[]" placeholder="XXXX">
+                            <input onkeyup="alphabetsOnly(event)" class="form-control rounded-0" type="text" name="worker_name[]" placeholder="Enter Name">
                         </div>
                         <div class="border border-bottom-0 col-md-2 p-0">
                             <input type="text" class="form-control rounded-0" name="worker_cnic[]" placeholder="00000-0000000-0">
                         </div>
                         <div class="border border-bottom-0 col-md-1 p-0">
-                            <input type="text" class="form-control rounded-0" name="student_name[]" placeholder="aaaaa">
+                            <input onkeyup="alphabetsOnly(event)"  type="text" class="form-control rounded-0" name="student_name[]" placeholder="Enter Name">
                         </div>
                         <div class="border border-bottom-0 col-md-1 p-0">
-                            <input type="text" class="form-control rounded-0" name="passed_degree[]" placeholder="aaaaa">
+                            <input onkeyup="alphabetsOnly(event)" type="text" class="form-control rounded-0" name="passed_degree[]" placeholder="Enter Degree">
                         </div>
                         <div class="border border-bottom-0 col-md-1 p-0">
                             <select name="potential_degree[]" class="form-control rounded-0">
@@ -177,7 +177,7 @@
                             </select>
                         </div>
                         <div class="border border-bottom-0 col-md-1 p-0">
-                            <select name="file_received_status[]" class="form-control rounded-0">
+                            <select onchange="fileReceivedStatusPage1Check(event)" name="file_received_status[]" class="form-control rounded-0">
                                 <option value="" selected disabled>Select Status</option>
                                 @foreach(\Config::get('constants.general_yes_no') as $key => $file_received_status)
                                     <option value="{{$key}}">{{$file_received_status}}</option>
@@ -204,8 +204,48 @@
             $(value).mask('00000-0000000-0');
         });
 
+        $('select[name="file_received_status[]"').each(function (index,value) {
+            if($(value).val() == 'yes')
+                $(value).parent().next().show();
+            else
+                $(value).parent().next().hide();
+        });
+
+        $('#file_received_no_page1').mask('R-#');
+        $('#fresh_file_submission_page1').mask('S-#');
+        $('#file_receipt_voucher_no_page1').mask('#');
+        $('#diary_no_page1').mask('#');
+
+        function alphabetsOnly(e) {
+            let value = $(e.target).val();
+            let length  = value.length;
+            let regex = new RegExp("^[a-zA-Z]+$");
+            let str = value.substr(length-1,1);
+            if (!regex.test(str)) {
+                $(e.target).val(value.substring(0,length-1));
+            }
+        }
+
+        function numericOnly(e) {
+            let value = $(e.target).val();
+            let length  = value.length;
+            let regex = new RegExp("^[0-9]+$");
+            let str = value.substr(length-1,1);
+            if (!regex.test(str)) {
+                $(e.target).val(value.substring(0,length-1));
+            }
+        }
+
+        function fileReceivedStatusPage1Check(e){
+            if($(e.target).val() == 'yes')
+                $(e.target).parent().next().show();
+            else
+                $(e.target).parent().next().hide();
+        }
+
         $('.datepickerFollowUp').datepicker({
             format:'dd/mm/yyyy',
+            startDate: new Date(),
             autoclose: true
         });
 
@@ -213,6 +253,7 @@
             let clone = $('#worker_detail').clone();
             clone.find('.datepickerFollowUp').datepicker({
                 format:'dd/mm/yyyy',
+                startDate: new Date(),
                 autoclose: true
             });
 

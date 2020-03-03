@@ -46,10 +46,10 @@
         <button id="nextButton" type="button" class="btn btn-primary float-right" onclick="nextForm()">Next</button>
         <button id="saveButton" type="button" class="btn btn-primary float-right" onclick="saveForm()">Save</button>
     </div>
-{{--    <div class="mt-4">--}}
-{{--        <input type="number" id="goToPage">--}}
-{{--        <button type="button" onclick="goToPage()" class="btn btn-outline-success">GO</button>--}}
-{{--    </div>--}}
+    <div class="mt-4">
+        <input type="number" id="goToPage">
+        <button type="button" onclick="goToPage()" class="btn btn-outline-success">GO</button>
+    </div>
 </div>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -171,6 +171,14 @@
         setDisplayNone();
         setDisplayForButtons();
     }
+
+    function containerArraySearch(value) {
+        let result = container_array.indexOf(value);
+        if(result != -1)
+            return true;
+        else
+            return false;
+    }
 </script>
 @yield('script_page_1')
 @yield('script_page_2')
@@ -178,6 +186,7 @@
 @yield('script_page_6')
 @yield('script_page_7')
 @yield('script_page_12')
+@yield('script_page_14')
 @yield('script_page_15')
 @yield('script_page_16')
 @yield('script_page_17')

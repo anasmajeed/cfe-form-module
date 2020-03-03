@@ -128,7 +128,8 @@
                                 <div class="form-row mt-2" id="result_status_annual_part_one_div">
                                     <div class="col-md-1 p-0">
                                         <select id="result_field_for_annual_part_one" name="result[]" class="form-control result_annual_part_one" onchange="resultChangedForAnnualPartOne(event)">
-                                            <option value="pass" selected>Pass</option>
+                                            <option value="" selected disabled>--select--</option>
+                                            <option value="pass">Pass</option>
                                             <option value="fail">Fail</option>
                                         </select>
                                     </div>
@@ -249,11 +250,11 @@
 
         function resultChangedForAnnualPartOne(event) {
             setResultHeaderDisplay();
-            setDisplayForAnnualPartTwo();
             if($(event.target).val() == 'fail')
                 $(event.target).parent().parent().find('#result_status_annual_part_one_pass_values').fadeIn();
             else
                 $(event.target).parent().parent().find('#result_status_annual_part_one_pass_values').fadeOut();
+            setDisplayForAnnualPartTwo();
         }
 
         function setResultHeaderDisplay() {
@@ -289,7 +290,7 @@
                 if ($(allResults[length - 1]).val() == 'pass') {
                     container_array.splice(11, 0, '#page_16');
                     api_url_array.splice(11, 0, '/annual-part-two');
-                } else {
+                }else {
                     let allPromotions = $('.promotion_annual_part_one');
                     let lengthForPromotion = allPromotions.length;
                     if ($(allPromotions[lengthForPromotion - 1]).val() == 'promoted') {
