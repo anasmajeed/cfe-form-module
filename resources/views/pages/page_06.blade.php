@@ -31,7 +31,7 @@
                             </div>
                             <div class="form-group col-md-4">
                                 <label>Quantity Min. (04):</label>
-                                <input onkeyup="numericOnly(event)" type="text" class="form-control text-center" name='quantity' placeholder="Enter Quantity"
+                                <input onkeyup="numericOnly(event)" type="number" class="form-control text-center" name='quantity' placeholder="Enter Quantity"
                                        value="{{$data ? $data['student_personal_detail']['quantity'] : ''}}">
                             </div>
                             <div class="form-group col-md-4">

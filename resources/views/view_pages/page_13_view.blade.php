@@ -11,7 +11,7 @@
                 <div class="card-body ">
                     <div class="form-row">
                         <div class="form-group  col-md-4">
-                            <label @if( !$data['document_attachment_details']['result_card_quantity']) class="text-danger" @endif><strong>Quantity Min(04):</strong></label>
+                            <label @if( !$data['document_attachment_details']['result_card_quantity'] || $data['document_attachment_details']['result_card_quantity'] < 4) class="text-danger" @endif><strong>Quantity Min(04):</strong></label>
                             <label>
                                 {{$data && $data['document_attachment_details']['result_card_quantity'] ? $data['document_attachment_details']['result_card_quantity'] : '--'}}
                             </label>
@@ -46,7 +46,7 @@
                 <div class="card-body ">
                     <div class="form-row">
                         <div class="form-group  col-md-4">
-                            <label @if( !$data['document_attachment_details']['certificate_quantity']) class="text-danger" @endif><strong>Quantity Min(04):</strong></label>
+                            <label @if( !$data['document_attachment_details']['certificate_quantity'] || $data['document_attachment_details']['certificate_quantity'] < 4 ) class="text-danger" @endif><strong>Quantity Min(04):</strong></label>
                             <label>
                                 {{$data && $data['document_attachment_details']['certificate_quantity'] ? $data['document_attachment_details']['certificate_quantity'] : '--'}}
                             </label>
