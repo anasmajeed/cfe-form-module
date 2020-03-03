@@ -8,7 +8,7 @@
                 <div class="form-row">
                     <div class="form-group  col-md-3">
                         <label>Social Security R-8 No. &amp;/or CNIC of worker:</label>
-                        <input onkeyup="alphabetsOnly(event)" type="text" class="form-control text-center" name="social_security"
+                        <input onkeyup="numericOnly(event)" type="text" class="form-control text-center" name="social_security"
                                value="{{$data ? $data['worker_bank_security_details']['social_security'] : ''}}"
                                placeholder="Worker CNIC = Social Security">
                     </div>
