@@ -31,7 +31,7 @@
                                 </label>
                             </div>
                             <div class="form-group col-md-4">
-                                <label @if( !$data['student_personal_detail']['quantity']) class="text-danger" @endif><strong>Quantity(min 04):</strong></label>
+                                <label @if( !$data['student_personal_detail']['quantity'] || $data['student_personal_detail']['quantity'] < 4 ) class="text-danger" @endif><strong>Quantity(min 04):</strong></label>
                                 <label>
                                     {{$data && $data['student_personal_detail']['quantity'] ? $data['student_personal_detail']['quantity'] : '--'}}
                                 </label>
