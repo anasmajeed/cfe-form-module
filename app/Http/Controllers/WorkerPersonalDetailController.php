@@ -66,9 +66,7 @@ class WorkerPersonalDetailController extends Controller
         $object->factory_card = $factoryCard;
         $object->service_letter = $serviceLetter;
         $object->save();
-
-        \Log::info('Error');
-
+        
         //Worker Contact Number
         $serialNo = Arr::get($params, WorkerContactNumberFields::SERIAL_NO);
         $workerContactRelationship = Arr::get($params, WorkerContactNumberFields::WORKER_CONTACT_RELATIONSHIP);
