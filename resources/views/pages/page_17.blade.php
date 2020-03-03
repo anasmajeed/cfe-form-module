@@ -56,7 +56,7 @@
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label>Amount:</label>
-                                    <input type="text" class="form-control text-center" name="amount"
+                                    <input type="number" class="form-control text-center" name="amount"
                                            placeholder="XXXXX"
                                            value="{{$data && isset($data['first_semester_details']) ? $data['first_semester_details']['amount'] : ''}}">
                                 </div>

@@ -70,7 +70,7 @@
                         <div class="form-row">
                             <div class="form-group col-md-3">
                                 <label>Amount of Claim Due:</label>
-                                <input type="text" class="form-control text-center" name="amount_claim_due"
+                                <input type="number" class="form-control text-center" name="amount_claim_due"
                                        placeholder="XXXXX"
                                        value="{{$data && isset($data['sixth_semester_details']) ? $data['sixth_semester_details']['amount_claim_due'] : ''}}">
                             </div>
@@ -85,7 +85,7 @@
                             </div>
                             <div class="form-group col-md-3">
                                 <label>Amount Received:</label>
-                                <input type="text" class="form-control text-center" name="amount_received"
+                                <input type="number" class="form-control text-center" name="amount_received"
                                        placeholder="XXXXX"
                                        value="{{$data && isset($data['sixth_semester_details']) ? $data['sixth_semester_details']['amount_received'] : ''}}">
                             </div>
@@ -126,7 +126,7 @@
                                     </div>
                                     <div class="form-group col-md-3">
                                         <label>Amount:</label>
-                                        <input type="text" class="form-control text-center" name="amount"
+                                        <input type="number" class="form-control text-center" name="amount"
                                                placeholder="XXXXX"
                                                value="{{$data && isset($data['sixth_semester_details']) ? $data['sixth_semester_details']['amount'] : ''}}">
                                     </div>
