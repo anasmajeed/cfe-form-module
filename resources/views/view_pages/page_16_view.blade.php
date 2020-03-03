@@ -12,13 +12,13 @@
                         <div class="card-body ">
                             <div class="form-row">
                                 <div class="form-group col-md-3">
-                                    <label><strong>Receipt Status:</strong></label>
+                                    <label @if( !$data['second_annual_part_details']['receipt_status']) class="text-danger" @endif><strong>Receipt Status:</strong></label>
                                     <label>
                                         {{$data && $data['second_annual_part_details']['receipt_status'] ? $data['second_annual_part_details']['receipt_status'] : '--'}}
                                     </label>
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <label><strong>Date:</strong></label>
+                                    <label @if( !$data['second_annual_part_details']['second_part_date']) class="text-danger" @endif><strong>Date:</strong></label>
                                     <label>
                                         {{$data && $data['second_annual_part_details']['second_part_date'] ? $data['second_annual_part_details']['second_part_date'] : '--'}}
                                     </label>
@@ -35,19 +35,19 @@
                 <div class="card-body">
                     <div class="form-row">
                         <div class="form-group col-md-3">
-                            <label><strong>Status:</strong></label>
+                            <label @if( !$data['second_annual_part_details']['pwwb_status']) class="text-danger" @endif><strong>Status:</strong></label>
                             <label>
                                 {{$data && $data['second_annual_part_details']['pwwb_status'] ? $data['second_annual_part_details']['pwwb_status'] : '--'}}
                             </label>
                         </div>
                         <div class="form-group col-md-3">
-                            <label><strong>Date:</strong></label>
+                            <label @if( !$data['second_annual_part_details']['pwwb_date']) class="text-danger" @endif><strong>Date:</strong></label>
                             <label>
                                 {{$data && $data['second_annual_part_details']['pwwb_date'] ? $data['second_annual_part_details']['pwwb_date'] : '--'}}
                             </label>
                         </div>
                         <div class="form-group col-md-3">
-                            <label><strong>Diary No. in PWWB:</strong></label>
+                            <label @if( !$data['second_annual_part_details']['diary_pwwb']) class="text-danger" @endif><strong>Diary No. in PWWB:</strong></label>
                             <label>
                                 {{$data && $data['second_annual_part_details']['diary_pwwb'] ? $data['second_annual_part_details']['diary_pwwb'] : '--'}}
                             </label>
@@ -62,25 +62,25 @@
                 <div class="card-body">
                     <div class="form-row">
                         <div class="form-group col-md-3">
-                            <label><strong>Amount of Claim Due:</strong></label>
+                            <label @if( !$data['second_annual_part_details']['amount_claim_due']) class="text-danger" @endif><strong>Amount of Claim Due:</strong></label>
                             <label>
                                 {{$data && $data['second_annual_part_details']['amount_claim_due'] ? $data['second_annual_part_details']['amount_claim_due'] : '--'}}
                             </label>
                         </div>
                         <div class="form-group col-md-3">
-                            <label><strong>Status of Claimed Received:</strong></label>
+                            <label @if( !$data['second_annual_part_details']['claim_status']) class="text-danger" @endif><strong>Status of Claimed Received:</strong></label>
                             <label>
                                 {{$data && $data['second_annual_part_details']['claim_status'] ? $data['second_annual_part_details']['claim_status'] : '--'}}
                             </label>
                         </div>
                         <div class="form-group col-md-3">
-                            <label><strong>Amount Received:</strong></label>
+                            <label @if( !$data['second_annual_part_details']['amount_received']) class="text-danger" @endif><strong>Amount Received:</strong></label>
                             <label>
                                 {{$data && $data['second_annual_part_details']['amount_received'] ? $data['second_annual_part_details']['amount_received'] : '--'}}
                             </label>
                         </div>
                         <div class="form-group col-md-3">
-                            <label><strong>Date:</strong></label>
+                            <label @if( !$data['second_annual_part_details']['claim_date']) class="text-danger" @endif><strong>Date:</strong></label>
                             <label>
                                 {{$data && $data['second_annual_part_details']['claim_date'] ? $data['second_annual_part_details']['claim_date'] : '--'}}
                             </label>
@@ -100,26 +100,26 @@
                         <div class="card-body">
                             <div class="form-row">
                                 <div class="form-group col-md-3">
-                                    <label><strong>Status:</strong></label>
+                                    <label @if( !$data['second_annual_part_details']['exam_status']) class="text-danger" @endif><strong>Status:</strong></label>
                                     <label>
                                         {{$data && $data['second_annual_part_details']['exam_status'] ? $data['second_annual_part_details']['exam_status'] : '--'}}
                                     </label>
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <label><strong>Date:</strong></label>
+                                    <label @if( !$data['second_annual_part_details']['exam_date']) class="text-danger" @endif><strong>Date:</strong></label>
                                     <label>
                                         {{$data && $data['second_annual_part_details']['exam_date'] ? $data['second_annual_part_details']['exam_date'] : '--'}}
                                     </label>
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <label><strong>Amount:</strong></label>
+                                    <label @if( !$data['second_annual_part_details']['exam_amount']) class="text-danger" @endif><strong>Amount:</strong></label>
                                     <label>
                                         {{$data && $data['second_annual_part_details']['exam_amount'] ? $data['second_annual_part_details']['exam_amount'] : '--'}}
                                     </label>
                                 </div>
 
                                 <div class="form-group col-md-3">
-                                    <label><strong>Roll No:</strong></label>
+                                    <label @if( !$data['second_annual_part_details']['roll_no']) class="text-danger" @endif><strong>Roll No:</strong></label>
                                     <label>
                                         {{$data && $data['second_annual_part_details']['roll_no'] ? $data['second_annual_part_details']['roll_no'] : '--'}}
                                     </label>

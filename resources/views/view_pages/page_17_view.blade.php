@@ -5,13 +5,13 @@
         <div class="card-body">
             <div class="form-row">
                 <div class="form-group col-md-3">
-                    <label><strong>Status:</strong></label>
+                    <label @if(!$data['first_semester_details']['status']) class="text-danger" @endif><strong>Status:</strong></label>
                     <label>
                         {{$data && $data['first_semester_details']['status'] ? $data['first_semester_details']['status'] : '--'}}
                     </label>
                 </div>
                 <div class="form-group col-md-3">
-                    <label><strong>Date:</strong></label>
+                    <label @if(!$data['first_semester_details']['degree_date']) class="text-danger" @endif><strong>Date:</strong></label>
                     <label>
                         {{$data && $data['first_semester_details']['degree_date'] ? $data['first_semester_details']['degree_date'] : '--'}}
                     </label>
@@ -36,25 +36,25 @@
                         <div class="card-body">
                             <div class="form-row">
                                 <div class="form-group col-md-3">
-                                    <label><strong>Status:</strong></label>
+                                    <label @if(!$data['first_semester_details']['exam_status']) class="text-danger" @endif><strong>Status:</strong></label>
                                     <label>
                                         {{$data && $data['first_semester_details']['exam_status'] ? $data['first_semester_details']['exam_status'] : '--'}}
                                     </label>
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <label><strong>Date:</strong></label>
+                                    <label @if(!$data['first_semester_details']['exam_date']) class="text-danger" @endif><strong>Date:</strong></label>
                                     <label>
                                         {{$data && $data['first_semester_details']['exam_date'] ? $data['first_semester_details']['exam_date'] : '--'}}
                                     </label>
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <label><strong>Amount:</strong></label>
+                                    <label @if(!$data['first_semester_details']['amount']) class="text-danger" @endif><strong>Amount:</strong></label>
                                     <label>
                                         {{$data && $data['first_semester_details']['amount'] ? $data['first_semester_details']['amount'] : '--'}}
                                     </label>
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <label><strong>Roll No:</strong></label>
+                                    <label @if(!$data['first_semester_details']['roll_no']) class="text-danger" @endif><strong>Roll No:</strong></label>
                                     <label>
                                         {{$data && $data['first_semester_details']['roll_no'] ? $data['first_semester_details']['roll_no'] : '--'}}
                                     </label>
@@ -88,7 +88,7 @@
                                         <label><strong>Last Chance Date:</strong></label>
                                     </div>
                                     <div class="col-md-2 text-center">
-                                        <label><strong>Passing Date:</strong></label>
+                                        <label><strong></label>Passing Date:</strong></label>
                                     </div>
                                 </div>
                             </div>
