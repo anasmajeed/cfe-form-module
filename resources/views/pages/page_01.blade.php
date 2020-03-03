@@ -46,7 +46,7 @@
                     </div>
                     <div class="form-group col-md-4">
                         <label>Fresh File Submission in PWWB No:</label>
-                        <input type="text" class="form-control" id="fresh_file_submission_page1" placeholder="S-" name="fresh_file_submission_in_pwwb_number" value="{{$data ? $data['fresh_file_submission_in_pwwb_number'] : ''}}">
+                        <input onkeyup="appendSDash(event)" type="text" class="form-control" id="fresh_file_submission_page1" placeholder="S-" name="fresh_file_submission_in_pwwb_number" value="{{$data ? $data['fresh_file_submission_in_pwwb_number'] : ''}}">
                     </div>
                     <div class="form-group col-md-4">
                         <label>Priority of Submission:</label>
@@ -211,8 +211,14 @@
                 $(value).parent().next().hide();
         });
 
+        function appendSDash(event) {
+            let value = $(event.target).val().replace('S-','');
+            $(event.target).val('');
+            $(event.target).val('S-'+value);
+            numericOnly(event);
+        }
+
         $('#file_received_no_page1').mask('R-#');
-        $('#fresh_file_submission_page1').mask('S-#');
         $('#file_receipt_voucher_no_page1').mask('#');
         $('#diary_no_page1').mask('#');
 

@@ -84,6 +84,7 @@
             if(selected == 'received'){
                 $('#amount_page14').fadeIn();
                 $('#date_page14').fadeIn();
+                $('#rejected_row_page14').fadeOut();
             }
             else if(selected == 'rejected'){
                 $('#amount_page14').fadeOut();
