@@ -73,7 +73,7 @@
             </div>
             <div class="form-row mt-4 ml-1">
                 <div class="form-group  col-md-4">
-                    <label>Student Collage Card Quantity(01):</label>
+                    <label>Student College Card Quantity(01):</label>
                     <select  name="collage_card_quantity" class="form-control">
                         <option value="" selected disabled>--select--</option>
                         @foreach(\Config::get('constants.general_yes_no') as $key => $value)

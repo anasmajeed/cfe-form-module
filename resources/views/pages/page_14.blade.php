@@ -8,14 +8,14 @@
             <div class="form-row">
                 <div class="form-group  col-md-4">
                     <label>Status:</label>
-                    <select  name="status" class="form-control">
+                    <select id="status_page10" onchange="setStatusDateDisplay()" name="status" class="form-control">
                         <option value="" selected disabled>--select--</option>
                         @foreach(\Config::get('constants.status') as $key => $value)
                             <option value="{{$key}}" {{ $data ? $data['provisional_claim_details']['status'] == $key ? 'selected' : '' : ''}}>{{$value}}</option>
                         @endforeach
                     </select>
                 </div>
-                <div class="form-group  col-md-3">
+                <div class="form-group col-md-3" id="status_div_page10" style="display: none">
                     <label>Date:</label>
                     <input type="text" class="form-control text-center datepicker" name="provisional_letter_date" placeholder="dd/mm/yyyy"
                     value="{{$data && $data['provisional_claim_details']['provisional_letter_date']? date('d/m/Y',strtotime($data['provisional_claim_details']['provisional_letter_date'])) : ''}}">
@@ -79,6 +79,7 @@
 @section('script_page_14')
     <script>
         setDisplayForClaimReceivedPage14();
+        setStatusDateDisplay();
         function setDisplayForClaimReceivedPage14() {
             let selected = $('#claim_received_page14').val();
             if(selected == 'received'){
@@ -95,6 +96,15 @@
                 $('#amount_page14').fadeOut();
                 $('#date_page14').fadeOut();
                 $('#rejected_row_page14').fadeOut();
+            }
+        }
+
+        function setStatusDateDisplay() {
+            if($('#status_page10').val() == 'issued'){
+                $('#status_div_page10').fadeIn();
+            }
+            else{
+                $('#status_div_page10').fadeOut();
             }
         }
     </script>

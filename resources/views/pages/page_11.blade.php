@@ -48,7 +48,7 @@
             <div class="form-row">
                 <div class="form-group  col-md-3">
                     <label>Ending Date:</label>
-                    <input type="text" class="form-control text-center datepicker" name="ending_date"
+                    <input type="text" class="form-control text-center datepickerAll" name="ending_date"
                            placeholder="dd/mm/yyyy" value="{{$data && $data['dual_course_details']['ending_date'] ? date('d/m/Y',strtotime($data['dual_course_details']['ending_date'])) : ''}}">
                 </div>
                 <div class="form-group  col-md-3">
@@ -84,14 +84,14 @@
                     <div class="form-row">
                         <div class="form-group col-md-4">
                             <label>Registration Status with Affiliated Body:</label>
-                            <select  name="registration_status" class="form-control">
+                            <select onchange="setDualCourseRegistrationDateDisplay()" id="dual_registration_status" name="registration_status" class="form-control">
                                 <option value="" selected disabled>--select--</option>
                                 @foreach(\Config::get('constants.registration_status') as $key => $value)
                                     <option value="{{$key}}" {{ $data ? $data['dual_course_details']['registration_status'] == $key ? 'selected' : '' : ''}}>{{$value}}</option>
                                 @endforeach
                             </select>
                         </div>
-                        <div class="form-group col-md-3">
+                        <div class="form-group col-md-3" id="dual_registration_date">
                             <label>Date of Registration:</label>
                             <input type="text" class="form-control text-center datepicker" name="registration_date"
                                    placeholder="dd/mm/yyyy" value="{{$data && $data['dual_course_details']['registration_date'] ? date('d/m/Y',strtotime($data['dual_course_details']['registration_date'])) : ''}}">
@@ -105,18 +105,18 @@
                             <div class="form-row">
                                 <div class="form-group col-md-4">
                                     <label>Actual:</label>
-                                    <input type="text" class="form-control text-center" name="actual_fee"
+                                    <input id="actual_fee_dual" onkeyup="setTotalFeeDualCourse()" type="text" class="form-control text-center" name="actual_fee"
                                            placeholder="XXXXX" value="{{$data ? $data['dual_course_details']['actual_fee'] : ''}}">
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label>Late:</label>
-                                    <input type="text" class="form-control text-center " name="late_fee"
+                                    <input id="late_fee_dual" onkeyup="setTotalFeeDualCourse()" type="text" class="form-control text-center " name="late_fee"
                                            placeholder="XXXXX" value="{{$data ? $data['dual_course_details']['late_fee'] : ''}}">
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label>Total:</label>
-                                    <input type="text" class="form-control text-center" name="total_fee"
-                                           placeholder="0000" value="{{$data ? $data['dual_course_details']['total_fee'] : ''}}">
+                                    <input id="total_fee_dual" type="text" class="form-control text-center" name="total_fee"
+                                           readonly value="{{$data ? $data['dual_course_details']['total_fee'] : ''}}">
                                 </div>
                             </div>
                         </div>
@@ -171,15 +171,15 @@
                 </div>
                 <div class="form-group  col-md-3">
                     <label>Total Marks:</label>
-                    <input type="text" class="form-control text-center" name="previous_total_marks" placeholder="XXXXX" value="{{$data ? $data['dual_course_details']['previous_total_marks'] : ''}}">
+                    <input id="previous_total_marks_dual" onkeyup="setPercentageForDualCourse()" type="text" class="form-control text-center" name="previous_total_marks" placeholder="Enter Total Marks" value="{{$data ? $data['dual_course_details']['previous_total_marks'] : ''}}">
                 </div>
                 <div class="form-group  col-md-3">
                     <label>Marks Obtained:</label>
-                    <input type="text" class="form-control text-center" name="previous_marks_obtained" placeholder="XXXXX" value="{{$data ? $data['dual_course_details']['previous_marks_obtained'] : ''}}">
+                    <input id="previous_marks_obtained_dual" onkeyup="setPercentageForDualCourse()" type="text" class="form-control text-center" name="previous_marks_obtained" placeholder="Enter Marks Obtained" value="{{$data ? $data['dual_course_details']['previous_marks_obtained'] : ''}}">
                 </div>
                 <div class="form-group  col-md-3">
                     <label>Percentage/CGPA:</label>
-                    <input type="text" class="form-control text-center" name="previous_cgpa" placeholder="XXXXX" value="{{$data ? $data['dual_course_details']['previous_cgpa'] : ''}}">
+                    <input id="previous_cgpa_dual" readonly type="text" class="form-control text-center" name="previous_cgpa" placeholder="Enter Previous CGPA" value="{{$data ? $data['dual_course_details']['previous_cgpa'] : ''}}">
                 </div>
             </div>
         </div>

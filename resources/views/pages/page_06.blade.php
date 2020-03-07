@@ -117,5 +117,11 @@
         $('input[name="cnic_no"]').each(function (index,value) {
             $(value).mask('00000-0000000-0');
         });
+        $('input[name="contact_no_1"]').each(function (index,value) {
+            $(value).mask('+92-000-0000000');
+        });
+        $('input[name="contact_no_2"]').each(function (index,value) {
+            $(value).mask('+92-000-0000000');
+        });
     </script>
 @endsection
