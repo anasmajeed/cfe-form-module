@@ -586,9 +586,7 @@
                                         <label>Scheme of Study:</label>
                                         <select id="vti_scheme_of_study" name="vti_scheme_of_study" class="form-control" onchange="setVtiSemesterCategoryDisplay()">
                                             <option value="" selected disabled>--select--</option>
-                                            @foreach(\Config::get('constants.academic_term') as $key => $value)
-                                                <option value="{{$key}}" {{ $data ? $data['vti_details']['vti_scheme_of_study'] == $key ? 'selected' : '' : ''}}>{{$value}}</option>
-                                            @endforeach
+                                            <option value="annual" {{ $data ? $data['vti_details']['vti_scheme_of_study'] == 'annual' ? 'selected' : '' : ''}}>Annual</option>
                                         </select>
                                     </div>
                                     <div class="form-group  col-md-4" id="vti_semester_category_div">

@@ -301,6 +301,9 @@
                 'vti': '#vti_scheme_of_study'
             };
             let parent = $('#cfe_wing_selection option:selected').val();
+            if(parent == 'vti'){
+                return;
+            }
             let selectedTerm = $(term_array[parent]).val();
             if(selectedTerm == 'annual') {
                 let allResults = $('.result_annual_part_one');
