@@ -129,7 +129,11 @@ class FactoryDetailController extends Controller
         if(isset($completionDate[$index])){
             $CompletionExplode = explode('/',$completionDate[$index]);
             if(count($CompletionExplode) == 3)
-                $Completion = Carbon::createFromDate($CompletionExplode[2],$CompletionExplode[1],$CompletionExplode[0])->format('Y-m-d');
+                try {
+                    $Completion = Carbon::createFromDate($CompletionExplode[2], $CompletionExplode[1], $CompletionExplode[0])->format('Y-m-d');
+                }catch(\Exception $e){
+                    $completion = null;
+                }
             else
                 $Completion = $completionDate[$index];
         }
@@ -138,7 +142,13 @@ class FactoryDetailController extends Controller
         $serviceObject->attested_by_factory_manager = isset($attestedByFactoryManager[$index]) ? $attestedByFactoryManager[$index] : null;
         $serviceObject->attested_by_dol = isset($attestedByDol[$index]) ? $attestedByDol[$index] : null;
         $serviceObject->attested_by_director = isset($attestedByDirector[$index]) ? $attestedByDirector[$index] : null;
-        $serviceObject->save();
+        try {
+            $serviceObject->save();
+        }
+        catch (\Exception $e){
+            $serviceObject->completion_date = null;
+            $serviceObject->save();
+        }
     }
 
     public function deleteServiceDetail(Request $request){
