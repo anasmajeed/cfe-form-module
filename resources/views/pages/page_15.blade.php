@@ -18,23 +18,23 @@
                             <div class="form-row">
                                 <div class="form-group col-md-3">
                                     <label>Exam Fee Deposit status:</label>
-                                    <select  name="fee_deposit_status" class="form-control">
+                                    <select id="fee_deposit_status_page15" onchange="setFeeDepositStatus()" name="fee_deposit_status" class="form-control">
                                         <option value="" selected disabled>--select--</option>
                                         @foreach(\Config::get('constants.general_yes_no') as $key => $value)
                                             <option value="{{$key}}" {{ $data ? $data['first_annual_details']['fee_deposit_status'] == $key ? 'selected' : '' : ''}}>{{$value}}</option>
                                         @endforeach
                                     </select>
                                 </div>
-                                <div class="form-group col-md-3">
+                                <div class="form-group col-md-3" id="date_div_page15" style="display: none">
                                     <label>Date:</label>
                                     <input type="text" class="form-control text-center datepicker" name="exam_fee_date"
                                             placeholder="dd/mm/yyyy"
                                             value="{{$data && $data['first_annual_details']['exam_fee_date'] ? date('d/m/Y',strtotime($data['first_annual_details']['exam_fee_date'])) : ''}}">
                                 </div>
-                                <div class="form-group  col-md-3">
+                                <div class="form-group  col-md-3" id="amount_div_page15" style="display:none;">
                                     <label>Amount:</label>
-                                    <input type="number" class="form-control text-center" name="amount"
-                                            placeholder="XXXXX"
+                                    <input onkeyup="numericOnly(event)" type="number" class="form-control text-center" name="amount"
+                                            placeholder="Enter Amount"
                                             value="{{$data ? $data['first_annual_details']['amount'] : ''}}">
                                 </div>
                                 <div class="form-group  col-md-3">
@@ -205,6 +205,7 @@
     <script>
         setDisplayForAnnualPartTwo();
         setResultHeaderDisplay();
+        setFeeDepositStatus();
         function cloneResultStatusAnnualPartOne() {
             let clone = $('#result_status_annual_part_one_div').clone();
             $('#result_status_annual_part_one_parent').append(clone);
@@ -314,6 +315,17 @@
                 startDate: new Date(),
                 autoclose: true
             });
+        }
+
+        function setFeeDepositStatus() {
+            if($('#fee_deposit_status_page15').val() == 'yes'){
+                $('#date_div_page15').fadeIn();
+                $('#amount_div_page15').fadeIn();
+            }
+            else{
+                $('#date_div_page15').fadeOut();
+                $('#amount_div_page15').fadeOut();
+            }
         }
     </script>
 @endsection
