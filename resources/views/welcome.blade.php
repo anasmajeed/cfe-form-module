@@ -46,10 +46,10 @@
         <button id="nextButton" type="button" class="btn btn-primary float-right" onclick="nextForm()">Next</button>
         <button id="saveButton" type="button" class="btn btn-primary float-right" onclick="saveForm()">Save</button>
     </div>
-    <!-- <div class="mt-4">
-        <input type="number" id="goToPage">
-        <button type="button" onclick="goToPage()" class="btn btn-outline-success">GO</button>
-    </div> -->
+{{--    <div class="mt-4">--}}
+{{--        <input type="number" id="goToPage">--}}
+{{--        <button type="button" onclick="goToPage()" class="btn btn-outline-success">GO</button>--}}
+{{--    </div>--}}
 </div>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -75,6 +75,20 @@
         let picker = $(pick).datepicker({
             format: 'dd/mm/yyyy',
             endDate:'0d',
+            autoclose : true
+        });
+    });
+    $('.datepickerAll').each(function (index, pick) {
+        let picker = $(pick).datepicker({
+            format: 'dd/mm/yyyy',
+            autoclose : true
+        });
+    });
+
+    $('.datepickerFuture').each(function (index, pick) {
+        let picker = $(pick).datepicker({
+            format: 'dd/mm/yyyy',
+            startDate:'0d',
             autoclose : true
         });
     });

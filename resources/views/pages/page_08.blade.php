@@ -53,7 +53,7 @@
                 </div>
                 <div class="form-group  col-md-4">
                     <label>Ending date:</label>
-                    <input type="text" class="form-control text-center datepicker" name="ending_date"
+                    <input type="text" class="form-control text-center datepickerAll" name="ending_date"
                            placeholder="dd/mm/yyyy">
                 </div>
                 <div class="form-group  col-md-4">

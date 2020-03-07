@@ -221,10 +221,20 @@
         function workerDeathStatusFirstTime(){
             let selected = $('select[name="worker_current_status"]').val();
             if(selected == 'died'){
-                $('#death_date_page5').show();
+                $('#current_status_card_page5').show();
+                $('#death_date_page5_header').show();
             }
-            else
+            else if(selected == 'retired'){
+                $('#current_status_card_page5').show();
+                $('#death_date_page5_header').show();
+                $('#retirement_date_worker_page5').show();
+                $('#death_grant_claimed_page5').hide();
                 $('#death_date_page5').hide();
+            }
+            else {
+                $('#current_status_card_page5').hide();
+                $('#death_date_page5_header').hide();
+            }
         }
 
         function appendPhonePrefix(event) {
@@ -235,7 +245,22 @@
 
         function workerDeathStatus(e){
             if($(e.target).val() == 'died'){
+                $('#current_status_card_page5').show();
+                $('#death_date_page5_header').show();
+                $('#retirement_date_worker_page5').show();
+                $('#death_grant_claimed_page5').show();
                 $('#death_date_page5').show();
+            }
+            else if($(e.target).val() == 'retired'){
+                $('#current_status_card_page5').show();
+                $('#death_date_page5_header').show();
+                $('#retirement_date_worker_page5').show();
+                $('#death_grant_claimed_page5').hide();
+                $('#death_date_page5').hide();
+            }
+            else{
+                $('#current_status_card_page5').hide();
+                $('#death_date_page5_header').hide();
             }
         }
 

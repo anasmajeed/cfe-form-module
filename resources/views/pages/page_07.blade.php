@@ -98,7 +98,7 @@
                                     </div>
                                     <div class="form-group col-md-4">
                                         <label>Ending Date:</label>
-                                        <input id="ending_date_page7" type="text" class="form-control text-center datepicker"
+                                        <input type="text" class="form-control text-center datepickerAll"
                                                name="bise_ending_date" value="{{$data && $data['bise_details']['bise_ending_date'] ? date('d/m/Y',strtotime($data['bise_details']['bise_ending_date'])) : ''}}"
                                                placeholder="dd/mm/yyyyy">
                                     </div>
@@ -129,14 +129,14 @@
                                             <div class="form-group col-md-4">
                                                 <label>Registration Status with Affiliated Body:</label>
 
-                                                <select name="bise_registration_status" class="form-control">
+                                                <select onchange="setBiseRegistrationDateDisplay()" id="bise_registration_status" name="bise_registration_status" class="form-control">
                                                     <option value="" selected disabled>--select--</option>
                                                     @foreach(\Config::get('constants.registration_status') as $key => $value)
                                                         <option value="{{$key}}" {{ $data ? $data['bise_details']['bise_registration_status'] == $key ? 'selected' : '' : ''}}>{{$value}}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
-                                            <div class="form-group col-md-4">
+                                            <div class="form-group col-md-4" style="display: none" id="bise_registration_date">
                                                 <label>Date of Registration:</label>
                                                 <input type="text" class="form-control text-center datepicker"
                                                        name="bise_registration_date" value="{{$data && $data['bise_details']['bise_registration_date'] ? date('d/m/Y',strtotime($data['bise_details']['bise_registration_date'])) : ''}}"
@@ -244,13 +244,13 @@
                                     </div>
                                     <div class="form-group  col-md-4">
                                         <label>Ending date:</label>
-                                        <input type="text" class="form-control text-center datepicker"
+                                        <input type="text" class="form-control text-center datepickerAll"
                                                name="ims_ending_date" value="{{$data && $data['ims_details']['ims_ending_date'] ? date('d/m/Y',strtotime($data['ims_details']['ims_ending_date'])) : ''}}"
                                                placeholder="dd/mm/yyyy">
                                     </div>
                                     <div class="form-group  col-md-4">
                                         <label>Academic Term:</label>
-                                        <select id="ims_academic_term" name="ims_academic_term" class="form-control" onchange="setDisplayForAnnualAndSemester()">
+                                        <select id="ims_academic_term" name="ims_academic_term" class="form-control" onchange="setImsSemesterCategoryDisplay()">
                                             <option value="" selected disabled>--select--</option>
                                             @foreach(\Config::get('constants.academic_term') as $key => $value)
                                                 <option value="{{$key}}" {{ $data ? $data['ims_details']['ims_academic_term'] == $key ? 'selected' : '' : ''}}>{{$value}}</option>
@@ -259,7 +259,7 @@
                                     </div>
                                 </div>
                                 <div class="form-row">
-                                    <div class="form-group  col-md-4">
+                                    <div class="form-group  col-md-4" id="ims_semester_category_div">
                                         <label>Semester Category:</label>
                                         <select name="ims_semester_category" class="form-control">
                                             <option value="" selected disabled>--select--</option>
@@ -283,14 +283,14 @@
                                         <div class="form-row">
                                             <div class="form-group col-md-4">
                                                 <label>Registration Status with Affiliated Body:</label>
-                                                <select name="ims_registration_status" class="form-control">
+                                                <select id="ims_registration_status" name="ims_registration_status" class="form-control" onchange="setImsRegistrationDateDisplay()">
                                                     <option value="" selected disabled>--select--</option>
                                                     @foreach(\Config::get('constants.registration_status') as $key => $value)
                                                         <option value="{{$key}}" {{ $data ? $data['ims_details']['ims_registration_status'] == $key ? 'selected' : '' : ''}}>{{$value}}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
-                                            <div class="form-group col-md-3">
+                                            <div class="form-group col-md-3" id="ims_registration_date" style="display: none">
                                                 <label>Date of Registration:</label>
                                                 <input type="text" class="form-control text-center datepicker"
                                                        name="ims_registration_date" value="{{$data && $data['ims_details']['ims_registration_date']? date('d/m/Y',strtotime($data['ims_details']['ims_registration_date'])) : ''}}"
@@ -398,7 +398,7 @@
                                     </div>
                                     <div class="form-group  col-md-4">
                                         <label>Ending date:</label>
-                                        <input type="text" class="form-control text-center datepicker"
+                                        <input type="text" class="form-control text-center datepickerAll"
                                                name="af_ending_date" value="{{$data && $data['af_details']['af_ending_date'] ? date('d/m/Y',strtotime($data['af_details']['af_ending_date'])) : ''}}"
                                                placeholder="dd/mm/yyyy">
                                     </div>
@@ -576,7 +576,7 @@
                                     </div>
                                     <div class="form-group  col-md-4">
                                         <label>Ending Date:</label>
-                                        <input type="text" class="form-control text-center datepicker"
+                                        <input type="text" class="form-control text-center datepickerAll"
                                                name="vti_ending_date" value="{{$data && $data['vti_details']['vti_ending_date'] ? date('d/m/Y',strtotime($data['vti_details']['vti_ending_date'])) : ''}}"
                                                placeholder="dd/mm/yyyy">
                                     </div>
@@ -584,14 +584,14 @@
                                 <div class="form-row">
                                     <div class="form-group  col-md-4">
                                         <label>Scheme of Study:</label>
-                                        <select id="vti_scheme_of_study" name="vti_scheme_of_study" class="form-control" onchange="setDisplayForAnnualAndSemester()">
+                                        <select id="vti_scheme_of_study" name="vti_scheme_of_study" class="form-control" onchange="setVtiSemesterCategoryDisplay()">
                                             <option value="" selected disabled>--select--</option>
                                             @foreach(\Config::get('constants.academic_term') as $key => $value)
                                                 <option value="{{$key}}" {{ $data ? $data['vti_details']['vti_scheme_of_study'] == $key ? 'selected' : '' : ''}}>{{$value}}</option>
                                             @endforeach
                                         </select>
                                     </div>
-                                    <div class="form-group  col-md-4">
+                                    <div class="form-group  col-md-4" id="vti_semester_category_div">
                                         <label>Semester Category:</label>
                                         <select name="vti_semester_category" class="form-control">
                                             <option value="" selected disabled>--select--</option>
@@ -615,14 +615,14 @@
                                         <div class="form-row">
                                             <div class="form-group col-md-4">
                                                 <label>Registration Status with Affiliated Body:</label>
-                                                <select name="vti_registration_status" class="form-control">
+                                                <select onchange="setVtiRegistrationDateDisplay()" id="vti_registration_status" name="vti_registration_status" class="form-control">
                                                     <option value="" selected disabled>--select--</option>
                                                     @foreach(\Config::get('constants.registration_status') as $key => $value)
                                                         <option value="{{$key}}" {{ $data ? $data['vti_details']['vti_registration_status'] == $key ? 'selected' : '' : ''}}>{{$value}}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
-                                            <div class="form-group col-md-3">
+                                            <div class="form-group col-md-3" id="vti_registration_date">
                                                 <label>Date of Registration:</label>
                                                 <input type="text" class="form-control text-center datepicker"
                                                        name="vti_date_of_registration" value="{{$data && $data['vti_details']['vti_date_of_registration'] ? date('d/m/Y',strtotime($data['vti_details']['vti_date_of_registration'])) : ''}}"
@@ -676,14 +676,14 @@
         setTotalFeeVti();
         setWingCorrespondingSectionDisplay();
         setDisplayForAnnualAndSemester();
+        setBiseRegistrationDateDisplay();
+        setImsSemesterCategoryDisplay();
+        setImsRegistrationDateDisplay();
+        setVtiSemesterCategoryDisplay();
+        setDualCourseRegistrationDateDisplay();
+        setVtiRegistrationDateDisplay();
 
         $('#vti_follow_up').datepicker({
-            format:'dd/mm/yyyy',
-            startDate: new Date(),
-            autoclose: true
-        });
-
-        $('#ending_date_page7').datepicker({
             format:'dd/mm/yyyy',
             startDate: new Date(),
             autoclose: true
@@ -788,24 +788,115 @@
         }
 
         function setTotalFeeBise() {
+            $('#actual_fee_bise').val(numericOnlyByVal($('#actual_fee_bise').val()));
+            $('#late_fee_bise').val(numericOnlyByVal($('#late_fee_bise').val()));
             let actual = $('#actual_fee_bise').val();
             let late = $('#late_fee_bise').val();
             $('#total_fee_bise').val(parseInt(actual)+parseInt(late));
         }
         function setTotalFeeIms() {
+            $('#actual_fee_ims').val(numericOnlyByVal($('#actual_fee_ims').val()));
+            $('#late_fee_ims').val(numericOnlyByVal($('#late_fee_ims').val()));
             let actual = $('#actual_fee_ims').val();
             let late = $('#late_fee_ims').val();
             $('#total_fee_ims').val(parseInt(actual)+parseInt(late));
         }
         function setTotalFeeAf() {
+            $('#actual_fee_af').val(numericOnlyByVal($('#actual_fee_af').val()));
+            $('#late_fee_af').val(numericOnlyByVal($('#late_fee_af').val()));
             let actual = $('#actual_fee_af').val();
             let late = $('#late_fee_af').val();
             $('#total_fee_af').val(parseInt(actual)+parseInt(late));
         }
         function setTotalFeeVti() {
+            $('#actual_fee_vti').val(numericOnlyByVal($('#actual_fee_vti').val()));
+            $('#late_fee_vti').val(numericOnlyByVal($('#late_fee_vti').val()));
             let actual = $('#actual_fee_vti').val();
             let late = $('#late_fee_vti').val();
             $('#total_fee_vti').val(parseInt(actual)+parseInt(late));
+        }
+
+        function setTotalFeeDualCourse() {
+            $('#actual_fee_dual').val(numericOnlyByVal($('#actual_fee_dual').val()));
+            $('#late_fee_dual').val(numericOnlyByVal($('#late_fee_dual').val()));
+            let actual = $('#actual_fee_dual').val();
+            let late = $('#late_fee_dual').val();
+            $('#total_fee_dual').val(parseInt(actual)+parseInt(late));
+        }
+
+        function setPercentageForDualCourse() {
+            $('#previous_total_marks_dual').val(numericOnlyByVal($('#previous_total_marks_dual').val()));
+            $('#previous_marks_obtained_dual').val(numericOnlyByVal($('#previous_marks_obtained_dual').val()));
+            let total = $('#previous_total_marks_dual').val();
+            let obtained = $('#previous_marks_obtained_dual').val();
+            if(parseInt(total) != 0)
+                $('#previous_cgpa_dual').val((parseInt(obtained)/parseInt(total) * 100).toFixed(2));
+        }
+
+        function setBiseRegistrationDateDisplay() {
+            if($('#bise_registration_status').val() == 'registered'){
+                $('#bise_registration_date').fadeIn();
+            }
+            else{
+                $('#bise_registration_date').fadeOut();
+            }
+        }
+
+        function setImsRegistrationDateDisplay() {
+            if($('#ims_registration_status').val() == 'registered'){
+                $('#ims_registration_date').fadeIn();
+            }
+            else{
+                $('#ims_registration_date').fadeOut();
+            }
+        }
+
+        function setVtiRegistrationDateDisplay() {
+            if($('#vti_registration_status').val() == 'registered'){
+                $('#vti_registration_date').fadeIn();
+            }
+            else{
+                $('#vti_registration_date').fadeOut();
+            }
+        }
+
+        function setDualCourseRegistrationDateDisplay() {
+            if($('#dual_registration_status').val() == 'registered'){
+                $('#dual_registration_date').fadeIn();
+            }
+            else{
+                $('#dual_registration_date').fadeOut();
+            }
+        }
+
+        function setImsSemesterCategoryDisplay() {
+            if($('#ims_academic_term').val() == 'semester'){
+                $('#ims_semester_category_div').fadeIn();
+            }
+            else{
+                $('#ims_semester_category_div').fadeOut();
+            }
+            setDisplayForAnnualAndSemester();
+        }
+
+        function setVtiSemesterCategoryDisplay() {
+            if($('#vti_scheme_of_study').val() == 'semester'){
+                $('#vti_semester_category_div').fadeIn();
+            }
+            else{
+                $('#vti_semester_category_div').fadeOut();
+            }
+            setDisplayForAnnualAndSemester();
+        }
+
+        function numericOnlyByVal(value){
+            let length  = value.length;
+            let regex = new RegExp("^[0-9]+$");
+            let str = value.substr(length-1,1);
+            if (!regex.test(str)) {
+                return value.substring(0,length-1);
+            }
+            return value;
         }
     </script>
 @endsection

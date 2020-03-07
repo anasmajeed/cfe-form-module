@@ -15,14 +15,14 @@
                                 <div class="form-row">
                                     <div class="form-group col-md-3">
                                         <label>Status:</label>
-                                        <select  name="cell_status" class="form-control">
+                                        <select onchange="setStatusDatePage22()" id="status_page22" name="cell_status" class="form-control">
                                             <option value="" selected disabled>--select--</option>
                                             @foreach(\Config::get('constants.general_yes_no') as $key => $value)
                                                 <option value="{{$key}}" {{ $data ? $data['sixth_semester_details']['cell_status'] == $key ? 'selected' : '' : ''}}>{{$value}}</option>
                                             @endforeach
                                         </select>
                                     </div>
-                                    <div class="form-group col-md-3">
+                                    <div class="form-group col-md-3" id="date_div_page22">
                                         <label>Date:</label>
                                         <input type="text" class="form-control text-center datepicker" name="cell_date"
                                                placeholder="dd/mm/yyyy"
@@ -41,20 +41,20 @@
                         <div class="form-row">
                             <div class="form-group col-md-3">
                                 <label>Status:</label>
-                                <select  name="pwwb_status" class="form-control">
+                                <select onchange="setPwwbStatusPage22()" id="pwwb_status_page22" name="pwwb_status" class="form-control">
                                     <option value="" selected disabled>--select--</option>
                                     @foreach(\Config::get('constants.general_yes_no') as $key => $value)
                                         <option value="{{$key}}" {{ $data ? $data['sixth_semester_details']['pwwb_status'] == $key ? 'selected' : '' : ''}}>{{$value}}</option>
                                     @endforeach
                                 </select>
                             </div>
-                            <div class="form-group col-md-3">
+                            <div class="form-group col-md-3" id="date_div_pwwb_page22">
                                 <label>Date:</label>
                                 <input type="text" class="form-control text-center datepicker" name="pwwb_date"
                                        placeholder="dd/mm/yyyy"
                                        value="{{$data && isset($data['sixth_semester_details']) ? date('d/m/Y',strtotime($data['sixth_semester_details']['pwwb_date'])) : ''}}">
                             </div>
-                            <div class="form-group col-md-3">
+                            <div class="form-group col-md-3" id="diary_no_pwwb_page22">
                                 <label>Diary No. in PWWB:</label>
                                 <input type="text" class="form-control text-center" name="diary_pwwb" placeholder="XXXXX"
                                        value="{{$data && isset($data['sixth_semester_details']) ? $data['sixth_semester_details']['diary_pwwb'] : ''}}">
@@ -76,20 +76,20 @@
                             </div>
                             <div class="form-group col-md-3">
                                 <label>Status of Claimed Received:</label>
-                                <select  name="claim_status" class="form-control">
+                                <select onchange="setClaimStatusPage22()" id="claim_status_page22" name="claim_status" class="form-control">
                                     <option value="" selected disabled>--select--</option>
                                     @foreach(\Config::get('constants.general_yes_no') as $key => $value)
                                         <option value="{{$key}}" {{ $data ? $data['sixth_semester_details']['claim_status'] == $key ? 'selected' : '' : ''}}>{{$value}}</option>
                                     @endforeach
                                 </select>
                             </div>
-                            <div class="form-group col-md-3">
+                            <div class="form-group col-md-3" id="amount_claim_page22">
                                 <label>Amount Received:</label>
                                 <input type="number" class="form-control text-center" name="amount_received"
-                                       placeholder="XXXXX"
+                                       placeholder="Enter Amount"
                                        value="{{$data && isset($data['sixth_semester_details']) ? $data['sixth_semester_details']['amount_received'] : ''}}">
                             </div>
-                            <div class="form-group col-md-3">
+                            <div class="form-group col-md-3" id="date_div_claim_page22">
                                 <label>Date:</label>
                                 <input type="text" class="form-control text-center datepicker" name="claim_date"
                                        placeholder="dd/mm/yyyy"
@@ -111,23 +111,23 @@
                                 <div class="form-row">
                                     <div class="form-group col-md-3">
                                         <label>Status:</label>
-                                        <select  name="exam_status" class="form-control">
+                                        <select onchange="setExamFeeStatusPage22()" id="exam_status_page22" name="exam_status" class="form-control">
                                             <option value="" selected disabled>--select--</option>
                                             @foreach(\Config::get('constants.general_yes_no') as $key => $value)
                                                 <option value="{{$key}}" {{ $data ? $data['sixth_semester_details']['exam_status'] == $key ? 'selected' : '' : ''}}>{{$value}}</option>
                                             @endforeach
                                         </select>
                                     </div>
-                                    <div class="form-group col-md-3">
+                                    <div class="form-group col-md-3" id="date_div_exam_page22">
                                         <label>Date:</label>
                                         <input type="text" class="form-control text-center datepicker" name="exam_date"
                                                placeholder="dd/mm/yyyy"
                                                value="{{$data && isset($data['sixth_semester_details']) ? date('d/m/Y',strtotime($data['sixth_semester_details']['exam_date'])) : ''}}">
                                     </div>
-                                    <div class="form-group col-md-3">
+                                    <div class="form-group col-md-3" id="amount_div_exam_page22">
                                         <label>Amount:</label>
                                         <input type="number" class="form-control text-center" name="amount"
-                                               placeholder="XXXXX"
+                                               placeholder="Enter Amount"
                                                value="{{$data && isset($data['sixth_semester_details']) ? $data['sixth_semester_details']['amount'] : ''}}">
                                     </div>
 
@@ -153,22 +153,22 @@
                             <div class="col-md-1 text-center">
                                 <label>Result:</label>
                             </div>
-                            <div class="form-row col-md-10 ml-0" id="result_status_sixth_semester_pass_headers" style="display: none">
-                                <div class="col-md-2 text-center">
+                            <div class="form-row col-md-8 ml-0" id="result_status_sixth_semester_pass_headers" style="display: none">
+                                <div class="col-md-3 text-center">
                                     <label>Fail:</label>
                                 </div>
                                 <div class="col-md-3 text-center">
                                     <label>Chance of next Appearance:</label>
                                 </div>
-                                <div class="col-md-2 text-center">
+                                <div class="col-md-3 text-center">
                                     <label>Next Appearance Date:</label>
                                 </div>
-                                <div class="col-md-2 text-center">
+                                <div class="col-md-3 text-center">
                                     <label>Last Chance Date:</label>
                                 </div>
-                                <div class="col-md-2 text-center">
-                                    <label>Passing Date:</label>
-                                </div>
+                            </div>
+                            <div class="col-md-2 text-center">
+                                <label>Passing Date:</label>
                             </div>
                         </div>
                         @if($data && isset($data['sixth_semester_result_status_details']) && count($data['sixth_semester_result_status_details']))
@@ -181,8 +181,9 @@
                                             <option value="fail" {{ $sixthSemesterResultStatusDetails['result'] == 'fail' ? 'selected' : ''}}>Fail</option>
                                         </select>
                                     </div>
-                                    <div class="col-md-10 form-row m-0" id="result_status_sixth_semester_pass_values" style="display: none">
-                                        <div class="col-md-2 p-0">
+                                    <div class="col-md-8 form-row m-0" id="result_status_sixth_semester_pass_values_replacement" style="display: none"></div>
+                                    <div class="col-md-8 form-row m-0" id="result_status_sixth_semester_pass_values" style="display: none">
+                                        <div class="col-md-3 p-0">
                                             <select name="fail[]" class="form-control promotion_sixth_semester" onchange="setDisplayForSeventhSemester()">
                                                 <option value="promoted" {{ $sixthSemesterResultStatusDetails['fail'] == 'promoted' ? 'selected' : ''}}>Promoted</option>
                                                 <option value="notPromoted" {{ $sixthSemesterResultStatusDetails['fail'] == 'notPromoted' ? 'selected' : ''}}>Not Promoted</option>
@@ -194,18 +195,18 @@
                                                 <option value="no" {{ $sixthSemesterResultStatusDetails['next_appearance'] == 'no' ? 'selected' : ''}}>No</option>
                                             </select>
                                         </div>
-                                        <div class="col-md-2 p-0">
+                                        <div class="col-md-3 p-0">
                                             <input type="text" class="form-control text-center datepicker"
                                                    name="next_appearance_date[]" placeholder="dd/mm/yyyy" value="{{$sixthSemesterResultStatusDetails['next_appearance_date'] ? date('d/m/Y',strtotime($sixthSemesterResultStatusDetails['next_appearance_date'])) : ''}}">
                                         </div>
-                                        <div class="col-md-2 p-0">
+                                        <div class="col-md-3 p-0">
                                             <input type="text" class="form-control text-center datepicker"
                                                    name="last_chance_date[]" placeholder="dd/mm/yyyy" value="{{ $sixthSemesterResultStatusDetails['last_chance_date'] ? date('d/m/Y',strtotime($sixthSemesterResultStatusDetails['last_chance_date'])) : ''}}">
                                         </div>
-                                        <div class="col-md-2 p-0">
-                                            <input type="text" class="form-control text-center datepicker" name="passing_date[]"
-                                                   placeholder="dd/mm/yyyy" value="{{ $sixthSemesterResultStatusDetails['passing_date'] ? date('d/m/Y',strtotime($sixthSemesterResultStatusDetails['passing_date'])) : ''}}">
-                                        </div>
+                                    </div>
+                                    <div class="col-md-2 p-0" id="result_status_sixth_semester_pass_value_passing">
+                                        <input type="text" class="form-control text-center datepicker" name="passing_date[]"
+                                               placeholder="dd/mm/yyyy" value="{{ $sixthSemesterResultStatusDetails['passing_date'] ? date('d/m/Y',strtotime($sixthSemesterResultStatusDetails['passing_date'])) : ''}}">
                                     </div>
                                     <div class="col-md-1">
                                         <button id="removeResultStatusSixthSemesterButton" type="button" class="btn btn-danger"
@@ -223,8 +224,9 @@
                                         <option value="fail">Fail</option>
                                     </select>
                                 </div>
-                                <div class="col-md-10 form-row m-0" id="result_status_sixth_semester_pass_values" style="display: none">
-                                    <div class="col-md-2 p-0">
+                                <div class="col-md-8 form-row m-0" id="result_status_sixth_semester_pass_values_replacement" style="display: none"></div>
+                                <div class="col-md-8 form-row m-0" id="result_status_sixth_semester_pass_values" style="display: none">
+                                    <div class="col-md-3 p-0">
                                         <select name="fail[]" class="form-control promotion_sixth_semester" onchange="setDisplayForSeventhSemester()">
                                             <option value="promoted">Promoted</option>
                                             <option value="notPromoted" selected>Not Promoted</option>
@@ -236,18 +238,18 @@
                                             <option value="no">No</option>
                                         </select>
                                     </div>
-                                    <div class="col-md-2 p-0">
+                                    <div class="col-md-3 p-0">
                                         <input type="text" class="form-control text-center datepicker"
                                                name="next_appearance_date[]" placeholder="dd/mm/yyyy">
                                     </div>
-                                    <div class="col-md-2 p-0">
+                                    <div class="col-md-3 p-0">
                                         <input type="text" class="form-control text-center datepicker"
                                                name="last_chance_date[]" placeholder="dd/mm/yyyy">
                                     </div>
-                                    <div class="col-md-2 p-0">
-                                        <input type="text" class="form-control text-center datepicker" name="passing_date[]"
-                                               placeholder="dd/mm/yyyy">
-                                    </div>
+                                </div>
+                                <div class="col-md-2 p-0" id="result_status_sixth_semester_pass_value_passing">
+                                    <input type="text" class="form-control text-center datepicker" name="passing_date[]"
+                                           placeholder="dd/mm/yyyy">
                                 </div>
                                 <div class="col-md-1">
                                     <button id="removeResultStatusSixthSemesterButton" type="button" class="btn btn-danger"
@@ -266,6 +268,10 @@
     <script>
         setDisplayForSeventhSemester();
         setResultHeaderDisplayForSixthSemester();
+        setStatusDatePage22();
+        setPwwbStatusPage22();
+        setClaimStatusPage22();
+        setExamFeeStatusPage22();
         function cloneResultStatusSixthSemester() {
             let clone = $('#result_status_sixth_semester_div').clone();
             $('#result_status_sixth_semester_parent').append(clone);
@@ -312,27 +318,41 @@
         function resultChangedForSixthSemester(event) {
             setResultHeaderDisplayForSixthSemester();
             setDisplayForSeventhSemester();
-            if($(event.target).val() == 'fail')
+            if($(event.target).val() == 'fail'){
                 $(event.target).parent().parent().find('#result_status_sixth_semester_pass_values').fadeIn();
-            else
+                $(event.target).parent().parent().find('#result_status_sixth_semester_pass_values_replacement').fadeOut();
+                $(event.target).parent().parent().find('#result_status_sixth_semester_pass_value_passing').fadeOut();
+            }
+            else if($(event.target).val() == 'pass'){
                 $(event.target).parent().parent().find('#result_status_sixth_semester_pass_values').fadeOut();
+                $(event.target).parent().parent().find('#result_status_sixth_semester_pass_values_replacement').fadeIn();
+                $(event.target).parent().parent().find('#result_status_sixth_semester_pass_value_passing').fadeIn();
+            }
+            else{
+                $(event.target).parent().parent().find('#result_status_sixth_semester_pass_values').fadeOut();
+                $(event.target).parent().parent().find('#result_status_sixth_semester_pass_values_replacement').fadeOut();
+                $(event.target).parent().parent().find('#result_status_sixth_semester_pass_value_passing').fadeOut();
+            }
         }
 
         function setResultHeaderDisplayForSixthSemester() {
-            let check = true;
             $('.result_sixth_semester').each(function (index,value) {
                 if($(value).val() == 'fail'){
-                    $('#result_status_sixth_semester_pass_headers').show();
                     $(value).parent().parent().find('#result_status_sixth_semester_pass_values').show();
-                    check = false;
+                    $(value).parent().parent().find('#result_status_sixth_semester_pass_values_replacement').hide();
+                    $(value).parent().parent().find('#result_status_sixth_semester_pass_value_passing').hide();
+                }
+                else if($(value).val() == 'pass'){
+                    $(value).parent().parent().find('#result_status_sixth_semester_pass_values').hide();
+                    $(value).parent().parent().find('#result_status_sixth_semester_pass_values_replacement').show();
+                    $(value).parent().parent().find('#result_status_sixth_semester_pass_value_passing').show();
                 }
                 else{
                     $(value).parent().parent().find('#result_status_sixth_semester_pass_values').hide();
+                    $(value).parent().parent().find('#result_status_sixth_semester_pass_values_replacement').hide();
+                    $(value).parent().parent().find('#result_status_sixth_semester_pass_value_passing').hide();
                 }
             });
-            if(check){
-                $('#result_status_sixth_semester_pass_headers').hide();
-            }
         }
 
         function setDisplayForSeventhSemester(){
@@ -366,6 +386,48 @@
             }
             setDisplayForButtons();
 
+        }
+
+        function setStatusDatePage22() {
+            if($('#status_page22').val() == 'yes'){
+                $('#date_div_page22').fadeIn();
+            }
+            else{
+                $('#date_div_page22').fadeOut();
+            }
+        }
+
+        function setPwwbStatusPage22() {
+            if($('#pwwb_status_page22').val() == 'yes'){
+                $('#diary_no_pwwb_page22').fadeIn();
+                $('#date_div_pwwb_page22').fadeIn();
+            }
+            else{
+                $('#date_div_pwwb_page22').fadeOut();
+                $('#diary_no_pwwb_page22').fadeOut();
+            }
+        }
+
+        function setClaimStatusPage22() {
+            if($('#claim_status_page22').val() == 'yes'){
+                $('#date_div_claim_page22').fadeIn();
+                $('#amount_claim_page22').fadeIn();
+            }
+            else{
+                $('#amount_claim_page22').fadeOut();
+                $('#date_div_claim_page22').fadeOut();
+            }
+        }
+
+        function setExamFeeStatusPage22() {
+            if($('#exam_status_page22').val() == 'yes'){
+                $('#date_div_exam_page22').fadeIn();
+                $('#amount_div_exam_page22').fadeIn();
+            }
+            else{
+                $('#amount_div_exam_page22').fadeOut();
+                $('#date_div_exam_page22').fadeOut();
+            }
         }
     </script>
 @endsection

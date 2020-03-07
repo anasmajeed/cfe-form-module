@@ -77,7 +77,7 @@
                     </div>
                     <div class="form-group col-md-6">
                         <label>Date of form Submission:</label>
-                        <input type="text" id="date_of_form_submission" class="form-control text-center datepicker" name="date_of_submission"
+                        <input onchange="setAccumulatedYears()" type="text" id="date_of_form_submission" class="form-control text-center datepickerAll" name="date_of_submission"
                                placeholder="dd/mm/yyyy" value="{{$data && $data['factory_details']['date_of_submission'] ? date('d/m/Y',strtotime($data['factory_details']['date_of_submission'])) : ''}}">
                     </div>
                 </div>
@@ -141,11 +141,11 @@
                         <input class="form-control rounded-0" name="name[]" type="text" placeholder="XXXXX" value="{{$service_details['name']}}">
                     </div>
                     <div class="border border-bottom-0 col-md-1 p-0">
-                        <input type="text" class="form-control rounded-0 datepickerAccumulated" name="appointment_date[]"
+                        <input onchange="appointmentDateCheck(event)" type="text" class="form-control rounded-0 datepickerAccumulated" name="appointment_date[]"
                                placeholder="dd/mm/yyyy" value="{{$service_details['appointment_date'] ? date('d/m/Y',strtotime($service_details['appointment_date'])) : ''}}">
                     </div>
                     <div class="border border-bottom-0 col-md-1 p-0">
-                        <input type="text" class="form-control rounded-0 datepickerAccumulated" name="job_leaving_date[]"
+                        <input onchange="appointmentDateCheck(event)" type="text" class="form-control rounded-0 datepickerAccumulated" name="job_leaving_date[]"
                                placeholder="dd/mm/yyyy" value="{{$service_details['job_leaving_date'] ? date('d/m/Y',strtotime($service_details['job_leaving_date'])) : ''}}">
                     </div>
                     <div class="border border-bottom-0 col-md-1 p-0">
@@ -200,12 +200,12 @@
                             <input class="form-control rounded-0" name="name[]" type="text" placeholder="XXXXX">
                         </div>
                         <div class="border border-bottom-0 col-md-1 p-0">
-                            <input type="text" class="form-control rounded-0 datepickerAccumulated" name="appointment_date[]"
-                                   onchange="setAccumulatedYears()" placeholder="dd/mm/yyyy">
+                            <input onchange="appointmentDateCheck(event)" type="text" class="form-control rounded-0 datepickerAccumulated" name="appointment_date[]"
+                                   placeholder="dd/mm/yyyy">
                         </div>
                         <div class="border border-bottom-0 col-md-1 p-0">
                             <input type="text" class="form-control rounded-0 datepickerAccumulated" name="job_leaving_date[]"
-                                   onchange="setAccumulatedYears()" placeholder="dd/mm/yyyy">
+                                   onchange="appointmentDateCheck(event)" placeholder="dd/mm/yyyy">
                         </div>
                         <div class="border border-bottom-0 col-md-1 p-0">
                             <input type="text" class="form-control rounded-0" name="total_period[]" placeholder="XXXXX">
@@ -333,6 +333,8 @@
 
                 let date1Array = $(element).find('input[name="appointment_date[]"]').val().split('/');
                 let date2Array = $(element).find('input[name="job_leaving_date[]"]').val().split('/');
+                let completionDate = $(element).find('input[name="completion_date[]"]');
+
                 if($(element).find('input[name="job_leaving_date[]"]').val() == ''){
                     date2Array = secondDateArray.split('/');
                 }
@@ -344,6 +346,19 @@
                 let sum = differenceInYears +'.'+differenceInMonths;
                 $(element).find('input[name="total_period[]"]').val('');
                 $(element).find('input[name="total_period[]"]').val(sum);
+                $(completionDate).val('');
+                //Calculating 3 years
+                if($(element).find('input[name="appointment_date[]"]').val() !== ''){
+                    let appointmentDate = new Date(date2Array[2],date2Array[1]-1,date2Array[0]);
+                    appointmentDate.setMonth(appointmentDate.getMonth() + (12 - differenceInMonths));
+                    appointmentDate.setFullYear(appointmentDate.getFullYear() + (2 - differenceInYears));
+                    $(completionDate).val(appointmentDate.toLocaleDateString());
+                }
+                //Selecting Service Period Completion Status
+                if(differenceInYears >= 3)
+                    $(element).find('select[name="service_completion_status[]"]').val('yes');
+                else
+                    $(element).find('select[name="service_completion_status[]"]').val('no');
                 totalYears += parseFloat(sum);
             });
             let value = totalYears;
@@ -363,6 +378,22 @@
 
         function yearsDiff(d1, d2) {
             return d2.getFullYear() - d1.getFullYear();
+        }
+
+        function appointmentDateCheck(e) {
+            let appointmentField = $(e.target).parent().parent().find('input[name="appointment_date[]"]').val();
+            let leavingField = $(e.target).parent().parent().find('input[name="job_leaving_date[]"]').val();
+            if(leavingField !== ''){
+                let appointmentArray = appointmentField.split('/');
+                let leavingArray = leavingField.split('/');
+
+                let leavingDate = new Date(leavingArray[2],leavingArray[1]-1,leavingArray[0]);
+                let appointmentDate = new Date(appointmentArray[2],appointmentArray[1]-1,appointmentArray[0]);
+                if(leavingDate < appointmentDate){
+                    $(e.target).val('');
+                }
+            }
+            setAccumulatedYears();
         }
 
     </script>
