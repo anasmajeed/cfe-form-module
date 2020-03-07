@@ -210,6 +210,7 @@
         setFeeDepositStatus();
         function cloneResultStatusAnnualPartOne() {
             let clone = $('#result_status_annual_part_one_div').clone();
+            clone.find('input:text').val('');
             $('#result_status_annual_part_one_parent').append(clone);
             let button = clone.find('#removeResultStatusAnnualPartOneButton').removeAttr('disabled');
             // let dropdown = $(clone.find('#result_field_for_annual_part_one').parent().siblings()[0]).hide();
