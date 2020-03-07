@@ -152,11 +152,11 @@
                         <input type="text" class="form-control rounded-0" name="total_period[]" placeholder="XXXXX" value="{{$service_details['total_period']}}">
                     </div>
                     <div class="border border-bottom-0 col-md-2 p-0">
-                        <input type="text" class="form-control rounded-0 datepicker" name="completion_date[]" value="{{ $service_details['completion_date'] ? date('d/m/Y',strtotime($service_details['completion_date'])) : ''}}"
+                        <input readonly type="text" class="form-control rounded-0" name="completion_date[]" value="{{ $service_details['completion_date'] ? date('d/m/Y',strtotime($service_details['completion_date'])) : ''}}"
                                placeholder="dd/mm/yyyy">
                     </div>
                     <div class="border border-bottom-0 col-md-1 p-0">
-                        <select name="service_completion_status[]" class="form-control rounded-0">
+                        <select readonly name="service_completion_status[]" class="form-control rounded-0">
                             <option value="" selected disabled>--select--</option>
                             <option value="yes" {{ $service_details ? $service_details['service_completion_status'] == 'yes' ? 'selected' : '' : ''}}>Yes</option>
                             <option value="no" {{ $service_details ? $service_details['service_completion_status'] == 'no' ? 'selected' : '' : ''}}>No</option>
@@ -211,7 +211,7 @@
                             <input type="text" class="form-control rounded-0" name="total_period[]" placeholder="XXXXX">
                         </div>
                         <div class="border border-bottom-0 col-md-2 p-0">
-                            <input type="text" class="form-control rounded-0 datepicker" name="completion_date[]"
+                            <input readonly type="text" class="form-control rounded-0" name="completion_date[]"
                                    placeholder="dd/mm/yyyy">
                         </div>
                         <div class="border border-bottom-0 col-md-1 p-0">
@@ -370,10 +370,14 @@
             $('#accumulated_years').text('Accumulated Service Period : '+value.toFixed(2)+' Years');
         }
 
-        function monthDiff(dt1, dt2) {
-            var diff =(dt2.getTime() - dt1.getTime()) / 1000;
-            diff /= (60 * 60 * 24 * 7 * 4);
-            return Math.abs(Math.round(diff));
+        // function monthDiff(dt1, dt2) {
+        //     var diff =(dt2.getTime() - dt1.getTime()) / 1000;
+        //     diff /= (60 * 60 * 24 * 7 * 4);
+        //     return Math.abs(Math.round(diff));
+        // }
+
+        function monthDiff(dt1,dt2) {
+            return dt2.getMonth() - dt1.getMonth();
         }
 
         function yearsDiff(d1, d2) {
