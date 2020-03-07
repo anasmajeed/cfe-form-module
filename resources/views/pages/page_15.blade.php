@@ -62,22 +62,22 @@
                                 <div class="col-md-1 text-center">
                                     <label>Result:</label>
                                 </div>
-                                <div class="form-row col-md-10 ml-0" id="result_status_annual_part_one_pass_headers" style="display: none">
-                                    <div class="col-md-2 text-center">
+                                <div class="col-md-8 form-row ml-0" id="result_status_annual_part_one_pass_headers">
+                                    <div class="col-md-3 text-center">
                                         <label>Fail:</label>
                                     </div>
                                     <div class="col-md-3 text-center">
                                         <label>Chance of next Appearance:</label>
                                     </div>
-                                    <div class="col-md-2 text-center">
+                                    <div class="col-md-3 text-center">
                                         <label>Next Appearance Date:</label>
                                     </div>
-                                    <div class="col-md-2 text-center">
+                                    <div class="col-md-3 text-center">
                                         <label>Last Chance Date:</label>
                                     </div>
-                                    <div class="col-md-2 text-center">
-                                        <label>Passing Date:</label>
-                                    </div>
+                                </div>
+                                <div class="col-md-2 text-center" id="result_status_annual_part_one_pass_header_passing">
+                                    <label>Passing Date:</label>
                                 </div>
                             </div>
                             <!-- Result Status Edit Mode-->
@@ -91,8 +91,9 @@
                                                 <option value="fail" {{ $firstAnnualResultStatusDetails['result'] == 'fail' ? 'selected' : ''}}>Fail</option>
                                             </select>
                                         </div>
-                                        <div class="col-md-10 form-row m-0" id="result_status_annual_part_one_pass_values" style="display: none">
-                                            <div class="col-md-2 p-0">
+                                        <div class="col-md-8 form-row m-0" id="result_status_annual_part_one_pass_values_replacement" style="display: none"></div>
+                                        <div class="col-md-8 form-row m-0" id="result_status_annual_part_one_pass_values" style="display: none">
+                                            <div class="col-md-3 p-0">
                                                 <select name="fail[]" class="form-control promotion_annual_part_one" onchange="setDisplayForAnnualPartTwo()">
                                                     <option value="promoted" {{ $firstAnnualResultStatusDetails['fail'] == 'promoted' ? 'selected' : ''}}>Promoted</option>
                                                     <option value="notPromoted" {{ $firstAnnualResultStatusDetails['fail'] == 'notPromoted' ? 'selected' : ''}}>Not Promoted</option>
@@ -104,18 +105,18 @@
                                                     <option value="no" {{ $firstAnnualResultStatusDetails['next_appearance'] == 'no' ? 'selected' : ''}}>No</option>
                                                 </select>
                                             </div>
-                                            <div class="col-md-2 p-0">
-                                                <input type="text" class="form-control text-center datepicker"
+                                            <div class="col-md-3 p-0">
+                                                <input type="text" class="form-control text-center datepickerAll"
                                                 name="next_appearance_date[]" placeholder="dd/mm/yyyy" value="{{$firstAnnualResultStatusDetails['next_appearance_date'] ?  date('d/m/Y',strtotime($firstAnnualResultStatusDetails['next_appearance_date'])) : ''}}">
                                             </div>
-                                            <div class="col-md-2 p-0">
-                                                <input type="text" class="form-control text-center datepicker"
+                                            <div class="col-md-3 p-0">
+                                                <input type="text" class="form-control text-center datepickerAll"
                                                 name="last_chance_date[]" placeholder="dd/mm/yyyy" value="{{ $firstAnnualResultStatusDetails['last_chance_date'] ? date('d/m/Y',strtotime($firstAnnualResultStatusDetails['last_chance_date'])) : ''}}">
                                             </div>
-                                            <div class="col-md-2 p-0">
-                                                <input type="text" class="form-control text-center datepicker" name="passing_date[]"
-                                                placeholder="dd/mm/yyyy" value="{{ $firstAnnualResultStatusDetails['passing_date'] ? date('d/m/Y',strtotime($firstAnnualResultStatusDetails['passing_date'])) : ''}}">
-                                            </div>
+                                        </div>
+                                        <div class="col-md-2 p-0" id="result_status_annual_part_one_pass_value_passing" style="display:none;">
+                                            <input type="text" class="form-control text-center datepicker" name="passing_date[]"
+                                                   placeholder="dd/mm/yyyy" value="{{ $firstAnnualResultStatusDetails['passing_date'] ? date('d/m/Y',strtotime($firstAnnualResultStatusDetails['passing_date'])) : ''}}">
                                         </div>
                                         <div class="col-md-1">
                                             <button id="removeResultStatusAnnualPartOneButton" type="button" class="btn btn-danger"
@@ -133,8 +134,9 @@
                                             <option value="fail">Fail</option>
                                         </select>
                                     </div>
-                                    <div class="col-md-10 form-row m-0" id="result_status_annual_part_one_pass_values" style="display: none">
-                                        <div class="col-md-2 p-0">
+                                    <div class="col-md-8 form-row m-0" id="result_status_annual_part_one_pass_values_replacement" style="display: none"></div>
+                                    <div class="col-md-8 form-row m-0" id="result_status_annual_part_one_pass_values" style="display: none">
+                                        <div class="col-md-3 p-0">
                                             <select name="fail[]" class="form-control promotion_annual_part_one" onchange="setDisplayForAnnualPartTwo()">
                                                 <option value="promoted">Promoted</option>
                                                 <option value="notPromoted" selected>Not Promoted</option>
@@ -146,18 +148,18 @@
                                                 <option value="no">No</option>
                                             </select>
                                         </div>
-                                        <div class="col-md-2 p-0">
-                                            <input type="text" class="form-control text-center datepicker"
+                                        <div class="col-md-3 p-0">
+                                            <input type="text" class="form-control text-center datepickerAll"
                                                    name="next_appearance_date[]" placeholder="dd/mm/yyyy">
                                         </div>
-                                        <div class="col-md-2 p-0">
-                                            <input type="text" class="form-control text-center datepicker"
+                                        <div class="col-md-3 p-0">
+                                            <input type="text" class="form-control text-center datepickerAll"
                                                    name="last_chance_date[]" placeholder="dd/mm/yyyy">
                                         </div>
-                                        <div class="col-md-2 p-0">
-                                            <input type="text" class="form-control text-center datepicker" name="passing_date[]"
-                                                   placeholder="dd/mm/yyyy">
-                                        </div>
+                                    </div>
+                                    <div class="col-md-2 p-0" id="result_status_annual_part_one_pass_value_passing" style="display: none">
+                                        <input type="text" class="form-control text-center datepicker" name="passing_date[]"
+                                               placeholder="dd/mm/yyyy">
                                     </div>
                                     <div class="col-md-1">
                                         <button id="removeResultStatusAnnualPartOneButton" type="button" class="btn btn-danger"
@@ -251,28 +253,42 @@
 
         function resultChangedForAnnualPartOne(event) {
             setResultHeaderDisplay();
-            if($(event.target).val() == 'fail')
+            if($(event.target).val() == 'fail'){
                 $(event.target).parent().parent().find('#result_status_annual_part_one_pass_values').fadeIn();
-            else
+                $(event.target).parent().parent().find('#result_status_annual_part_one_pass_values_replacement').fadeOut();
+                $(event.target).parent().parent().find('#result_status_annual_part_one_pass_value_passing').fadeOut();
+            }
+            else if($(event.target).val() == 'pass'){
                 $(event.target).parent().parent().find('#result_status_annual_part_one_pass_values').fadeOut();
+                $(event.target).parent().parent().find('#result_status_annual_part_one_pass_values_replacement').fadeIn();
+                $(event.target).parent().parent().find('#result_status_annual_part_one_pass_value_passing').fadeIn();
+            }
+            else{
+                $(event.target).parent().parent().find('#result_status_annual_part_one_pass_values').fadeOut();
+                $(event.target).parent().parent().find('#result_status_annual_part_one_pass_values_replacement').fadeOut();
+                $(event.target).parent().parent().find('#result_status_annual_part_one_pass_value_passing').fadeOut();
+            }
             setDisplayForAnnualPartTwo();
         }
 
         function setResultHeaderDisplay() {
-            let check = true;
             $('.result_annual_part_one').each(function (index,value) {
                 if($(value).val() == 'fail'){
-                    $('#result_status_annual_part_one_pass_headers').show();
                     $(value).parent().parent().find('#result_status_annual_part_one_pass_values').show();
-                    check = false;
+                    $(value).parent().parent().find('#result_status_annual_part_one_pass_values_replacement').hide();
+                    $(value).parent().parent().find('#result_status_annual_part_one_pass_value_passing').hide();
+                }
+                else if($(value).val() == 'pass'){
+                    $(value).parent().parent().find('#result_status_annual_part_one_pass_values').hide();
+                    $(value).parent().parent().find('#result_status_annual_part_one_pass_values_replacement').show();
+                    $(value).parent().parent().find('#result_status_annual_part_one_pass_value_passing').show();
                 }
                 else{
                     $(value).parent().parent().find('#result_status_annual_part_one_pass_values').hide();
+                    $(value).parent().parent().find('#result_status_annual_part_one_pass_values_replacement').hide();
+                    $(value).parent().parent().find('#result_status_annual_part_one_pass_value_passing').hide();
                 }
             });
-            if(check){
-                $('#result_status_annual_part_one_pass_headers').hide();
-            }
         }
 
         function setDisplayForAnnualPartTwo(){
@@ -307,12 +323,12 @@
             setDisplayForButtons();
             $('input[name="next_appearance_date[]"').datepicker({
                 format:'dd/mm/yyyy',
-                startDate: new Date(),
+                // startDate: new Date(),
                 autoclose: true
             });
             $('input[name="last_chance_date[]"').datepicker({
                 format:'dd/mm/yyyy',
-                startDate: new Date(),
+                // startDate: new Date(),
                 autoclose: true
             });
         }

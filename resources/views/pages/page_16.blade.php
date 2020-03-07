@@ -15,14 +15,14 @@
                             <div class="form-row">
                                 <div class="form-group col-md-3">
                                     <label>Receipt Status:</label>
-                                    <select  name="receipt_status" class="form-control">
+                                    <select id="receipt_status_cfe_cell_page16" onchange="setFileReceivedInCFECell()" name="receipt_status" class="form-control">
                                         <option value="" selected disabled>--select--</option>
                                         @foreach(\Config::get('constants.general_yes_no') as $key => $value)
                                             <option value="{{$key}}" {{ $data ? $data['second_annual_part_details']['receipt_status'] == $key ? 'selected' : '' : ''}}>{{$value}}</option>
                                         @endforeach
                                     </select>
                                 </div>
-                                <div class="form-group col-md-3">
+                                <div class="form-group col-md-3" id="date_div_page16">
                                     <label>Date:</label>
                                     <input type="text" class="form-control text-center datepicker" name="second_part_date"
                                            placeholder="dd/mm/yyyy"
@@ -34,21 +34,21 @@
                 </div>
             </div>
             <div class="col-md-12 mt-4">
-                <label for="">Field Submitted in PWWB:</label>
+                <label for="">File Submitted in PWWB:</label>
             </div>
             <div class="card shadow p-3 mt-1 w-100">
                 <div class="card-body">
                     <div class="form-row">
                         <div class="form-group col-md-3">
                             <label>Status:</label>
-                            <select  name="pwwb_status" class="form-control">
+                            <select id="pwwb_status_page16" onchange="setFileSubmittedStatusPage16()" name="pwwb_status" class="form-control">
                                 <option value="" selected disabled>--select--</option>
                                 @foreach(\Config::get('constants.general_yes_no') as $key => $value)
                                     <option value="{{$key}}" {{ $data ? $data['second_annual_part_details']['pwwb_status'] == $key ? 'selected' : '' : ''}}>{{$value}}</option>
                                 @endforeach
                             </select>
                         </div>
-                        <div class="form-group col-md-3">
+                        <div class="form-group col-md-3" id="pwwb_date_div_page16">
                             <label>Date:</label>
                             <input type="text" class="form-control text-center datepicker" name="pwwb_date"
                                    placeholder="dd/mm/yyyy"
@@ -70,26 +70,26 @@
                     <div class="form-row">
                         <div class="form-group col-md-3">
                             <label>Amount of Claim Due:</label>
-                            <input type="number" class="form-control text-center" name="amount_claim_due"
-                                   placeholder="XXXXX"
+                            <input onkeyup="numericOnly(event)" type="number" class="form-control text-center" name="amount_claim_due"
+                                   placeholder="Enter Amount"
                                    value="{{$data && isset($data['second_annual_part_details']) ? $data['second_annual_part_details']['amount_claim_due'] : ''}}">
                         </div>
                         <div class="form-group col-md-3">
                             <label>Status of Claimed Received:</label>
-                            <select  name="claim_status" class="form-control">
+                            <select id="claim_status_page16" onchange="setStatusClaimReceivedPage16()"  name="claim_status" class="form-control">
                                 <option value="" selected disabled>--select--</option>
                                 @foreach(\Config::get('constants.general_yes_no') as $key => $value)
                                     <option value="{{$key}}" {{ $data ? $data['second_annual_part_details']['claim_status'] == $key ? 'selected' : '' : ''}}>{{$value}}</option>
                                 @endforeach
                             </select>
                         </div>
-                        <div class="form-group col-md-3">
+                        <div class="form-group col-md-3" id="amount_div_claim_page16">
                             <label>Amount Received:</label>
-                            <input type="text" class="form-control text-center" name="amount_received"
-                                   placeholder="XXXXX"
+                            <input onkeyup="numericOnly(event)" type="number" class="form-control text-center" name="amount_received"
+                                   placeholder="Enter Amount"
                                    value="{{$data && isset($data['second_annual_part_details']) ? $data['second_annual_part_details']['amount_received'] : ''}}">
                         </div>
-                        <div class="form-group col-md-3">
+                        <div class="form-group col-md-3" id="date_div_claim_page16">
                             <label>Date:</label>
                             <input type="text" class="form-control text-center datepicker" name="claim_date"
                                    placeholder="dd/mm/yyyy"
@@ -111,23 +111,23 @@
                             <div class="form-row">
                                 <div class="form-group col-md-3">
                                     <label>Status:</label>
-                                    <select  name="exam_status" class="form-control">
+                                    <select id="exam_fee_status_page16" onchange="setExamFeeStatusPage16()" name="exam_status" class="form-control">
                                         <option value="" selected disabled>--select--</option>
                                         @foreach(\Config::get('constants.general_yes_no') as $key => $value)
                                             <option value="{{$key}}" {{ $data ? $data['second_annual_part_details']['exam_status'] == $key ? 'selected' : '' : ''}}>{{$value}}</option>
                                         @endforeach
                                     </select>
                                 </div>
-                                <div class="form-group col-md-3">
+                                <div class="form-group col-md-3" id="date_div_exam_page16">
                                     <label>Date:</label>
                                     <input type="text" class="form-control text-center datepicker" name="exam_date"
                                            placeholder="dd/mm/yyyy"
                                            value="{{$data && isset($data['second_annual_part_details']) ?  date('d/m/Y',strtotime($data['second_annual_part_details']['exam_date'])) : ''}}">
                                 </div>
-                                <div class="form-group col-md-3">
+                                <div class="form-group col-md-3" id="amount_div_exam_page16">
                                     <label>Amount:</label>
-                                    <input type="text" class="form-control text-center" name="exam_amount"
-                                           placeholder="XXXXX"
+                                    <input onkeyup="numericOnly(event)" type="number" class="form-control text-center" name="exam_amount"
+                                           placeholder="Enter Amount"
                                            value="{{$data && isset($data['second_annual_part_details']) ? $data['second_annual_part_details']['exam_amount'] : ''}}">
                                 </div>
 
@@ -260,6 +260,10 @@
 @section('script_page_16')
     <script>
         setResultHeaderAnnualPartTwoDisplay();
+        setFileReceivedInCFECell();
+        setFileSubmittedStatusPage16();
+        setStatusClaimReceivedPage16();
+        setExamFeeStatusPage16();
         function cloneResultStatusAnnualPartTwo() {
             let clone = $('#result_status_annual_part_two_div').clone();
             $('#result_status_annual_part_two_parent').append(clone);
@@ -324,6 +328,46 @@
                 });
             }
             $(event.target).parent().parent().remove();
+        }
+
+        function setFileReceivedInCFECell() {
+            if($('#receipt_status_cfe_cell_page16').val() == 'yes'){
+                $('#date_div_page16').fadeIn();
+            }
+            else{
+                $('#date_div_page16').fadeOut();
+            }
+        }
+
+        function setFileSubmittedStatusPage16() {
+            if($('#pwwb_status_page16').val() == 'yes'){
+                $('#pwwb_date_div_page16').fadeIn();
+            }
+            else{
+                $('#pwwb_date_div_page16').fadeOut();
+            }
+        }
+
+        function setStatusClaimReceivedPage16() {
+            if($('#claim_status_page16').val() == 'yes'){
+                $('#amount_div_claim_page16').fadeIn();
+                $('#date_div_claim_page16').fadeIn();
+            }
+            else{
+                $('#amount_div_claim_page16').fadeOut();
+                $('#date_div_claim_page16').fadeOut();
+            }
+        }
+
+        function setExamFeeStatusPage16() {
+            if($('#exam_fee_status_page16').val() == 'yes'){
+                $('#date_div_exam_page16').fadeIn();
+                $('#amount_div_exam_page16').fadeIn();
+            }
+            else{
+                $('#amount_div_exam_page16').fadeOut();
+                $('#date_div_exam_page16').fadeOut();
+            }
         }
     </script>
 @endsection

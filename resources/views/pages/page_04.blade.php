@@ -77,7 +77,7 @@
                     </div>
                     <div class="form-group col-md-6">
                         <label>Date of form Submission:</label>
-                        <input type="text" id="date_of_form_submission" class="form-control text-center datepickerAll" name="date_of_submission"
+                        <input onchange="setAccumulatedYears()" type="text" id="date_of_form_submission" class="form-control text-center datepickerAll" name="date_of_submission"
                                placeholder="dd/mm/yyyy" value="{{$data && $data['factory_details']['date_of_submission'] ? date('d/m/Y',strtotime($data['factory_details']['date_of_submission'])) : ''}}">
                     </div>
                 </div>
@@ -381,7 +381,7 @@
         }
 
         function appointmentDateCheck(e) {
-            let appointmentField = $(e.target).val();
+            let appointmentField = $(e.target).parent().parent().find('input[name="appointment_date[]"]').val();
             let leavingField = $(e.target).parent().parent().find('input[name="job_leaving_date[]"]').val();
             if(leavingField !== ''){
                 let appointmentArray = appointmentField.split('/');
